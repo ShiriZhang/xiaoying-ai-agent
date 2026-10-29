@@ -1,0 +1,21 @@
+{
+  "scope": "live protocol smoke; no embedding or six-scenario acceptance",
+  "protocol_verified": false,
+  "request_id": "6964af1345d2481aa5f81608ab3fa180",
+  "mode": "live",
+  "status": "incomplete",
+  "stop_reason": "model_unavailable",
+  "counts": {
+    "model_calls": 1,
+    "tool_calls": 0,
+    "recoveries": 0,
+    "format_corrections": 0
+  },
+  "usage": {
+    "requests_with_unknown_usage": 1,
+    "known_requests_estimated_cny": null,
+    "total_estimated_cny": null,
+    "invoice_cny": null
+  },
+  "actual_models": []
+}

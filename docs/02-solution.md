@@ -1,6 +1,6 @@
 # 方案设计
 
-状态：开发前设计已由用户整体确认，澄清阶段结束。未编写实现代码、安装项目依赖、下载权重、调用模型或执行测试，本次确认不自动启动实施。业务范围及验收以 [01-requirements.md](01-requirements.md) 为准，术语以 [CONTEXT.md](../CONTEXT.md) 为准。
+状态：当前按用户分批授权实施；工程基础、合成资料、快照与读取已完成，第三批新增模型适配及原生执行约束。下文设计与末尾“第三批实际实现”分开阅读；检索索引、完整业务呈现、会话/记忆与API仍待对应批次。实际验证见 examples/batch-3，不能将组件测试或协议冒烟当作最终业务验收。业务范围及验收以 [01-requirements.md](01-requirements.md) 为准，术语以 [CONTEXT.md](../CONTEXT.md) 为准。
 
 ## 结构与职责
 
@@ -111,6 +111,21 @@ Trace 记录输入输出、请求 ID、模式、模型及 embedding 配置、模
 
 真实与 Mock 记录分开，选定证据放 examples/，由 [03-evaluation.md](03-evaluation.md) 引用。三层验证及边界用例已经确认，尚未实施或运行。
 
-纯工程细节可在已定边界内选择、记录、验证，无须逐项再问；不得因此新增模型服务、改业务规则、删验收或改变已确认上限。当前仍不开始实现。
+纯工程细节可在已定边界内选择、记录、验证，无须逐项再问；不得因此新增模型服务、改业务规则、删验收或改变已确认上限。分批实施由用户另行授权。
+
+## 第三批实际实现与验证入口
+
+- `models.py`：官方 DeepSeek 的标准库HTTP适配器，显式 `thinking.type=disabled`，一次请求、禁止重定向；无SDK依赖或隐式重试。响应只保留工具调用、实际模型标识与usage，丢弃reasoning_content和自由正文。Mock要求显式传入受控策略，无网络和权重访问，不自动降级。
+- `agent.py`：真实和Mock共用同一循环。每次响应恰好一个动作；多动作全部拒绝，并按各自真实tool-call ID反馈。search为注入接口，未提供时明确工具错误；当前没有真实混合检索。read复用已实现原文工具，执行前校验1–3个唯一ID，成功且未超时才授予本任务已读权限。
+- `actions.py`：search(query,limit=6/12,reason)、read(passage_ids,reason)、finish(status,answer,citation_refs,gaps,clarification,anchor_snapshot,reason)。reason为最多240字符的简要依据，不索取内部思维。finish的机械校验支持一次格式修正，引用需含marker、passage_id、corpus_fingerprint并来自本轮已读原文。完整语义支持、混合问题呈现等任务5未据此提前完成。
+- 模型调用发起前计数；失败、结束、修正均计入。工具执行前计数；失败与恢复均计入。首次工具故障进入真实后续观察，由模型选择一次恢复或合法incomplete结束；恢复再次失败或额度用尽即停。格式修正独立只允许一次，不借查询变化重置额度。
+- 计数修订：用户已明确确认保留8/6硬上限和第6工具后立即停止；在现有单动作与一次修正规则下第8次不可达，实测第7次合法结束及不追加第8/9次。论证和确认原话见 [计数决定](../examples/batch-3/budget-decision.md)。
+- `deadlines.py`：可注入单调时钟与日期时钟；任务日期/时区开始时冻结，deadline不受墙钟改变影响。模型等待为min(60秒,任务剩余时间)，本地工具与保存受300秒总deadline限制。每次工作线程只持有私有消息/试读状态，迟到结果不进入任务read-set或Trace。
+- 超时可以及时停止对外等待，但不能强杀底层线程或撤销外部计费。检索适配接口也必须避免外部副作用；没有生产级进程终止保证。Trace先写临时文件，检查deadline后才在支持的Windows平台重命名发布，禁止覆盖已有请求ID；写入失败明确报告，超时不发布迟到文件。
+- `tracing.py`：返回/保存请求和会话ID、输入、模式、资料指纹、日期/时区、上限、动作参数、观察、计数、恢复修正停止原因、请求/实际模型、每次usage与耗时。脱敏真实密钥及认证头，不存内部思维。输出包含未加载embedding的配置状态，不伪称已运行向量检索。
+- 费用按2026-10-29官方Flash高峰未缓存输入2元/百万token、输出8元/百万token作保守费率估算；记录实际cache hit/miss，但不猜高峰/节假日。未知usage或部分未知时总估算保留null，已知子集单列，账单金额仍待人工核对。参考 [官方价格](https://api-docs.deepseek.com/zh-cn/quick_start/pricing/)，30元预算不等于已核实余额。
+- finish保留anchor_snapshot提议，当前明确memory_valid=false并提示第6批校验/持久化待完成，不宣称已保存记忆，也不新增记忆模型调用。
+
+离线执行：`.venv/Scripts/python.exe -I -m unittest discover -s tests -v`。少量真实协议验证入口：`.venv/Scripts/python.exe -I -m enterprise_knowledge_qa.smoke --live --env-file .env --output examples/batch-3/live-smoke`。它显式使用真实生成模型和实际原文读取，独立于尚未准备的embedding；不代表六类最终验收。失败、复跑、用量和实际标识见 [第三批记录](../examples/batch-3/verification.md)。
 
 合成资料目录、关键规则、个人验证分工与工时计划已经确认，见需求文档。用户在 Q56 完成整体复核，确认无合法结束动作时停用旧锚点的规则，设计澄清阶段结束，不因此启动实现。实际账号、权重、兼容性、速度、成功率和费用仍待实施验证，不冒充已知事实。

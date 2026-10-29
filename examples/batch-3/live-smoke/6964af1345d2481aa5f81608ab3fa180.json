@@ -1,0 +1,89 @@
+{
+  "status": "incomplete",
+  "answer": "任务未完成，保留已获取证据与执行记录。",
+  "gaps": [],
+  "clarification": null,
+  "citations": [],
+  "request_id": "6964af1345d2481aa5f81608ab3fa180",
+  "session_id": null,
+  "mode": "live",
+  "as_of_date": "2026-10-29",
+  "time_zone": "东部夏令时",
+  "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+  "requested_model": "deepseek-flash",
+  "embedding": {
+    "model_id": "BAAI/bge-small-zh-v1.5",
+    "revision": null,
+    "status": "not_loaded_by_executor"
+  },
+  "input": {
+    "question": "这是工具协议冒烟，不是最终业务验收。请先调用read读取D03-P01，再根据返回原文回答报销材料，并调用finish结束。search尚未接入，不需要搜索。引用用[C1]，citation_refs内带本任务corpus_fingerprint；anchor_snapshot请用subject、focus、pending_clarification三字段，暂不明确的值填null。",
+    "context": []
+  },
+  "limits": {
+    "model_calls": 8,
+    "tool_calls": 6,
+    "model_timeout_seconds": 60.0,
+    "task_timeout_seconds": 300.0
+  },
+  "counts": {
+    "model_calls": 1,
+    "tool_calls": 0,
+    "recoveries": 0,
+    "format_corrections": 0
+  },
+  "stop_reason": "model_unavailable",
+  "execution_issues": [
+    {
+      "code": "model_unavailable"
+    }
+  ],
+  "trace": [
+    {
+      "kind": "model_request",
+      "at_seconds": 0.0,
+      "model_calls": 1,
+      "tool_calls": 0,
+      "requested_model": "deepseek-flash",
+      "timeout_seconds": 60.0
+    },
+    {
+      "kind": "model_error",
+      "at_seconds": 0.09400000000005093,
+      "model_calls": 1,
+      "tool_calls": 0,
+      "code": "model_unavailable",
+      "elapsed_seconds": 0.09400000000005093,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "prompt_cache_hit_tokens": null,
+        "prompt_cache_miss_tokens": null,
+        "usage_known": false,
+        "estimated_cny_upper_rate": null,
+        "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+      }
+    },
+    {
+      "kind": "stop",
+      "at_seconds": 0.09400000000005093,
+      "model_calls": 1,
+      "tool_calls": 0,
+      "reason": "model_unavailable",
+      "recoveries": 0,
+      "corrections": 0
+    }
+  ],
+  "elapsed_seconds": 0.09400000000005093,
+  "usage": {
+    "requests_with_unknown_usage": 1,
+    "known_requests_estimated_cny": null,
+    "total_estimated_cny": null,
+    "invoice_cny": null
+  },
+  "read_set": [],
+  "evidence": [],
+  "anchor_snapshot_proposal": null,
+  "memory_valid": false,
+  "memory_warning": "memory_validation_and_persistence_pending_batch_6"
+}

@@ -1,0 +1,23 @@
+{
+  "scope": "live protocol smoke; no embedding or six-scenario acceptance",
+  "protocol_verified": true,
+  "request_id": "699f1e1bc7ba408e869466725147966c",
+  "mode": "live",
+  "status": "answered",
+  "stop_reason": "finished",
+  "counts": {
+    "model_calls": 2,
+    "tool_calls": 1,
+    "recoveries": 0,
+    "format_corrections": 0
+  },
+  "usage": {
+    "requests_with_unknown_usage": 0,
+    "known_requests_estimated_cny": 0.008584,
+    "total_estimated_cny": 0.008584,
+    "invoice_cny": null
+  },
+  "actual_models": [
+    "deepseek-flash"
+  ]
+}

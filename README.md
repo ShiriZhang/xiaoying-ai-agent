@@ -1,6 +1,6 @@
 # 企业知识问答 Agent（题号 3）
 
-当前已实现 `enterprise-knowledge-qa` 第一批工程基础及第二批资料校验、快照、原文读取，资料已获用户实际审阅接受。**业务问答服务尚未实现**，工程测试通过不代表 Mock 问答、真实模型或业务验收通过。当前完成 1.1–1.4、2.1–2.4，共 8/46 项；下一项为 3.1。OpenSpec 规划与任务文件仅保留本地，不随公开仓库发布。
+当前已实现 `enterprise-knowledge-qa` 第一批工程基础、第二批已审阅资料与读取，以及第三批模型适配、原生循环、预算/deadline与Trace；已做少量真实工具协议冒烟。**业务问答HTTP服务尚未实现**，工程测试或协议冒烟不代表真实混合检索与完整业务验收通过。当前完成 1.1–1.4、2.1–2.4、3.1–3.8，共 16/46 项；下一项为 4.1。OpenSpec 规划与任务文件仅保留本地，不随公开仓库发布。
 
 ## 支持环境与安装
 
@@ -44,15 +44,15 @@ Copy-Item .env.example .env
 | QA_MODE | 模板 mock，无隐式默认 | 显式 live 或 mock |
 | DEEPSEEK_API_KEY | 空占位 | live 必填，不输出密钥 |
 | DEEPSEEK_BASE_URL | https://api.deepseek.com | 固定官方服务入口 |
-| DEEPSEEK_MODEL | deepseek-flash | 已确认模型；非思考与关闭重试的适配待 3.1 |
+| DEEPSEEK_MODEL | deepseek-flash | 官方适配已实现，显式非思考、无隐式重试 |
 | EMBEDDING_MODEL_ID | BAAI/bge-small-zh-v1.5 | 已确认本地 CPU 模型 |
 | EMBEDDING_MODEL_PATH | models/bge-small-zh-v1.5 | 本地权重目录，Mock 不检查或读取 |
 | EMBEDDING_REVISION | 空占位 | live 必填；实际 revision 与权重准备待 4.1 |
 | QA_DATA_PATH | data/knowledge.json | 已实现的合成资料路径，见 data/REVIEW.md |
 | QA_SQLITE_PATH | runtime/sessions.sqlite3 | 会话库路径；持久化待第 6 组 |
-| QA_TRACE_PATH | runtime/traces | 原始运行记录目录；Trace 待 3.7 |
-| QA_MAX_MODEL_CALLS / QA_MAX_TOOL_CALLS | 8 / 6 | 固定上限，拒绝改值；执行计数待 3.3 |
-| QA_MODEL_TIMEOUT_SECONDS / QA_TASK_TIMEOUT_SECONDS | 60 / 300 | 可配置正有限秒数；deadline 待 3.6 |
+| QA_TRACE_PATH | runtime/traces | 原始运行记录目录；执行器run通过trace_directory显式保存 |
+| QA_MAX_MODEL_CALLS / QA_MAX_TOOL_CALLS | 8 / 6 | 固定上限，拒绝改值；第6工具立即停止，第8模型请求在当前规则下不可达 |
+| QA_MODEL_TIMEOUT_SECONDS / QA_TASK_TIMEOUT_SECONDS | 60 / 300 | 可配置正有限秒数；单请求与总deadline已实现 |
 | QA_HISTORY_TOKEN_BUDGET | 8000 | 可配置正整数，估算历史预算；历史选择待 6.2 |
 
 只读取显式指定的 env 文件，不搜索父目录；支持 dotenv 引号和注释，关闭变量插值。环境变量优先于文件。相对路径以 env 文件所在目录为基准；直接调用 `load_settings()` 不指定文件时以当前目录为基准。必须显式选择模式。检查不输出整个配置对象或环境变量。
@@ -82,6 +82,16 @@ Copy-Item .env.example .env
 测试覆盖独立安装导入、配置、脱敏、Git 忽略、资料校验、快照与原文读取，不证明 Agent 决策、混合检索、API 或记忆效果。配置/读取测试阻断 socket 创建，临时文件放仓库内 `.cache/`；Git 忽略测试只创建临时仓库元数据，不初始化项目。实际执行、失败和复跑见 [第一批验证记录](examples/batch-1/verification.md) 与 [第二批验证记录](examples/batch-2/verification.md)。资料加载和重载接口见 [资料说明](data/README.md)，完整原文及单 D01、冲突、人事生效预期见 [审阅稿](data/REVIEW.md)。
 
 ## 评审导航与目录
+
+第三批可执行的少量真实协议检查（需要本地 `.env` 中的有效密钥，会产生少量费用）：
+
+```powershell
+.venv/Scripts/python.exe -I -m enterprise_knowledge_qa.smoke --live --env-file .env --output examples/batch-3/live-smoke
+```
+
+`--live` 明确只为这次检查选择真实模式，即使本地文件为mock也不改写它。此检查仅验证生成模型选择读取、接收实际原文后结束，不需要尚未准备的embedding权重；它不会启动HTTP服务、接入假混检或替代六类验收。每次运行按独立请求ID保存Trace和summary，失败不覆盖。使用与Mock相同的Agent执行器；`make_model`在普通应用中严格按配置选择模式，不自动降级。
+
+调用完整Agent时可注入受控Mock策略和search接口；实际混合检索在第4批接入。finish的引用机械校验已用于格式修正，业务语义与记忆来源校验尚待第5/6批。计数可达性修订已由用户确认，见 [决定原话](examples/batch-3/budget-decision.md)；实际失败/复跑、费用与验证边界见 [第三批记录](examples/batch-3/verification.md)。
 
 - [需求与 A01–A06 验收预期](docs/01-requirements.md)、[方案设计](docs/02-solution.md)、[评估计划及后续证据](docs/03-evaluation.md)。这些文档的开发前状态不代表全部业务已经实现。
 - [AI 使用及个人贡献记录](docs/04-ai-usage.md)、[工时、预算及阶段复盘](docs/05-retrospective.md)、[业务术语](CONTEXT.md)。

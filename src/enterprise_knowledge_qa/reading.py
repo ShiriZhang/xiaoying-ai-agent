@@ -45,6 +45,10 @@ class ReadTool:
     def read_set(self) -> frozenset[str]:
         return frozenset(self._read_set)
 
+    def fork(self) -> "ReadTool":
+        """Private trial read-set for bounded executor calls; never share late writes."""
+        return ReadTool(self._snapshot, fault_hook=self._fault_hook)
+
     def _error(self, kind: str, code: str, message: str) -> dict:
         return {
             "tool": "read", "status": "error",

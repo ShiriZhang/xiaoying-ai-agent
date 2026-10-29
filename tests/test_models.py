@@ -19,6 +19,7 @@ class ModelTests(unittest.TestCase):
         url, payload, key, timeout = transport.call_args.args
         self.assertEqual(url, "https://api.deepseek.com/chat/completions")
         self.assertEqual(payload["thinking"], {"type": "disabled"})
+        self.assertEqual(payload["temperature"], 0)
         self.assertEqual(payload["model"], "deepseek-flash")
         self.assertEqual(timeout, 12.5)
         self.assertEqual(reply.actual_model, "actual-version")

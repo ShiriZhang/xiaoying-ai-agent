@@ -1,0 +1,43 @@
+{
+  "reviewer": "batch8_personal_delegate",
+  "contribution": "independent AI delegate explicitly authorized by the user; not personal human work",
+  "run": "../runs/personal-final",
+  "pre_run_proposal": "proposal-before-run.md",
+  "status": "passed_pre_run_expectations",
+  "semantic_review": "independent AI inspection of actual answers and canonical source support, not merely mechanical status checks",
+  "checks": {
+    "expectations_saved_before_run": true,
+    "same_session": true,
+    "first_answer_MP4_MOV": true,
+    "second_answer_MP4_WEBM_without_current_MOV": true,
+    "old_MOV_answer_visible_in_second_history": true,
+    "both_rounds_search_and_read_D09": true,
+    "citations_verbatim_from_corresponding_snapshots": true,
+    "new_fingerprint_after_reload": true,
+    "document_metadata_unchanged": true,
+    "only_intended_D09_body_changed": true,
+    "base_corpus_unchanged": true,
+    "memory_valid_and_persisted": true,
+    "no_extra_memory_model_call": true
+  },
+  "actual_models": ["deepseek-flash"],
+  "runtime_source_fingerprints": {
+    "agent.py": "8b78d2a859bedfd842fbfad3812860485f048c11de576b728514d2a92bb7f1e4",
+    "models.py": "a82b210a1435aeb82d256793812567bb0d034704097be8d32e55dd18b9852ab6"
+  },
+  "temperature": 0,
+  "known_estimated_cny": 0.055856,
+  "initial_run_preserved": {
+    "run": "../runs/personal-initial",
+    "review": "review-initial.json",
+    "known_estimated_cny": 0.058214,
+    "agent.py": "6eef43319cb1207764c514714bde22b6af1f2629ea45c164a52dc545891dddc5",
+    "models.py": "9368097755db61a47fe8da7aff0b04dbab88fe115f5caaf41280d9f7bc4cdca5"
+  },
+  "all_personal_runs_known_estimated_cny": 0.11407,
+  "unknown_usage_requests": 0,
+  "invoice_cny": null,
+  "human_personal_work_minutes": null,
+  "human_personally_operated": false,
+  "limitations": ["single differential experiment, not statistical stability", "independent AI review is not human personal review", "actual billing not verified"]
+}

@@ -1,0 +1,1118 @@
+{
+  "case_id": "A02",
+  "repeat": 2,
+  "turn": 1,
+  "pre_run_expected": "读取30/15天双方、补查现行制度/替代信息并读取新候选；仍无依据保留双方、请求一个现行依据，不按日期裁决",
+  "mechanical_checks": {
+    "status_matches_pre_run_expectation": true,
+    "canonical_citations_match_snapshot": true,
+    "required_final_passages_cited": true,
+    "fault_observed": null,
+    "semantic_support": "pending independent review, not proved by these checks"
+  },
+  "corpus_file": "corpora/47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1.json",
+  "result": {
+    "status": "needs_clarification",
+    "part_statuses": [
+      "needs_clarification"
+    ],
+    "answer": "关于差旅报销期限，公司资料中存在两处互相冲突且均在生效的现行规定：\n\n- 《差旅报销期限规定》（2026-01-01 生效）：员工应在出差结束后 30 天内提交差旅报销申请 [C1]。\n- 《差旅报销期限问答》（2026-03-01 生效）：员工应在出差结束后 15 天内提交差旅报销申请 [C2]。\n\n两份文件均标注适用范围为星帆科技全体员工，且正文中都没有说明彼此之间的替代关系或适用条件，因此无法依据现有资料判定哪一条为当前执行口径，也无法确定最终天数。补充说明：审批顺序（先直属负责人、再财务审核）与本问题无关，未纳入结论 [C3]。",
+    "gaps": [
+      "差旅报销期限存在未消解冲突：《差旅报销期限规定》为30天，《差旅报销期限问答》为15天，两文均生效且无替代或适用条件说明，缺少可确认现行规则的资料。"
+    ],
+    "clarification": "能提供明确现行报销期限的制度或替代说明吗？",
+    "citations": [
+      {
+        "marker": "[C1]",
+        "passage_id": "D01-P01",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "doc_id": "D01",
+        "version_date": "2026-01-01",
+        "title": "差旅报销期限规定",
+        "effective_date": "2026-01-01",
+        "text": "文档：差旅报销期限规定（D01）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n员工应在出差结束后 30 天内提交差旅报销申请。"
+      },
+      {
+        "marker": "[C2]",
+        "passage_id": "D02-P01",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "doc_id": "D02",
+        "version_date": "2026-03-01",
+        "title": "差旅报销期限问答",
+        "effective_date": "2026-03-01",
+        "text": "文档：差旅报销期限问答（D02）。主题：差旅报销。版本日期：2026-03-01。生效日期：2026-03-01。适用范围：星帆科技全体员工。\n员工应在出差结束后 15 天内提交差旅报销申请。"
+      },
+      {
+        "marker": "[C3]",
+        "passage_id": "D04-P01",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "doc_id": "D04",
+        "version_date": "2026-01-01",
+        "title": "差旅报销审批流程",
+        "effective_date": "2026-01-01",
+        "text": "文档：差旅报销审批流程（D04）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n差旅报销申请先提交直属负责人审批，再提交财务审核。"
+      }
+    ],
+    "request_id": "7a6961e48a084fa28bc21cf386c638e4",
+    "session_id": "29ce06323ece4727884ef7f09d8b20e2",
+    "mode": "live",
+    "as_of_date": "2026-10-29",
+    "time_zone": "东部夏令时",
+    "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+    "requested_model": "deepseek-flash",
+    "model_configuration": {
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "thinking_mode": "disabled",
+      "implicit_retries": 0
+    },
+    "embedding": {
+      "device": "cpu",
+      "dimension": 512,
+      "max_input_tokens": 512,
+      "mode": "live",
+      "model_id": "BAAI/bge-small-zh-v1.5",
+      "normalized": true,
+      "packages": {
+        "huggingface-hub": "0.36.0",
+        "safetensors": "0.6.2",
+        "tokenizers": "0.22.2",
+        "torch": "2.9.0+cpu",
+        "transformers": "4.57.1"
+      },
+      "pooling": "CLS",
+      "query_prefix": "为这个句子生成表示以用于检索相关文章：",
+      "revision": "7999e1d3359715c523056ef9478215996d62a620",
+      "threads": 1,
+      "weights_fingerprint": "sha256:79a6f0034e3e568922396703a0172cbd3eb7bb857b8b1e3ef15f2721a252b276"
+    },
+    "input": {
+      "question": "报销期限是多少天？",
+      "context": [
+        {
+          "role": "system",
+          "content": "对话锚点（仅理解对象，不是企业事实）：null"
+        }
+      ]
+    },
+    "limits": {
+      "model_calls": 8,
+      "tool_calls": 6,
+      "model_timeout_seconds": 60.0,
+      "task_timeout_seconds": 300.0
+    },
+    "counts": {
+      "model_calls": 4,
+      "tool_calls": 3,
+      "recoveries": 0,
+      "format_corrections": 0
+    },
+    "stop_reason": "finished",
+    "execution_issues": [],
+    "trace": [
+      {
+        "kind": "model_request",
+        "at_seconds": 0.01599999999962165,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 3097,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 1.0470000000022992,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 2318,
+          "completion_tokens": 62,
+          "prompt_cache_hit_tokens": 2048,
+          "prompt_cache_miss_tokens": 270,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.005132,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 3097,
+          "actual_prompt_tokens": 2318,
+          "actual_to_estimate_ratio": 0.7484662576687117
+        },
+        "elapsed_seconds": 1.0310000000026776,
+        "calls": [
+          {
+            "id": "call_00_hmWg7IfxwlNJAq1dwDUV4189",
+            "name": "search"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 1.0470000000022992,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "tool_call_id": "call_00_hmWg7IfxwlNJAq1dwDUV4189",
+        "action": "search",
+        "arguments": {
+          "query": "报销期限 多少天内提交报销",
+          "reason": "检索公司报销时限规定"
+        },
+        "rationale": "检索公司报销时限规定"
+      },
+      {
+        "kind": "tool_observation",
+        "at_seconds": 1.0780000000013388,
+        "model_calls": 1,
+        "tool_calls": 1,
+        "tool_call_id": "call_00_hmWg7IfxwlNJAq1dwDUV4189",
+        "action": "search",
+        "observation": {
+          "tool": "search",
+          "status": "success",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "candidates": [
+            {
+              "passage_id": "D01-P01",
+              "doc_id": "D01",
+              "title": "差旅报销期限规定",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "员工应在出差结束后 30 天内提交差旅报销申请。",
+              "rank": 1,
+              "rrf_score": 0.03278688524590164,
+              "branches": {
+                "bm25": {
+                  "rank": 1,
+                  "score": 20.14516110580503
+                },
+                "semantic": {
+                  "rank": 1,
+                  "score": 0.7057303506797089
+                }
+              }
+            },
+            {
+              "passage_id": "D02-P01",
+              "doc_id": "D02",
+              "title": "差旅报销期限问答",
+              "topic": "差旅报销",
+              "version_date": "2026-03-01",
+              "effective_date": "2026-03-01",
+              "summary": "员工应在出差结束后 15 天内提交差旅报销申请。",
+              "rank": 2,
+              "rrf_score": 0.03225806451612903,
+              "branches": {
+                "bm25": {
+                  "rank": 2,
+                  "score": 20.14516110580503
+                },
+                "semantic": {
+                  "rank": 2,
+                  "score": 0.700900382322507
+                }
+              }
+            },
+            {
+              "passage_id": "D04-P01",
+              "doc_id": "D04",
+              "title": "差旅报销审批流程",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "差旅报销申请先提交直属负责人审批，再提交财务审核。",
+              "rank": 3,
+              "rrf_score": 0.03149801587301587,
+              "branches": {
+                "bm25": {
+                  "rank": 3,
+                  "score": 7.251986531702117
+                },
+                "semantic": {
+                  "rank": 4,
+                  "score": 0.5543330745834798
+                }
+              }
+            },
+            {
+              "passage_id": "D06-P01",
+              "doc_id": "D06",
+              "title": "请假申请规定（新版）",
+              "topic": "人事",
+              "version_date": "2026-09-01",
+              "effective_date": "2026-10-01",
+              "summary": "自 2026-10-01 起，员工请假应提前 1 个工作日提交申请；本条自该日起替代 D05《请假申请规定（旧版）》中提前 2 个工作日提交申请的规定。在 2026-10-01 之前，仍按 D05 的提前 2 个工作日规定办理。",
+              "rank": 4,
+              "rrf_score": 0.031024531024531024,
+              "branches": {
+                "bm25": {
+                  "rank": 6,
+                  "score": 2.2246260859809723
+                },
+                "semantic": {
+                  "rank": 3,
+                  "score": 0.570562803272685
+                }
+              }
+            },
+            {
+              "passage_id": "D03-P01",
+              "doc_id": "D03",
+              "title": "差旅报销材料说明",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "提交差旅报销申请需提供发票与出差审批单。",
+              "rank": 5,
+              "rrf_score": 0.031009615384615385,
+              "branches": {
+                "bm25": {
+                  "rank": 4,
+                  "score": 6.950169997101868
+                },
+                "semantic": {
+                  "rank": 5,
+                  "score": 0.539697359441267
+                }
+              }
+            },
+            {
+              "passage_id": "D05-P01",
+              "doc_id": "D05",
+              "title": "请假申请规定（旧版）",
+              "topic": "人事",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "员工请假应提前 2 个工作日提交申请。",
+              "rank": 6,
+              "rrf_score": 0.030536130536130537,
+              "branches": {
+                "bm25": {
+                  "rank": 5,
+                  "score": 2.418836100231736
+                },
+                "semantic": {
+                  "rank": 6,
+                  "score": 0.5378517476386947
+                }
+              }
+            }
+          ],
+          "branch_rankings": {
+            "bm25": [
+              {
+                "passage_id": "D01-P01",
+                "score": 20.14516110580503
+              },
+              {
+                "passage_id": "D02-P01",
+                "score": 20.14516110580503
+              },
+              {
+                "passage_id": "D04-P01",
+                "score": 7.251986531702117
+              },
+              {
+                "passage_id": "D03-P01",
+                "score": 6.950169997101868
+              },
+              {
+                "passage_id": "D05-P01",
+                "score": 2.418836100231736
+              },
+              {
+                "passage_id": "D06-P01",
+                "score": 2.2246260859809723
+              },
+              {
+                "passage_id": "D07-P01",
+                "score": 2.0464095888850995
+              }
+            ],
+            "semantic": [
+              {
+                "passage_id": "D01-P01",
+                "score": 0.7057303506797089
+              },
+              {
+                "passage_id": "D02-P01",
+                "score": 0.700900382322507
+              },
+              {
+                "passage_id": "D06-P01",
+                "score": 0.570562803272685
+              },
+              {
+                "passage_id": "D04-P01",
+                "score": 0.5543330745834798
+              },
+              {
+                "passage_id": "D03-P01",
+                "score": 0.539697359441267
+              },
+              {
+                "passage_id": "D05-P01",
+                "score": 0.5378517476386947
+              },
+              {
+                "passage_id": "D07-P01",
+                "score": 0.5080898173561218
+              },
+              {
+                "passage_id": "D08-P01",
+                "score": 0.4151778266793974
+              },
+              {
+                "passage_id": "D12-P01",
+                "score": 0.3095340828940645
+              },
+              {
+                "passage_id": "D10-P01",
+                "score": 0.24920356185143022
+              },
+              {
+                "passage_id": "D11-P01",
+                "score": 0.24869136239796577
+              },
+              {
+                "passage_id": "D09-P01",
+                "score": 0.2452540145868288
+              }
+            ]
+          },
+          "configuration": {
+            "bm25": {
+              "k1": 1.5,
+              "b": 0.75,
+              "idf": "log1p((N-df+0.5)/(df+0.5))"
+            },
+            "tokenizer": "NFKC/casefold + Han unigram/bigram + Latin/number runs v1",
+            "input": "title + newline + passage body; canonical provenance preserved separately",
+            "branch_limit": 12,
+            "rrf_k": 60,
+            "summary_characters": 160,
+            "tie_break": "passage_id ascending",
+            "embedding": {
+              "device": "cpu",
+              "dimension": 512,
+              "max_input_tokens": 512,
+              "mode": "live",
+              "model_id": "BAAI/bge-small-zh-v1.5",
+              "normalized": true,
+              "packages": {
+                "huggingface-hub": "0.36.0",
+                "safetensors": "0.6.2",
+                "tokenizers": "0.22.2",
+                "torch": "2.9.0+cpu",
+                "transformers": "4.57.1"
+              },
+              "pooling": "CLS",
+              "query_prefix": "为这个句子生成表示以用于检索相关文章：",
+              "revision": "7999e1d3359715c523056ef9478215996d62a620",
+              "threads": 1,
+              "weights_fingerprint": "sha256:79a6f0034e3e568922396703a0172cbd3eb7bb857b8b1e3ef15f2721a252b276"
+            }
+          },
+          "error": null
+        },
+        "elapsed_seconds": 0.030999999999039574
+      },
+      {
+        "kind": "model_request",
+        "at_seconds": 1.0780000000013388,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 5001,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 2.375,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 4247,
+          "completion_tokens": 95,
+          "prompt_cache_hit_tokens": 2304,
+          "prompt_cache_miss_tokens": 1943,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.009254,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 5001,
+          "actual_prompt_tokens": 4247,
+          "actual_to_estimate_ratio": 0.8492301539692062
+        },
+        "elapsed_seconds": 1.2969999999986612,
+        "calls": [
+          {
+            "id": "call_00_62uiQgALgmDHdkkPYLfv1418",
+            "name": "read"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 2.375,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "tool_call_id": "call_00_62uiQgALgmDHdkkPYLfv1418",
+        "action": "read",
+        "arguments": {
+          "passage_ids": [
+            "D01-P01",
+            "D02-P01",
+            "D04-P01"
+          ],
+          "reason": "D01与D02对报销期限规定冲突（30天/15天），需读取双方原文及是否需要其他依据"
+        },
+        "rationale": "D01与D02对报销期限规定冲突（30天/15天），需读取双方原文及是否需要其他依据"
+      },
+      {
+        "kind": "tool_observation",
+        "at_seconds": 2.375,
+        "model_calls": 2,
+        "tool_calls": 2,
+        "tool_call_id": "call_00_62uiQgALgmDHdkkPYLfv1418",
+        "action": "read",
+        "observation": {
+          "tool": "read",
+          "status": "success",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "passages": [
+            {
+              "passage_id": "D01-P01",
+              "doc_id": "D01",
+              "title": "差旅报销期限规定",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "scope": "星帆科技全体员工",
+              "text": "文档：差旅报销期限规定（D01）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n员工应在出差结束后 30 天内提交差旅报销申请。"
+            },
+            {
+              "passage_id": "D02-P01",
+              "doc_id": "D02",
+              "title": "差旅报销期限问答",
+              "topic": "差旅报销",
+              "version_date": "2026-03-01",
+              "effective_date": "2026-03-01",
+              "scope": "星帆科技全体员工",
+              "text": "文档：差旅报销期限问答（D02）。主题：差旅报销。版本日期：2026-03-01。生效日期：2026-03-01。适用范围：星帆科技全体员工。\n员工应在出差结束后 15 天内提交差旅报销申请。"
+            },
+            {
+              "passage_id": "D04-P01",
+              "doc_id": "D04",
+              "title": "差旅报销审批流程",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "scope": "星帆科技全体员工",
+              "text": "文档：差旅报销审批流程（D04）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n差旅报销申请先提交直属负责人审批，再提交财务审核。"
+            }
+          ],
+          "error": null
+        },
+        "elapsed_seconds": 0.0
+      },
+      {
+        "kind": "model_request",
+        "at_seconds": 2.375,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 5706,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 4.015999999999622,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 4833,
+          "completion_tokens": 88,
+          "prompt_cache_hit_tokens": 4224,
+          "prompt_cache_miss_tokens": 609,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.01037,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 5706,
+          "actual_prompt_tokens": 4833,
+          "actual_to_estimate_ratio": 0.8470031545741324
+        },
+        "elapsed_seconds": 1.6409999999996217,
+        "calls": [
+          {
+            "id": "call_00_vbQPVIYaVfcEYhBJlEqW3447",
+            "name": "search"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 4.015999999999622,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "tool_call_id": "call_00_vbQPVIYaVfcEYhBJlEqW3447",
+        "action": "search",
+        "arguments": {
+          "query": "差旅报销期限 30天 15天 修订 替代 说明 现行版本",
+          "reason": "两份现行文件期限冲突（30天/15天），补查是否有替代或修订说明"
+        },
+        "rationale": "两份现行文件期限冲突（30天/15天），补查是否有替代或修订说明"
+      },
+      {
+        "kind": "tool_observation",
+        "at_seconds": 4.047000000002299,
+        "model_calls": 3,
+        "tool_calls": 3,
+        "tool_call_id": "call_00_vbQPVIYaVfcEYhBJlEqW3447",
+        "action": "search",
+        "observation": {
+          "tool": "search",
+          "status": "success",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "candidates": [
+            {
+              "passage_id": "D01-P01",
+              "doc_id": "D01",
+              "title": "差旅报销期限规定",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "员工应在出差结束后 30 天内提交差旅报销申请。",
+              "rank": 1,
+              "rrf_score": 0.03278688524590164,
+              "branches": {
+                "bm25": {
+                  "rank": 1,
+                  "score": 21.71214961048412
+                },
+                "semantic": {
+                  "rank": 1,
+                  "score": 0.7690655467130539
+                }
+              }
+            },
+            {
+              "passage_id": "D02-P01",
+              "doc_id": "D02",
+              "title": "差旅报销期限问答",
+              "topic": "差旅报销",
+              "version_date": "2026-03-01",
+              "effective_date": "2026-03-01",
+              "summary": "员工应在出差结束后 15 天内提交差旅报销申请。",
+              "rank": 2,
+              "rrf_score": 0.03225806451612903,
+              "branches": {
+                "bm25": {
+                  "rank": 2,
+                  "score": 21.71214961048412
+                },
+                "semantic": {
+                  "rank": 2,
+                  "score": 0.7664357329248792
+                }
+              }
+            },
+            {
+              "passage_id": "D03-P01",
+              "doc_id": "D03",
+              "title": "差旅报销材料说明",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "提交差旅报销申请需提供发票与出差审批单。",
+              "rank": 3,
+              "rrf_score": 0.031746031746031744,
+              "branches": {
+                "bm25": {
+                  "rank": 3,
+                  "score": 12.91742807536559
+                },
+                "semantic": {
+                  "rank": 3,
+                  "score": 0.6635787016897441
+                }
+              }
+            },
+            {
+              "passage_id": "D04-P01",
+              "doc_id": "D04",
+              "title": "差旅报销审批流程",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "差旅报销申请先提交直属负责人审批，再提交财务审核。",
+              "rank": 4,
+              "rrf_score": 0.03125,
+              "branches": {
+                "bm25": {
+                  "rank": 4,
+                  "score": 10.52050419897304
+                },
+                "semantic": {
+                  "rank": 4,
+                  "score": 0.6540312663443062
+                }
+              }
+            },
+            {
+              "passage_id": "D06-P01",
+              "doc_id": "D06",
+              "title": "请假申请规定（新版）",
+              "topic": "人事",
+              "version_date": "2026-09-01",
+              "effective_date": "2026-10-01",
+              "summary": "自 2026-10-01 起，员工请假应提前 1 个工作日提交申请；本条自该日起替代 D05《请假申请规定（旧版）》中提前 2 个工作日提交申请的规定。在 2026-10-01 之前，仍按 D05 的提前 2 个工作日规定办理。",
+              "rank": 5,
+              "rrf_score": 0.030536130536130537,
+              "branches": {
+                "bm25": {
+                  "rank": 5,
+                  "score": 6.640592822876236
+                },
+                "semantic": {
+                  "rank": 6,
+                  "score": 0.5038384701853353
+                }
+              }
+            },
+            {
+              "passage_id": "D05-P01",
+              "doc_id": "D05",
+              "title": "请假申请规定（旧版）",
+              "topic": "人事",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "员工请假应提前 2 个工作日提交申请。",
+              "rank": 6,
+              "rrf_score": 0.029877369007803793,
+              "branches": {
+                "bm25": {
+                  "rank": 9,
+                  "score": 1.8596933981613426
+                },
+                "semantic": {
+                  "rank": 5,
+                  "score": 0.5067441263738752
+                }
+              }
+            }
+          ],
+          "branch_rankings": {
+            "bm25": [
+              {
+                "passage_id": "D01-P01",
+                "score": 21.71214961048412
+              },
+              {
+                "passage_id": "D02-P01",
+                "score": 21.71214961048412
+              },
+              {
+                "passage_id": "D03-P01",
+                "score": 12.91742807536559
+              },
+              {
+                "passage_id": "D04-P01",
+                "score": 10.52050419897304
+              },
+              {
+                "passage_id": "D06-P01",
+                "score": 6.640592822876236
+              },
+              {
+                "passage_id": "D12-P01",
+                "score": 3.260521943959584
+              },
+              {
+                "passage_id": "D07-P01",
+                "score": 3.255302637059323
+              },
+              {
+                "passage_id": "D11-P01",
+                "score": 1.8779414768644118
+              },
+              {
+                "passage_id": "D05-P01",
+                "score": 1.8596933981613426
+              },
+              {
+                "passage_id": "D08-P01",
+                "score": 1.813339572261336
+              },
+              {
+                "passage_id": "D09-P01",
+                "score": 1.7978776526494438
+              },
+              {
+                "passage_id": "D10-P01",
+                "score": 1.6830686140767077
+              }
+            ],
+            "semantic": [
+              {
+                "passage_id": "D01-P01",
+                "score": 0.7690655467130539
+              },
+              {
+                "passage_id": "D02-P01",
+                "score": 0.7664357329248792
+              },
+              {
+                "passage_id": "D03-P01",
+                "score": 0.6635787016897441
+              },
+              {
+                "passage_id": "D04-P01",
+                "score": 0.6540312663443062
+              },
+              {
+                "passage_id": "D05-P01",
+                "score": 0.5067441263738752
+              },
+              {
+                "passage_id": "D06-P01",
+                "score": 0.5038384701853353
+              },
+              {
+                "passage_id": "D07-P01",
+                "score": 0.47826256482164686
+              },
+              {
+                "passage_id": "D12-P01",
+                "score": 0.39083016421324246
+              },
+              {
+                "passage_id": "D08-P01",
+                "score": 0.3542758585156615
+              },
+              {
+                "passage_id": "D09-P01",
+                "score": 0.2846714006350961
+              },
+              {
+                "passage_id": "D11-P01",
+                "score": 0.26783630705059464
+              },
+              {
+                "passage_id": "D10-P01",
+                "score": 0.2497292808622589
+              }
+            ]
+          },
+          "configuration": {
+            "bm25": {
+              "k1": 1.5,
+              "b": 0.75,
+              "idf": "log1p((N-df+0.5)/(df+0.5))"
+            },
+            "tokenizer": "NFKC/casefold + Han unigram/bigram + Latin/number runs v1",
+            "input": "title + newline + passage body; canonical provenance preserved separately",
+            "branch_limit": 12,
+            "rrf_k": 60,
+            "summary_characters": 160,
+            "tie_break": "passage_id ascending",
+            "embedding": {
+              "device": "cpu",
+              "dimension": 512,
+              "max_input_tokens": 512,
+              "mode": "live",
+              "model_id": "BAAI/bge-small-zh-v1.5",
+              "normalized": true,
+              "packages": {
+                "huggingface-hub": "0.36.0",
+                "safetensors": "0.6.2",
+                "tokenizers": "0.22.2",
+                "torch": "2.9.0+cpu",
+                "transformers": "4.57.1"
+              },
+              "pooling": "CLS",
+              "query_prefix": "为这个句子生成表示以用于检索相关文章：",
+              "revision": "7999e1d3359715c523056ef9478215996d62a620",
+              "threads": 1,
+              "weights_fingerprint": "sha256:79a6f0034e3e568922396703a0172cbd3eb7bb857b8b1e3ef15f2721a252b276"
+            }
+          },
+          "error": null
+        },
+        "elapsed_seconds": 0.031000000002677552
+      },
+      {
+        "kind": "model_request",
+        "at_seconds": 4.047000000002299,
+        "model_calls": 4,
+        "tool_calls": 3,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 7739,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 7.90599999999904,
+        "model_calls": 4,
+        "tool_calls": 3,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 6907,
+          "completion_tokens": 752,
+          "prompt_cache_hit_tokens": 4864,
+          "prompt_cache_miss_tokens": 2043,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.01983,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 7739,
+          "actual_prompt_tokens": 6907,
+          "actual_to_estimate_ratio": 0.892492570099496
+        },
+        "elapsed_seconds": 3.8589999999967404,
+        "calls": [
+          {
+            "id": "call_00_rEusKWCAP1mRUeCgNLNZ4655",
+            "name": "finish"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 7.90599999999904,
+        "model_calls": 4,
+        "tool_calls": 3,
+        "tool_call_id": "call_00_rEusKWCAP1mRUeCgNLNZ4655",
+        "action": "finish",
+        "arguments": {
+          "status": "needs_clarification",
+          "answer": "关于差旅报销期限，公司资料中存在两处互相冲突且均在生效的现行规定：\n\n- 《差旅报销期限规定》（2026-01-01 生效）：员工应在出差结束后 30 天内提交差旅报销申请 [C1]。\n- 《差旅报销期限问答》（2026-03-01 生效）：员工应在出差结束后 15 天内提交差旅报销申请 [C2]。\n\n两份文件均标注适用范围为星帆科技全体员工，且正文中都没有说明彼此之间的替代关系或适用条件，因此无法依据现有资料判定哪一条为当前执行口径，也无法确定最终天数。补充说明：审批顺序（先直属负责人、再财务审核）与本问题无关，未纳入结论 [C3]。",
+          "part_statuses": [
+            "needs_clarification"
+          ],
+          "citation_refs": [
+            {
+              "marker": "[C1]",
+              "passage_id": "D01-P01",
+              "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+            },
+            {
+              "marker": "[C2]",
+              "passage_id": "D02-P01",
+              "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+            },
+            {
+              "marker": "[C3]",
+              "passage_id": "D04-P01",
+              "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+            }
+          ],
+          "gaps": [
+            "差旅报销期限存在未消解冲突：《差旅报销期限规定》为30天，《差旅报销期限问答》为15天，两文均生效且无替代或适用条件说明，缺少可确认现行规则的资料。"
+          ],
+          "clarification": "能提供明确现行报销期限的制度或替代说明吗？",
+          "anchor_snapshot": {
+            "subject": {
+              "value": "公司差旅报销制度",
+              "source_message_ids": [
+                "f9bbc2b17df2401bb662f9fec1a96162"
+              ]
+            },
+            "focus": {
+              "value": "差旅报销提交期限（30天与15天规定冲突）",
+              "source_message_ids": [
+                "f9bbc2b17df2401bb662f9fec1a96162"
+              ]
+            },
+            "pending_clarification": {
+              "value": "能提供明确现行报销期限的制度或替代说明吗？",
+              "source_message_ids": [
+                "f9bbc2b17df2401bb662f9fec1a96162"
+              ]
+            }
+          },
+          "reason": "两份均生效的期限规定互相冲突且无替代说明，无法裁决，需请求现行制度依据。"
+        },
+        "rationale": "两份均生效的期限规定互相冲突且无替代说明，无法裁决，需请求现行制度依据。"
+      },
+      {
+        "kind": "memory_validation",
+        "at_seconds": 7.90599999999904,
+        "model_calls": 4,
+        "tool_calls": 3,
+        "valid": true,
+        "warning": null
+      },
+      {
+        "kind": "stop",
+        "at_seconds": 7.90599999999904,
+        "model_calls": 4,
+        "tool_calls": 3,
+        "reason": "finished",
+        "recoveries": 0,
+        "corrections": 0
+      },
+      {
+        "kind": "memory_update",
+        "stage": "validated_before_persistence",
+        "before": null,
+        "after": {
+          "subject": {
+            "value": "公司差旅报销制度",
+            "source_message_ids": [
+              "f9bbc2b17df2401bb662f9fec1a96162"
+            ]
+          },
+          "focus": {
+            "value": "差旅报销提交期限（30天与15天规定冲突）",
+            "source_message_ids": [
+              "f9bbc2b17df2401bb662f9fec1a96162"
+            ]
+          },
+          "pending_clarification": {
+            "value": "能提供明确现行报销期限的制度或替代说明吗？",
+            "source_message_ids": [
+              "f9bbc2b17df2401bb662f9fec1a96162"
+            ]
+          }
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      }
+    ],
+    "elapsed_seconds": 7.922000000002299,
+    "usage": {
+      "requests_with_unknown_usage": 0,
+      "known_requests_estimated_cny": 0.044586,
+      "total_estimated_cny": 0.044586,
+      "invoice_cny": null
+    },
+    "read_set": [
+      "D01-P01",
+      "D02-P01",
+      "D04-P01"
+    ],
+    "evidence": [
+      {
+        "passage_id": "D01-P01",
+        "doc_id": "D01",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "title": "差旅报销期限规定",
+        "version_date": "2026-01-01",
+        "text": "文档：差旅报销期限规定（D01）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n员工应在出差结束后 30 天内提交差旅报销申请。"
+      },
+      {
+        "passage_id": "D02-P01",
+        "doc_id": "D02",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "title": "差旅报销期限问答",
+        "version_date": "2026-03-01",
+        "text": "文档：差旅报销期限问答（D02）。主题：差旅报销。版本日期：2026-03-01。生效日期：2026-03-01。适用范围：星帆科技全体员工。\n员工应在出差结束后 15 天内提交差旅报销申请。"
+      },
+      {
+        "passage_id": "D04-P01",
+        "doc_id": "D04",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "title": "差旅报销审批流程",
+        "version_date": "2026-01-01",
+        "text": "文档：差旅报销审批流程（D04）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n差旅报销申请先提交直属负责人审批，再提交财务审核。"
+      }
+    ],
+    "anchor_snapshot_proposal": {
+      "subject": {
+        "value": "公司差旅报销制度",
+        "source_message_ids": [
+          "f9bbc2b17df2401bb662f9fec1a96162"
+        ]
+      },
+      "focus": {
+        "value": "差旅报销提交期限（30天与15天规定冲突）",
+        "source_message_ids": [
+          "f9bbc2b17df2401bb662f9fec1a96162"
+        ]
+      },
+      "pending_clarification": {
+        "value": "能提供明确现行报销期限的制度或替代说明吗？",
+        "source_message_ids": [
+          "f9bbc2b17df2401bb662f9fec1a96162"
+        ]
+      }
+    },
+    "anchor_snapshot": {
+      "subject": {
+        "value": "公司差旅报销制度",
+        "source_message_ids": [
+          "f9bbc2b17df2401bb662f9fec1a96162"
+        ]
+      },
+      "focus": {
+        "value": "差旅报销提交期限（30天与15天规定冲突）",
+        "source_message_ids": [
+          "f9bbc2b17df2401bb662f9fec1a96162"
+        ]
+      },
+      "pending_clarification": {
+        "value": "能提供明确现行报销期限的制度或替代说明吗？",
+        "source_message_ids": [
+          "f9bbc2b17df2401bb662f9fec1a96162"
+        ]
+      }
+    },
+    "memory_valid": true,
+    "memory_persisted": true,
+    "memory_warning": null,
+    "history_selection": {
+      "budget": 8000,
+      "estimated_tokens": 0,
+      "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+      "selected_message_ids": [],
+      "omitted_message_ids": [],
+      "boundary": "complete recent business message pairs; run traces stored separately"
+    },
+    "message_ids": {
+      "request_id": "7a6961e48a084fa28bc21cf386c638e4",
+      "user_message_id": "f9bbc2b17df2401bb662f9fec1a96162",
+      "assistant_message_id": "aafe9ebbadd64e949d5e2122059b4df8"
+    },
+    "memory_update": {
+      "before": null,
+      "after": {
+        "subject": {
+          "value": "公司差旅报销制度",
+          "source_message_ids": [
+            "f9bbc2b17df2401bb662f9fec1a96162"
+          ]
+        },
+        "focus": {
+          "value": "差旅报销提交期限（30天与15天规定冲突）",
+          "source_message_ids": [
+            "f9bbc2b17df2401bb662f9fec1a96162"
+          ]
+        },
+        "pending_clarification": {
+          "value": "能提供明确现行报销期限的制度或替代说明吗？",
+          "source_message_ids": [
+            "f9bbc2b17df2401bb662f9fec1a96162"
+          ]
+        }
+      },
+      "previous_valid": false,
+      "previous_warning": null
+    },
+    "persistence": {
+      "saved": true,
+      "user_message_saved": true,
+      "result_saved": true
+    }
+  }
+}

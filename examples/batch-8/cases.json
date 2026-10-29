@@ -1,0 +1,29 @@
+{
+  "kind": "Inputs and pre-run expectations, not actual outputs",
+  "core": [
+    {"id": "A01", "category": "明确答案", "questions": ["报销需要什么材料？"], "statuses": ["answered"], "passages": ["D03-P01"], "expected": "仅发票与出差审批单；逐条关联原文，不编造必需材料", "spec": "grounded-qa/企业事实以本轮原文为依据"},
+    {"id": "A02", "category": "文档冲突", "questions": ["报销期限是多少天？"], "statuses": ["needs_clarification"], "passages": ["D01-P01", "D02-P01"], "expected": "读取30/15天双方、补查现行制度/替代信息并读取新候选；仍无依据保留双方、请求一个现行依据，不按日期裁决", "spec": "grounded-qa/无法消解的冲突必须查证并保留"},
+    {"id": "A03-missing", "category": "资料外问题", "questions": ["公司有住房补贴吗？"], "statuses": ["insufficient_evidence"], "passages": [], "expected": "补查后说明资料未覆盖，不断言公司没有补贴", "spec": "grounded-qa/资料缺失与范围外问题区分处理"},
+    {"id": "A03-weather", "category": "资料外问题", "questions": ["今天天气怎么样？"], "statuses": ["out_of_scope"], "passages": [], "expected": "说明公司资料服务边界，不回答天气，不无意义追问", "spec": "grounded-qa/资料缺失与范围外问题区分处理"},
+    {"id": "A04", "category": "自然改写", "questions": ["出差花的钱要报销，得交啥凭证"], "statuses": ["answered"], "passages": ["D03-P01"], "expected": "与A01同义材料结论及本轮有效引用，不固定措辞", "spec": "grounded-qa/改写与上下文追问保持业务含义"},
+    {"id": "A05", "category": "上下文追问", "questions": ["星帆剪辑支持什么导出格式？", "那最高支持多大分辨率？"], "statuses": ["answered", "answered"], "passages": ["D10-P01"], "expected": "首轮MP4/MOV，第二轮理解产品指代并重新检索读取D10支持1080p，保留两轮输入输出/锚点", "spec": "grounded-qa/产品连续追问"},
+    {"id": "A06-temporary", "category": "工具失败", "fault": "temporary_read", "questions": ["报销需要什么材料？"], "statuses": ["answered", "incomplete"], "passages": [], "expected": "第一次真实read故障作为观察；由真实模型选一次恢复或主动结束，恢复则应取得D03；主动结束保持incomplete，不伪装缺资料", "spec": "agent-execution/一次模型决定的工具故障恢复"},
+    {"id": "A06-persistent", "category": "工具失败", "fault": "persistent_read", "questions": ["报销需要什么材料？"], "statuses": ["incomplete"], "passages": [], "expected": "持续真实read错误，最多一次模型选择恢复；再失败停止，不追加模型收尾，不伪造答案或资料缺失", "spec": "agent-execution/恢复再次失败"}
+  ],
+  "regressions": [
+    {"id": "single-D01", "questions": ["报销期限是多少天？"], "statuses": ["answered"], "passages": ["D01-P01"], "variant": "D01", "expected": "隔离单D01，依据30天结束，不虚构冲突"},
+    {"id": "added-D02", "questions": ["报销期限是多少天？"], "statuses": ["needs_clarification"], "passages": ["D01-P01", "D02-P01"], "variant": "D01-D02", "expected": "显式加入D02并重建后，保留冲突与补查，不自动按较新日期选15天"},
+    {"id": "effective", "questions": ["现在请假需要提前多久申请？"], "statuses": ["answered"], "passages": ["D06-P01"], "date": "2026-10-29", "expected": "明示替代已生效，提前1个工作日；引用正文生效条件"},
+    {"id": "future", "questions": ["现在请假需要提前多久申请？"], "statuses": ["answered"], "passages": ["D05-P01"], "date": "2026-09-30", "expected": "新规未生效，仍提前2个工作日，不把版本日期当生效日期"},
+    {"id": "partial-conflict", "questions": ["报销需要什么材料，期限是多少天？"], "statuses": ["needs_clarification"], "passages": ["D03-P01", "D01-P01", "D02-P01"], "expected": "保留材料与期限双方，单个最关键依据请求"},
+    {"id": "partial-missing", "questions": ["报销需要什么材料，公司住房补贴政策是什么？"], "statuses": ["insufficient_evidence"], "passages": ["D03-P01"], "expected": "材料可答，住房补贴缺口单列，不说没有补贴"},
+    {"id": "partial-weather", "questions": ["报销需要什么材料，今天天气怎么样？"], "statuses": ["out_of_scope"], "passages": ["D03-P01"], "expected": "保留材料，说明天气范围边界"},
+    {"id": "user-preference", "questions": ["我觉得报销应该按15天，具体期限是多少？"], "statuses": ["needs_clarification"], "passages": ["D01-P01", "D02-P01"], "expected": "用户偏好不裁决公司规则冲突"},
+    {"id": "replacement", "questions": ["星帆剪辑最高支持多大分辨率？"], "statuses": ["answered"], "passages": ["D10-P01"], "variant": "4K", "expected": "隔离替换1080p为4K，显式重载索引和指纹，答案引用新正文；不是基础资料变更"}
+  ],
+  "memory": [
+    {"id": "cross-window", "questions": ["星帆剪辑支持什么导出格式？", "那最高支持多大分辨率？"], "statuses": ["answered", "answered"], "passages": ["D10-P01"], "budget": 1, "expected": "第二轮原始首轮历史省略，合法产品锚点理解对象；本轮重新read D10"},
+    {"id": "switch-correct", "questions": ["星帆剪辑支持什么导出格式？", "不问产品了，改问报销需要什么材料？", "刚才说错了，我不是问报销，是问星帆剪辑能否生成自动字幕。"], "statuses": ["answered", "answered", "answered"], "passages": ["D11-P01"], "expected": "换题到报销再纠正为产品字幕，更新/清空过时对象关注事项，不残留报销对象"},
+    {"id": "old-conclusion", "questions": ["星帆剪辑最高支持多大分辨率？", "那现在最高支持多大分辨率？"], "statuses": ["answered", "answered"], "passages": ["D10-P01"], "reload_after_first": "4K", "expected": "首轮1080p；改隔离正文并重载后第二轮即使看见旧答案也用4K新正文/新指纹"}
+  ]
+}

@@ -66,6 +66,7 @@ class DeepSeekModel:
     transport: Callable = field(default=official_transport, repr=False)
     mode: str = field(default="live", init=False)
     requested_model: str = field(default="deepseek-flash", init=False)
+    temperature: float = field(default=0, init=False)
 
     def __post_init__(self):
         if not self.api_key.strip():
@@ -80,6 +81,7 @@ class DeepSeekModel:
             "model": self.requested_model, "messages": copy.deepcopy(messages),
             "tools": copy.deepcopy(tools), "tool_choice": "auto", "stream": False,
             "thinking": {"type": "disabled"}, "max_tokens": 4096,
+            "temperature": self.temperature,
         }
         try:
             raw = self.transport("https://api.deepseek.com/chat/completions", payload, self.api_key, timeout)

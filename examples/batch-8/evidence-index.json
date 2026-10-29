@@ -1,0 +1,1988 @@
+{
+  "created_at": "2026-10-29T18:48:52.684572-04:00",
+  "unique_tasks": 104,
+  "model_attempts": 343,
+  "known_requests_estimated_cny": 3.333384,
+  "requests_with_unknown_usage": 0,
+  "total_estimated_cny": 3.333384,
+  "invoice_cny": null,
+  "basis": "per-event recorded peak uncached estimate; not invoice or balance",
+  "rows": [
+    {
+      "request_id": "b25f317a6ccd448eb89f995d0c0974bd",
+      "file": "runs/conflict-guidance-check/A02-r1-t1-b25f317a6ccd448eb89f995d0c0974bd.json",
+      "copies_not_counted": [],
+      "case_id": "A02",
+      "repeat": 1,
+      "turn": 1,
+      "status": "needs_clarification",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 5,
+        "tool_calls": 4,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.061698,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "3393d107041a4f8e97d516efc17e42d1",
+      "file": "runs/core-final/A01-r1-t1-3393d107041a4f8e97d516efc17e42d1.json",
+      "copies_not_counted": [],
+      "case_id": "A01",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.02654,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "4f3e902aefef4f8c83776794d3450f26",
+      "file": "runs/core-final/A01-r2-t1-4f3e902aefef4f8c83776794d3450f26.json",
+      "copies_not_counted": [],
+      "case_id": "A01",
+      "repeat": 2,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.026588,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "3de24a17336242c1a177144a76d32fd9",
+      "file": "runs/core-final/A02-r1-t1-3de24a17336242c1a177144a76d32fd9.json",
+      "copies_not_counted": [],
+      "case_id": "A02",
+      "repeat": 1,
+      "turn": 1,
+      "status": "needs_clarification",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.044296,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "2ab4b154b82c47648b678475b0b9fec8",
+      "file": "runs/core-final/A02-r2-t1-2ab4b154b82c47648b678475b0b9fec8.json",
+      "copies_not_counted": [],
+      "case_id": "A02",
+      "repeat": 2,
+      "turn": 1,
+      "status": "needs_clarification",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.04381,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "81826e1a875846e0995e7190b2d5aed3",
+      "file": "runs/core-final/A03-missing-r1-t1-81826e1a875846e0995e7190b2d5aed3.json",
+      "copies_not_counted": [],
+      "case_id": "A03-missing",
+      "repeat": 1,
+      "turn": 1,
+      "status": "insufficient_evidence",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.04521,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "a7a2d237c4db47fc82133ef86dc7a1cb",
+      "file": "runs/core-final/A03-missing-r2-t1-a7a2d237c4db47fc82133ef86dc7a1cb.json",
+      "copies_not_counted": [],
+      "case_id": "A03-missing",
+      "repeat": 2,
+      "turn": 1,
+      "status": "insufficient_evidence",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.04495,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "678ba24290974b408b5a5d7c4d57a149",
+      "file": "runs/core-final/A03-weather-r1-t1-678ba24290974b408b5a5d7c4d57a149.json",
+      "copies_not_counted": [],
+      "case_id": "A03-weather",
+      "repeat": 1,
+      "turn": 1,
+      "status": "out_of_scope",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 1,
+        "tool_calls": 0,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.0066,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "c26d4b64b12047ee9e964e05b35d0f62",
+      "file": "runs/core-final/A03-weather-r2-t1-c26d4b64b12047ee9e964e05b35d0f62.json",
+      "copies_not_counted": [],
+      "case_id": "A03-weather",
+      "repeat": 2,
+      "turn": 1,
+      "status": "out_of_scope",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 1,
+        "tool_calls": 0,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.006594,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "51e2fe6ebc4a486bb27d06f0388dd1ba",
+      "file": "runs/core-final/A04-r1-t1-51e2fe6ebc4a486bb27d06f0388dd1ba.json",
+      "copies_not_counted": [],
+      "case_id": "A04",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.027476,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "29ff74136e7a4944ab74b9acd4846b86",
+      "file": "runs/core-final/A04-r2-t1-29ff74136e7a4944ab74b9acd4846b86.json",
+      "copies_not_counted": [],
+      "case_id": "A04",
+      "repeat": 2,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.027402,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "4751dbbeb42e448a9df96673cdc059d1",
+      "file": "runs/core-final/A05-r1-t1-4751dbbeb42e448a9df96673cdc059d1.json",
+      "copies_not_counted": [],
+      "case_id": "A05",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.02654,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "367569550c204a2e81f8a5135e652276",
+      "file": "runs/core-final/A05-r1-t2-367569550c204a2e81f8a5135e652276.json",
+      "copies_not_counted": [],
+      "case_id": "A05",
+      "repeat": 1,
+      "turn": 2,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.029038,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "0ddae9b563f64342b33e307003ec4714",
+      "file": "runs/core-final/A05-r2-t1-0ddae9b563f64342b33e307003ec4714.json",
+      "copies_not_counted": [],
+      "case_id": "A05",
+      "repeat": 2,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.026588,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "bdd427f527dd492fbf4f5a19134b9182",
+      "file": "runs/core-final/A05-r2-t2-bdd427f527dd492fbf4f5a19134b9182.json",
+      "copies_not_counted": [],
+      "case_id": "A05",
+      "repeat": 2,
+      "turn": 2,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.029054,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "9167be21747e47d08d2a16de87fc0857",
+      "file": "runs/core-final/A06-persistent-r1-t1-9167be21747e47d08d2a16de87fc0857.json",
+      "copies_not_counted": [],
+      "case_id": "A06-persistent",
+      "repeat": 1,
+      "turn": 1,
+      "status": "incomplete",
+      "stop_reason": "recovery_exhausted",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.024262,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "e3c06e9f24d043738e426ec6c3388c67",
+      "file": "runs/core-final/A06-persistent-r2-t1-e3c06e9f24d043738e426ec6c3388c67.json",
+      "copies_not_counted": [],
+      "case_id": "A06-persistent",
+      "repeat": 2,
+      "turn": 1,
+      "status": "incomplete",
+      "stop_reason": "recovery_exhausted",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.023872,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "c5b261691c1748a5bc6a3c394ba9ec9b",
+      "file": "runs/core-final/A06-temporary-r1-t1-c5b261691c1748a5bc6a3c394ba9ec9b.json",
+      "copies_not_counted": [],
+      "case_id": "A06-temporary",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.036272,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "016d362107ad4a0eb2fb96428129b516",
+      "file": "runs/core-final/A06-temporary-r2-t1-016d362107ad4a0eb2fb96428129b516.json",
+      "copies_not_counted": [],
+      "case_id": "A06-temporary",
+      "repeat": 2,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.036316,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "042ea5a397044690a17b229bdf4ba62b",
+      "file": "runs/core-initial/A01-r1-t1-042ea5a397044690a17b229bdf4ba62b.json",
+      "copies_not_counted": [],
+      "case_id": "A01",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.025526,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "0c584b1e81e94991b1a8fbe740f0b6db",
+      "file": "runs/core-initial/A01-r2-t1-0c584b1e81e94991b1a8fbe740f0b6db.json",
+      "copies_not_counted": [],
+      "case_id": "A01",
+      "repeat": 2,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.024424,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "9d6bd9b58f2f4102a7a2c06e51e197d1",
+      "file": "runs/core-initial/A02-r1-t1-9d6bd9b58f2f4102a7a2c06e51e197d1.json",
+      "copies_not_counted": [],
+      "case_id": "A02",
+      "repeat": 1,
+      "turn": 1,
+      "status": "incomplete",
+      "stop_reason": "format_repair_failed",
+      "counts": {
+        "model_calls": 5,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 1
+      },
+      "known_estimated_cny": 0.062034,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "fb75426e02294086bd1a81f5b46012be",
+      "file": "runs/core-initial/A02-r2-t1-fb75426e02294086bd1a81f5b46012be.json",
+      "copies_not_counted": [],
+      "case_id": "A02",
+      "repeat": 2,
+      "turn": 1,
+      "status": "incomplete",
+      "stop_reason": "format_repair_failed",
+      "counts": {
+        "model_calls": 5,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 1
+      },
+      "known_estimated_cny": 0.063902,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "98f5df2a0ed84edf847557ce5cfe2717",
+      "file": "runs/core-initial/A03-missing-r1-t1-98f5df2a0ed84edf847557ce5cfe2717.json",
+      "copies_not_counted": [],
+      "case_id": "A03-missing",
+      "repeat": 1,
+      "turn": 1,
+      "status": "incomplete",
+      "stop_reason": "format_repair_failed",
+      "counts": {
+        "model_calls": 5,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 1
+      },
+      "known_estimated_cny": 0.058492,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "6b841cf825a047bdb05f73f400f52724",
+      "file": "runs/core-initial/A03-missing-r2-t1-6b841cf825a047bdb05f73f400f52724.json",
+      "copies_not_counted": [],
+      "case_id": "A03-missing",
+      "repeat": 2,
+      "turn": 1,
+      "status": "insufficient_evidence",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.035826,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "b4d5836d29e44ad88ffe572c592e4b37",
+      "file": "runs/core-initial/A03-weather-r1-t1-b4d5836d29e44ad88ffe572c592e4b37.json",
+      "copies_not_counted": [],
+      "case_id": "A03-weather",
+      "repeat": 1,
+      "turn": 1,
+      "status": "out_of_scope",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 1,
+        "tool_calls": 0,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.005878,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "d1ab752b8f2148669eaaa0f81d96fa45",
+      "file": "runs/core-initial/A03-weather-r2-t1-d1ab752b8f2148669eaaa0f81d96fa45.json",
+      "copies_not_counted": [],
+      "case_id": "A03-weather",
+      "repeat": 2,
+      "turn": 1,
+      "status": "out_of_scope",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 1,
+        "tool_calls": 0,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.005816,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "ba04fdd626a4416381e0bd552d9fb05e",
+      "file": "runs/core-initial/A04-r1-t1-ba04fdd626a4416381e0bd552d9fb05e.json",
+      "copies_not_counted": [],
+      "case_id": "A04",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 1
+      },
+      "known_estimated_cny": 0.031704,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "9607e3f7fb8941c19e5ddf2c5606f2e6",
+      "file": "runs/core-initial/A04-r2-t1-9607e3f7fb8941c19e5ddf2c5606f2e6.json",
+      "copies_not_counted": [],
+      "case_id": "A04",
+      "repeat": 2,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.025852,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "6d3200e04ff84dcab869941ad243c690",
+      "file": "runs/core-initial/A05-r1-t1-6d3200e04ff84dcab869941ad243c690.json",
+      "copies_not_counted": [],
+      "case_id": "A05",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.023796,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "8884629f4dc340928667a454292b7b9d",
+      "file": "runs/core-initial/A05-r1-t2-8884629f4dc340928667a454292b7b9d.json",
+      "copies_not_counted": [],
+      "case_id": "A05",
+      "repeat": 1,
+      "turn": 2,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.02608,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "0cd429f250a243f999c62489009b36ad",
+      "file": "runs/core-initial/A05-r2-t1-0cd429f250a243f999c62489009b36ad.json",
+      "copies_not_counted": [],
+      "case_id": "A05",
+      "repeat": 2,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.023706,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "4f1540fdcb0446f3b2d372e2c736f013",
+      "file": "runs/core-initial/A05-r2-t2-4f1540fdcb0446f3b2d372e2c736f013.json",
+      "copies_not_counted": [],
+      "case_id": "A05",
+      "repeat": 2,
+      "turn": 2,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.026196,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "46ac6c31feb34f0f8a118627cf1032a0",
+      "file": "runs/core-initial/A06-persistent-r1-t1-46ac6c31feb34f0f8a118627cf1032a0.json",
+      "copies_not_counted": [],
+      "case_id": "A06-persistent",
+      "repeat": 1,
+      "turn": 1,
+      "status": "incomplete",
+      "stop_reason": "recovery_exhausted",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.021038,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "8466b0442ae64fca8a8209a8e1bea563",
+      "file": "runs/core-initial/A06-persistent-r2-t1-8466b0442ae64fca8a8209a8e1bea563.json",
+      "copies_not_counted": [],
+      "case_id": "A06-persistent",
+      "repeat": 2,
+      "turn": 1,
+      "status": "incomplete",
+      "stop_reason": "recovery_exhausted",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.021176,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "cd2a6e9442864b419d6ab32c3aeef292",
+      "file": "runs/core-initial/A06-temporary-r1-t1-cd2a6e9442864b419d6ab32c3aeef292.json",
+      "copies_not_counted": [],
+      "case_id": "A06-temporary",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.033534,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "7b7760e4649b46d7a42dd052c75a1c14",
+      "file": "runs/core-initial/A06-temporary-r2-t1-7b7760e4649b46d7a42dd052c75a1c14.json",
+      "copies_not_counted": [],
+      "case_id": "A06-temporary",
+      "repeat": 2,
+      "turn": 1,
+      "status": "incomplete",
+      "stop_reason": "format_repair_failed",
+      "counts": {
+        "model_calls": 5,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 1
+      },
+      "known_estimated_cny": 0.046802,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "3f3a89d5267c40a0a838cb2515ce10e1",
+      "file": "runs/core-repair-1/A01-r1-t1-3f3a89d5267c40a0a838cb2515ce10e1.json",
+      "copies_not_counted": [],
+      "case_id": "A01",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.028146,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "0ad851f2f5e34dbd9c45e17a03c7f1ba",
+      "file": "runs/core-repair-1/A01-r2-t1-0ad851f2f5e34dbd9c45e17a03c7f1ba.json",
+      "copies_not_counted": [],
+      "case_id": "A01",
+      "repeat": 2,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.029136,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "614b026ef17b49ce970a013105377db9",
+      "file": "runs/core-repair-1/A02-r1-t1-614b026ef17b49ce970a013105377db9.json",
+      "copies_not_counted": [],
+      "case_id": "A02",
+      "repeat": 1,
+      "turn": 1,
+      "status": "needs_clarification",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.043584,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "7a6961e48a084fa28bc21cf386c638e4",
+      "file": "runs/core-repair-1/A02-r2-t1-7a6961e48a084fa28bc21cf386c638e4.json",
+      "copies_not_counted": [],
+      "case_id": "A02",
+      "repeat": 2,
+      "turn": 1,
+      "status": "needs_clarification",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.044586,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "db054c720d714bcf91e0bda5911456da",
+      "file": "runs/core-repair-1/A03-missing-r1-t1-db054c720d714bcf91e0bda5911456da.json",
+      "copies_not_counted": [],
+      "case_id": "A03-missing",
+      "repeat": 1,
+      "turn": 1,
+      "status": "insufficient_evidence",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.04251,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "999a7f3b5251404b94466734ba99ca2a",
+      "file": "runs/core-repair-1/A03-missing-r2-t1-999a7f3b5251404b94466734ba99ca2a.json",
+      "copies_not_counted": [],
+      "case_id": "A03-missing",
+      "repeat": 2,
+      "turn": 1,
+      "status": "insufficient_evidence",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.045574,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "9441f23a70e447cea422e0c9433b3708",
+      "file": "runs/core-repair-1/A03-weather-r1-t1-9441f23a70e447cea422e0c9433b3708.json",
+      "copies_not_counted": [],
+      "case_id": "A03-weather",
+      "repeat": 1,
+      "turn": 1,
+      "status": "out_of_scope",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 1,
+        "tool_calls": 0,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.00645,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "b0949eecec394b089e9fde4816e70570",
+      "file": "runs/core-repair-1/A03-weather-r2-t1-b0949eecec394b089e9fde4816e70570.json",
+      "copies_not_counted": [],
+      "case_id": "A03-weather",
+      "repeat": 2,
+      "turn": 1,
+      "status": "out_of_scope",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 1,
+        "tool_calls": 0,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.006362,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "2881e62871714ad4933e3b356454fb4a",
+      "file": "runs/core-repair-1/A04-r1-t1-2881e62871714ad4933e3b356454fb4a.json",
+      "copies_not_counted": [],
+      "case_id": "A04",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.026598,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "5b65f739ad824314ac28d6783b6dcc11",
+      "file": "runs/core-repair-1/A04-r2-t1-5b65f739ad824314ac28d6783b6dcc11.json",
+      "copies_not_counted": [],
+      "case_id": "A04",
+      "repeat": 2,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.02692,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "e426d6bca4774e65a9437a30b5e09fc5",
+      "file": "runs/core-repair-1/A05-r1-t1-e426d6bca4774e65a9437a30b5e09fc5.json",
+      "copies_not_counted": [],
+      "case_id": "A05",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.025904,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "f968f7ca6de347d28fddf35b09c77f25",
+      "file": "runs/core-repair-1/A05-r1-t2-f968f7ca6de347d28fddf35b09c77f25.json",
+      "copies_not_counted": [],
+      "case_id": "A05",
+      "repeat": 1,
+      "turn": 2,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.02835,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "5fcb5ff330fb4d4096fd1291ae9d83f2",
+      "file": "runs/core-repair-1/A05-r2-t1-5fcb5ff330fb4d4096fd1291ae9d83f2.json",
+      "copies_not_counted": [],
+      "case_id": "A05",
+      "repeat": 2,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.025802,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "9825e39e03b04fb1b5498affd697a848",
+      "file": "runs/core-repair-1/A05-r2-t2-9825e39e03b04fb1b5498affd697a848.json",
+      "copies_not_counted": [],
+      "case_id": "A05",
+      "repeat": 2,
+      "turn": 2,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.028278,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "78b122a287ed4172a120af0e30a865d6",
+      "file": "runs/core-repair-1/A06-persistent-r1-t1-78b122a287ed4172a120af0e30a865d6.json",
+      "copies_not_counted": [],
+      "case_id": "A06-persistent",
+      "repeat": 1,
+      "turn": 1,
+      "status": "incomplete",
+      "stop_reason": "recovery_exhausted",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.023204,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "922e30e84f914a779503b6aa55a2418c",
+      "file": "runs/core-repair-1/A06-persistent-r2-t1-922e30e84f914a779503b6aa55a2418c.json",
+      "copies_not_counted": [],
+      "case_id": "A06-persistent",
+      "repeat": 2,
+      "turn": 1,
+      "status": "incomplete",
+      "stop_reason": "recovery_exhausted",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.023108,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "d429efd8530746e898536a87c5888295",
+      "file": "runs/core-repair-1/A06-temporary-r1-t1-d429efd8530746e898536a87c5888295.json",
+      "copies_not_counted": [],
+      "case_id": "A06-temporary",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.035638,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "99be230a34864b2da692f7971eec81cb",
+      "file": "runs/core-repair-1/A06-temporary-r2-t1-99be230a34864b2da692f7971eec81cb.json",
+      "copies_not_counted": [],
+      "case_id": "A06-temporary",
+      "repeat": 2,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.040814,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "a063cfa12d424a02bbcb9936c3cfc991",
+      "file": "runs/core-validated/A01-r1-t1-a063cfa12d424a02bbcb9936c3cfc991.json",
+      "copies_not_counted": [],
+      "case_id": "A01",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.028228,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "b7f09179d0bc464a8d07838751190cca",
+      "file": "runs/core-validated/A01-r2-t1-b7f09179d0bc464a8d07838751190cca.json",
+      "copies_not_counted": [],
+      "case_id": "A01",
+      "repeat": 2,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.026772,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "97edf89e80624707aca3cc60ae44fcf3",
+      "file": "runs/core-validated/A02-r1-t1-97edf89e80624707aca3cc60ae44fcf3.json",
+      "copies_not_counted": [],
+      "case_id": "A02",
+      "repeat": 1,
+      "turn": 1,
+      "status": "needs_clarification",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 5,
+        "tool_calls": 4,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.062316,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "0bfcf9c0baf741b7aff0eec4734f39e3",
+      "file": "runs/core-validated/A02-r2-t1-0bfcf9c0baf741b7aff0eec4734f39e3.json",
+      "copies_not_counted": [],
+      "case_id": "A02",
+      "repeat": 2,
+      "turn": 1,
+      "status": "needs_clarification",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 5,
+        "tool_calls": 4,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.062252,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "c3851f68786f4bf09fde74116d4f8fa1",
+      "file": "runs/core-validated/A03-missing-r1-t1-c3851f68786f4bf09fde74116d4f8fa1.json",
+      "copies_not_counted": [],
+      "case_id": "A03-missing",
+      "repeat": 1,
+      "turn": 1,
+      "status": "insufficient_evidence",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.046956,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "9c958e218e764bc58b006479378c57a9",
+      "file": "runs/core-validated/A03-missing-r2-t1-9c958e218e764bc58b006479378c57a9.json",
+      "copies_not_counted": [],
+      "case_id": "A03-missing",
+      "repeat": 2,
+      "turn": 1,
+      "status": "insufficient_evidence",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.045922,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "4fdd0a1bf7a9427793785953a00cd5ef",
+      "file": "runs/core-validated/A03-weather-r1-t1-4fdd0a1bf7a9427793785953a00cd5ef.json",
+      "copies_not_counted": [],
+      "case_id": "A03-weather",
+      "repeat": 1,
+      "turn": 1,
+      "status": "out_of_scope",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 1,
+        "tool_calls": 0,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.006588,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "f54ca2097aca4740b958e300f3aaa216",
+      "file": "runs/core-validated/A03-weather-r2-t1-f54ca2097aca4740b958e300f3aaa216.json",
+      "copies_not_counted": [],
+      "case_id": "A03-weather",
+      "repeat": 2,
+      "turn": 1,
+      "status": "out_of_scope",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 1,
+        "tool_calls": 0,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.006596,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "49a375a616724e6f8f5660b0c7b8c376",
+      "file": "runs/core-validated/A04-r1-t1-49a375a616724e6f8f5660b0c7b8c376.json",
+      "copies_not_counted": [],
+      "case_id": "A04",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.027612,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "f8a93eb0cf234947ab540ce4720a1288",
+      "file": "runs/core-validated/A04-r2-t1-f8a93eb0cf234947ab540ce4720a1288.json",
+      "copies_not_counted": [],
+      "case_id": "A04",
+      "repeat": 2,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.02755,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "e04ede69845e40cfa5c2b35b3a4fde12",
+      "file": "runs/core-validated/A05-r1-t1-e04ede69845e40cfa5c2b35b3a4fde12.json",
+      "copies_not_counted": [],
+      "case_id": "A05",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.026872,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "b962bd94a2b941cf9800228dbca435ab",
+      "file": "runs/core-validated/A05-r1-t2-b962bd94a2b941cf9800228dbca435ab.json",
+      "copies_not_counted": [],
+      "case_id": "A05",
+      "repeat": 1,
+      "turn": 2,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.02928,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "1d4cc426a118432ca978a954c33d3b4e",
+      "file": "runs/core-validated/A05-r2-t1-1d4cc426a118432ca978a954c33d3b4e.json",
+      "copies_not_counted": [],
+      "case_id": "A05",
+      "repeat": 2,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.02681,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "77d36f6285a5407c93c5c198bc82e5d0",
+      "file": "runs/core-validated/A05-r2-t2-77d36f6285a5407c93c5c198bc82e5d0.json",
+      "copies_not_counted": [],
+      "case_id": "A05",
+      "repeat": 2,
+      "turn": 2,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.02873,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "b500addf1b1f4c8586b68a502a47e6ff",
+      "file": "runs/core-validated/A06-persistent-r1-t1-b500addf1b1f4c8586b68a502a47e6ff.json",
+      "copies_not_counted": [],
+      "case_id": "A06-persistent",
+      "repeat": 1,
+      "turn": 1,
+      "status": "incomplete",
+      "stop_reason": "recovery_exhausted",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.024114,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "746062a4c9ab45198da7831486b466b7",
+      "file": "runs/core-validated/A06-persistent-r2-t1-746062a4c9ab45198da7831486b466b7.json",
+      "copies_not_counted": [],
+      "case_id": "A06-persistent",
+      "repeat": 2,
+      "turn": 1,
+      "status": "incomplete",
+      "stop_reason": "recovery_exhausted",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.0241,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "aceefa4962154ae79819b6ab3462dfe0",
+      "file": "runs/core-validated/A06-temporary-r1-t1-aceefa4962154ae79819b6ab3462dfe0.json",
+      "copies_not_counted": [],
+      "case_id": "A06-temporary",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.036682,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "a9dd6c5e31824f7294554e1449863de4",
+      "file": "runs/core-validated/A06-temporary-r2-t1-a9dd6c5e31824f7294554e1449863de4.json",
+      "copies_not_counted": [],
+      "case_id": "A06-temporary",
+      "repeat": 2,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.037104,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "19afdef85aaa4df6bc1aced83491ee51",
+      "file": "runs/memory-validated/cross-window-r1-t1-19afdef85aaa4df6bc1aced83491ee51.json",
+      "copies_not_counted": [],
+      "case_id": "cross-window",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.026762,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "b041bb171c3944b49ba1158b3f4a6594",
+      "file": "runs/memory-validated/cross-window-r1-t2-b041bb171c3944b49ba1158b3f4a6594.json",
+      "copies_not_counted": [],
+      "case_id": "cross-window",
+      "repeat": 1,
+      "turn": 2,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.027246,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "223d104fa2f748b59f25892b9a2a7a76",
+      "file": "runs/memory-validated/old-conclusion-r1-t1-223d104fa2f748b59f25892b9a2a7a76.json",
+      "copies_not_counted": [],
+      "case_id": "old-conclusion",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.026358,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "0482cf3cf45f4665956b5f9372c976ae",
+      "file": "runs/memory-validated/old-conclusion-r1-t2-0482cf3cf45f4665956b5f9372c976ae.json",
+      "copies_not_counted": [],
+      "case_id": "old-conclusion",
+      "repeat": 1,
+      "turn": 2,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.029402,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "305e1997c31f4216aa31aa5c9e44a28f",
+      "file": "runs/memory-validated/switch-correct-r1-t1-305e1997c31f4216aa31aa5c9e44a28f.json",
+      "copies_not_counted": [],
+      "case_id": "switch-correct",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.026754,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "ee757ad2cdc340168dbd4ced8a6f68b6",
+      "file": "runs/memory-validated/switch-correct-r1-t2-ee757ad2cdc340168dbd4ced8a6f68b6.json",
+      "copies_not_counted": [],
+      "case_id": "switch-correct",
+      "repeat": 1,
+      "turn": 2,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.029218,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "aea047b14dcb4657a458fb32e87680f3",
+      "file": "runs/memory-validated/switch-correct-r1-t3-aea047b14dcb4657a458fb32e87680f3.json",
+      "copies_not_counted": [],
+      "case_id": "switch-correct",
+      "repeat": 1,
+      "turn": 3,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.031406,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "2d9702a9a37840f59972740c6f206f6e",
+      "file": "runs/personal-final/delegate-export-format-change-r1-t1-2d9702a9a37840f59972740c6f206f6e.json",
+      "copies_not_counted": [],
+      "case_id": "delegate-export-format-change",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.026578,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "9687fd88ff87426f9ce3b50578d77f88",
+      "file": "runs/personal-final/delegate-export-format-change-r1-t2-9687fd88ff87426f9ce3b50578d77f88.json",
+      "copies_not_counted": [],
+      "case_id": "delegate-export-format-change",
+      "repeat": 1,
+      "turn": 2,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.029278,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "9953d78fdf434eb188e4f34d2a3e0158",
+      "file": "runs/personal-initial/delegate-export-format-change-r1-t1-9953d78fdf434eb188e4f34d2a3e0158.json",
+      "copies_not_counted": [],
+      "case_id": "delegate-export-format-change",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.025808,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "5c96abee198841f79bd4071c1e164e99",
+      "file": "runs/personal-initial/delegate-export-format-change-r1-t2-5c96abee198841f79bd4071c1e164e99.json",
+      "copies_not_counted": [],
+      "case_id": "delegate-export-format-change",
+      "repeat": 1,
+      "turn": 2,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.032406,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "19521e7dfaac44f48098446571804c83",
+      "file": "runs/personal-validated/delegate-export-format-change-r1-t1-19521e7dfaac44f48098446571804c83.json",
+      "copies_not_counted": [],
+      "case_id": "delegate-export-format-change",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.026862,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "c438d247309a42f4851118c5902ac4a8",
+      "file": "runs/personal-validated/delegate-export-format-change-r1-t2-c438d247309a42f4851118c5902ac4a8.json",
+      "copies_not_counted": [],
+      "case_id": "delegate-export-format-change",
+      "repeat": 1,
+      "turn": 2,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.029844,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "88cdb5d6cc9643c0b4ff4fdbc539dc60",
+      "file": "runs/regressions-final/added-D02-r1-t1-88cdb5d6cc9643c0b4ff4fdbc539dc60.json",
+      "copies_not_counted": [],
+      "case_id": "added-D02",
+      "repeat": 1,
+      "turn": 1,
+      "status": "needs_clarification",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.03584,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "151b6e6e18434f42954d5dd649f84273",
+      "file": "runs/regressions-final/effective-r1-t1-151b6e6e18434f42954d5dd649f84273.json",
+      "copies_not_counted": [],
+      "case_id": "effective",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.028546,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "574050523d5244f5a770a4592216496f",
+      "file": "runs/regressions-final/future-r1-t1-574050523d5244f5a770a4592216496f.json",
+      "copies_not_counted": [],
+      "case_id": "future",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.02871,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "b8946263f2ae4611b8b6391280f3a2e0",
+      "file": "runs/regressions-final/partial-conflict-r1-t1-b8946263f2ae4611b8b6391280f3a2e0.json",
+      "copies_not_counted": [],
+      "case_id": "partial-conflict",
+      "repeat": 1,
+      "turn": 1,
+      "status": "needs_clarification",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.045466,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "76811c4f302e458897e450e69b91e0b4",
+      "file": "runs/regressions-final/partial-missing-r1-t1-76811c4f302e458897e450e69b91e0b4.json",
+      "copies_not_counted": [],
+      "case_id": "partial-missing",
+      "repeat": 1,
+      "turn": 1,
+      "status": "insufficient_evidence",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 5,
+        "tool_calls": 4,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.057878,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "008246bb83f44094a47ed897c808dbf0",
+      "file": "runs/regressions-final/partial-weather-r1-t1-008246bb83f44094a47ed897c808dbf0.json",
+      "copies_not_counted": [],
+      "case_id": "partial-weather",
+      "repeat": 1,
+      "turn": 1,
+      "status": "out_of_scope",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.028634,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "24ab8e8b87e74298a8b0f311997d540d",
+      "file": "runs/regressions-final/replacement-r1-t1-24ab8e8b87e74298a8b0f311997d540d.json",
+      "copies_not_counted": [],
+      "case_id": "replacement",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.02605,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "83269fe0c9ed4ff19091a0eab5ca6b99",
+      "file": "runs/regressions-final/single-D01-r1-t1-83269fe0c9ed4ff19091a0eab5ca6b99.json",
+      "copies_not_counted": [],
+      "case_id": "single-D01",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.022218,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "fbc32014ac54422586e1ff49a6794989",
+      "file": "runs/regressions-final/user-preference-r1-t1-fbc32014ac54422586e1ff49a6794989.json",
+      "copies_not_counted": [],
+      "case_id": "user-preference",
+      "repeat": 1,
+      "turn": 1,
+      "status": "needs_clarification",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.051504,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "32e8f710050e4d1d99241ff6e02b65fd",
+      "file": "runs/regressions-validated/added-D02-r1-t1-32e8f710050e4d1d99241ff6e02b65fd.json",
+      "copies_not_counted": [],
+      "case_id": "added-D02",
+      "repeat": 1,
+      "turn": 1,
+      "status": "needs_clarification",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.036132,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "e70f83d6b44549cabf45e4946d222f6b",
+      "file": "runs/regressions-validated/effective-r1-t1-e70f83d6b44549cabf45e4946d222f6b.json",
+      "copies_not_counted": [],
+      "case_id": "effective",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.028722,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "1c13361b762347edad91984cc08aecfa",
+      "file": "runs/regressions-validated/future-r1-t1-1c13361b762347edad91984cc08aecfa.json",
+      "copies_not_counted": [],
+      "case_id": "future",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.028838,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "3d24c575e3b14b5a9de3f7137b8172e5",
+      "file": "runs/regressions-validated/partial-conflict-r1-t1-3d24c575e3b14b5a9de3f7137b8172e5.json",
+      "copies_not_counted": [],
+      "case_id": "partial-conflict",
+      "repeat": 1,
+      "turn": 1,
+      "status": "needs_clarification",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 5,
+        "tool_calls": 4,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.062858,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "85b7f54177ce4748b50e08c3c516b521",
+      "file": "runs/regressions-validated/partial-missing-r1-t1-85b7f54177ce4748b50e08c3c516b521.json",
+      "copies_not_counted": [],
+      "case_id": "partial-missing",
+      "repeat": 1,
+      "turn": 1,
+      "status": "insufficient_evidence",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 6,
+        "tool_calls": 4,
+        "recoveries": 0,
+        "format_corrections": 1
+      },
+      "known_estimated_cny": 0.06698,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "a9114ba4aaee49ab891837c4675e75c0",
+      "file": "runs/regressions-validated/partial-weather-r1-t1-a9114ba4aaee49ab891837c4675e75c0.json",
+      "copies_not_counted": [],
+      "case_id": "partial-weather",
+      "repeat": 1,
+      "turn": 1,
+      "status": "out_of_scope",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 1
+      },
+      "known_estimated_cny": 0.04116,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "c69ef5e15fe2406e9142f665cc122c6f",
+      "file": "runs/regressions-validated/replacement-r1-t1-c69ef5e15fe2406e9142f665cc122c6f.json",
+      "copies_not_counted": [],
+      "case_id": "replacement",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.02626,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "f11b2881318745ef8f21674db2703f2d",
+      "file": "runs/regressions-validated/single-D01-r1-t1-f11b2881318745ef8f21674db2703f2d.json",
+      "copies_not_counted": [],
+      "case_id": "single-D01",
+      "repeat": 1,
+      "turn": 1,
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.022286,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    },
+    {
+      "request_id": "1c625742953c42fab1c63538bdaa02fd",
+      "file": "runs/regressions-validated/user-preference-r1-t1-1c625742953c42fab1c63538bdaa02fd.json",
+      "copies_not_counted": [],
+      "case_id": "user-preference",
+      "repeat": 1,
+      "turn": 1,
+      "status": "needs_clarification",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 5,
+        "tool_calls": 4,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.067044,
+      "unknown_usage_requests": 0,
+      "semantic_review": "see independent audit, not inferred here"
+    }
+  ]
+}

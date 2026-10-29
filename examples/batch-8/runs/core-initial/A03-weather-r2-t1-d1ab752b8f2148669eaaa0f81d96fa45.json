@@ -1,0 +1,227 @@
+{
+  "case_id": "A03-weather",
+  "repeat": 2,
+  "turn": 1,
+  "pre_run_expected": "说明公司资料服务边界，不回答天气，不无意义追问",
+  "mechanical_checks": {
+    "status_matches_pre_run_expectation": true,
+    "canonical_citations_match_snapshot": true,
+    "required_final_passages_cited": true,
+    "fault_observed": null,
+    "semantic_support": "pending independent review, not proved by these checks"
+  },
+  "corpus_file": "corpora/47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1.json",
+  "result": {
+    "status": "out_of_scope",
+    "part_statuses": [
+      "out_of_scope"
+    ],
+    "answer": "抱歉，这个问题超出了我的服务范围。我只能依据公司内部资料回答关于公司制度、产品或流程的问题，无法提供天气等通用信息。",
+    "gaps": [
+      "天气属于与公司资料无关的通用信息，不在服务范围内。"
+    ],
+    "clarification": null,
+    "citations": [],
+    "request_id": "d1ab752b8f2148669eaaa0f81d96fa45",
+    "session_id": "0d05eef1c90446d7bc11538fa0ba9334",
+    "mode": "live",
+    "as_of_date": "2026-10-29",
+    "time_zone": "东部夏令时",
+    "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+    "requested_model": "deepseek-flash",
+    "model_configuration": {
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "thinking_mode": "disabled",
+      "implicit_retries": 0
+    },
+    "embedding": {
+      "device": "cpu",
+      "dimension": 512,
+      "max_input_tokens": 512,
+      "mode": "live",
+      "model_id": "BAAI/bge-small-zh-v1.5",
+      "normalized": true,
+      "packages": {
+        "huggingface-hub": "0.36.0",
+        "safetensors": "0.6.2",
+        "tokenizers": "0.22.2",
+        "torch": "2.9.0+cpu",
+        "transformers": "4.57.1"
+      },
+      "pooling": "CLS",
+      "query_prefix": "为这个句子生成表示以用于检索相关文章：",
+      "revision": "7999e1d3359715c523056ef9478215996d62a620",
+      "threads": 1,
+      "weights_fingerprint": "sha256:79a6f0034e3e568922396703a0172cbd3eb7bb857b8b1e3ef15f2721a252b276"
+    },
+    "input": {
+      "question": "今天天气怎么样？",
+      "context": [
+        {
+          "role": "system",
+          "content": "对话锚点（仅理解对象，不是企业事实）：null"
+        }
+      ]
+    },
+    "limits": {
+      "model_calls": 8,
+      "tool_calls": 6,
+      "model_timeout_seconds": 60.0,
+      "task_timeout_seconds": 300.0
+    },
+    "counts": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "recoveries": 0,
+      "format_corrections": 0
+    },
+    "stop_reason": "finished",
+    "execution_issues": [],
+    "trace": [
+      {
+        "kind": "model_request",
+        "at_seconds": 0.030999999999039574,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 2577,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 2.0309999999990396,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 1968,
+          "completion_tokens": 235,
+          "prompt_cache_hit_tokens": 1664,
+          "prompt_cache_miss_tokens": 304,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.005816,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 2577,
+          "actual_prompt_tokens": 1968,
+          "actual_to_estimate_ratio": 0.7636786961583236
+        },
+        "elapsed_seconds": 2.0,
+        "calls": [
+          {
+            "id": "call_00_UuZ7DYgZ2fQ4daDb5I8b9719",
+            "name": "finish"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 2.0309999999990396,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "tool_call_id": "call_00_UuZ7DYgZ2fQ4daDb5I8b9719",
+        "action": "finish",
+        "arguments": {
+          "status": "out_of_scope",
+          "answer": "抱歉，这个问题超出了我的服务范围。我只能依据公司内部资料回答关于公司制度、产品或流程的问题，无法提供天气等通用信息。",
+          "part_statuses": [
+            "out_of_scope"
+          ],
+          "citation_refs": [],
+          "gaps": [
+            "天气属于与公司资料无关的通用信息，不在服务范围内。"
+          ],
+          "clarification": null,
+          "anchor_snapshot": {
+            "subject": null,
+            "focus": null,
+            "pending_clarification": null
+          },
+          "reason": "该问题与公司资料无关，说明服务范围即可结束。"
+        },
+        "rationale": "该问题与公司资料无关，说明服务范围即可结束。"
+      },
+      {
+        "kind": "memory_validation",
+        "at_seconds": 2.0309999999990396,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "valid": true,
+        "warning": null
+      },
+      {
+        "kind": "stop",
+        "at_seconds": 2.0309999999990396,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "reason": "finished",
+        "recoveries": 0,
+        "corrections": 0
+      },
+      {
+        "kind": "memory_update",
+        "stage": "validated_before_persistence",
+        "before": null,
+        "after": {
+          "subject": null,
+          "focus": null,
+          "pending_clarification": null
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      }
+    ],
+    "elapsed_seconds": 2.0309999999990396,
+    "usage": {
+      "requests_with_unknown_usage": 0,
+      "known_requests_estimated_cny": 0.005816,
+      "total_estimated_cny": 0.005816,
+      "invoice_cny": null
+    },
+    "read_set": [],
+    "evidence": [],
+    "anchor_snapshot_proposal": {
+      "subject": null,
+      "focus": null,
+      "pending_clarification": null
+    },
+    "anchor_snapshot": {
+      "subject": null,
+      "focus": null,
+      "pending_clarification": null
+    },
+    "memory_valid": true,
+    "memory_persisted": true,
+    "memory_warning": null,
+    "history_selection": {
+      "budget": 8000,
+      "estimated_tokens": 0,
+      "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+      "selected_message_ids": [],
+      "omitted_message_ids": [],
+      "boundary": "complete recent business message pairs; run traces stored separately"
+    },
+    "message_ids": {
+      "request_id": "d1ab752b8f2148669eaaa0f81d96fa45",
+      "user_message_id": "801bd49f78d74dd493f0991ec751e453",
+      "assistant_message_id": "3eb7b267431b4d32b94df85548552842"
+    },
+    "memory_update": {
+      "before": null,
+      "after": {
+        "subject": null,
+        "focus": null,
+        "pending_clarification": null
+      },
+      "previous_valid": false,
+      "previous_warning": null
+    },
+    "persistence": {
+      "saved": true,
+      "user_message_saved": true,
+      "result_saved": true
+    }
+  }
+}

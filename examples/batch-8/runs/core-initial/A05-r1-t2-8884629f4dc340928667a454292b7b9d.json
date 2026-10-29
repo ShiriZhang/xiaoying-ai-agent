@@ -1,0 +1,729 @@
+{
+  "case_id": "A05",
+  "repeat": 1,
+  "turn": 2,
+  "pre_run_expected": "首轮MP4/MOV，第二轮理解产品指代并重新检索读取D10支持1080p，保留两轮输入输出/锚点",
+  "mechanical_checks": {
+    "status_matches_pre_run_expectation": true,
+    "canonical_citations_match_snapshot": true,
+    "required_final_passages_cited": true,
+    "fault_observed": null,
+    "semantic_support": "pending independent review, not proved by these checks"
+  },
+  "corpus_file": "corpora/47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1.json",
+  "result": {
+    "status": "answered",
+    "part_statuses": [
+      "answered"
+    ],
+    "answer": "星帆剪辑支持的视频导出分辨率最高为 1080p[C1]。",
+    "gaps": [],
+    "clarification": null,
+    "citations": [
+      {
+        "marker": "[C1]",
+        "passage_id": "D10-P01",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "doc_id": "D10",
+        "version_date": "2026-01-01",
+        "title": "星帆剪辑导出分辨率说明",
+        "effective_date": "2026-01-01",
+        "text": "文档：星帆剪辑导出分辨率说明（D10）。主题：视频产品。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n星帆剪辑支持的视频导出分辨率最高为 1080p。"
+      }
+    ],
+    "request_id": "8884629f4dc340928667a454292b7b9d",
+    "session_id": "a40088b0b93a43cda068c850929b894f",
+    "mode": "live",
+    "as_of_date": "2026-10-29",
+    "time_zone": "东部夏令时",
+    "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+    "requested_model": "deepseek-flash",
+    "model_configuration": {
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "thinking_mode": "disabled",
+      "implicit_retries": 0
+    },
+    "embedding": {
+      "device": "cpu",
+      "dimension": 512,
+      "max_input_tokens": 512,
+      "mode": "live",
+      "model_id": "BAAI/bge-small-zh-v1.5",
+      "normalized": true,
+      "packages": {
+        "huggingface-hub": "0.36.0",
+        "safetensors": "0.6.2",
+        "tokenizers": "0.22.2",
+        "torch": "2.9.0+cpu",
+        "transformers": "4.57.1"
+      },
+      "pooling": "CLS",
+      "query_prefix": "为这个句子生成表示以用于检索相关文章：",
+      "revision": "7999e1d3359715c523056ef9478215996d62a620",
+      "threads": 1,
+      "weights_fingerprint": "sha256:79a6f0034e3e568922396703a0172cbd3eb7bb857b8b1e3ef15f2721a252b276"
+    },
+    "input": {
+      "question": "那最高支持多大分辨率？",
+      "context": [
+        {
+          "role": "system",
+          "content": "对话锚点（仅理解对象，不是企业事实）：{\"subject\": {\"value\": \"星帆剪辑\", \"source_message_ids\": [\"587849a4d2ee42f6989352dfdefac4bb\"]}, \"focus\": {\"value\": \"导出格式\", \"source_message_ids\": [\"587849a4d2ee42f6989352dfdefac4bb\"]}, \"pending_clarification\": null}"
+        },
+        {
+          "role": "user",
+          "content": "{\"message_id\": \"587849a4d2ee42f6989352dfdefac4bb\", \"content\": \"星帆剪辑支持什么导出格式？\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"message_id\": \"e8135cb6fdc849df9db5fe182368fc92\", \"content\": \"{\\\"status\\\": \\\"answered\\\", \\\"part_statuses\\\": [\\\"answered\\\"], \\\"answer\\\": \\\"星帆剪辑支持将视频导出为 MP4、MOV 两种格式[C1]。\\\", \\\"citations\\\": [{\\\"marker\\\": \\\"[C1]\\\", \\\"passage_id\\\": \\\"D09-P01\\\", \\\"corpus_fingerprint\\\": \\\"sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1\\\", \\\"doc_id\\\": \\\"D09\\\", \\\"version_date\\\": \\\"2026-01-01\\\", \\\"title\\\": \\\"星帆剪辑导出格式说明\\\", \\\"effective_date\\\": \\\"2026-01-01\\\", \\\"text\\\": \\\"文档：星帆剪辑导出格式说明（D09）。主题：视频产品。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\\\\n星帆剪辑支持将视频导出为 MP4、MOV 格式。\\\"}], \\\"gaps\\\": [], \\\"clarification\\\": null, \\\"execution_issues\\\": [], \\\"memory_warning\\\": null}\"}"
+        }
+      ]
+    },
+    "limits": {
+      "model_calls": 8,
+      "tool_calls": 6,
+      "model_timeout_seconds": 60.0,
+      "task_timeout_seconds": 300.0
+    },
+    "counts": {
+      "model_calls": 3,
+      "tool_calls": 2,
+      "recoveries": 0,
+      "format_corrections": 0
+    },
+    "stop_reason": "finished",
+    "execution_issues": [],
+    "trace": [
+      {
+        "kind": "model_request",
+        "at_seconds": 0.0319999999992433,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 3063,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 1.0159999999996217,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 2374,
+          "completion_tokens": 71,
+          "prompt_cache_hit_tokens": 1664,
+          "prompt_cache_miss_tokens": 710,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.005316,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 3063,
+          "actual_prompt_tokens": 2374,
+          "actual_to_estimate_ratio": 0.7750571335292197
+        },
+        "elapsed_seconds": 0.9840000000003783,
+        "calls": [
+          {
+            "id": "call_00_JV6DQOQ7GI7sX5Tryeqm0120",
+            "name": "search"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 1.0159999999996217,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "tool_call_id": "call_00_JV6DQOQ7GI7sX5Tryeqm0120",
+        "action": "search",
+        "arguments": {
+          "query": "星帆剪辑 导出 最高分辨率 支持",
+          "reason": "需查星帆剪辑导出分辨率的公司资料原文"
+        },
+        "rationale": "需查星帆剪辑导出分辨率的公司资料原文"
+      },
+      {
+        "kind": "tool_observation",
+        "at_seconds": 1.0469999999986612,
+        "model_calls": 1,
+        "tool_calls": 1,
+        "tool_call_id": "call_00_JV6DQOQ7GI7sX5Tryeqm0120",
+        "action": "search",
+        "observation": {
+          "tool": "search",
+          "status": "success",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "candidates": [
+            {
+              "passage_id": "D10-P01",
+              "doc_id": "D10",
+              "title": "星帆剪辑导出分辨率说明",
+              "topic": "视频产品",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "星帆剪辑支持的视频导出分辨率最高为 1080p。",
+              "rank": 1,
+              "rrf_score": 0.03278688524590164,
+              "branches": {
+                "bm25": {
+                  "rank": 1,
+                  "score": 43.048929044413754
+                },
+                "semantic": {
+                  "rank": 1,
+                  "score": 0.8312486666181843
+                }
+              }
+            },
+            {
+              "passage_id": "D09-P01",
+              "doc_id": "D09",
+              "title": "星帆剪辑导出格式说明",
+              "topic": "视频产品",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "星帆剪辑支持将视频导出为 MP4、MOV 格式。",
+              "rank": 2,
+              "rrf_score": 0.03225806451612903,
+              "branches": {
+                "bm25": {
+                  "rank": 2,
+                  "score": 21.868898541933092
+                },
+                "semantic": {
+                  "rank": 2,
+                  "score": 0.70880780420574
+                }
+              }
+            },
+            {
+              "passage_id": "D11-P01",
+              "doc_id": "D11",
+              "title": "星帆剪辑自动字幕说明",
+              "topic": "视频产品",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "星帆剪辑支持自动生成字幕。",
+              "rank": 3,
+              "rrf_score": 0.031746031746031744,
+              "branches": {
+                "bm25": {
+                  "rank": 3,
+                  "score": 16.095126143295104
+                },
+                "semantic": {
+                  "rank": 3,
+                  "score": 0.6807257472168461
+                }
+              }
+            },
+            {
+              "passage_id": "D12-P01",
+              "doc_id": "D12",
+              "title": "星帆剪辑草稿管理说明",
+              "topic": "视频产品",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "星帆剪辑的草稿保存在本地，员工可手动删除草稿。",
+              "rank": 4,
+              "rrf_score": 0.03125,
+              "branches": {
+                "bm25": {
+                  "rank": 4,
+                  "score": 10.52050419897304
+                },
+                "semantic": {
+                  "rank": 4,
+                  "score": 0.5919555406146466
+                }
+              }
+            },
+            {
+              "passage_id": "D03-P01",
+              "doc_id": "D03",
+              "title": "差旅报销材料说明",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "提交差旅报销申请需提供发票与出差审批单。",
+              "rank": 5,
+              "rrf_score": 0.03007688828584351,
+              "branches": {
+                "bm25": {
+                  "rank": 7,
+                  "score": 0.8988927351263772
+                },
+                "semantic": {
+                  "rank": 6,
+                  "score": 0.25743510281416465
+                }
+              }
+            },
+            {
+              "passage_id": "D01-P01",
+              "doc_id": "D01",
+              "title": "差旅报销期限规定",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "员工应在出差结束后 30 天内提交差旅报销申请。",
+              "rank": 6,
+              "rrf_score": 0.02946912242686891,
+              "branches": {
+                "bm25": {
+                  "rank": 5,
+                  "score": 0.8988927351263772
+                },
+                "semantic": {
+                  "rank": 11,
+                  "score": 0.1996987254105331
+                }
+              }
+            }
+          ],
+          "branch_rankings": {
+            "bm25": [
+              {
+                "passage_id": "D10-P01",
+                "score": 43.048929044413754
+              },
+              {
+                "passage_id": "D09-P01",
+                "score": 21.868898541933092
+              },
+              {
+                "passage_id": "D11-P01",
+                "score": 16.095126143295104
+              },
+              {
+                "passage_id": "D12-P01",
+                "score": 10.52050419897304
+              },
+              {
+                "passage_id": "D01-P01",
+                "score": 0.8988927351263772
+              },
+              {
+                "passage_id": "D02-P01",
+                "score": 0.8988927351263772
+              },
+              {
+                "passage_id": "D03-P01",
+                "score": 0.8988927351263772
+              }
+            ],
+            "semantic": [
+              {
+                "passage_id": "D10-P01",
+                "score": 0.8312486666181843
+              },
+              {
+                "passage_id": "D09-P01",
+                "score": 0.70880780420574
+              },
+              {
+                "passage_id": "D11-P01",
+                "score": 0.6807257472168461
+              },
+              {
+                "passage_id": "D12-P01",
+                "score": 0.5919555406146466
+              },
+              {
+                "passage_id": "D07-P01",
+                "score": 0.26836452200451744
+              },
+              {
+                "passage_id": "D03-P01",
+                "score": 0.25743510281416465
+              },
+              {
+                "passage_id": "D04-P01",
+                "score": 0.22081550820866494
+              },
+              {
+                "passage_id": "D05-P01",
+                "score": 0.21079679091373413
+              },
+              {
+                "passage_id": "D08-P01",
+                "score": 0.20917695462179287
+              },
+              {
+                "passage_id": "D02-P01",
+                "score": 0.20110659833187744
+              },
+              {
+                "passage_id": "D01-P01",
+                "score": 0.1996987254105331
+              },
+              {
+                "passage_id": "D06-P01",
+                "score": 0.1923825471025657
+              }
+            ]
+          },
+          "configuration": {
+            "bm25": {
+              "k1": 1.5,
+              "b": 0.75,
+              "idf": "log1p((N-df+0.5)/(df+0.5))"
+            },
+            "tokenizer": "NFKC/casefold + Han unigram/bigram + Latin/number runs v1",
+            "input": "title + newline + passage body; canonical provenance preserved separately",
+            "branch_limit": 12,
+            "rrf_k": 60,
+            "summary_characters": 160,
+            "tie_break": "passage_id ascending",
+            "embedding": {
+              "device": "cpu",
+              "dimension": 512,
+              "max_input_tokens": 512,
+              "mode": "live",
+              "model_id": "BAAI/bge-small-zh-v1.5",
+              "normalized": true,
+              "packages": {
+                "huggingface-hub": "0.36.0",
+                "safetensors": "0.6.2",
+                "tokenizers": "0.22.2",
+                "torch": "2.9.0+cpu",
+                "transformers": "4.57.1"
+              },
+              "pooling": "CLS",
+              "query_prefix": "为这个句子生成表示以用于检索相关文章：",
+              "revision": "7999e1d3359715c523056ef9478215996d62a620",
+              "threads": 1,
+              "weights_fingerprint": "sha256:79a6f0034e3e568922396703a0172cbd3eb7bb857b8b1e3ef15f2721a252b276"
+            }
+          },
+          "error": null
+        },
+        "elapsed_seconds": 0.030999999999039574
+      },
+      {
+        "kind": "model_request",
+        "at_seconds": 1.0629999999982829,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 4912,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 2.5469999999986612,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 4253,
+          "completion_tokens": 64,
+          "prompt_cache_hit_tokens": 2432,
+          "prompt_cache_miss_tokens": 1821,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.009018,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 4912,
+          "actual_prompt_tokens": 4253,
+          "actual_to_estimate_ratio": 0.8658387622149837
+        },
+        "elapsed_seconds": 1.4840000000003783,
+        "calls": [
+          {
+            "id": "call_00_1HCY3ekMK7G18HtBiijz3168",
+            "name": "read"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 2.5469999999986612,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "tool_call_id": "call_00_1HCY3ekMK7G18HtBiijz3168",
+        "action": "read",
+        "arguments": {
+          "passage_ids": [
+            "D10-P01"
+          ],
+          "reason": "读取分辨率说明原文以确认"
+        },
+        "rationale": "读取分辨率说明原文以确认"
+      },
+      {
+        "kind": "tool_observation",
+        "at_seconds": 2.5469999999986612,
+        "model_calls": 2,
+        "tool_calls": 2,
+        "tool_call_id": "call_00_1HCY3ekMK7G18HtBiijz3168",
+        "action": "read",
+        "observation": {
+          "tool": "read",
+          "status": "success",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "passages": [
+            {
+              "passage_id": "D10-P01",
+              "doc_id": "D10",
+              "title": "星帆剪辑导出分辨率说明",
+              "topic": "视频产品",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "scope": "星帆科技全体员工",
+              "text": "文档：星帆剪辑导出分辨率说明（D10）。主题：视频产品。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n星帆剪辑支持的视频导出分辨率最高为 1080p。"
+            }
+          ],
+          "error": null
+        },
+        "elapsed_seconds": 0.0
+      },
+      {
+        "kind": "model_request",
+        "at_seconds": 2.5469999999986612,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 5265,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 4.5,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 4537,
+          "completion_tokens": 334,
+          "prompt_cache_hit_tokens": 4224,
+          "prompt_cache_miss_tokens": 313,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.011746,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 5265,
+          "actual_prompt_tokens": 4537,
+          "actual_to_estimate_ratio": 0.8617283950617284
+        },
+        "elapsed_seconds": 1.9530000000013388,
+        "calls": [
+          {
+            "id": "call_00_QXmubqEZP5MycmAgX7lo8445",
+            "name": "finish"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 4.5,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "tool_call_id": "call_00_QXmubqEZP5MycmAgX7lo8445",
+        "action": "finish",
+        "arguments": {
+          "status": "answered",
+          "answer": "星帆剪辑支持的视频导出分辨率最高为 1080p[C1]。",
+          "part_statuses": [
+            "answered"
+          ],
+          "citation_refs": [
+            {
+              "marker": "[C1]",
+              "passage_id": "D10-P01",
+              "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+            }
+          ],
+          "gaps": [],
+          "clarification": null,
+          "anchor_snapshot": {
+            "subject": {
+              "value": "星帆剪辑",
+              "source_message_ids": [
+                "587849a4d2ee42f6989352dfdefac4bb"
+              ]
+            },
+            "focus": {
+              "value": "导出分辨率",
+              "source_message_ids": [
+                "e043ed7259854a6096f06a8ab4db7197"
+              ]
+            },
+            "pending_clarification": null
+          },
+          "reason": "已读取D10原文，直接回答最高导出分辨率。"
+        },
+        "rationale": "已读取D10原文，直接回答最高导出分辨率。"
+      },
+      {
+        "kind": "memory_validation",
+        "at_seconds": 4.5,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "valid": true,
+        "warning": null
+      },
+      {
+        "kind": "stop",
+        "at_seconds": 4.5,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "reason": "finished",
+        "recoveries": 0,
+        "corrections": 0
+      },
+      {
+        "kind": "memory_update",
+        "stage": "validated_before_persistence",
+        "before": {
+          "subject": {
+            "value": "星帆剪辑",
+            "source_message_ids": [
+              "587849a4d2ee42f6989352dfdefac4bb"
+            ]
+          },
+          "focus": {
+            "value": "导出格式",
+            "source_message_ids": [
+              "587849a4d2ee42f6989352dfdefac4bb"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "after": {
+          "subject": {
+            "value": "星帆剪辑",
+            "source_message_ids": [
+              "587849a4d2ee42f6989352dfdefac4bb"
+            ]
+          },
+          "focus": {
+            "value": "导出分辨率",
+            "source_message_ids": [
+              "e043ed7259854a6096f06a8ab4db7197"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "previous_valid": true,
+        "previous_warning": null
+      }
+    ],
+    "elapsed_seconds": 4.5,
+    "usage": {
+      "requests_with_unknown_usage": 0,
+      "known_requests_estimated_cny": 0.02608,
+      "total_estimated_cny": 0.02608,
+      "invoice_cny": null
+    },
+    "read_set": [
+      "D10-P01"
+    ],
+    "evidence": [
+      {
+        "passage_id": "D10-P01",
+        "doc_id": "D10",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "title": "星帆剪辑导出分辨率说明",
+        "version_date": "2026-01-01",
+        "text": "文档：星帆剪辑导出分辨率说明（D10）。主题：视频产品。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n星帆剪辑支持的视频导出分辨率最高为 1080p。"
+      }
+    ],
+    "anchor_snapshot_proposal": {
+      "subject": {
+        "value": "星帆剪辑",
+        "source_message_ids": [
+          "587849a4d2ee42f6989352dfdefac4bb"
+        ]
+      },
+      "focus": {
+        "value": "导出分辨率",
+        "source_message_ids": [
+          "e043ed7259854a6096f06a8ab4db7197"
+        ]
+      },
+      "pending_clarification": null
+    },
+    "anchor_snapshot": {
+      "subject": {
+        "value": "星帆剪辑",
+        "source_message_ids": [
+          "587849a4d2ee42f6989352dfdefac4bb"
+        ]
+      },
+      "focus": {
+        "value": "导出分辨率",
+        "source_message_ids": [
+          "e043ed7259854a6096f06a8ab4db7197"
+        ]
+      },
+      "pending_clarification": null
+    },
+    "memory_valid": true,
+    "memory_persisted": true,
+    "memory_warning": null,
+    "history_selection": {
+      "budget": 8000,
+      "estimated_tokens": 402,
+      "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+      "selected_message_ids": [
+        "587849a4d2ee42f6989352dfdefac4bb",
+        "e8135cb6fdc849df9db5fe182368fc92"
+      ],
+      "omitted_message_ids": [],
+      "boundary": "complete recent business message pairs; run traces stored separately"
+    },
+    "message_ids": {
+      "request_id": "8884629f4dc340928667a454292b7b9d",
+      "user_message_id": "e043ed7259854a6096f06a8ab4db7197",
+      "assistant_message_id": "92fea3448a1a45bd9a3c96d69e3ee457"
+    },
+    "memory_update": {
+      "before": {
+        "subject": {
+          "value": "星帆剪辑",
+          "source_message_ids": [
+            "587849a4d2ee42f6989352dfdefac4bb"
+          ]
+        },
+        "focus": {
+          "value": "导出格式",
+          "source_message_ids": [
+            "587849a4d2ee42f6989352dfdefac4bb"
+          ]
+        },
+        "pending_clarification": null
+      },
+      "after": {
+        "subject": {
+          "value": "星帆剪辑",
+          "source_message_ids": [
+            "587849a4d2ee42f6989352dfdefac4bb"
+          ]
+        },
+        "focus": {
+          "value": "导出分辨率",
+          "source_message_ids": [
+            "e043ed7259854a6096f06a8ab4db7197"
+          ]
+        },
+        "pending_clarification": null
+      },
+      "previous_valid": true,
+      "previous_warning": null
+    },
+    "persistence": {
+      "saved": true,
+      "user_message_saved": true,
+      "result_saved": true
+    }
+  }
+}

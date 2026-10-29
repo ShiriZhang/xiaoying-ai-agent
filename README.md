@@ -1,6 +1,6 @@
 # 企业知识问答 Agent（题号 3）
 
-当前已实现第一至第七批：工程基础、资料、Agent、混合检索、可靠结果、SQLite/上下文/锚点及四个FastAPI路由。Mock服务已实际启动、两轮追问并重启验证，见[第七批记录](examples/batch-7/verification.md)。**六类真实模型业务验收及全新环境验收尚未完成**。当前完成 1.1–7.3，共 34/46 项；下一项为8.1。OpenSpec规划与任务文件仅保留本地，不随公开仓库发布。
+当前已完成第一至第八批：四个REST路由及前置能力、真实模型六类两次验证、规则/记忆回归和授权的独立代理资料变更核查。最终36轮实际结果与全部104轮失败/复跑记录见[第八批证据](examples/batch-8/verification.md)、[独立逐项矩阵](examples/batch-8/delegated-audit/validated-review.md)。资料修改及支持性审阅按用户明确授权由独立AI代理代办，不冒称用户亲自完成。**第9批全新环境和第10批综合交付尚未完成**。当前40/46项，下一项9.1。OpenSpec规划与任务文件仅保留本地，不随公开仓库发布。
 
 ## 支持环境与安装
 
@@ -112,7 +112,7 @@ $env:QA_MODE = 'live'
 .venv/Scripts/python.exe -I -m enterprise_knowledge_qa.server --env-file .env
 ```
 
-真实模式与Mock使用同样四个请求格式，只有显式配置选择模式。配置、权重或存储未就绪会以退出码2停止启动；认证/服务失败返回任务incomplete，不换服务。本批未执行真实HTTP问答或六类真实验收；已有真实协议冒烟与embedding证据不替代第8批。
+真实模式与Mock使用同样四个请求格式，只有显式配置选择模式。配置、权重或存储未就绪会以退出码2停止启动；认证/服务失败返回任务incomplete，不换服务。第八批已通过同一ConversationService/Agent运行真实六类问答；HTTP传输层已用Mock验证，完整全新环境真实HTTP验证仍留第9批。
 
 ## 分层测试与实际证据
 
@@ -129,6 +129,14 @@ $env:QA_MODE = 'live'
 ```
 
 输出文件必须尚不存在；复跑时换新文件名，保留先前证据。可加`--powershell-output .cache/readme-new.json`实际执行README的PowerShell请求。实际请求/响应/Trace见[最终HTTP记录](examples/batch-7/http-demo-final.json)、[PowerShell结果](examples/batch-7/readme-requests.json)、[第七批验证](examples/batch-7/verification.md)。全新空环境API验证仍待第9批；当前环境安装与重启测试不能代替它。真实embedding、六类真实模型效果与冷启动分别独立验收。资料加载/重载接口见[资料说明](data/README.md)，已审阅正文与变体预期见[审阅稿](data/REVIEW.md)。
+
+第八批真实验证入口（产生实际模型费用，必须显式--live；本地.env提供密钥，权重使用已锁定revision，不改.env）：
+
+```powershell
+.venv/Scripts/python.exe -I examples/batch-8/run_live.py --live --env-file .env --group core --repeat 2 --output .cache/live-core-new
+```
+
+output目录必须尚不存在。regressions、memory组及独立代理资料组命令见[完整验证](examples/batch-8/verification.md)；原始失败与修复后结果全部保留。真实适配器显式temperature=0，不保证确定性；两次核心重复不代表统计稳定性。本批所有尝试按usage保守估算3.333384元、未知usage0，实际账单未核实；不推断剩余预算或把AI工作算作个人工时。
 
 ## 真实CPU权重、检索与重载
 

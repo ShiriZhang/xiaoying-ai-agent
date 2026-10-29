@@ -1,0 +1,2526 @@
+{
+  "scope": "Derived inventory, not semantic pass/fail; invoice and user work time unverified",
+  "deduplication": "top-level result.request_id only; rolling progress and nested context excluded",
+  "costs": {
+    "model_attempts": 56,
+    "model_outcomes_with_unknown_usage": 0,
+    "known_prompt_tokens": 224926,
+    "known_completion_tokens": 10139,
+    "known_requests_estimated_cny": 0.530964,
+    "invoice_cny": null,
+    "unique_task_requests": 18,
+    "total_estimated_cny": 0.530964
+  },
+  "records": [
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A01-r1-t1-3f3a89d5267c40a0a838cb2515ce10e1.json",
+      "case_id": "A01",
+      "repeat": 1,
+      "turn": 1,
+      "request_id": "3f3a89d5267c40a0a838cb2515ce10e1",
+      "status": "answered",
+      "answer": "差旅报销所需材料：提交差旅报销申请需提供**发票**与**出差审批单**两项 [C1]。\n\n补充（与材料提交流程相关）：申请先提交直属负责人审批，再提交财务审核 [C2]；并应在出差结束后 30 天内提交 [C3]。\n\n说明：以上为差旅报销的口径；若你问的是非差旅类报销（如日常费用、招待费等），本轮资料未检索到对应材料清单。",
+      "gaps": [
+        "资料仅覆盖差旅报销的材料要求，未检索到非差旅类报销（日常费用、招待费等）的材料清单"
+      ],
+      "clarification": null,
+      "citations": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D03-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D03",
+          "version_date": "2026-01-01",
+          "title": "差旅报销材料说明",
+          "effective_date": "2026-01-01",
+          "text": "文档：差旅报销材料说明（D03）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n提交差旅报销申请需提供发票与出差审批单。"
+        },
+        {
+          "marker": "[C2]",
+          "passage_id": "D04-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D04",
+          "version_date": "2026-01-01",
+          "title": "差旅报销审批流程",
+          "effective_date": "2026-01-01",
+          "text": "文档：差旅报销审批流程（D04）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n差旅报销申请先提交直属负责人审批，再提交财务审核。"
+        },
+        {
+          "marker": "[C3]",
+          "passage_id": "D01-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D01",
+          "version_date": "2026-01-01",
+          "title": "差旅报销期限规定",
+          "effective_date": "2026-01-01",
+          "text": "文档：差旅报销期限规定（D01）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n员工应在出差结束后 30 天内提交差旅报销申请。"
+        }
+      ],
+      "citation_checks": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D03-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        },
+        {
+          "marker": "[C2]",
+          "passage_id": "D04-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        },
+        {
+          "marker": "[C3]",
+          "passage_id": "D01-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        }
+      ],
+      "actions": [
+        {
+          "action": "search",
+          "arguments": {
+            "query": "报销 所需材料 报销凭证要求",
+            "reason": "检索公司报销制度中的材料要求"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D03-P01",
+              "D04-P01",
+              "D01-P01"
+            ],
+            "reason": "读取报销材料、审批流程与期限的完整原文"
+          }
+        },
+        {
+          "action": "finish",
+          "arguments": {
+            "status": "answered",
+            "answer": "差旅报销所需材料：提交差旅报销申请需提供**发票**与**出差审批单**两项 [C1]。\n\n补充（与材料提交流程相关）：申请先提交直属负责人审批，再提交财务审核 [C2]；并应在出差结束后 30 天内提交 [C3]。\n\n说明：以上为差旅报销的口径；若你问的是非差旅类报销（如日常费用、招待费等），本轮资料未检索到对应材料清单。",
+            "part_statuses": [
+              "answered"
+            ],
+            "citation_refs": [
+              {
+                "marker": "[C1]",
+                "passage_id": "D03-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              },
+              {
+                "marker": "[C2]",
+                "passage_id": "D04-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              },
+              {
+                "marker": "[C3]",
+                "passage_id": "D01-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              }
+            ],
+            "gaps": [
+              "资料仅覆盖差旅报销的材料要求，未检索到非差旅类报销（日常费用、招待费等）的材料清单"
+            ],
+            "clarification": null,
+            "anchor_snapshot": {
+              "subject": {
+                "value": "报销材料要求",
+                "source_message_ids": [
+                  "ce4661f6116f48e897730ca7e16ced82"
+                ]
+              },
+              "focus": {
+                "value": "差旅报销所需材料",
+                "source_message_ids": [
+                  "ce4661f6116f48e897730ca7e16ced82"
+                ]
+              },
+              "pending_clarification": null
+            },
+            "reason": "已读取差旅报销材料说明原文，材料要求明确无冲突。"
+          }
+        }
+      ],
+      "tool_errors": [],
+      "execution_issues": [],
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 0,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": null,
+        "after": {
+          "subject": {
+            "value": "报销材料要求",
+            "source_message_ids": [
+              "ce4661f6116f48e897730ca7e16ced82"
+            ]
+          },
+          "focus": {
+            "value": "差旅报销所需材料",
+            "source_message_ids": [
+              "ce4661f6116f48e897730ca7e16ced82"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      },
+      "memory_valid": true,
+      "memory_warning": null,
+      "known_estimated_cny": 0.028145999999999997,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A01-r2-t1-0ad851f2f5e34dbd9c45e17a03c7f1ba.json",
+      "case_id": "A01",
+      "repeat": 2,
+      "turn": 1,
+      "request_id": "0ad851f2f5e34dbd9c45e17a03c7f1ba",
+      "status": "answered",
+      "answer": "公司资料中目前只有差旅报销的材料规定：提交差旅报销申请需提供发票与出差审批单[C1]。流程上先提交直属负责人审批，再提交财务审核[C2]；申请应在出差结束后 15 天内提交[C3]。\n\n非差旅类报销（如日常费用、采购、招待等）所需材料，本轮资料未覆盖。",
+      "gaps": [
+        "非差旅类报销（日常费用、采购、招待等）的材料要求未检索到资料，无法覆盖。",
+        "差旅报销期限存在两份规定：D02-P01（2026-03-01 生效）为出差结束后 15 天内，D01-P01（2026-01-01 生效）为 30 天内；已读原文均未说明替代或废止关系，未消解。"
+      ],
+      "clarification": "能提供说明差旅报销期限现行规则或替代关系的制度文件吗？",
+      "citations": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D03-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D03",
+          "version_date": "2026-01-01",
+          "title": "差旅报销材料说明",
+          "effective_date": "2026-01-01",
+          "text": "文档：差旅报销材料说明（D03）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n提交差旅报销申请需提供发票与出差审批单。"
+        },
+        {
+          "marker": "[C2]",
+          "passage_id": "D04-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D04",
+          "version_date": "2026-01-01",
+          "title": "差旅报销审批流程",
+          "effective_date": "2026-01-01",
+          "text": "文档：差旅报销审批流程（D04）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n差旅报销申请先提交直属负责人审批，再提交财务审核。"
+        },
+        {
+          "marker": "[C3]",
+          "passage_id": "D02-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D02",
+          "version_date": "2026-03-01",
+          "title": "差旅报销期限问答",
+          "effective_date": "2026-03-01",
+          "text": "文档：差旅报销期限问答（D02）。主题：差旅报销。版本日期：2026-03-01。生效日期：2026-03-01。适用范围：星帆科技全体员工。\n员工应在出差结束后 15 天内提交差旅报销申请。"
+        }
+      ],
+      "citation_checks": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D03-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        },
+        {
+          "marker": "[C2]",
+          "passage_id": "D04-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        },
+        {
+          "marker": "[C3]",
+          "passage_id": "D02-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        }
+      ],
+      "actions": [
+        {
+          "action": "search",
+          "arguments": {
+            "query": "报销所需材料 报销单 发票 附件要求",
+            "reason": "查找公司报销制度中关于提交材料的原文"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D03-P01",
+              "D04-P01",
+              "D02-P01"
+            ],
+            "reason": "读取差旅报销材料与流程原文，确认所需材料清单"
+          }
+        },
+        {
+          "action": "finish",
+          "arguments": {
+            "status": "answered",
+            "answer": "公司资料中目前只有差旅报销的材料规定：提交差旅报销申请需提供发票与出差审批单[C1]。流程上先提交直属负责人审批，再提交财务审核[C2]；申请应在出差结束后 15 天内提交[C3]。\n\n非差旅类报销（如日常费用、采购、招待等）所需材料，本轮资料未覆盖。",
+            "part_statuses": [
+              "answered"
+            ],
+            "citation_refs": [
+              {
+                "marker": "[C1]",
+                "passage_id": "D03-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              },
+              {
+                "marker": "[C2]",
+                "passage_id": "D04-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              },
+              {
+                "marker": "[C3]",
+                "passage_id": "D02-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              }
+            ],
+            "gaps": [
+              "非差旅类报销（日常费用、采购、招待等）的材料要求未检索到资料，无法覆盖。",
+              "差旅报销期限存在两份规定：D02-P01（2026-03-01 生效）为出差结束后 15 天内，D01-P01（2026-01-01 生效）为 30 天内；已读原文均未说明替代或废止关系，未消解。"
+            ],
+            "clarification": "能提供说明差旅报销期限现行规则或替代关系的制度文件吗？",
+            "anchor_snapshot": {
+              "subject": {
+                "value": "报销材料要求",
+                "source_message_ids": [
+                  "c2a9eda591d04be0a1606ef9b33585e0"
+                ]
+              },
+              "focus": {
+                "value": "报销需提交的材料",
+                "source_message_ids": [
+                  "c2a9eda591d04be0a1606ef9b33585e0"
+                ]
+              },
+              "pending_clarification": {
+                "value": "差旅报销期限现行规则（15天或30天）的替代说明",
+                "source_message_ids": [
+                  "c2a9eda591d04be0a1606ef9b33585e0"
+                ]
+              }
+            },
+            "reason": "已读取差旅报销材料原文，材料问题可答，期限冲突需澄清"
+          }
+        }
+      ],
+      "tool_errors": [],
+      "execution_issues": [],
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 0,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": null,
+        "after": {
+          "subject": {
+            "value": "报销材料要求",
+            "source_message_ids": [
+              "c2a9eda591d04be0a1606ef9b33585e0"
+            ]
+          },
+          "focus": {
+            "value": "报销需提交的材料",
+            "source_message_ids": [
+              "c2a9eda591d04be0a1606ef9b33585e0"
+            ]
+          },
+          "pending_clarification": {
+            "value": "差旅报销期限现行规则（15天或30天）的替代说明",
+            "source_message_ids": [
+              "c2a9eda591d04be0a1606ef9b33585e0"
+            ]
+          }
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      },
+      "memory_valid": true,
+      "memory_warning": null,
+      "known_estimated_cny": 0.029136000000000002,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A02-r1-t1-614b026ef17b49ce970a013105377db9.json",
+      "case_id": "A02",
+      "repeat": 1,
+      "turn": 1,
+      "request_id": "614b026ef17b49ce970a013105377db9",
+      "status": "needs_clarification",
+      "answer": "差旅报销期限的资料存在冲突，且未找到可裁决的替代/废止说明，暂不能确定唯一期限：\n\n- 《差旅报销期限规定》（D01，生效日期 2026-01-01，适用星帆科技全体员工）：员工应在出差结束后 30 天内提交差旅报销申请。[C1]\n- 《差旅报销期限问答》（D02，生效日期 2026-03-01，适用星帆科技全体员工）：员工应在出差结束后 15 天内提交差旅报销申请。[C2]\n\n两份文件的正文均未写明替代或废止对方规则，也没有生效条件说明，因此不能仅凭日期较新认定 15 天为准，也无法确认 30 天已失效。补查后未发现其他现行替代说明。",
+      "gaps": [
+        "差旅报销期限存在冲突：D01（2026-01-01 生效）规定 30 天，D02（2026-03-01 生效）规定 15 天；两份正文均未声明替代关系或生效条件，无法判断现行规则。"
+      ],
+      "clarification": "能提供明确说明这两份规定替代关系或现行有效版本的制度文件吗？",
+      "citations": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D01-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D01",
+          "version_date": "2026-01-01",
+          "title": "差旅报销期限规定",
+          "effective_date": "2026-01-01",
+          "text": "文档：差旅报销期限规定（D01）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n员工应在出差结束后 30 天内提交差旅报销申请。"
+        },
+        {
+          "marker": "[C2]",
+          "passage_id": "D02-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D02",
+          "version_date": "2026-03-01",
+          "title": "差旅报销期限问答",
+          "effective_date": "2026-03-01",
+          "text": "文档：差旅报销期限问答（D02）。主题：差旅报销。版本日期：2026-03-01。生效日期：2026-03-01。适用范围：星帆科技全体员工。\n员工应在出差结束后 15 天内提交差旅报销申请。"
+        }
+      ],
+      "citation_checks": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D01-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        },
+        {
+          "marker": "[C2]",
+          "passage_id": "D02-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        }
+      ],
+      "actions": [
+        {
+          "action": "search",
+          "arguments": {
+            "query": "报销期限 报销申请时限 天数",
+            "reason": "需检索公司报销期限相关制度原文"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D01-P01",
+              "D02-P01"
+            ],
+            "reason": "两份候选报销期限分别为30天与15天，需读原文确认冲突及适用条件"
+          }
+        },
+        {
+          "action": "search",
+          "arguments": {
+            "query": "差旅报销 15天 30天 替代 废止 修订说明 生效",
+            "reason": "两份期限规定冲突，需补查是否存在替代或废止说明"
+          }
+        },
+        {
+          "action": "finish",
+          "arguments": {
+            "status": "needs_clarification",
+            "answer": "差旅报销期限的资料存在冲突，且未找到可裁决的替代/废止说明，暂不能确定唯一期限：\n\n- 《差旅报销期限规定》（D01，生效日期 2026-01-01，适用星帆科技全体员工）：员工应在出差结束后 30 天内提交差旅报销申请。[C1]\n- 《差旅报销期限问答》（D02，生效日期 2026-03-01，适用星帆科技全体员工）：员工应在出差结束后 15 天内提交差旅报销申请。[C2]\n\n两份文件的正文均未写明替代或废止对方规则，也没有生效条件说明，因此不能仅凭日期较新认定 15 天为准，也无法确认 30 天已失效。补查后未发现其他现行替代说明。",
+            "part_statuses": [
+              "needs_clarification"
+            ],
+            "citation_refs": [
+              {
+                "marker": "[C1]",
+                "passage_id": "D01-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              },
+              {
+                "marker": "[C2]",
+                "passage_id": "D02-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              }
+            ],
+            "gaps": [
+              "差旅报销期限存在冲突：D01（2026-01-01 生效）规定 30 天，D02（2026-03-01 生效）规定 15 天；两份正文均未声明替代关系或生效条件，无法判断现行规则。"
+            ],
+            "clarification": "能提供明确说明这两份规定替代关系或现行有效版本的制度文件吗？",
+            "anchor_snapshot": {
+              "subject": {
+                "value": "差旅报销期限",
+                "source_message_ids": [
+                  "19df8f12624f498dbf4a2373d2b9246d"
+                ]
+              },
+              "focus": {
+                "value": "报销期限天数（15 天与 30 天规则冲突）",
+                "source_message_ids": [
+                  "19df8f12624f498dbf4a2373d2b9246d"
+                ]
+              },
+              "pending_clarification": {
+                "value": "能提供明确说明这两份规定替代关系或现行有效版本的制度文件吗？",
+                "source_message_ids": [
+                  "19df8f12624f498dbf4a2373d2b9246d"
+                ]
+              }
+            },
+            "reason": "两份期限规则冲突且无替代依据，需列出双方并请求现行制度。"
+          }
+        }
+      ],
+      "tool_errors": [],
+      "execution_issues": [],
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 0,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": null,
+        "after": {
+          "subject": {
+            "value": "差旅报销期限",
+            "source_message_ids": [
+              "19df8f12624f498dbf4a2373d2b9246d"
+            ]
+          },
+          "focus": {
+            "value": "报销期限天数（15 天与 30 天规则冲突）",
+            "source_message_ids": [
+              "19df8f12624f498dbf4a2373d2b9246d"
+            ]
+          },
+          "pending_clarification": {
+            "value": "能提供明确说明这两份规定替代关系或现行有效版本的制度文件吗？",
+            "source_message_ids": [
+              "19df8f12624f498dbf4a2373d2b9246d"
+            ]
+          }
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      },
+      "memory_valid": true,
+      "memory_warning": null,
+      "known_estimated_cny": 0.043584,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A02-r2-t1-7a6961e48a084fa28bc21cf386c638e4.json",
+      "case_id": "A02",
+      "repeat": 2,
+      "turn": 1,
+      "request_id": "7a6961e48a084fa28bc21cf386c638e4",
+      "status": "needs_clarification",
+      "answer": "关于差旅报销期限，公司资料中存在两处互相冲突且均在生效的现行规定：\n\n- 《差旅报销期限规定》（2026-01-01 生效）：员工应在出差结束后 30 天内提交差旅报销申请 [C1]。\n- 《差旅报销期限问答》（2026-03-01 生效）：员工应在出差结束后 15 天内提交差旅报销申请 [C2]。\n\n两份文件均标注适用范围为星帆科技全体员工，且正文中都没有说明彼此之间的替代关系或适用条件，因此无法依据现有资料判定哪一条为当前执行口径，也无法确定最终天数。补充说明：审批顺序（先直属负责人、再财务审核）与本问题无关，未纳入结论 [C3]。",
+      "gaps": [
+        "差旅报销期限存在未消解冲突：《差旅报销期限规定》为30天，《差旅报销期限问答》为15天，两文均生效且无替代或适用条件说明，缺少可确认现行规则的资料。"
+      ],
+      "clarification": "能提供明确现行报销期限的制度或替代说明吗？",
+      "citations": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D01-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D01",
+          "version_date": "2026-01-01",
+          "title": "差旅报销期限规定",
+          "effective_date": "2026-01-01",
+          "text": "文档：差旅报销期限规定（D01）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n员工应在出差结束后 30 天内提交差旅报销申请。"
+        },
+        {
+          "marker": "[C2]",
+          "passage_id": "D02-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D02",
+          "version_date": "2026-03-01",
+          "title": "差旅报销期限问答",
+          "effective_date": "2026-03-01",
+          "text": "文档：差旅报销期限问答（D02）。主题：差旅报销。版本日期：2026-03-01。生效日期：2026-03-01。适用范围：星帆科技全体员工。\n员工应在出差结束后 15 天内提交差旅报销申请。"
+        },
+        {
+          "marker": "[C3]",
+          "passage_id": "D04-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D04",
+          "version_date": "2026-01-01",
+          "title": "差旅报销审批流程",
+          "effective_date": "2026-01-01",
+          "text": "文档：差旅报销审批流程（D04）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n差旅报销申请先提交直属负责人审批，再提交财务审核。"
+        }
+      ],
+      "citation_checks": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D01-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        },
+        {
+          "marker": "[C2]",
+          "passage_id": "D02-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        },
+        {
+          "marker": "[C3]",
+          "passage_id": "D04-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        }
+      ],
+      "actions": [
+        {
+          "action": "search",
+          "arguments": {
+            "query": "报销期限 多少天内提交报销",
+            "reason": "检索公司报销时限规定"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D01-P01",
+              "D02-P01",
+              "D04-P01"
+            ],
+            "reason": "D01与D02对报销期限规定冲突（30天/15天），需读取双方原文及是否需要其他依据"
+          }
+        },
+        {
+          "action": "search",
+          "arguments": {
+            "query": "差旅报销期限 30天 15天 修订 替代 说明 现行版本",
+            "reason": "两份现行文件期限冲突（30天/15天），补查是否有替代或修订说明"
+          }
+        },
+        {
+          "action": "finish",
+          "arguments": {
+            "status": "needs_clarification",
+            "answer": "关于差旅报销期限，公司资料中存在两处互相冲突且均在生效的现行规定：\n\n- 《差旅报销期限规定》（2026-01-01 生效）：员工应在出差结束后 30 天内提交差旅报销申请 [C1]。\n- 《差旅报销期限问答》（2026-03-01 生效）：员工应在出差结束后 15 天内提交差旅报销申请 [C2]。\n\n两份文件均标注适用范围为星帆科技全体员工，且正文中都没有说明彼此之间的替代关系或适用条件，因此无法依据现有资料判定哪一条为当前执行口径，也无法确定最终天数。补充说明：审批顺序（先直属负责人、再财务审核）与本问题无关，未纳入结论 [C3]。",
+            "part_statuses": [
+              "needs_clarification"
+            ],
+            "citation_refs": [
+              {
+                "marker": "[C1]",
+                "passage_id": "D01-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              },
+              {
+                "marker": "[C2]",
+                "passage_id": "D02-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              },
+              {
+                "marker": "[C3]",
+                "passage_id": "D04-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              }
+            ],
+            "gaps": [
+              "差旅报销期限存在未消解冲突：《差旅报销期限规定》为30天，《差旅报销期限问答》为15天，两文均生效且无替代或适用条件说明，缺少可确认现行规则的资料。"
+            ],
+            "clarification": "能提供明确现行报销期限的制度或替代说明吗？",
+            "anchor_snapshot": {
+              "subject": {
+                "value": "公司差旅报销制度",
+                "source_message_ids": [
+                  "f9bbc2b17df2401bb662f9fec1a96162"
+                ]
+              },
+              "focus": {
+                "value": "差旅报销提交期限（30天与15天规定冲突）",
+                "source_message_ids": [
+                  "f9bbc2b17df2401bb662f9fec1a96162"
+                ]
+              },
+              "pending_clarification": {
+                "value": "能提供明确现行报销期限的制度或替代说明吗？",
+                "source_message_ids": [
+                  "f9bbc2b17df2401bb662f9fec1a96162"
+                ]
+              }
+            },
+            "reason": "两份均生效的期限规定互相冲突且无替代说明，无法裁决，需请求现行制度依据。"
+          }
+        }
+      ],
+      "tool_errors": [],
+      "execution_issues": [],
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 0,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": null,
+        "after": {
+          "subject": {
+            "value": "公司差旅报销制度",
+            "source_message_ids": [
+              "f9bbc2b17df2401bb662f9fec1a96162"
+            ]
+          },
+          "focus": {
+            "value": "差旅报销提交期限（30天与15天规定冲突）",
+            "source_message_ids": [
+              "f9bbc2b17df2401bb662f9fec1a96162"
+            ]
+          },
+          "pending_clarification": {
+            "value": "能提供明确现行报销期限的制度或替代说明吗？",
+            "source_message_ids": [
+              "f9bbc2b17df2401bb662f9fec1a96162"
+            ]
+          }
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      },
+      "memory_valid": true,
+      "memory_warning": null,
+      "known_estimated_cny": 0.044586,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A03-missing-r1-t1-db054c720d714bcf91e0bda5911456da.json",
+      "case_id": "A03-missing",
+      "repeat": 1,
+      "turn": 1,
+      "request_id": "db054c720d714bcf91e0bda5911456da",
+      "status": "insufficient_evidence",
+      "answer": "公司资料中未检索到关于住房补贴的规定：本轮检索到的员工福利/人事类资料仅有补卡材料说明、请假申请规定、人事制度咨询说明等，均未涉及住房补贴的发放条件、标准或申请方式，因此无法确认公司是否有住房补贴。人事类制度问题可联系人事服务台咨询[C1]。",
+      "gaps": [
+        "现有资料未覆盖住房补贴制度：未检索到任何包含住房补贴发放条件、标准或申请流程的文档，故无法确认公司是否存在住房补贴。"
+      ],
+      "clarification": null,
+      "citations": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D08-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D08",
+          "version_date": "2026-01-01",
+          "title": "人事制度咨询说明",
+          "effective_date": "2026-01-01",
+          "text": "文档：人事制度咨询说明（D08）。主题：人事。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n员工咨询人事制度请联系人事服务台。"
+        }
+      ],
+      "citation_checks": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D08-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        }
+      ],
+      "actions": [
+        {
+          "action": "search",
+          "arguments": {
+            "query": "住房补贴",
+            "reason": "初步检索公司住房补贴相关制度"
+          }
+        },
+        {
+          "action": "search",
+          "arguments": {
+            "query": "住房 补贴 福利 津贴 员工",
+            "reason": "首轮结果均为补卡与差旅报销，改查住房补贴与员工福利津贴相关制度"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D08-P01",
+              "D07-P01",
+              "D12-P01"
+            ],
+            "reason": "读取人事制度咨询说明及人事类候选原文，确认是否涉及住房补贴及咨询渠道"
+          }
+        },
+        {
+          "action": "finish",
+          "arguments": {
+            "status": "insufficient_evidence",
+            "answer": "公司资料中未检索到关于住房补贴的规定：本轮检索到的员工福利/人事类资料仅有补卡材料说明、请假申请规定、人事制度咨询说明等，均未涉及住房补贴的发放条件、标准或申请方式，因此无法确认公司是否有住房补贴。人事类制度问题可联系人事服务台咨询[C1]。",
+            "part_statuses": [
+              "insufficient_evidence"
+            ],
+            "citation_refs": [
+              {
+                "marker": "[C1]",
+                "passage_id": "D08-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              }
+            ],
+            "gaps": [
+              "现有资料未覆盖住房补贴制度：未检索到任何包含住房补贴发放条件、标准或申请流程的文档，故无法确认公司是否存在住房补贴。"
+            ],
+            "clarification": null,
+            "anchor_snapshot": {
+              "subject": {
+                "value": "公司住房补贴",
+                "source_message_ids": [
+                  "12d9dca0ac3e471c88543f193e8acca7"
+                ]
+              },
+              "focus": {
+                "value": "公司是否提供住房补贴",
+                "source_message_ids": [
+                  "12d9dca0ac3e471c88543f193e8acca7"
+                ]
+              },
+              "pending_clarification": null
+            },
+            "reason": "检索到的人事资料均不含住房补贴内容，仅能提供人事咨询渠道，按资料未覆盖作答。"
+          }
+        }
+      ],
+      "tool_errors": [],
+      "execution_issues": [],
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 0,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": null,
+        "after": {
+          "subject": {
+            "value": "公司住房补贴",
+            "source_message_ids": [
+              "12d9dca0ac3e471c88543f193e8acca7"
+            ]
+          },
+          "focus": {
+            "value": "公司是否提供住房补贴",
+            "source_message_ids": [
+              "12d9dca0ac3e471c88543f193e8acca7"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      },
+      "memory_valid": true,
+      "memory_warning": null,
+      "known_estimated_cny": 0.04251,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A03-missing-r2-t1-999a7f3b5251404b94466734ba99ca2a.json",
+      "case_id": "A03-missing",
+      "repeat": 2,
+      "turn": 1,
+      "request_id": "999a7f3b5251404b94466734ba99ca2a",
+      "status": "insufficient_evidence",
+      "answer": "现有公司资料中未检索到关于住房补贴的制度条款，因此无法确认公司是否提供住房补贴。仅查到一条相关说明：员工咨询人事制度请联系人事服务台 [C1]。\n（说明：该结论只表示本轮未检索到覆盖住房补贴的资料，不代表公司一定没有该补贴。）",
+      "gaps": [
+        "公司资料中未检索到住房补贴/租房补贴等福利津贴的制度原文，无法确认是否存在该补贴及适用条件。"
+      ],
+      "clarification": "能提供住房补贴相关的现行制度或福利政策文件吗？",
+      "citations": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D08-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D08",
+          "version_date": "2026-01-01",
+          "title": "人事制度咨询说明",
+          "effective_date": "2026-01-01",
+          "text": "文档：人事制度咨询说明（D08）。主题：人事。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n员工咨询人事制度请联系人事服务台。"
+        }
+      ],
+      "citation_checks": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D08-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        }
+      ],
+      "actions": [
+        {
+          "action": "search",
+          "arguments": {
+            "query": "住房补贴 政策",
+            "reason": "检索公司住房补贴相关制度原文"
+          }
+        },
+        {
+          "action": "search",
+          "arguments": {
+            "query": "住房 租房 补贴 福利 津贴 员工",
+            "reason": "首轮候选无住房补贴内容，换关键词补查福利津贴类资料",
+            "limit": 12
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D08-P01"
+            ],
+            "reason": "唯一人事相关候选为制度咨询说明，读取确认其内容"
+          }
+        },
+        {
+          "action": "finish",
+          "arguments": {
+            "status": "insufficient_evidence",
+            "answer": "现有公司资料中未检索到关于住房补贴的制度条款，因此无法确认公司是否提供住房补贴。仅查到一条相关说明：员工咨询人事制度请联系人事服务台 [C1]。\n（说明：该结论只表示本轮未检索到覆盖住房补贴的资料，不代表公司一定没有该补贴。）",
+            "part_statuses": [
+              "insufficient_evidence"
+            ],
+            "citation_refs": [
+              {
+                "marker": "[C1]",
+                "passage_id": "D08-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              }
+            ],
+            "gaps": [
+              "公司资料中未检索到住房补贴/租房补贴等福利津贴的制度原文，无法确认是否存在该补贴及适用条件。"
+            ],
+            "clarification": "能提供住房补贴相关的现行制度或福利政策文件吗？",
+            "anchor_snapshot": {
+              "subject": {
+                "value": "公司住房补贴",
+                "source_message_ids": [
+                  "4a63e677d676455c9f32a3b9cb8b9b81"
+                ]
+              },
+              "focus": {
+                "value": "公司是否提供住房补贴",
+                "source_message_ids": [
+                  "4a63e677d676455c9f32a3b9cb8b9b81"
+                ]
+              },
+              "pending_clarification": {
+                "value": "能提供住房补贴相关的现行制度或福利政策文件吗？",
+                "source_message_ids": [
+                  "4a63e677d676455c9f32a3b9cb8b9b81"
+                ]
+              }
+            },
+            "reason": "两轮检索均未找到住房补贴制度原文，仅有人事咨询说明，资料不足以确认。"
+          }
+        }
+      ],
+      "tool_errors": [],
+      "execution_issues": [],
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 0,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": null,
+        "after": {
+          "subject": {
+            "value": "公司住房补贴",
+            "source_message_ids": [
+              "4a63e677d676455c9f32a3b9cb8b9b81"
+            ]
+          },
+          "focus": {
+            "value": "公司是否提供住房补贴",
+            "source_message_ids": [
+              "4a63e677d676455c9f32a3b9cb8b9b81"
+            ]
+          },
+          "pending_clarification": {
+            "value": "能提供住房补贴相关的现行制度或福利政策文件吗？",
+            "source_message_ids": [
+              "4a63e677d676455c9f32a3b9cb8b9b81"
+            ]
+          }
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      },
+      "memory_valid": true,
+      "memory_warning": null,
+      "known_estimated_cny": 0.045574,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A03-weather-r1-t1-9441f23a70e447cea422e0c9433b3708.json",
+      "case_id": "A03-weather",
+      "repeat": 1,
+      "turn": 1,
+      "request_id": "9441f23a70e447cea422e0c9433b3708",
+      "status": "out_of_scope",
+      "answer": "天气信息不属于公司资料问答范围，我无法提供。本服务仅回答公司制度与产品等公司资料相关问题。",
+      "gaps": [
+        "问题与公司资料无关，超出服务范围。"
+      ],
+      "clarification": null,
+      "citations": [],
+      "citation_checks": [],
+      "actions": [
+        {
+          "action": "finish",
+          "arguments": {
+            "status": "out_of_scope",
+            "answer": "天气信息不属于公司资料问答范围，我无法提供。本服务仅回答公司制度与产品等公司资料相关问题。",
+            "part_statuses": [
+              "out_of_scope"
+            ],
+            "citation_refs": [],
+            "gaps": [
+              "问题与公司资料无关，超出服务范围。"
+            ],
+            "clarification": null,
+            "anchor_snapshot": {
+              "subject": null,
+              "focus": null,
+              "pending_clarification": null
+            },
+            "reason": "天气问题与公司资料无关，直接说明服务范围。"
+          }
+        }
+      ],
+      "tool_errors": [],
+      "execution_issues": [],
+      "counts": {
+        "model_calls": 1,
+        "tool_calls": 0,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 0,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": null,
+        "after": {
+          "subject": null,
+          "focus": null,
+          "pending_clarification": null
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      },
+      "memory_valid": true,
+      "memory_warning": null,
+      "known_estimated_cny": 0.00645,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A03-weather-r2-t1-b0949eecec394b089e9fde4816e70570.json",
+      "case_id": "A03-weather",
+      "repeat": 2,
+      "turn": 1,
+      "request_id": "b0949eecec394b089e9fde4816e70570",
+      "status": "out_of_scope",
+      "answer": "这个问题与公司资料无关，我只负责公司资料问答，无法提供天气信息。",
+      "gaps": [
+        "非公司资料类问题，超出服务范围"
+      ],
+      "clarification": null,
+      "citations": [],
+      "citation_checks": [],
+      "actions": [
+        {
+          "action": "finish",
+          "arguments": {
+            "status": "out_of_scope",
+            "answer": "这个问题与公司资料无关，我只负责公司资料问答，无法提供天气信息。",
+            "part_statuses": [
+              "out_of_scope"
+            ],
+            "citation_refs": [],
+            "gaps": [
+              "非公司资料类问题，超出服务范围"
+            ],
+            "clarification": null,
+            "anchor_snapshot": {
+              "subject": null,
+              "focus": null,
+              "pending_clarification": null
+            },
+            "reason": "问题与公司资料无关，属范围外。"
+          }
+        }
+      ],
+      "tool_errors": [],
+      "execution_issues": [],
+      "counts": {
+        "model_calls": 1,
+        "tool_calls": 0,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 0,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": null,
+        "after": {
+          "subject": null,
+          "focus": null,
+          "pending_clarification": null
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      },
+      "memory_valid": true,
+      "memory_warning": null,
+      "known_estimated_cny": 0.006362,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A04-r1-t1-2881e62871714ad4933e3b356454fb4a.json",
+      "case_id": "A04",
+      "repeat": 1,
+      "turn": 1,
+      "request_id": "2881e62871714ad4933e3b356454fb4a",
+      "status": "answered",
+      "answer": "出差报销所需凭证：提交差旅报销申请需提供**发票**与**出差审批单**。[C1]（依据《差旅报销材料说明》，自2026-01-01生效，适用星帆科技全体员工。）",
+      "gaps": [],
+      "clarification": null,
+      "citations": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D03-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D03",
+          "version_date": "2026-01-01",
+          "title": "差旅报销材料说明",
+          "effective_date": "2026-01-01",
+          "text": "文档：差旅报销材料说明（D03）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n提交差旅报销申请需提供发票与出差审批单。"
+        }
+      ],
+      "citation_checks": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D03-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        }
+      ],
+      "actions": [
+        {
+          "action": "search",
+          "arguments": {
+            "query": "出差费用报销 需要提交哪些凭证",
+            "reason": "检索公司差旅报销凭证要求的相关原始制度。",
+            "limit": 6
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D03-P01"
+            ],
+            "reason": "读取差旅报销材料说明原文，确认凭证要求。"
+          }
+        },
+        {
+          "action": "finish",
+          "arguments": {
+            "status": "answered",
+            "answer": "出差报销所需凭证：提交差旅报销申请需提供**发票**与**出差审批单**。[C1]（依据《差旅报销材料说明》，自2026-01-01生效，适用星帆科技全体员工。）",
+            "part_statuses": [
+              "answered"
+            ],
+            "citation_refs": [
+              {
+                "marker": "[C1]",
+                "passage_id": "D03-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              }
+            ],
+            "gaps": [],
+            "clarification": null,
+            "anchor_snapshot": {
+              "subject": {
+                "value": "员工出差费用报销",
+                "source_message_ids": [
+                  "9f4a008ee6bc4bd7b2465da2cb7ea9f6"
+                ]
+              },
+              "focus": {
+                "value": "出差报销需提交的凭证",
+                "source_message_ids": [
+                  "9f4a008ee6bc4bd7b2465da2cb7ea9f6"
+                ]
+              },
+              "pending_clarification": null
+            },
+            "reason": "已读取差旅报销材料说明原文，凭证要求明确且无冲突，可直接作答。"
+          }
+        }
+      ],
+      "tool_errors": [],
+      "execution_issues": [],
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 0,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": null,
+        "after": {
+          "subject": {
+            "value": "员工出差费用报销",
+            "source_message_ids": [
+              "9f4a008ee6bc4bd7b2465da2cb7ea9f6"
+            ]
+          },
+          "focus": {
+            "value": "出差报销需提交的凭证",
+            "source_message_ids": [
+              "9f4a008ee6bc4bd7b2465da2cb7ea9f6"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      },
+      "memory_valid": true,
+      "memory_warning": null,
+      "known_estimated_cny": 0.026598000000000004,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A04-r2-t1-5b65f739ad824314ac28d6783b6dcc11.json",
+      "case_id": "A04",
+      "repeat": 2,
+      "turn": 1,
+      "request_id": "5b65f739ad824314ac28d6783b6dcc11",
+      "status": "answered",
+      "answer": "出差报销需要提交的凭证：发票和出差审批单。这两项是提交差旅报销申请时必须提供的材料。[C1]（依据《差旅报销材料说明》，生效日期2026-01-01，适用范围为星帆科技全体员工。）",
+      "gaps": [
+        "资料仅列出发票与出差审批单两项必备材料，未说明各类费用需附的其他票种或明细等细化要求。"
+      ],
+      "clarification": null,
+      "citations": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D03-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D03",
+          "version_date": "2026-01-01",
+          "title": "差旅报销材料说明",
+          "effective_date": "2026-01-01",
+          "text": "文档：差旅报销材料说明（D03）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n提交差旅报销申请需提供发票与出差审批单。"
+        }
+      ],
+      "citation_checks": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D03-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        }
+      ],
+      "actions": [
+        {
+          "action": "search",
+          "arguments": {
+            "query": "出差费用报销 凭证 单据要求",
+            "reason": "用户询问出差报销需提交的凭证，需检索费用报销制度原文。"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D03-P01"
+            ],
+            "reason": "读取差旅报销材料说明原文以确认凭证要求。"
+          }
+        },
+        {
+          "action": "finish",
+          "arguments": {
+            "status": "answered",
+            "answer": "出差报销需要提交的凭证：发票和出差审批单。这两项是提交差旅报销申请时必须提供的材料。[C1]（依据《差旅报销材料说明》，生效日期2026-01-01，适用范围为星帆科技全体员工。）",
+            "part_statuses": [
+              "answered"
+            ],
+            "citation_refs": [
+              {
+                "marker": "[C1]",
+                "passage_id": "D03-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              }
+            ],
+            "gaps": [
+              "资料仅列出发票与出差审批单两项必备材料，未说明各类费用需附的其他票种或明细等细化要求。"
+            ],
+            "clarification": null,
+            "anchor_snapshot": {
+              "subject": {
+                "value": "出差费用报销",
+                "source_message_ids": [
+                  "ec5361fd5452472aa1db65b24d5a3361"
+                ]
+              },
+              "focus": {
+                "value": "出差报销需提交的凭证材料",
+                "source_message_ids": [
+                  "ec5361fd5452472aa1db65b24d5a3361"
+                ]
+              },
+              "pending_clarification": null
+            },
+            "reason": "已读差旅报销材料说明原文，凭证要求明确无冲突，可作答。"
+          }
+        }
+      ],
+      "tool_errors": [],
+      "execution_issues": [],
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 0,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": null,
+        "after": {
+          "subject": {
+            "value": "出差费用报销",
+            "source_message_ids": [
+              "ec5361fd5452472aa1db65b24d5a3361"
+            ]
+          },
+          "focus": {
+            "value": "出差报销需提交的凭证材料",
+            "source_message_ids": [
+              "ec5361fd5452472aa1db65b24d5a3361"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      },
+      "memory_valid": true,
+      "memory_warning": null,
+      "known_estimated_cny": 0.02692,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A05-r1-t1-e426d6bca4774e65a9437a30b5e09fc5.json",
+      "case_id": "A05",
+      "repeat": 1,
+      "turn": 1,
+      "request_id": "e426d6bca4774e65a9437a30b5e09fc5",
+      "status": "answered",
+      "answer": "星帆剪辑支持将视频导出为 MP4、MOV 格式。[C1]",
+      "gaps": [],
+      "clarification": null,
+      "citations": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D09-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D09",
+          "version_date": "2026-01-01",
+          "title": "星帆剪辑导出格式说明",
+          "effective_date": "2026-01-01",
+          "text": "文档：星帆剪辑导出格式说明（D09）。主题：视频产品。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n星帆剪辑支持将视频导出为 MP4、MOV 格式。"
+        }
+      ],
+      "citation_checks": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D09-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        }
+      ],
+      "actions": [
+        {
+          "action": "search",
+          "arguments": {
+            "query": "星帆剪辑 导出格式",
+            "reason": "检索星帆剪辑产品资料，确认支持的导出格式。"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D09-P01"
+            ],
+            "reason": "读取导出格式说明原文以确认支持格式及限制。"
+          }
+        },
+        {
+          "action": "finish",
+          "arguments": {
+            "status": "answered",
+            "answer": "星帆剪辑支持将视频导出为 MP4、MOV 格式。[C1]",
+            "part_statuses": [
+              "answered"
+            ],
+            "citation_refs": [
+              {
+                "marker": "[C1]",
+                "passage_id": "D09-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              }
+            ],
+            "gaps": [],
+            "clarification": null,
+            "anchor_snapshot": {
+              "subject": {
+                "value": "星帆剪辑",
+                "source_message_ids": [
+                  "8f1dda7b15104c368ddff5d9a36cfa4f"
+                ]
+              },
+              "focus": {
+                "value": "星帆剪辑支持的导出格式",
+                "source_message_ids": [
+                  "8f1dda7b15104c368ddff5d9a36cfa4f"
+                ]
+              },
+              "pending_clarification": null
+            },
+            "reason": "已读取导出格式说明原文，明确列出支持的两种格式。"
+          }
+        }
+      ],
+      "tool_errors": [],
+      "execution_issues": [],
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 0,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": null,
+        "after": {
+          "subject": {
+            "value": "星帆剪辑",
+            "source_message_ids": [
+              "8f1dda7b15104c368ddff5d9a36cfa4f"
+            ]
+          },
+          "focus": {
+            "value": "星帆剪辑支持的导出格式",
+            "source_message_ids": [
+              "8f1dda7b15104c368ddff5d9a36cfa4f"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      },
+      "memory_valid": true,
+      "memory_warning": null,
+      "known_estimated_cny": 0.025903999999999996,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A05-r1-t2-f968f7ca6de347d28fddf35b09c77f25.json",
+      "case_id": "A05",
+      "repeat": 1,
+      "turn": 2,
+      "request_id": "f968f7ca6de347d28fddf35b09c77f25",
+      "status": "answered",
+      "answer": "星帆剪辑支持的视频导出分辨率最高为 1080p。[C1]",
+      "gaps": [],
+      "clarification": null,
+      "citations": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D10-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D10",
+          "version_date": "2026-01-01",
+          "title": "星帆剪辑导出分辨率说明",
+          "effective_date": "2026-01-01",
+          "text": "文档：星帆剪辑导出分辨率说明（D10）。主题：视频产品。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n星帆剪辑支持的视频导出分辨率最高为 1080p。"
+        }
+      ],
+      "citation_checks": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D10-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        }
+      ],
+      "actions": [
+        {
+          "action": "search",
+          "arguments": {
+            "query": "星帆剪辑 最高支持 分辨率 导出",
+            "reason": "需查星帆剪辑导出分辨率上限的公司资料"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D10-P01"
+            ],
+            "reason": "读取分辨率说明原文以确认上限"
+          }
+        },
+        {
+          "action": "finish",
+          "arguments": {
+            "status": "answered",
+            "answer": "星帆剪辑支持的视频导出分辨率最高为 1080p。[C1]",
+            "part_statuses": [
+              "answered"
+            ],
+            "citation_refs": [
+              {
+                "marker": "[C1]",
+                "passage_id": "D10-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              }
+            ],
+            "gaps": [],
+            "clarification": null,
+            "anchor_snapshot": {
+              "subject": {
+                "value": "星帆剪辑",
+                "source_message_ids": [
+                  "8f1dda7b15104c368ddff5d9a36cfa4f"
+                ]
+              },
+              "focus": {
+                "value": "星帆剪辑支持的导出分辨率上限",
+                "source_message_ids": [
+                  "1cea1f3ac2f44f6a84cd208ba08952ed"
+                ]
+              },
+              "pending_clarification": null
+            },
+            "reason": "已读取分辨率说明原文，明确上限为1080p。"
+          }
+        }
+      ],
+      "tool_errors": [],
+      "execution_issues": [],
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 400,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [
+          "8f1dda7b15104c368ddff5d9a36cfa4f",
+          "ec6197515bd54332818583ebbb791044"
+        ],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": {
+          "subject": {
+            "value": "星帆剪辑",
+            "source_message_ids": [
+              "8f1dda7b15104c368ddff5d9a36cfa4f"
+            ]
+          },
+          "focus": {
+            "value": "星帆剪辑支持的导出格式",
+            "source_message_ids": [
+              "8f1dda7b15104c368ddff5d9a36cfa4f"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "after": {
+          "subject": {
+            "value": "星帆剪辑",
+            "source_message_ids": [
+              "8f1dda7b15104c368ddff5d9a36cfa4f"
+            ]
+          },
+          "focus": {
+            "value": "星帆剪辑支持的导出分辨率上限",
+            "source_message_ids": [
+              "1cea1f3ac2f44f6a84cd208ba08952ed"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "previous_valid": true,
+        "previous_warning": null
+      },
+      "memory_valid": true,
+      "memory_warning": null,
+      "known_estimated_cny": 0.02835,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A05-r2-t1-5fcb5ff330fb4d4096fd1291ae9d83f2.json",
+      "case_id": "A05",
+      "repeat": 2,
+      "turn": 1,
+      "request_id": "5fcb5ff330fb4d4096fd1291ae9d83f2",
+      "status": "answered",
+      "answer": "星帆剪辑支持将视频导出为 MP4、MOV 格式。[C1]",
+      "gaps": [],
+      "clarification": null,
+      "citations": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D09-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D09",
+          "version_date": "2026-01-01",
+          "title": "星帆剪辑导出格式说明",
+          "effective_date": "2026-01-01",
+          "text": "文档：星帆剪辑导出格式说明（D09）。主题：视频产品。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n星帆剪辑支持将视频导出为 MP4、MOV 格式。"
+        }
+      ],
+      "citation_checks": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D09-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        }
+      ],
+      "actions": [
+        {
+          "action": "search",
+          "arguments": {
+            "query": "星帆剪辑 导出格式",
+            "reason": "检索产品“星帆剪辑”的导出格式说明"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D09-P01"
+            ],
+            "reason": "读取导出格式说明原文以确认具体格式"
+          }
+        },
+        {
+          "action": "finish",
+          "arguments": {
+            "status": "answered",
+            "answer": "星帆剪辑支持将视频导出为 MP4、MOV 格式。[C1]",
+            "part_statuses": [
+              "answered"
+            ],
+            "citation_refs": [
+              {
+                "marker": "[C1]",
+                "passage_id": "D09-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              }
+            ],
+            "gaps": [],
+            "clarification": null,
+            "anchor_snapshot": {
+              "subject": {
+                "value": "星帆剪辑",
+                "source_message_ids": [
+                  "3cf6795db9e84849b59808da0f8f55de"
+                ]
+              },
+              "focus": {
+                "value": "导出格式",
+                "source_message_ids": [
+                  "3cf6795db9e84849b59808da0f8f55de"
+                ]
+              },
+              "pending_clarification": null
+            },
+            "reason": "已读取导出格式说明原文，规则明确无冲突。"
+          }
+        }
+      ],
+      "tool_errors": [],
+      "execution_issues": [],
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 0,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": null,
+        "after": {
+          "subject": {
+            "value": "星帆剪辑",
+            "source_message_ids": [
+              "3cf6795db9e84849b59808da0f8f55de"
+            ]
+          },
+          "focus": {
+            "value": "导出格式",
+            "source_message_ids": [
+              "3cf6795db9e84849b59808da0f8f55de"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      },
+      "memory_valid": true,
+      "memory_warning": null,
+      "known_estimated_cny": 0.025802,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A05-r2-t2-9825e39e03b04fb1b5498affd697a848.json",
+      "case_id": "A05",
+      "repeat": 2,
+      "turn": 2,
+      "request_id": "9825e39e03b04fb1b5498affd697a848",
+      "status": "answered",
+      "answer": "星帆剪辑支持的视频导出最高分辨率为 1080p。[C1]",
+      "gaps": [],
+      "clarification": null,
+      "citations": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D10-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D10",
+          "version_date": "2026-01-01",
+          "title": "星帆剪辑导出分辨率说明",
+          "effective_date": "2026-01-01",
+          "text": "文档：星帆剪辑导出分辨率说明（D10）。主题：视频产品。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n星帆剪辑支持的视频导出分辨率最高为 1080p。"
+        }
+      ],
+      "citation_checks": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D10-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        }
+      ],
+      "actions": [
+        {
+          "action": "search",
+          "arguments": {
+            "query": "星帆剪辑 导出 支持 最高分辨率",
+            "reason": "需查证星帆剪辑导出分辨率的现行说明。"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D10-P01"
+            ],
+            "reason": "读取分辨率说明原文以形成依据。"
+          }
+        },
+        {
+          "action": "finish",
+          "arguments": {
+            "status": "answered",
+            "answer": "星帆剪辑支持的视频导出最高分辨率为 1080p。[C1]",
+            "part_statuses": [
+              "answered"
+            ],
+            "citation_refs": [
+              {
+                "marker": "[C1]",
+                "passage_id": "D10-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              }
+            ],
+            "gaps": [],
+            "clarification": null,
+            "anchor_snapshot": {
+              "subject": {
+                "value": "星帆剪辑",
+                "source_message_ids": [
+                  "3cf6795db9e84849b59808da0f8f55de"
+                ]
+              },
+              "focus": {
+                "value": "导出分辨率",
+                "source_message_ids": [
+                  "77545996fad1438b9c8be5ca953dbd91"
+                ]
+              },
+              "pending_clarification": null
+            },
+            "reason": "已读取分辨率说明原文，可作答。"
+          }
+        }
+      ],
+      "tool_errors": [],
+      "execution_issues": [],
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 400,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [
+          "3cf6795db9e84849b59808da0f8f55de",
+          "3b5cd389c29c4f808eba9ec61365aa61"
+        ],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": {
+          "subject": {
+            "value": "星帆剪辑",
+            "source_message_ids": [
+              "3cf6795db9e84849b59808da0f8f55de"
+            ]
+          },
+          "focus": {
+            "value": "导出格式",
+            "source_message_ids": [
+              "3cf6795db9e84849b59808da0f8f55de"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "after": {
+          "subject": {
+            "value": "星帆剪辑",
+            "source_message_ids": [
+              "3cf6795db9e84849b59808da0f8f55de"
+            ]
+          },
+          "focus": {
+            "value": "导出分辨率",
+            "source_message_ids": [
+              "77545996fad1438b9c8be5ca953dbd91"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "previous_valid": true,
+        "previous_warning": null
+      },
+      "memory_valid": true,
+      "memory_warning": null,
+      "known_estimated_cny": 0.028278,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A06-persistent-r1-t1-78b122a287ed4172a120af0e30a865d6.json",
+      "case_id": "A06-persistent",
+      "repeat": 1,
+      "turn": 1,
+      "request_id": "78b122a287ed4172a120af0e30a865d6",
+      "status": "incomplete",
+      "answer": "任务未完成，保留已获取证据与执行记录。",
+      "gaps": [],
+      "clarification": null,
+      "citations": [],
+      "citation_checks": [],
+      "actions": [
+        {
+          "action": "search",
+          "arguments": {
+            "query": "报销 所需材料 单据要求",
+            "reason": "查找报销流程对提交材料的规定"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D03-P01",
+              "D04-P01"
+            ],
+            "reason": "读取报销材料与流程原文以确认所需材料"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D03-P01",
+              "D04-P01"
+            ],
+            "reason": "重试读取报销材料与审批流程原文"
+          }
+        }
+      ],
+      "tool_errors": [
+        {
+          "kind": "tool_observation",
+          "at_seconds": 2.9209999999984575,
+          "model_calls": 2,
+          "tool_calls": 2,
+          "tool_call_id": "call_00_GVeS2m3B1GC1CdDTJghl8248",
+          "action": "read",
+          "observation": {
+            "tool": "read",
+            "status": "error",
+            "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+            "passages": [],
+            "error": {
+              "kind": "tool_error",
+              "code": "read_failed",
+              "message": "Passage reading failed"
+            }
+          },
+          "elapsed_seconds": 0.0
+        },
+        {
+          "kind": "tool_observation",
+          "at_seconds": 4.25,
+          "model_calls": 3,
+          "tool_calls": 3,
+          "tool_call_id": "call_00_qQVVRIN5dFI4HDT2ar7e9750",
+          "action": "read",
+          "observation": {
+            "tool": "read",
+            "status": "error",
+            "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+            "passages": [],
+            "error": {
+              "kind": "tool_error",
+              "code": "read_failed",
+              "message": "Passage reading failed"
+            }
+          },
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "execution_issues": [
+        {
+          "code": "tool_error",
+          "tool": "read",
+          "tool_call_id": "call_00_GVeS2m3B1GC1CdDTJghl8248"
+        },
+        {
+          "code": "tool_error",
+          "tool": "read",
+          "tool_call_id": "call_00_qQVVRIN5dFI4HDT2ar7e9750"
+        },
+        {
+          "code": "recovery_exhausted"
+        }
+      ],
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 0,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": null,
+        "after": null,
+        "previous_valid": false,
+        "previous_warning": null
+      },
+      "memory_valid": false,
+      "memory_warning": "no_legal_finish",
+      "known_estimated_cny": 0.023204000000000002,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A06-persistent-r2-t1-922e30e84f914a779503b6aa55a2418c.json",
+      "case_id": "A06-persistent",
+      "repeat": 2,
+      "turn": 1,
+      "request_id": "922e30e84f914a779503b6aa55a2418c",
+      "status": "incomplete",
+      "answer": "任务未完成，保留已获取证据与执行记录。",
+      "gaps": [],
+      "clarification": null,
+      "citations": [],
+      "citation_checks": [],
+      "actions": [
+        {
+          "action": "search",
+          "arguments": {
+            "query": "报销所需材料 报销流程",
+            "reason": "需检索公司报销制度原文以确认材料要求。"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D03-P01",
+              "D04-P01"
+            ],
+            "reason": "读取报销材料与流程原文以确认材料清单。"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D03-P01"
+            ],
+            "reason": "上次读取失败，重试读取报销材料原文。"
+          }
+        }
+      ],
+      "tool_errors": [
+        {
+          "kind": "tool_observation",
+          "at_seconds": 2.75,
+          "model_calls": 2,
+          "tool_calls": 2,
+          "tool_call_id": "call_00_GZZmx5RKDDKRKkCZKflH2426",
+          "action": "read",
+          "observation": {
+            "tool": "read",
+            "status": "error",
+            "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+            "passages": [],
+            "error": {
+              "kind": "tool_error",
+              "code": "read_failed",
+              "message": "Passage reading failed"
+            }
+          },
+          "elapsed_seconds": 0.0
+        },
+        {
+          "kind": "tool_observation",
+          "at_seconds": 4.235000000000582,
+          "model_calls": 3,
+          "tool_calls": 3,
+          "tool_call_id": "call_00_kFM6ZxnOhe1Hp2Vt21q06134",
+          "action": "read",
+          "observation": {
+            "tool": "read",
+            "status": "error",
+            "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+            "passages": [],
+            "error": {
+              "kind": "tool_error",
+              "code": "read_failed",
+              "message": "Passage reading failed"
+            }
+          },
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "execution_issues": [
+        {
+          "code": "tool_error",
+          "tool": "read",
+          "tool_call_id": "call_00_GZZmx5RKDDKRKkCZKflH2426"
+        },
+        {
+          "code": "tool_error",
+          "tool": "read",
+          "tool_call_id": "call_00_kFM6ZxnOhe1Hp2Vt21q06134"
+        },
+        {
+          "code": "recovery_exhausted"
+        }
+      ],
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 0,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": null,
+        "after": null,
+        "previous_valid": false,
+        "previous_warning": null
+      },
+      "memory_valid": false,
+      "memory_warning": "no_legal_finish",
+      "known_estimated_cny": 0.023108,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A06-temporary-r1-t1-d429efd8530746e898536a87c5888295.json",
+      "case_id": "A06-temporary",
+      "repeat": 1,
+      "turn": 1,
+      "request_id": "d429efd8530746e898536a87c5888295",
+      "status": "answered",
+      "answer": "差旅报销：提交差旅报销申请需提供发票与出差审批单[C1]。该说明适用于星帆科技全体员工，自 2026-01-01 起生效[C1]。\n\n说明：以上仅为公司资料中关于差旅报销材料的规定；如你要问的是其他类型报销（如日常费用报销），资料中未给出相关材料要求。",
+      "gaps": [
+        "资料仅覆盖差旅报销的材料要求，未覆盖其他类型（如日常费用、招待等）报销所需材料。"
+      ],
+      "clarification": null,
+      "citations": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D03-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D03",
+          "version_date": "2026-01-01",
+          "title": "差旅报销材料说明",
+          "effective_date": "2026-01-01",
+          "text": "文档：差旅报销材料说明（D03）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n提交差旅报销申请需提供发票与出差审批单。"
+        }
+      ],
+      "citation_checks": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D03-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        }
+      ],
+      "actions": [
+        {
+          "action": "search",
+          "arguments": {
+            "query": "报销所需材料",
+            "reason": "需检索公司报销制度中规定的提交材料。"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D03-P01"
+            ],
+            "reason": "读取差旅报销材料说明原文以确认所需材料。"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D03-P01"
+            ],
+            "reason": "重试读取差旅报销材料说明原文，上次读取工具失败。"
+          }
+        },
+        {
+          "action": "finish",
+          "arguments": {
+            "status": "answered",
+            "answer": "差旅报销：提交差旅报销申请需提供发票与出差审批单[C1]。该说明适用于星帆科技全体员工，自 2026-01-01 起生效[C1]。\n\n说明：以上仅为公司资料中关于差旅报销材料的规定；如你要问的是其他类型报销（如日常费用报销），资料中未给出相关材料要求。",
+            "part_statuses": [
+              "answered"
+            ],
+            "citation_refs": [
+              {
+                "marker": "[C1]",
+                "passage_id": "D03-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              }
+            ],
+            "gaps": [
+              "资料仅覆盖差旅报销的材料要求，未覆盖其他类型（如日常费用、招待等）报销所需材料。"
+            ],
+            "clarification": null,
+            "anchor_snapshot": {
+              "subject": {
+                "value": "报销所需材料",
+                "source_message_ids": [
+                  "89851e4f481a4137b30c7b0c17effaf6"
+                ]
+              },
+              "focus": {
+                "value": "差旅报销所需材料",
+                "source_message_ids": [
+                  "89851e4f481a4137b30c7b0c17effaf6"
+                ]
+              },
+              "pending_clarification": null
+            },
+            "reason": "已读取差旅报销材料说明原文，可据此作答。"
+          }
+        }
+      ],
+      "tool_errors": [
+        {
+          "kind": "tool_observation",
+          "at_seconds": 2.4680000000007567,
+          "model_calls": 2,
+          "tool_calls": 2,
+          "tool_call_id": "call_00_yMO5FLZ34777MfQJNBLQ0222",
+          "action": "read",
+          "observation": {
+            "tool": "read",
+            "status": "error",
+            "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+            "passages": [],
+            "error": {
+              "kind": "tool_error",
+              "code": "read_failed",
+              "message": "Passage reading failed"
+            }
+          },
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "execution_issues": [
+        {
+          "code": "tool_error",
+          "tool": "read",
+          "tool_call_id": "call_00_yMO5FLZ34777MfQJNBLQ0222"
+        }
+      ],
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 0,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": null,
+        "after": {
+          "subject": {
+            "value": "报销所需材料",
+            "source_message_ids": [
+              "89851e4f481a4137b30c7b0c17effaf6"
+            ]
+          },
+          "focus": {
+            "value": "差旅报销所需材料",
+            "source_message_ids": [
+              "89851e4f481a4137b30c7b0c17effaf6"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      },
+      "memory_valid": true,
+      "memory_warning": null,
+      "known_estimated_cny": 0.035638,
+      "semantic_review": "pending independent reading"
+    },
+    {
+      "file": "examples/batch-8/runs/core-repair-1/A06-temporary-r2-t1-99be230a34864b2da692f7971eec81cb.json",
+      "case_id": "A06-temporary",
+      "repeat": 2,
+      "turn": 1,
+      "request_id": "99be230a34864b2da692f7971eec81cb",
+      "status": "answered",
+      "answer": "关于报销所需材料，公司资料目前只覆盖差旅报销：提交差旅报销申请需提供发票与出差审批单[C1]。\n\n若你问的是非差旅类费用（如日常办公、招待等）的报销材料，资料中未见相关规定，需要另外确认。",
+      "gaps": [
+        "资料仅覆盖差旅报销材料；其他类型费用报销的材料要求未见相关规定。"
+      ],
+      "clarification": null,
+      "citations": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D03-P01",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "doc_id": "D03",
+          "version_date": "2026-01-01",
+          "title": "差旅报销材料说明",
+          "effective_date": "2026-01-01",
+          "text": "文档：差旅报销材料说明（D03）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n提交差旅报销申请需提供发票与出差审批单。"
+        }
+      ],
+      "citation_checks": [
+        {
+          "marker": "[C1]",
+          "passage_id": "D03-P01",
+          "source_fields_match": true,
+          "verbatim_text_match": true,
+          "snapshot_and_read_set_match": true
+        }
+      ],
+      "actions": [
+        {
+          "action": "search",
+          "arguments": {
+            "query": "报销所需材料 费用报销流程",
+            "reason": "需先找到公司报销制度的原文以确认所需材料清单。",
+            "limit": 12
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D03-P01",
+              "D04-P01"
+            ],
+            "reason": "读取差旅报销材料说明与审批流程原文以确认材料清单。"
+          }
+        },
+        {
+          "action": "read",
+          "arguments": {
+            "passage_ids": [
+              "D03-P01"
+            ],
+            "reason": "上次读取失败，重试读取差旅报销材料说明原文。"
+          }
+        },
+        {
+          "action": "finish",
+          "arguments": {
+            "status": "answered",
+            "answer": "关于报销所需材料，公司资料目前只覆盖差旅报销：提交差旅报销申请需提供发票与出差审批单[C1]。\n\n若你问的是非差旅类费用（如日常办公、招待等）的报销材料，资料中未见相关规定，需要另外确认。",
+            "part_statuses": [
+              "answered"
+            ],
+            "citation_refs": [
+              {
+                "marker": "[C1]",
+                "passage_id": "D03-P01",
+                "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+              }
+            ],
+            "gaps": [
+              "资料仅覆盖差旅报销材料；其他类型费用报销的材料要求未见相关规定。"
+            ],
+            "clarification": null,
+            "anchor_snapshot": {
+              "subject": {
+                "value": "报销材料要求",
+                "source_message_ids": [
+                  "d8fa07481d804f73a9a60730da37fc57"
+                ]
+              },
+              "focus": {
+                "value": "差旅报销所需材料",
+                "source_message_ids": [
+                  "d8fa07481d804f73a9a60730da37fc57"
+                ]
+              },
+              "pending_clarification": null
+            },
+            "reason": "已读取差旅报销材料说明原文，可据此给出材料清单并说明覆盖范围。"
+          }
+        }
+      ],
+      "tool_errors": [
+        {
+          "kind": "tool_observation",
+          "at_seconds": 2.437000000001717,
+          "model_calls": 2,
+          "tool_calls": 2,
+          "tool_call_id": "call_00_bzgITn1DuipfffnYFuzC7433",
+          "action": "read",
+          "observation": {
+            "tool": "read",
+            "status": "error",
+            "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+            "passages": [],
+            "error": {
+              "kind": "tool_error",
+              "code": "read_failed",
+              "message": "Passage reading failed"
+            }
+          },
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "execution_issues": [
+        {
+          "code": "tool_error",
+          "tool": "read",
+          "tool_call_id": "call_00_bzgITn1DuipfffnYFuzC7433"
+        }
+      ],
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "history_selection": {
+        "budget": 8000,
+        "estimated_tokens": 0,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+        "selected_message_ids": [],
+        "omitted_message_ids": [],
+        "boundary": "complete recent business message pairs; run traces stored separately"
+      },
+      "memory_update": {
+        "before": null,
+        "after": {
+          "subject": {
+            "value": "报销材料要求",
+            "source_message_ids": [
+              "d8fa07481d804f73a9a60730da37fc57"
+            ]
+          },
+          "focus": {
+            "value": "差旅报销所需材料",
+            "source_message_ids": [
+              "d8fa07481d804f73a9a60730da37fc57"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      },
+      "memory_valid": true,
+      "memory_warning": null,
+      "known_estimated_cny": 0.040814,
+      "semantic_review": "pending independent reading"
+    }
+  ]
+}

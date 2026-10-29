@@ -1,0 +1,19 @@
+{
+  "kind": "Independent AI delegate's pre-run expectations, explicitly authorized by the user; not actual results or personal human work",
+  "personal": [
+    {
+      "id": "delegate-export-format-change",
+      "questions": ["星帆剪辑支持哪些视频导出格式？", "那现在支持哪些导出格式？"],
+      "statuses": ["answered", "answered"],
+      "passages": ["D09-P01"],
+      "replace_after_first": {
+        "doc_id": "D09",
+        "old": "星帆剪辑支持将视频导出为 MP4、MOV 格式。",
+        "new": "星帆剪辑支持将视频导出为 MP4、WEBM 格式。"
+      },
+      "expected": "第一轮MP4/MOV；独立代理在隔离副本替换D09主体并显式重载后，同会话第二轮理解产品指代，重新检索读取D09，使用MP4/WEBM新正文与新指纹。当前结论不能沿用历史MOV。来源日期不变，完整引用逐字回填。实际动作/用量/新指纹不预填。",
+      "spec": "grounded-qa/企业事实以本轮原文为依据; knowledge-retrieval/资料变化后重建一致快照; reproducible-evaluation/关键业务边界与变更回归",
+      "contribution": "user-authorized independent AI delegate; not human personal operation"
+    }
+  ]
+}

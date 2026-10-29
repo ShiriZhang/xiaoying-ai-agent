@@ -1,0 +1,30 @@
+{
+  "reviewer": "batch8_personal_delegate",
+  "contribution": "independent AI delegate explicitly authorized by the user; not personal human work",
+  "run": "../runs/personal-initial",
+  "pre_run_proposal": "proposal-before-run.md",
+  "status": "passed_pre_run_expectations",
+  "semantic_review": "independent AI inspection of actual answers and canonical source support, not merely mechanical status checks",
+  "checks": {
+    "expectations_saved_before_run": true,
+    "same_session": true,
+    "first_answer_MP4_MOV": true,
+    "second_answer_MP4_WEBM_without_current_MOV": true,
+    "old_MOV_answer_visible_in_second_history": true,
+    "both_rounds_search_and_read_D09": true,
+    "citations_verbatim_from_corresponding_snapshots": true,
+    "new_fingerprint_after_reload": true,
+    "document_metadata_unchanged": true,
+    "only_intended_D09_body_changed": true,
+    "base_corpus_unchanged": true,
+    "memory_valid_and_persisted": true,
+    "no_extra_memory_model_call": true
+  },
+  "actual_models": ["deepseek-flash"],
+  "known_estimated_cny": 0.058214,
+  "unknown_usage_requests": 0,
+  "invoice_cny": null,
+  "human_personal_work_minutes": null,
+  "human_personally_operated": false,
+  "limitations": ["single differential experiment, not statistical stability", "independent AI review is not human personal review", "actual billing not verified"]
+}

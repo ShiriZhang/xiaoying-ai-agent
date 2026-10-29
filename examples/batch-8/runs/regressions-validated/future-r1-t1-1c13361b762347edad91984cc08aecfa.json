@@ -1,0 +1,741 @@
+{
+  "case_id": "future",
+  "repeat": 1,
+  "turn": 1,
+  "pre_run_expected": "新规未生效，仍提前2个工作日，不把版本日期当生效日期",
+  "mechanical_checks": {
+    "status_matches_pre_run_expectation": true,
+    "canonical_citations_match_snapshot": true,
+    "required_final_passages_cited": true,
+    "fault_observed": null,
+    "semantic_support": "pending independent review, not proved by these checks"
+  },
+  "corpus_file": "corpora/47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1.json",
+  "result": {
+    "status": "answered",
+    "part_statuses": [
+      "answered"
+    ],
+    "answer": "按当前日期（2026-09-30）适用的规定：员工请假应提前 2 个工作日提交申请[C1]。新版《请假申请规定》自 2026-10-01 起生效，届时改为提前 1 个工作日提交申请，并替代旧版中提前 2 个工作日的规定；2026-10-01 之前仍按旧版 2 个工作日办理[C2]。",
+    "gaps": [],
+    "clarification": null,
+    "citations": [
+      {
+        "marker": "[C1]",
+        "passage_id": "D05-P01",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "doc_id": "D05",
+        "version_date": "2026-01-01",
+        "title": "请假申请规定（旧版）",
+        "effective_date": "2026-01-01",
+        "text": "文档：请假申请规定（旧版）（D05）。主题：人事。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n员工请假应提前 2 个工作日提交申请。"
+      },
+      {
+        "marker": "[C2]",
+        "passage_id": "D06-P01",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "doc_id": "D06",
+        "version_date": "2026-09-01",
+        "title": "请假申请规定（新版）",
+        "effective_date": "2026-10-01",
+        "text": "文档：请假申请规定（新版）（D06）。主题：人事。版本日期：2026-09-01。生效日期：2026-10-01。适用范围：星帆科技全体员工。\n自 2026-10-01 起，员工请假应提前 1 个工作日提交申请；本条自该日起替代 D05《请假申请规定（旧版）》中提前 2 个工作日提交申请的规定。在 2026-10-01 之前，仍按 D05 的提前 2 个工作日规定办理。"
+      }
+    ],
+    "request_id": "1c13361b762347edad91984cc08aecfa",
+    "session_id": "d0608db9f4c74423a53602d8db68c9dd",
+    "mode": "live",
+    "as_of_date": "2026-09-30",
+    "time_zone": "东部夏令时",
+    "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+    "requested_model": "deepseek-flash",
+    "model_configuration": {
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "thinking_mode": "disabled",
+      "implicit_retries": 0,
+      "temperature": 0
+    },
+    "embedding": {
+      "device": "cpu",
+      "dimension": 512,
+      "max_input_tokens": 512,
+      "mode": "live",
+      "model_id": "BAAI/bge-small-zh-v1.5",
+      "normalized": true,
+      "packages": {
+        "huggingface-hub": "0.36.0",
+        "safetensors": "0.6.2",
+        "tokenizers": "0.22.2",
+        "torch": "2.9.0+cpu",
+        "transformers": "4.57.1"
+      },
+      "pooling": "CLS",
+      "query_prefix": "为这个句子生成表示以用于检索相关文章：",
+      "revision": "7999e1d3359715c523056ef9478215996d62a620",
+      "threads": 1,
+      "weights_fingerprint": "sha256:79a6f0034e3e568922396703a0172cbd3eb7bb857b8b1e3ef15f2721a252b276"
+    },
+    "input": {
+      "question": "现在请假需要提前多久申请？",
+      "context": [
+        {
+          "role": "system",
+          "content": "对话锚点（仅理解对象，不是企业事实）：null"
+        }
+      ]
+    },
+    "limits": {
+      "model_calls": 8,
+      "tool_calls": 6,
+      "model_timeout_seconds": 60.0,
+      "task_timeout_seconds": 300.0
+    },
+    "counts": {
+      "model_calls": 3,
+      "tool_calls": 2,
+      "recoveries": 0,
+      "format_corrections": 0
+    },
+    "stop_reason": "finished",
+    "execution_issues": [],
+    "trace": [
+      {
+        "kind": "model_request",
+        "at_seconds": 0.014999999999417923,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 3307,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 1.4530000000013388,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 2447,
+          "completion_tokens": 65,
+          "prompt_cache_hit_tokens": 2176,
+          "prompt_cache_miss_tokens": 271,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.005414,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 3307,
+          "actual_prompt_tokens": 2447,
+          "actual_to_estimate_ratio": 0.7399455700030239
+        },
+        "elapsed_seconds": 1.4380000000019209,
+        "calls": [
+          {
+            "id": "call_00_QbjuM7Y4yEfVFlbLyG2y2789",
+            "name": "search"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 1.4530000000013388,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "tool_call_id": "call_00_QbjuM7Y4yEfVFlbLyG2y2789",
+        "action": "search",
+        "arguments": {
+          "query": "请假提前申请 时限 规定",
+          "reason": "查找公司请假申请提前时限的制度原文。"
+        },
+        "rationale": "查找公司请假申请提前时限的制度原文。"
+      },
+      {
+        "kind": "tool_observation",
+        "at_seconds": 1.4840000000003783,
+        "model_calls": 1,
+        "tool_calls": 1,
+        "tool_call_id": "call_00_QbjuM7Y4yEfVFlbLyG2y2789",
+        "action": "search",
+        "observation": {
+          "tool": "search",
+          "status": "success",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "candidates": [
+            {
+              "passage_id": "D06-P01",
+              "doc_id": "D06",
+              "title": "请假申请规定（新版）",
+              "topic": "人事",
+              "version_date": "2026-09-01",
+              "effective_date": "2026-10-01",
+              "summary": "自 2026-10-01 起，员工请假应提前 1 个工作日提交申请；本条自该日起替代 D05《请假申请规定（旧版）》中提前 2 个工作日提交申请的规定。在 2026-10-01 之前，仍按 D05 的提前 2 个工作日规定办理。",
+              "rank": 1,
+              "rrf_score": 0.03278688524590164,
+              "branches": {
+                "bm25": {
+                  "rank": 1,
+                  "score": 17.194256948128626
+                },
+                "semantic": {
+                  "rank": 1,
+                  "score": 0.7684402375225977
+                }
+              }
+            },
+            {
+              "passage_id": "D05-P01",
+              "doc_id": "D05",
+              "title": "请假申请规定（旧版）",
+              "topic": "人事",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "员工请假应提前 2 个工作日提交申请。",
+              "rank": 2,
+              "rrf_score": 0.03225806451612903,
+              "branches": {
+                "bm25": {
+                  "rank": 2,
+                  "score": 16.66558297414392
+                },
+                "semantic": {
+                  "rank": 2,
+                  "score": 0.7663871365425068
+                }
+              }
+            },
+            {
+              "passage_id": "D01-P01",
+              "doc_id": "D01",
+              "title": "差旅报销期限规定",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "员工应在出差结束后 30 天内提交差旅报销申请。",
+              "rank": 3,
+              "rrf_score": 0.031746031746031744,
+              "branches": {
+                "bm25": {
+                  "rank": 3,
+                  "score": 8.004794181545039
+                },
+                "semantic": {
+                  "rank": 3,
+                  "score": 0.550001781129646
+                }
+              }
+            },
+            {
+              "passage_id": "D02-P01",
+              "doc_id": "D02",
+              "title": "差旅报销期限问答",
+              "topic": "差旅报销",
+              "version_date": "2026-03-01",
+              "effective_date": "2026-03-01",
+              "summary": "员工应在出差结束后 15 天内提交差旅报销申请。",
+              "rank": 4,
+              "rrf_score": 0.03125,
+              "branches": {
+                "bm25": {
+                  "rank": 4,
+                  "score": 3.8911703360809025
+                },
+                "semantic": {
+                  "rank": 4,
+                  "score": 0.5335008111711393
+                }
+              }
+            },
+            {
+              "passage_id": "D07-P01",
+              "doc_id": "D07",
+              "title": "补卡申请材料说明",
+              "topic": "人事",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "员工申请补卡需提供补卡日期与原因。",
+              "rank": 5,
+              "rrf_score": 0.03076923076923077,
+              "branches": {
+                "bm25": {
+                  "rank": 5,
+                  "score": 2.9326539558486537
+                },
+                "semantic": {
+                  "rank": 5,
+                  "score": 0.45596647872940077
+                }
+              }
+            },
+            {
+              "passage_id": "D03-P01",
+              "doc_id": "D03",
+              "title": "差旅报销材料说明",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "提交差旅报销申请需提供发票与出差审批单。",
+              "rank": 6,
+              "rrf_score": 0.030303030303030304,
+              "branches": {
+                "bm25": {
+                  "rank": 6,
+                  "score": 2.4042745148507327
+                },
+                "semantic": {
+                  "rank": 6,
+                  "score": 0.4356167133095248
+                }
+              }
+            }
+          ],
+          "branch_rankings": {
+            "bm25": [
+              {
+                "passage_id": "D06-P01",
+                "score": 17.194256948128626
+              },
+              {
+                "passage_id": "D05-P01",
+                "score": 16.66558297414392
+              },
+              {
+                "passage_id": "D01-P01",
+                "score": 8.004794181545039
+              },
+              {
+                "passage_id": "D02-P01",
+                "score": 3.8911703360809025
+              },
+              {
+                "passage_id": "D07-P01",
+                "score": 2.9326539558486537
+              },
+              {
+                "passage_id": "D03-P01",
+                "score": 2.4042745148507327
+              },
+              {
+                "passage_id": "D04-P01",
+                "score": 2.2865281188449385
+              },
+              {
+                "passage_id": "D08-P01",
+                "score": 0.4669046087530396
+              }
+            ],
+            "semantic": [
+              {
+                "passage_id": "D06-P01",
+                "score": 0.7684402375225977
+              },
+              {
+                "passage_id": "D05-P01",
+                "score": 0.7663871365425068
+              },
+              {
+                "passage_id": "D01-P01",
+                "score": 0.550001781129646
+              },
+              {
+                "passage_id": "D02-P01",
+                "score": 0.5335008111711393
+              },
+              {
+                "passage_id": "D07-P01",
+                "score": 0.45596647872940077
+              },
+              {
+                "passage_id": "D03-P01",
+                "score": 0.4356167133095248
+              },
+              {
+                "passage_id": "D04-P01",
+                "score": 0.4204849344232819
+              },
+              {
+                "passage_id": "D08-P01",
+                "score": 0.32783058845958757
+              },
+              {
+                "passage_id": "D12-P01",
+                "score": 0.2549334150235228
+              },
+              {
+                "passage_id": "D11-P01",
+                "score": 0.21851967388296992
+              },
+              {
+                "passage_id": "D10-P01",
+                "score": 0.18985164837458474
+              },
+              {
+                "passage_id": "D09-P01",
+                "score": 0.18494166945150703
+              }
+            ]
+          },
+          "configuration": {
+            "bm25": {
+              "k1": 1.5,
+              "b": 0.75,
+              "idf": "log1p((N-df+0.5)/(df+0.5))"
+            },
+            "tokenizer": "NFKC/casefold + Han unigram/bigram + Latin/number runs v1",
+            "input": "title + newline + passage body; canonical provenance preserved separately",
+            "branch_limit": 12,
+            "rrf_k": 60,
+            "summary_characters": 160,
+            "tie_break": "passage_id ascending",
+            "embedding": {
+              "device": "cpu",
+              "dimension": 512,
+              "max_input_tokens": 512,
+              "mode": "live",
+              "model_id": "BAAI/bge-small-zh-v1.5",
+              "normalized": true,
+              "packages": {
+                "huggingface-hub": "0.36.0",
+                "safetensors": "0.6.2",
+                "tokenizers": "0.22.2",
+                "torch": "2.9.0+cpu",
+                "transformers": "4.57.1"
+              },
+              "pooling": "CLS",
+              "query_prefix": "为这个句子生成表示以用于检索相关文章：",
+              "revision": "7999e1d3359715c523056ef9478215996d62a620",
+              "threads": 1,
+              "weights_fingerprint": "sha256:79a6f0034e3e568922396703a0172cbd3eb7bb857b8b1e3ef15f2721a252b276"
+            }
+          },
+          "error": null,
+          "task_evidence": {
+            "read_passage_ids": [],
+            "unread_candidate_ids": [
+              "D06-P01",
+              "D05-P01",
+              "D01-P01",
+              "D02-P01",
+              "D07-P01",
+              "D03-P01"
+            ]
+          }
+        },
+        "elapsed_seconds": 0.030999999999039574
+      },
+      {
+        "kind": "model_request",
+        "at_seconds": 1.4840000000003783,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 5279,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 2.889999999999418,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 4458,
+          "completion_tokens": 82,
+          "prompt_cache_hit_tokens": 2432,
+          "prompt_cache_miss_tokens": 2026,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.009572,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 5279,
+          "actual_prompt_tokens": 4458,
+          "actual_to_estimate_ratio": 0.8444781208562228
+        },
+        "elapsed_seconds": 1.4059999999990396,
+        "calls": [
+          {
+            "id": "call_00_oDUx59bYggTLIuLPOnTN8111",
+            "name": "read"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 2.889999999999418,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "tool_call_id": "call_00_oDUx59bYggTLIuLPOnTN8111",
+        "action": "read",
+        "arguments": {
+          "passage_ids": [
+            "D06-P01",
+            "D05-P01"
+          ],
+          "reason": "新旧两版请假规定存在时限差异，需读取双方原文确认替代与生效条件。"
+        },
+        "rationale": "新旧两版请假规定存在时限差异，需读取双方原文确认替代与生效条件。"
+      },
+      {
+        "kind": "tool_observation",
+        "at_seconds": 2.889999999999418,
+        "model_calls": 2,
+        "tool_calls": 2,
+        "tool_call_id": "call_00_oDUx59bYggTLIuLPOnTN8111",
+        "action": "read",
+        "observation": {
+          "tool": "read",
+          "status": "success",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "passages": [
+            {
+              "passage_id": "D06-P01",
+              "doc_id": "D06",
+              "title": "请假申请规定（新版）",
+              "topic": "人事",
+              "version_date": "2026-09-01",
+              "effective_date": "2026-10-01",
+              "scope": "星帆科技全体员工",
+              "text": "文档：请假申请规定（新版）（D06）。主题：人事。版本日期：2026-09-01。生效日期：2026-10-01。适用范围：星帆科技全体员工。\n自 2026-10-01 起，员工请假应提前 1 个工作日提交申请；本条自该日起替代 D05《请假申请规定（旧版）》中提前 2 个工作日提交申请的规定。在 2026-10-01 之前，仍按 D05 的提前 2 个工作日规定办理。"
+            },
+            {
+              "passage_id": "D05-P01",
+              "doc_id": "D05",
+              "title": "请假申请规定（旧版）",
+              "topic": "人事",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "scope": "星帆科技全体员工",
+              "text": "文档：请假申请规定（旧版）（D05）。主题：人事。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n员工请假应提前 2 个工作日提交申请。"
+            }
+          ],
+          "error": null
+        },
+        "elapsed_seconds": 0.0
+      },
+      {
+        "kind": "model_request",
+        "at_seconds": 2.889999999999418,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 5873,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 5.375,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 4950,
+          "completion_tokens": 494,
+          "prompt_cache_hit_tokens": 4480,
+          "prompt_cache_miss_tokens": 470,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.013852,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 5873,
+          "actual_prompt_tokens": 4950,
+          "actual_to_estimate_ratio": 0.8428401157840967
+        },
+        "elapsed_seconds": 2.485000000000582,
+        "calls": [
+          {
+            "id": "call_00_oqy6ww9g3mOC2MteZVQu4231",
+            "name": "finish"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 5.375,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "tool_call_id": "call_00_oqy6ww9g3mOC2MteZVQu4231",
+        "action": "finish",
+        "arguments": {
+          "status": "answered",
+          "answer": "按当前日期（2026-09-30）适用的规定：员工请假应提前 2 个工作日提交申请[C1]。新版《请假申请规定》自 2026-10-01 起生效，届时改为提前 1 个工作日提交申请，并替代旧版中提前 2 个工作日的规定；2026-10-01 之前仍按旧版 2 个工作日办理[C2]。",
+          "part_statuses": [
+            "answered"
+          ],
+          "citation_refs": [
+            {
+              "marker": "[C1]",
+              "passage_id": "D05-P01",
+              "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+            },
+            {
+              "marker": "[C2]",
+              "passage_id": "D06-P01",
+              "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+            }
+          ],
+          "gaps": [],
+          "clarification": null,
+          "anchor_snapshot": {
+            "subject": {
+              "value": "请假申请提前时限",
+              "source_message_ids": [
+                "10fcf74b871547b3b069d32b63fd91ca"
+              ]
+            },
+            "focus": {
+              "value": "请假需提前多久申请",
+              "source_message_ids": [
+                "10fcf74b871547b3b069d32b63fd91ca"
+              ]
+            },
+            "pending_clarification": null
+          },
+          "reason": "已读取新旧两版请假规定原文，替代关系与生效日期明确，可据当前日期作答。"
+        },
+        "rationale": "已读取新旧两版请假规定原文，替代关系与生效日期明确，可据当前日期作答。"
+      },
+      {
+        "kind": "memory_validation",
+        "at_seconds": 5.375,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "valid": true,
+        "warning": null
+      },
+      {
+        "kind": "stop",
+        "at_seconds": 5.375,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "reason": "finished",
+        "recoveries": 0,
+        "corrections": 0
+      },
+      {
+        "kind": "memory_update",
+        "stage": "validated_before_persistence",
+        "before": null,
+        "after": {
+          "subject": {
+            "value": "请假申请提前时限",
+            "source_message_ids": [
+              "10fcf74b871547b3b069d32b63fd91ca"
+            ]
+          },
+          "focus": {
+            "value": "请假需提前多久申请",
+            "source_message_ids": [
+              "10fcf74b871547b3b069d32b63fd91ca"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "previous_valid": false,
+        "previous_warning": null
+      }
+    ],
+    "elapsed_seconds": 5.389999999999418,
+    "usage": {
+      "requests_with_unknown_usage": 0,
+      "known_requests_estimated_cny": 0.028838000000000003,
+      "total_estimated_cny": 0.028838000000000003,
+      "invoice_cny": null
+    },
+    "read_set": [
+      "D05-P01",
+      "D06-P01"
+    ],
+    "evidence": [
+      {
+        "passage_id": "D05-P01",
+        "doc_id": "D05",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "title": "请假申请规定（旧版）",
+        "version_date": "2026-01-01",
+        "text": "文档：请假申请规定（旧版）（D05）。主题：人事。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n员工请假应提前 2 个工作日提交申请。"
+      },
+      {
+        "passage_id": "D06-P01",
+        "doc_id": "D06",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "title": "请假申请规定（新版）",
+        "version_date": "2026-09-01",
+        "text": "文档：请假申请规定（新版）（D06）。主题：人事。版本日期：2026-09-01。生效日期：2026-10-01。适用范围：星帆科技全体员工。\n自 2026-10-01 起，员工请假应提前 1 个工作日提交申请；本条自该日起替代 D05《请假申请规定（旧版）》中提前 2 个工作日提交申请的规定。在 2026-10-01 之前，仍按 D05 的提前 2 个工作日规定办理。"
+      }
+    ],
+    "anchor_snapshot_proposal": {
+      "subject": {
+        "value": "请假申请提前时限",
+        "source_message_ids": [
+          "10fcf74b871547b3b069d32b63fd91ca"
+        ]
+      },
+      "focus": {
+        "value": "请假需提前多久申请",
+        "source_message_ids": [
+          "10fcf74b871547b3b069d32b63fd91ca"
+        ]
+      },
+      "pending_clarification": null
+    },
+    "anchor_snapshot": {
+      "subject": {
+        "value": "请假申请提前时限",
+        "source_message_ids": [
+          "10fcf74b871547b3b069d32b63fd91ca"
+        ]
+      },
+      "focus": {
+        "value": "请假需提前多久申请",
+        "source_message_ids": [
+          "10fcf74b871547b3b069d32b63fd91ca"
+        ]
+      },
+      "pending_clarification": null
+    },
+    "memory_valid": true,
+    "memory_persisted": true,
+    "memory_warning": null,
+    "history_selection": {
+      "budget": 8000,
+      "estimated_tokens": 0,
+      "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+      "selected_message_ids": [],
+      "omitted_message_ids": [],
+      "boundary": "complete recent business message pairs; run traces stored separately"
+    },
+    "message_ids": {
+      "request_id": "1c13361b762347edad91984cc08aecfa",
+      "user_message_id": "10fcf74b871547b3b069d32b63fd91ca",
+      "assistant_message_id": "1968710cc8fd438682a8c307b458b56a"
+    },
+    "memory_update": {
+      "before": null,
+      "after": {
+        "subject": {
+          "value": "请假申请提前时限",
+          "source_message_ids": [
+            "10fcf74b871547b3b069d32b63fd91ca"
+          ]
+        },
+        "focus": {
+          "value": "请假需提前多久申请",
+          "source_message_ids": [
+            "10fcf74b871547b3b069d32b63fd91ca"
+          ]
+        },
+        "pending_clarification": null
+      },
+      "previous_valid": false,
+      "previous_warning": null
+    },
+    "persistence": {
+      "saved": true,
+      "user_message_saved": true,
+      "result_saved": true
+    }
+  }
+}

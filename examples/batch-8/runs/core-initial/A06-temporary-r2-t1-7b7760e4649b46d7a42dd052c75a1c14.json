@@ -1,0 +1,814 @@
+{
+  "case_id": "A06-temporary",
+  "repeat": 2,
+  "turn": 1,
+  "pre_run_expected": "第一次真实read故障作为观察；由真实模型选一次恢复或主动结束，恢复则应取得D03；主动结束保持incomplete，不伪装缺资料",
+  "mechanical_checks": {
+    "status_matches_pre_run_expectation": true,
+    "canonical_citations_match_snapshot": true,
+    "required_final_passages_cited": true,
+    "fault_observed": true,
+    "semantic_support": "pending independent review, not proved by these checks"
+  },
+  "corpus_file": "corpora/47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1.json",
+  "result": {
+    "status": "incomplete",
+    "part_statuses": [
+      "incomplete"
+    ],
+    "answer": "任务未完成，保留已获取证据与执行记录。",
+    "gaps": [],
+    "clarification": null,
+    "citations": [],
+    "request_id": "7b7760e4649b46d7a42dd052c75a1c14",
+    "session_id": "71decdeee4944943ba48260a047bcfa1",
+    "mode": "live",
+    "as_of_date": "2026-10-29",
+    "time_zone": "东部夏令时",
+    "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+    "requested_model": "deepseek-flash",
+    "model_configuration": {
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "thinking_mode": "disabled",
+      "implicit_retries": 0
+    },
+    "embedding": {
+      "device": "cpu",
+      "dimension": 512,
+      "max_input_tokens": 512,
+      "mode": "live",
+      "model_id": "BAAI/bge-small-zh-v1.5",
+      "normalized": true,
+      "packages": {
+        "huggingface-hub": "0.36.0",
+        "safetensors": "0.6.2",
+        "tokenizers": "0.22.2",
+        "torch": "2.9.0+cpu",
+        "transformers": "4.57.1"
+      },
+      "pooling": "CLS",
+      "query_prefix": "为这个句子生成表示以用于检索相关文章：",
+      "revision": "7999e1d3359715c523056ef9478215996d62a620",
+      "threads": 1,
+      "weights_fingerprint": "sha256:79a6f0034e3e568922396703a0172cbd3eb7bb857b8b1e3ef15f2721a252b276"
+    },
+    "input": {
+      "question": "报销需要什么材料？",
+      "context": [
+        {
+          "role": "system",
+          "content": "对话锚点（仅理解对象，不是企业事实）：null"
+        }
+      ]
+    },
+    "limits": {
+      "model_calls": 8,
+      "tool_calls": 6,
+      "model_timeout_seconds": 60.0,
+      "task_timeout_seconds": 300.0
+    },
+    "counts": {
+      "model_calls": 5,
+      "tool_calls": 3,
+      "recoveries": 1,
+      "format_corrections": 1
+    },
+    "stop_reason": "format_repair_failed",
+    "execution_issues": [
+      {
+        "code": "tool_error",
+        "tool": "read",
+        "tool_call_id": "call_00_owCzcgCthdp6t3pivwP48367"
+      },
+      {
+        "code": "format_repair_failed"
+      }
+    ],
+    "trace": [
+      {
+        "kind": "model_request",
+        "at_seconds": 0.030999999999039574,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 2578,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 1.1409999999996217,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 1972,
+          "completion_tokens": 66,
+          "prompt_cache_hit_tokens": 1664,
+          "prompt_cache_miss_tokens": 308,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.004472,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 2578,
+          "actual_prompt_tokens": 1972,
+          "actual_to_estimate_ratio": 0.764934057408844
+        },
+        "elapsed_seconds": 1.110000000000582,
+        "calls": [
+          {
+            "id": "call_00_4p945OgGiCEbNUbgwymB9001",
+            "name": "search"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 1.1409999999996217,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "tool_call_id": "call_00_4p945OgGiCEbNUbgwymB9001",
+        "action": "search",
+        "arguments": {
+          "query": "报销 所需材料 单据要求",
+          "reason": "检索公司报销制度中关于提交材料的条款"
+        },
+        "rationale": "检索公司报销制度中关于提交材料的条款"
+      },
+      {
+        "kind": "tool_observation",
+        "at_seconds": 1.1719999999986612,
+        "model_calls": 1,
+        "tool_calls": 1,
+        "tool_call_id": "call_00_4p945OgGiCEbNUbgwymB9001",
+        "action": "search",
+        "observation": {
+          "tool": "search",
+          "status": "success",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "candidates": [
+            {
+              "passage_id": "D03-P01",
+              "doc_id": "D03",
+              "title": "差旅报销材料说明",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "提交差旅报销申请需提供发票与出差审批单。",
+              "rank": 1,
+              "rrf_score": 0.03278688524590164,
+              "branches": {
+                "bm25": {
+                  "rank": 1,
+                  "score": 13.838689936721686
+                },
+                "semantic": {
+                  "rank": 1,
+                  "score": 0.6126464727830927
+                }
+              }
+            },
+            {
+              "passage_id": "D07-P01",
+              "doc_id": "D07",
+              "title": "补卡申请材料说明",
+              "topic": "人事",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "员工申请补卡需提供补卡日期与原因。",
+              "rank": 2,
+              "rrf_score": 0.03225806451612903,
+              "branches": {
+                "bm25": {
+                  "rank": 2,
+                  "score": 7.246851101482997
+                },
+                "semantic": {
+                  "rank": 2,
+                  "score": 0.476538815243572
+                }
+              }
+            },
+            {
+              "passage_id": "D02-P01",
+              "doc_id": "D02",
+              "title": "差旅报销期限问答",
+              "topic": "差旅报销",
+              "version_date": "2026-03-01",
+              "effective_date": "2026-03-01",
+              "summary": "员工应在出差结束后 15 天内提交差旅报销申请。",
+              "rank": 3,
+              "rrf_score": 0.03149801587301587,
+              "branches": {
+                "bm25": {
+                  "rank": 4,
+                  "score": 4.690814821357457
+                },
+                "semantic": {
+                  "rank": 3,
+                  "score": 0.4624735753346182
+                }
+              }
+            },
+            {
+              "passage_id": "D01-P01",
+              "doc_id": "D01",
+              "title": "差旅报销期限规定",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "员工应在出差结束后 30 天内提交差旅报销申请。",
+              "rank": 4,
+              "rrf_score": 0.03125763125763126,
+              "branches": {
+                "bm25": {
+                  "rank": 3,
+                  "score": 4.690814821357457
+                },
+                "semantic": {
+                  "rank": 5,
+                  "score": 0.4473843540338836
+                }
+              }
+            },
+            {
+              "passage_id": "D04-P01",
+              "doc_id": "D04",
+              "title": "差旅报销审批流程",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "差旅报销申请先提交直属负责人审批，再提交财务审核。",
+              "rank": 5,
+              "rrf_score": 0.031009615384615385,
+              "branches": {
+                "bm25": {
+                  "rank": 5,
+                  "score": 4.508787513845588
+                },
+                "semantic": {
+                  "rank": 4,
+                  "score": 0.45827614292863605
+                }
+              }
+            },
+            {
+              "passage_id": "D05-P01",
+              "doc_id": "D05",
+              "title": "请假申请规定（旧版）",
+              "topic": "人事",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "员工请假应提前 2 个工作日提交申请。",
+              "rank": 6,
+              "rrf_score": 0.015151515151515152,
+              "branches": {
+                "semantic": {
+                  "rank": 6,
+                  "score": 0.40353629446584904
+                }
+              }
+            }
+          ],
+          "branch_rankings": {
+            "bm25": [
+              {
+                "passage_id": "D03-P01",
+                "score": 13.838689936721686
+              },
+              {
+                "passage_id": "D07-P01",
+                "score": 7.246851101482997
+              },
+              {
+                "passage_id": "D01-P01",
+                "score": 4.690814821357457
+              },
+              {
+                "passage_id": "D02-P01",
+                "score": 4.690814821357457
+              },
+              {
+                "passage_id": "D04-P01",
+                "score": 4.508787513845588
+              }
+            ],
+            "semantic": [
+              {
+                "passage_id": "D03-P01",
+                "score": 0.6126464727830927
+              },
+              {
+                "passage_id": "D07-P01",
+                "score": 0.476538815243572
+              },
+              {
+                "passage_id": "D02-P01",
+                "score": 0.4624735753346182
+              },
+              {
+                "passage_id": "D04-P01",
+                "score": 0.45827614292863605
+              },
+              {
+                "passage_id": "D01-P01",
+                "score": 0.4473843540338836
+              },
+              {
+                "passage_id": "D05-P01",
+                "score": 0.40353629446584904
+              },
+              {
+                "passage_id": "D08-P01",
+                "score": 0.3887496201580855
+              },
+              {
+                "passage_id": "D06-P01",
+                "score": 0.36115211155399024
+              },
+              {
+                "passage_id": "D12-P01",
+                "score": 0.32320482583714744
+              },
+              {
+                "passage_id": "D09-P01",
+                "score": 0.32127419127954765
+              },
+              {
+                "passage_id": "D11-P01",
+                "score": 0.28487330378837966
+              },
+              {
+                "passage_id": "D10-P01",
+                "score": 0.275961703681162
+              }
+            ]
+          },
+          "configuration": {
+            "bm25": {
+              "k1": 1.5,
+              "b": 0.75,
+              "idf": "log1p((N-df+0.5)/(df+0.5))"
+            },
+            "tokenizer": "NFKC/casefold + Han unigram/bigram + Latin/number runs v1",
+            "input": "title + newline + passage body; canonical provenance preserved separately",
+            "branch_limit": 12,
+            "rrf_k": 60,
+            "summary_characters": 160,
+            "tie_break": "passage_id ascending",
+            "embedding": {
+              "device": "cpu",
+              "dimension": 512,
+              "max_input_tokens": 512,
+              "mode": "live",
+              "model_id": "BAAI/bge-small-zh-v1.5",
+              "normalized": true,
+              "packages": {
+                "huggingface-hub": "0.36.0",
+                "safetensors": "0.6.2",
+                "tokenizers": "0.22.2",
+                "torch": "2.9.0+cpu",
+                "transformers": "4.57.1"
+              },
+              "pooling": "CLS",
+              "query_prefix": "为这个句子生成表示以用于检索相关文章：",
+              "revision": "7999e1d3359715c523056ef9478215996d62a620",
+              "threads": 1,
+              "weights_fingerprint": "sha256:79a6f0034e3e568922396703a0172cbd3eb7bb857b8b1e3ef15f2721a252b276"
+            }
+          },
+          "error": null
+        },
+        "elapsed_seconds": 0.030999999999039574
+      },
+      {
+        "kind": "model_request",
+        "at_seconds": 1.1719999999986612,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 4361,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 2.436999999998079,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 3773,
+          "completion_tokens": 76,
+          "prompt_cache_hit_tokens": 1920,
+          "prompt_cache_miss_tokens": 1853,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.008154,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 4361,
+          "actual_prompt_tokens": 3773,
+          "actual_to_estimate_ratio": 0.8651685393258427
+        },
+        "elapsed_seconds": 1.264999999999418,
+        "calls": [
+          {
+            "id": "call_00_owCzcgCthdp6t3pivwP48367",
+            "name": "read"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 2.436999999998079,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "tool_call_id": "call_00_owCzcgCthdp6t3pivwP48367",
+        "action": "read",
+        "arguments": {
+          "passage_ids": [
+            "D03-P01",
+            "D04-P01"
+          ],
+          "reason": "读取报销材料说明与审批流程原文以确认所需材料"
+        },
+        "rationale": "读取报销材料说明与审批流程原文以确认所需材料"
+      },
+      {
+        "kind": "tool_observation",
+        "at_seconds": 2.436999999998079,
+        "model_calls": 2,
+        "tool_calls": 2,
+        "tool_call_id": "call_00_owCzcgCthdp6t3pivwP48367",
+        "action": "read",
+        "observation": {
+          "tool": "read",
+          "status": "error",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "passages": [],
+          "error": {
+            "kind": "tool_error",
+            "code": "read_failed",
+            "message": "Passage reading failed"
+          }
+        },
+        "elapsed_seconds": 0.0
+      },
+      {
+        "kind": "model_request",
+        "at_seconds": 2.436999999998079,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 4593,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 3.8590000000003783,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 3956,
+          "completion_tokens": 65,
+          "prompt_cache_hit_tokens": 3712,
+          "prompt_cache_miss_tokens": 244,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.008432,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 4593,
+          "actual_prompt_tokens": 3956,
+          "actual_to_estimate_ratio": 0.8613106901807098
+        },
+        "elapsed_seconds": 1.4220000000022992,
+        "calls": [
+          {
+            "id": "call_00_i6S9e8FtVJhd3EhU5sTQ0807",
+            "name": "read"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 3.8590000000003783,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "tool_call_id": "call_00_i6S9e8FtVJhd3EhU5sTQ0807",
+        "action": "read",
+        "arguments": {
+          "passage_ids": [
+            "D03-P01"
+          ],
+          "reason": "重试读取报销材料说明原文"
+        },
+        "rationale": "重试读取报销材料说明原文"
+      },
+      {
+        "kind": "tool_recovery",
+        "at_seconds": 3.8590000000003783,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recovery_number": 1
+      },
+      {
+        "kind": "tool_observation",
+        "at_seconds": 3.8590000000003783,
+        "model_calls": 3,
+        "tool_calls": 3,
+        "tool_call_id": "call_00_i6S9e8FtVJhd3EhU5sTQ0807",
+        "action": "read",
+        "observation": {
+          "tool": "read",
+          "status": "success",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "passages": [
+            {
+              "passage_id": "D03-P01",
+              "doc_id": "D03",
+              "title": "差旅报销材料说明",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "scope": "星帆科技全体员工",
+              "text": "文档：差旅报销材料说明（D03）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n提交差旅报销申请需提供发票与出差审批单。"
+            }
+          ],
+          "error": null
+        },
+        "elapsed_seconds": 0.0
+      },
+      {
+        "kind": "model_request",
+        "at_seconds": 3.8590000000003783,
+        "model_calls": 4,
+        "tool_calls": 3,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 4940,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 6.734000000000378,
+        "model_calls": 4,
+        "tool_calls": 3,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 4240,
+          "completion_tokens": 478,
+          "prompt_cache_hit_tokens": 3968,
+          "prompt_cache_miss_tokens": 272,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.012304,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 4940,
+          "actual_prompt_tokens": 4240,
+          "actual_to_estimate_ratio": 0.8582995951417004
+        },
+        "elapsed_seconds": 2.875,
+        "calls": [
+          {
+            "id": "call_00_FCQ1ShK3oY2EhXVkr7j93565",
+            "name": "finish"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 6.734000000000378,
+        "model_calls": 4,
+        "tool_calls": 3,
+        "tool_call_id": "call_00_FCQ1ShK3oY2EhXVkr7j93565",
+        "action": "finish",
+        "arguments": {
+          "status": "answered",
+          "answer": "差旅报销材料：提交差旅报销申请需提供发票与出差审批单，适用于星帆科技全体员工。[C1]\n\n说明：以上资料仅覆盖“差旅报销”场景；其他类型报销（如日常费用、招待、采购等）所需材料在现有资料中未见对应规定。",
+          "part_statuses": [
+            "answered"
+          ],
+          "citation_refs": [
+            {
+              "marker": "C1",
+              "passage_id": "D03-P01",
+              "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+            }
+          ],
+          "gaps": [
+            "资料仅覆盖差旅报销材料（发票、出差审批单），未检索到日常费用、招待、采购等其他报销类型的材料规定，不能据此推断这些场景的要求。"
+          ],
+          "clarification": "你问的是差旅报销，还是日常费用/招待等其他类型的报销？",
+          "anchor_snapshot": {
+            "subject": {
+              "value": "报销材料要求",
+              "source_message_ids": [
+                "383c82e64c274034a460639de6775fdb"
+              ]
+            },
+            "focus": {
+              "value": "差旅报销需提供的材料",
+              "source_message_ids": [
+                "383c82e64c274034a460639de6775fdb"
+              ]
+            },
+            "pending_clarification": {
+              "value": "报销类型：差旅报销还是其他类型报销",
+              "source_message_ids": [
+                "383c82e64c274034a460639de6775fdb"
+              ]
+            }
+          },
+          "reason": "已读取唯一相关的报销材料原文，可给出差旅报销材料结论并说明范围边界。"
+        },
+        "rationale": "已读取唯一相关的报销材料原文，可给出差旅报销材料结论并说明范围边界。"
+      },
+      {
+        "kind": "validation_error",
+        "at_seconds": 6.734000000000378,
+        "model_calls": 4,
+        "tool_calls": 3,
+        "message": "Citation marker is invalid or duplicated",
+        "tool_call_ids": [
+          "call_00_FCQ1ShK3oY2EhXVkr7j93565"
+        ]
+      },
+      {
+        "kind": "model_request",
+        "at_seconds": 6.734000000000378,
+        "model_calls": 5,
+        "tool_calls": 3,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 5587,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 9.484000000000378,
+        "model_calls": 5,
+        "tool_calls": 3,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 4780,
+          "completion_tokens": 485,
+          "prompt_cache_hit_tokens": 4608,
+          "prompt_cache_miss_tokens": 172,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.01344,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 5587,
+          "actual_prompt_tokens": 4780,
+          "actual_to_estimate_ratio": 0.8555575442992661
+        },
+        "elapsed_seconds": 2.75,
+        "calls": [
+          {
+            "id": "call_00_8eUdTinjDAy2TYxfAvcH5059",
+            "name": "finish"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 9.484000000000378,
+        "model_calls": 5,
+        "tool_calls": 3,
+        "tool_call_id": "call_00_8eUdTinjDAy2TYxfAvcH5059",
+        "action": "finish",
+        "arguments": {
+          "answer": "差旅报销材料：提交差旅报销申请需提供发票与出差审批单，文件适用对象为星帆科技全体员工。[D03-P01]\n\n说明：以上资料仅覆盖“差旅报销”场景；其他类型报销（如日常费用、招待、采购等）所需材料在现有资料中未见对应规定。",
+          "citation_refs": [
+            {
+              "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+              "marker": "D03-P01",
+              "passage_id": "D03-P01"
+            }
+          ],
+          "clarification": "你问的是差旅报销，还是日常费用/招待等其他类型的报销？",
+          "gaps": [
+            "资料仅覆盖差旅报销材料（发票、出差审批单），未检索到日常费用、招待、采购等其他报销类型的材料规定，不能据此推断这些场景的要求。"
+          ],
+          "part_statuses": [
+            "answered"
+          ],
+          "reason": "改用符合格式的引用标记后重新提交，结论依据为已读的差旅报销材料原文。",
+          "status": "answered",
+          "anchor_snapshot": {
+            "focus": {
+              "source_message_ids": [
+                "383c82e64c274034a460639de6775fdb"
+              ],
+              "value": "差旅报销需提供的材料"
+            },
+            "pending_clarification": {
+              "source_message_ids": [
+                "383c82e64c274034a460639de6775fdb"
+              ],
+              "value": "报销类型：差旅报销还是其他类型报销"
+            },
+            "subject": {
+              "source_message_ids": [
+                "383c82e64c274034a460639de6775fdb"
+              ],
+              "value": "报销材料要求"
+            }
+          }
+        },
+        "rationale": "改用符合格式的引用标记后重新提交，结论依据为已读的差旅报销材料原文。"
+      },
+      {
+        "kind": "validation_error",
+        "at_seconds": 9.484000000000378,
+        "model_calls": 5,
+        "tool_calls": 3,
+        "message": "Citation marker is invalid or duplicated",
+        "tool_call_ids": [
+          "call_00_8eUdTinjDAy2TYxfAvcH5059"
+        ]
+      },
+      {
+        "kind": "memory_validation",
+        "at_seconds": 9.484000000000378,
+        "model_calls": 5,
+        "tool_calls": 3,
+        "valid": false,
+        "warning": "no_legal_finish"
+      },
+      {
+        "kind": "stop",
+        "at_seconds": 9.484000000000378,
+        "model_calls": 5,
+        "tool_calls": 3,
+        "reason": "format_repair_failed",
+        "recoveries": 1,
+        "corrections": 1
+      },
+      {
+        "kind": "memory_update",
+        "stage": "validated_before_persistence",
+        "before": null,
+        "after": null,
+        "previous_valid": false,
+        "previous_warning": null
+      }
+    ],
+    "elapsed_seconds": 9.5,
+    "usage": {
+      "requests_with_unknown_usage": 0,
+      "known_requests_estimated_cny": 0.046802,
+      "total_estimated_cny": 0.046802,
+      "invoice_cny": null
+    },
+    "read_set": [
+      "D03-P01"
+    ],
+    "evidence": [
+      {
+        "passage_id": "D03-P01",
+        "doc_id": "D03",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "title": "差旅报销材料说明",
+        "version_date": "2026-01-01",
+        "text": "文档：差旅报销材料说明（D03）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n提交差旅报销申请需提供发票与出差审批单。"
+      }
+    ],
+    "anchor_snapshot_proposal": null,
+    "anchor_snapshot": null,
+    "memory_valid": false,
+    "memory_persisted": false,
+    "memory_warning": "no_legal_finish",
+    "history_selection": {
+      "budget": 8000,
+      "estimated_tokens": 0,
+      "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+      "selected_message_ids": [],
+      "omitted_message_ids": [],
+      "boundary": "complete recent business message pairs; run traces stored separately"
+    },
+    "message_ids": {
+      "request_id": "7b7760e4649b46d7a42dd052c75a1c14",
+      "user_message_id": "383c82e64c274034a460639de6775fdb",
+      "assistant_message_id": "fdf9348097f54934a15e75251f1d840c"
+    },
+    "memory_update": {
+      "before": null,
+      "after": null,
+      "previous_valid": false,
+      "previous_warning": null
+    },
+    "persistence": {
+      "saved": true,
+      "user_message_saved": true,
+      "result_saved": true
+    }
+  }
+}

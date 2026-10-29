@@ -1,0 +1,18 @@
+[
+  {
+    "id": "A02",
+    "category": "文档冲突",
+    "questions": [
+      "报销期限是多少天？"
+    ],
+    "statuses": [
+      "needs_clarification"
+    ],
+    "passages": [
+      "D01-P01",
+      "D02-P01"
+    ],
+    "expected": "读取30/15天双方、补查现行制度/替代信息并读取新候选；仍无依据保留双方、请求一个现行依据，不按日期裁决",
+    "spec": "grounded-qa/无法消解的冲突必须查证并保留"
+  }
+]

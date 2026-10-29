@@ -19,7 +19,9 @@ def _object(properties: dict, required: list[str] | None = None) -> dict:
 STRING = {"type": "string"}
 STRINGS = {"type": "array", "items": STRING}
 REASON = {"type": "string", "description": "一句简要行动依据（最多240字符）；不要输出内部思维过程。"}
-REF = _object({"marker": STRING, "passage_id": STRING, "corpus_fingerprint": STRING})
+REF = _object({"marker": {"type": "string", "pattern": r"^\[C[1-9][0-9]*\]$",
+                          "description": "必须带方括号，例如[C1]；不能写C1。"},
+               "passage_id": STRING, "corpus_fingerprint": STRING})
 ANCHOR_ITEM = {"anyOf": [{"type": "null"}, _object({"value": STRING,
     "source_message_ids": {"type": "array", "minItems": 1, "uniqueItems": True, "items": STRING}})]}
 ANCHOR = _object({field: ANCHOR_ITEM for field in ("subject", "focus", "pending_clarification")})
@@ -37,7 +39,9 @@ def tool_definitions() -> list[dict]:
                               "items": {"type": "string", "enum": STATUSES},
                               "description": "按answer分项顺序列出状态；整体status必须取最高优先级。"},
             "citation_refs": {"type": "array", "items": REF}, "gaps": STRINGS,
-            "clarification": {"type": ["string", "null"]}, "anchor_snapshot": ANCHOR, "reason": REASON,
+            "clarification": {"type": ["string", "null"],
+                              "description": "null或一个最关键的问题；整个字段最多一个中文或英文问号，不能打包第二问。"},
+            "anchor_snapshot": ANCHOR, "reason": REASON,
         })),
     ]
     return [{"type": "function", "function": {"name": name, "description": description, "parameters": schema}}
@@ -112,7 +116,7 @@ def validate_finish(args: dict, snapshot, read_set: set[str]) -> dict:
         raise ActionError("clarification must be null or one non-empty question")
     clarification = args["clarification"]
     if clarification is not None and len(re.findall(r"[?？]", clarification)) > 1:
-        raise ActionError("clarification must contain at most one question")
+        raise ActionError("clarification must contain at most one question and one ? or ？; remove extra questions")
     if "needs_clarification" in parts and (clarification is None or not args["gaps"]):
         raise ActionError("A clarification result needs a gap and one key question")
     if "insufficient_evidence" in parts and not args["gaps"]:
@@ -129,7 +133,7 @@ def validate_finish(args: dict, snapshot, read_set: set[str]) -> dict:
             raise ActionError("Each reference needs marker, passage_id and corpus_fingerprint")
         marker, part_id = ref["marker"], ref["passage_id"]
         if not isinstance(marker, str) or not re.fullmatch(r"\[C[1-9][0-9]*\]", marker) or marker in markers:
-            raise ActionError("Citation marker is invalid or duplicated")
+            raise ActionError("Citation marker must be unique and include square brackets, e.g. [C1], [C2]; bare C1 is invalid")
         if not isinstance(part_id, str) or part_id not in read_set or part_id not in snapshot.passages_by_id:
             raise ActionError("Citation passage must have been successfully read in this task")
         if ref["corpus_fingerprint"] != snapshot.fingerprint:

@@ -1,0 +1,63 @@
+Resolved 39 packages in 3ms
+   Building enterprise-knowledge-qa @ file:///D:/GitHub_ShiriZhang/xiaoying-ai-agent/.cache/batch-9-clean
+WARN Retry attempt #0. Sleeping 1.6152864s before the next attempt
+WARN Retry attempt #0. Sleeping 1.893331s before the next attempt
+WARN Retry attempt #0. Sleeping 1.3068188s before the next attempt
+WARN Retry attempt #0. Sleeping 1.4091055s before the next attempt
+WARN Retry attempt #0. Sleeping 1.1353712s before the next attempt
+WARN Retry attempt #0. Sleeping 1.230264s before the next attempt
+WARN Retry attempt #0. Sleeping 1.5739129s before the next attempt
+WARN Retry attempt #0. Sleeping 1.92745s before the next attempt
+WARN Retry attempt #0. Sleeping 1.9691582s before the next attempt
+WARN Retry attempt #0. Sleeping 1.8474848s before the next attempt
+WARN Retry attempt #0. Sleeping 1.5907667s before the next attempt
+WARN Retry attempt #0. Sleeping 1.7161944s before the next attempt
+WARN Retry attempt #0. Sleeping 1.7909688s before the next attempt
+WARN Retry attempt #0. Sleeping 1.5416811s before the next attempt
+WARN Retry attempt #0. Sleeping 1.3148832s before the next attempt
+WARN Retry attempt #0. Sleeping 1.4747216s before the next attempt
+WARN Retry attempt #0. Sleeping 1.3232631s before the next attempt
+WARN Retry attempt #1. Sleeping 3.1386325s before the next attempt
+WARN Retry attempt #1. Sleeping 1.1605763s before the next attempt
+WARN Retry attempt #1. Sleeping 2.987444s before the next attempt
+WARN Retry attempt #1. Sleeping 1.6128503s before the next attempt
+WARN Retry attempt #1. Sleeping 1.6457623s before the next attempt
+WARN Retry attempt #1. Sleeping 3.2011345s before the next attempt
+WARN Retry attempt #1. Sleeping 2.7291878s before the next attempt
+WARN Retry attempt #1. Sleeping 1.4504243s before the next attempt
+WARN Retry attempt #1. Sleeping 2.4803882s before the next attempt
+WARN Retry attempt #1. Sleeping 3.2358288s before the next attempt
+WARN Retry attempt #1. Sleeping 1.7834241s before the next attempt
+WARN Retry attempt #1. Sleeping 1.8896113s before the next attempt
+WARN Retry attempt #1. Sleeping 3.2455017s before the next attempt
+WARN Retry attempt #1. Sleeping 3.3694556s before the next attempt
+WARN Retry attempt #1. Sleeping 2.9481205s before the next attempt
+WARN Retry attempt #1. Sleeping 2.0286704s before the next attempt
+WARN Retry attempt #1. Sleeping 3.3620556s before the next attempt
+WARN Retry attempt #2. Sleeping 7.7078404s before the next attempt
+WARN Retry attempt #2. Sleeping 3.9801395s before the next attempt
+WARN Retry attempt #2. Sleeping 2.7567876s before the next attempt
+WARN Retry attempt #2. Sleeping 4.3518965s before the next attempt
+WARN Retry attempt #2. Sleeping 6.0336496s before the next attempt
+WARN Retry attempt #2. Sleeping 3.8161186s before the next attempt
+WARN Retry attempt #2. Sleeping 5.9574327s before the next attempt
+WARN Retry attempt #2. Sleeping 4.4056366s before the next attempt
+WARN Retry attempt #2. Sleeping 2.4133051s before the next attempt
+WARN Retry attempt #2. Sleeping 6.4874585s before the next attempt
+WARN Retry attempt #2. Sleeping 7.7620667s before the next attempt
+WARN Retry attempt #2. Sleeping 2.6855844s before the next attempt
+WARN Retry attempt #2. Sleeping 7.2495479s before the next attempt
+WARN Retry attempt #2. Sleeping 5.1391769s before the next attempt
+WARN Retry attempt #2. Sleeping 4.4062868s before the next attempt
+WARN Retry attempt #2. Sleeping 4.1900024s before the next attempt
+WARN Retry attempt #2. Sleeping 7.7920751s before the next attempt
+  × Failed to build `enterprise-knowledge-qa @
+  │ file:///D:/GitHub_ShiriZhang/xiaoying-ai-agent/.cache/batch-9-clean`
+  ├─▶ Failed to resolve requirements from `build-system.requires`
+  ├─▶ No solution found when resolving: `setuptools==80.9.0`
+  ├─▶ Request failed after 3 retries in 5.8s
+  ├─▶ Failed to fetch: `https://pypi.org/simple/setuptools/`
+  ├─▶ error sending request for url (https://pypi.org/simple/setuptools/)
+  ├─▶ client error (Connect)
+  ├─▶ dns error
+  ╰─▶ 不知道这样的主机。 (os error 11001)

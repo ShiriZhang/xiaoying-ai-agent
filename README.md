@@ -1,6 +1,6 @@
 # 企业知识问答 Agent（题号 3）
 
-当前已完成第一至第八批：四个REST路由及前置能力、真实模型六类两次验证、规则/记忆回归和授权的独立代理资料变更核查。最终36轮实际结果与全部104轮失败/复跑记录见[第八批证据](examples/batch-8/verification.md)、[独立逐项矩阵](examples/batch-8/delegated-audit/validated-review.md)。资料修改及支持性审阅按用户明确授权由独立AI代理代办，不冒称用户亲自完成。**第9批全新环境和第10批综合交付尚未完成**。当前40/46项，下一项9.1。OpenSpec规划与任务文件仅保留本地，不随公开仓库发布。
+当前已完成第一至第九批：四个REST路由及前置能力、真实模型六类两次验证、规则/记忆回归和授权的独立代理资料变更核查。最终36轮实际结果与全部104轮失败/复跑记录见[第八批证据](examples/batch-8/verification.md)、[独立逐项矩阵](examples/batch-8/delegated-audit/validated-review.md)。资料修改及支持性审阅按用户明确授权由独立AI代理代办，不冒称用户亲自完成。第九批在干净副本的独立环境完成无密钥/空缓存Mock、真实权重独立下载及真实HTTP问答，见[冷启动证据](examples/batch-9/verification.md)。**第10批综合交付尚未完成**。当前43/46项，下一项10.1。OpenSpec规划与任务文件仅保留本地，不随公开仓库发布。
 
 ## 支持环境与安装
 
@@ -112,7 +112,7 @@ $env:QA_MODE = 'live'
 .venv/Scripts/python.exe -I -m enterprise_knowledge_qa.server --env-file .env
 ```
 
-真实模式与Mock使用同样四个请求格式，只有显式配置选择模式。配置、权重或存储未就绪会以退出码2停止启动；认证/服务失败返回任务incomplete，不换服务。第八批已通过同一ConversationService/Agent运行真实六类问答；HTTP传输层已用Mock验证，完整全新环境真实HTTP验证仍留第9批。
+真实模式与Mock使用同样四个请求格式，只有显式配置选择模式。配置、权重或存储未就绪会以退出码2停止启动；认证/服务失败返回任务incomplete，不换服务。第八批已通过同一ConversationService/Agent运行真实六类问答；第九批另在干净副本中完成了使用真实BGE与DeepSeek的HTTP问答，见[冷启动证据](examples/batch-9/verification.md)。
 
 ## 分层测试与实际证据
 
@@ -128,7 +128,7 @@ $env:QA_MODE = 'live'
 .venv/Scripts/python.exe -I examples/batch-7/exercise_http.py --output .cache/http-demo-new.json
 ```
 
-输出文件必须尚不存在；复跑时换新文件名，保留先前证据。可加`--powershell-output .cache/readme-new.json`实际执行README的PowerShell请求。实际请求/响应/Trace见[最终HTTP记录](examples/batch-7/http-demo-final.json)、[PowerShell结果](examples/batch-7/readme-requests.json)、[第七批验证](examples/batch-7/verification.md)。全新空环境API验证仍待第9批；当前环境安装与重启测试不能代替它。真实embedding、六类真实模型效果与冷启动分别独立验收。资料加载/重载接口见[资料说明](data/README.md)，已审阅正文与变体预期见[审阅稿](data/REVIEW.md)。
+输出文件必须尚不存在；复跑时换新文件名，保留先前证据。可加`--powershell-output .cache/readme-new.json`实际执行README的PowerShell请求。实际请求/响应/Trace见[最终HTTP记录](examples/batch-7/http-demo-final.json)、[PowerShell结果](examples/batch-7/readme-requests.json)、[第七批验证](examples/batch-7/verification.md)。第九批另用独立空环境实际复跑了这些API与重启步骤，见[冷启动证据](examples/batch-9/verification.md)。真实embedding、六类真实模型效果与冷启动分别独立验收。资料加载/重载接口见[资料说明](data/README.md)，已审阅正文与变体预期见[审阅稿](data/REVIEW.md)。
 
 第八批真实验证入口（产生实际模型费用，必须显式--live；本地.env提供密钥，权重使用已锁定revision，不改.env）：
 
@@ -171,6 +171,26 @@ $env:HF_HUB_DISABLE_TELEMETRY = '1'
 检索参数：BM25 k1=1.5/b=0.75、正值IDF；NFKC/casefold、汉字单字/双字、拉丁/数字连续词；本地CPU BGE用CLS、单位归一化，查询加官方中文检索前缀；每路12，RRF k=60，输出6/12，按片段ID打破同分。编码最长512 token（查询前缀与特殊token也计入），过长明确报错，无静默截断。片段原文不改写，候选分数不代表规则可信度或日期优先级。
 
 ## 评审导航与目录
+
+### 全新环境复现（第九批）
+
+建议从一次干净检出开始，勿复制开发者的`.venv`、`.env`、`models`或运行数据库。按上方安装步骤新建环境，先仅安装test组，再执行：
+
+```powershell
+.venv/Scripts/python.exe -I examples/batch-9/verify_environment.py --output .cache/cold-offline-new
+.venv/Scripts/python.exe -I -m enterprise_knowledge_qa --env-file .env.example
+.venv/Scripts/python.exe -I examples/batch-7/exercise_http.py --output .cache/cold-http-new.json --powershell-output .cache/cold-requests-new.json
+```
+
+第一条会验证未继承全局包、导入的安装包与当前源码一致、没有本地`.env`或`models`，然后在空模型缓存、空密钥、外部socket阻断下运行全部离线测试。它必须在准备真实权重之前执行；复跑需另一干净副本及新输出目录。HTTP脚本的服务子进程同样禁止外部连接，只允许本机请求。三个步骤分别验证测试、配置和实际服务，配置有效不等于服务已启动。
+
+随后在该环境按上方真实CPU依赖与权重步骤显式下载到`models/bge-small-zh-v1.5`，并运行`retrieval_check`。最后可运行一次会产生模型费用的最小真实HTTP验证：
+
+```powershell
+.venv/Scripts/python.exe -I examples/batch-9/exercise_live_http.py --live --env-file C:/private/qa.env --weights models/bge-small-zh-v1.5 --output .cache/cold-live-new.json
+```
+
+将`C:/private/qa.env`替换为实际本地配置文件，填写`DEEPSEEK_API_KEY`；脚本只从该文件取密钥，通过内存环境交给子进程，不复制或输出密钥。服务使用干净副本的`.env.example`与资料、新建临时SQLite、指定权重和离线HF缓存配置；实际访问官方DeepSeek，执行四个路由并保存问答/Trace。它只证明一次冷启动真实问答，第八批六类重复验证另见对应证据。安装包下载缓存可以显式复用；模型权重须独立准备，不能拿开发机隐式权重缓存代替。实际命令、全部版本、原失败与复跑见[第九批记录](examples/batch-9/verification.md)。
 
 第三批可执行的少量真实协议检查（需要本地 `.env` 中的有效密钥，会产生少量费用）：
 

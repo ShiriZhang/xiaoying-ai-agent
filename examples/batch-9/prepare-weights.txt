@@ -1,0 +1,6 @@
+
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]
+Fetching 6 files:  17%|����        | 1/6 [00:00<00:00,  5.30it/s]
+Fetching 6 files:  83%|������������������ | 5/6 [00:00<00:00, 13.63it/s]
+Fetching 6 files: 100%|��������������������| 6/6 [00:02<00:00,  2.50it/s]
+{"model_id": "BAAI/bge-small-zh-v1.5", "revision": "7999e1d3359715c523056ef9478215996d62a620", "verified_files": 6}

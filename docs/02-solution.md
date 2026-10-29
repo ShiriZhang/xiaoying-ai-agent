@@ -1,5 +1,7 @@
 # 方案设计
 
+第五批实际更新：已实现业务结果和混合状态校验、完整模型任务指令、canonical引用回填与中断证据保留。当前实现契约和实际Mock输出见文末“第五批结果与引用”；会话/记忆/API和真实业务语义验收仍待后续任务。
+
 第四批实际更新：已实现本地CPU BGE、BM25/RRF混检、原子重载及同一Agent集成。下文早期“检索未接入”的说明是第三批当时边界，现以本节与第四批证据为准。真实生成模型六类验收、会话/API及完整记忆仍未完成。
 
 检索输入选择标题+条文主体，避免每段重复出处头干扰排名；canonical原文和元信息完整保留供读取。中文采用NFKC/casefold、单字/双字混合切分，无外部分词词典；BM25 k1=1.5、b=0.75，IDF=log1p((N-df+0.5)/(df+0.5))保持单D01正分。向量为固定revision BGE的CPU CLS归一化表示，中文查询加检索前缀，512-token长度检查在padding/模型执行前进行，不允许隐式截断。
@@ -137,3 +139,29 @@ Trace 记录输入输出、请求 ID、模式、模型及 embedding 配置、模
 离线执行：`.venv/Scripts/python.exe -I -m unittest discover -s tests -v`。少量真实协议验证入口：`.venv/Scripts/python.exe -I -m enterprise_knowledge_qa.smoke --live --env-file .env --output examples/batch-3/live-smoke`。它显式使用真实生成模型和实际原文读取，独立于尚未准备的embedding；不代表六类最终验收。失败、复跑、用量和实际标识见 [第三批记录](../examples/batch-3/verification.md)。
 
 合成资料目录、关键规则、个人验证分工与工时计划已经确认，见需求文档。用户在 Q56 完成整体复核，确认无合法结束动作时停用旧锚点的规则，设计澄清阶段结束，不因此启动实现。实际账号、权重、兼容性、速度、成功率和费用仍待实施验证，不冒充已知事实。
+
+## 第五批结果与引用
+
+`finish`现在提交`status、part_statuses、answer、citation_refs、gaps、clarification、anchor_snapshot、reason`。`answer`按问题分项，用引用标记关联具体企业结论；`part_statuses`按分项顺序给出状态，整体`status`必须符合`incomplete > needs_clarification > insufficient_evidence > out_of_scope > answered`，不一致使用原有一次格式修正机会。程序只检查枚举与优先级，不能自动判断是否漏掉问题分项或错误分类。
+
+`citation_refs`只接收`marker、passage_id、corpus_fingerprint`；拒绝模型传入的原文字段。执行器核对本任务read-set、片段存在性、快照指纹和`[C1]`格式，拒绝未声明、重复或错误标记，再从不可变快照回填`doc_id、title、version_date、effective_date、text`。`text`是完整连续原文，模型的归纳只在`answer`中。相同标记可在多个受其支持的结论旁重复出现，但引用列表只能定义一次。
+
+以下摘自[实际受控Mock运行](../examples/batch-5/needs_clarification.json)，不是DeepSeek语义验收：
+
+```json
+{
+  "status": "needs_clarification",
+  "part_statuses": ["answered", "needs_clarification"],
+  "answer": "材料：发票与出差审批单[C1]。\n期限：D01为30天[C2]，D02为15天[C3]，缺少消解依据。",
+  "gaps": ["尚无确认现行期限或替代关系的依据。"],
+  "clarification": "能提供现行制度或替代说明吗？"
+}
+```
+
+核对关系：`[C1] → D03-P01`支持材料清单，`[C2] → D01-P01`支持30天，`[C3] → D02-P01`支持15天；三个引用各自包含逐字正文、版本日期和同一指纹。冲突保留双方，不在回答代码里按问题或日期选择数字。系统指令要求读取双方并补查替代/生效依据；明示替代且已生效可直接解释，未来生效不提前适用。真实模型是否遵从这些指令留给真实验收。
+
+`gaps`单列未消解冲突、资料缺失和范围边界，不能用工具错误冒充资料未覆盖。`clarification`仅为null或一个关键追问；程序拒绝数组和含多个问号的字符串，纯范围外问题不能追问。无问号的多重请求仍需语义核查，不能声称字符检查证明追问只有一个。
+
+业务结果可同时保留已答材料和未解决部分，示例分别见[材料+缺失](../examples/batch-5/insufficient_evidence.json)、[材料+天气](../examples/batch-5/out_of_scope.json)。执行中断无合法finish时由程序返回`incomplete`，不再调用模型收尾；`citations`不伪造结论引用，`evidence`保留已读原文、出处和指纹，`execution_issues`单列实际执行原因，见[中断运行](../examples/batch-5/interrupted.json)。若合法结果后的Trace保存超时，提升整体为incomplete并保留已有回答和引用。
+
+完整固定语义预期见[用例预期](../examples/batch-5/expectations.json)；本批测试与适用边界见[验证记录](../examples/batch-5/verification.md)。锚点仍只保留提议并明确告警，第6批再校验持久化，本批不宣称记忆有效。

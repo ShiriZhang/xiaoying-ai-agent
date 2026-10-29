@@ -28,6 +28,7 @@ def finish(*, with_ref=False, status=None, **changes):
             "citation_refs": [{"marker": "[C1]", "passage_id": "D03-P01", "corpus_fingerprint": snapshot().fingerprint}] if with_ref else [],
             "anchor_snapshot": {"subject": None, "focus": None, "pending_clarification": None}}
     args.update(changes)
+    args.setdefault("part_statuses", [args["status"]])
     return call("finish", args)
 
 

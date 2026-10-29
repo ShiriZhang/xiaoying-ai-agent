@@ -1,0 +1,184 @@
+{
+  "evidence_kind": "actual offline executor run with controlled Mock model, not live semantic acceptance",
+  "result": {
+    "status": "incomplete",
+    "part_statuses": [
+      "incomplete"
+    ],
+    "answer": "任务未完成，保留已获取证据与执行记录。",
+    "gaps": [],
+    "clarification": null,
+    "citations": [],
+    "request_id": "910734a218734e04997bd2130800bacf",
+    "session_id": null,
+    "mode": "mock",
+    "as_of_date": "2026-10-29",
+    "time_zone": "东部夏令时",
+    "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+    "requested_model": "mock-policy",
+    "model_configuration": {
+      "endpoint": null,
+      "thinking_mode": "disabled",
+      "implicit_retries": 0
+    },
+    "embedding": {
+      "model_id": "BAAI/bge-small-zh-v1.5",
+      "revision": "7999e1d3359715c523056ef9478215996d62a620",
+      "status": "not_loaded_by_executor"
+    },
+    "input": {
+      "question": "报销材料和期限？",
+      "context": []
+    },
+    "limits": {
+      "model_calls": 8,
+      "tool_calls": 6,
+      "model_timeout_seconds": 60.0,
+      "task_timeout_seconds": 300.0
+    },
+    "counts": {
+      "model_calls": 2,
+      "tool_calls": 1,
+      "recoveries": 0,
+      "format_corrections": 0
+    },
+    "stop_reason": "model_failed",
+    "execution_issues": [
+      {
+        "code": "model_failed"
+      }
+    ],
+    "trace": [
+      {
+        "kind": "model_request",
+        "at_seconds": 0.0,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "requested_model": "mock-policy",
+        "timeout_seconds": 60.0
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 0.0,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "actual_model": "controlled-model",
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "prompt_cache_hit_tokens": null,
+          "prompt_cache_miss_tokens": null,
+          "usage_known": false,
+          "estimated_cny_upper_rate": null,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "elapsed_seconds": 0.0,
+        "calls": [
+          {
+            "id": "call-real-fixture",
+            "name": "read"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 0.0,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "tool_call_id": "call-real-fixture",
+        "action": "read",
+        "arguments": {
+          "reason": "Controlled test action",
+          "passage_ids": [
+            "D03-P01"
+          ]
+        },
+        "rationale": "Controlled test action"
+      },
+      {
+        "kind": "tool_observation",
+        "at_seconds": 0.0,
+        "model_calls": 1,
+        "tool_calls": 1,
+        "tool_call_id": "call-real-fixture",
+        "action": "read",
+        "observation": {
+          "tool": "read",
+          "status": "success",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "passages": [
+            {
+              "passage_id": "D03-P01",
+              "doc_id": "D03",
+              "title": "差旅报销材料说明",
+              "topic": "差旅报销",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "scope": "星帆科技全体员工",
+              "text": "文档：差旅报销材料说明（D03）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n提交差旅报销申请需提供发票与出差审批单。"
+            }
+          ],
+          "error": null
+        },
+        "elapsed_seconds": 0.0
+      },
+      {
+        "kind": "model_request",
+        "at_seconds": 0.0,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "requested_model": "mock-policy",
+        "timeout_seconds": 60.0
+      },
+      {
+        "kind": "model_error",
+        "at_seconds": 0.0,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "code": "model_failed",
+        "elapsed_seconds": 0.0,
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "prompt_cache_hit_tokens": null,
+          "prompt_cache_miss_tokens": null,
+          "usage_known": false,
+          "estimated_cny_upper_rate": null,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        }
+      },
+      {
+        "kind": "stop",
+        "at_seconds": 0.0,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "reason": "model_failed",
+        "recoveries": 0,
+        "corrections": 0
+      }
+    ],
+    "elapsed_seconds": 0.0,
+    "usage": {
+      "requests_with_unknown_usage": 2,
+      "known_requests_estimated_cny": null,
+      "total_estimated_cny": null,
+      "invoice_cny": null
+    },
+    "read_set": [
+      "D03-P01"
+    ],
+    "evidence": [
+      {
+        "passage_id": "D03-P01",
+        "doc_id": "D03",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "title": "差旅报销材料说明",
+        "version_date": "2026-01-01",
+        "text": "文档：差旅报销材料说明（D03）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n提交差旅报销申请需提供发票与出差审批单。"
+      }
+    ],
+    "anchor_snapshot_proposal": null,
+    "memory_valid": false,
+    "memory_warning": "memory_validation_and_persistence_pending_batch_6"
+  }
+}

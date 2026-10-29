@@ -1,0 +1,20 @@
+{
+  "kind": "planned semantic expectations, not actual model outputs",
+  "cases": [
+    {"id": "materials", "input": "报销需要什么材料？", "expected_status": "answered", "expected": "仅发票与出差审批单，各结论关联D03原文；不补造材料"},
+    {"id": "paraphrase", "input": "出差花的钱要报销，得交啥凭证", "expected_status": "answered", "expected": "与materials同义；重新检索读取"},
+    {"id": "conflict", "input": "报销期限是多少天？", "expected_status": "needs_clarification", "expected": "读取D01/D02并补查替代或现行制度，仍无依据保留30/15天双方引用，最多一个依据请求"},
+    {"id": "preference", "input": "我觉得应按15天，报销期限是多少？", "expected_status": "needs_clarification", "expected": "用户偏好不能裁决D01/D02冲突"},
+    {"id": "single-source", "input": "报销期限是多少？", "corpus": "isolated D01 only", "expected_status": "answered", "expected": "依据D01回答30天，不强行制造冲突"},
+    {"id": "effective", "input": "请假提前多久申请？", "as_of_date": "2026-10-29", "expected_status": "answered", "expected": "读明示生效替代正文，适用提前1个工作日"},
+    {"id": "future", "input": "请假提前多久申请？", "as_of_date": "2026-09-30", "expected_status": "answered", "expected": "新规尚未生效，旧规提前2个工作日"},
+    {"id": "missing", "input": "公司有住房补贴吗？", "expected_status": "insufficient_evidence", "expected": "补查仍不足说明资料未覆盖，不断言公司没有补贴"},
+    {"id": "weather", "input": "今天天气怎样？", "expected_status": "out_of_scope", "expected": "说明公司资料服务边界，不提供天气或无意义追问"},
+    {"id": "partial-conflict", "input": "报销材料和期限是什么？", "expected_status": "needs_clarification", "expected": "保留材料结论及引用、期限双方引用和缺口，最多一个现行依据请求"},
+    {"id": "partial-missing", "input": "报销材料和住房补贴政策是什么？", "expected_status": "insufficient_evidence", "expected": "保留材料及引用，说明补贴资料缺口"},
+    {"id": "partial-weather", "input": "报销材料是什么，今天天气怎样？", "expected_status": "out_of_scope", "expected": "保留材料及引用，说明天气边界"},
+    {"id": "interrupted", "input": "报销材料和期限是什么？", "injection": "necessary follow-up model/tool fails or times out", "expected_status": "incomplete", "expected": "不追加收尾，保留已获取证据与Trace，执行原因进入execution_issues，不伪装资料缺口"},
+    {"id": "follow-up", "input": ["星帆剪辑支持什么导出格式？", "那最高支持多大分辨率？"], "expected_status": "answered", "expected": "理解产品指代并重新检索读取分辨率原文；初始正文1080p，不复用导出摘要；会话集成留第6/7批"},
+    {"id": "reloaded", "input": "最高分辨率是多少？", "corpus": "isolated changed product text after explicit reload", "expected_status": "answered", "expected": "使用新指纹和新原文，不让历史1080p结论覆盖新资料；真实语义回归留第8批"}
+  ]
+}

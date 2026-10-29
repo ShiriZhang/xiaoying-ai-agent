@@ -1,0 +1,235 @@
+{
+  "evidence_kind": "actual SQLite/executor run with controlled Mock policy; not live semantic acceptance",
+  "result": {
+    "status": "out_of_scope",
+    "part_statuses": [
+      "out_of_scope"
+    ],
+    "answer": "天气超出公司资料服务范围。",
+    "gaps": [],
+    "clarification": null,
+    "citations": [],
+    "request_id": "215129aac25249f1ac46446a57b9cc80",
+    "session_id": "f74c89feb58842279c8ead98f6413de3",
+    "mode": "mock",
+    "as_of_date": "2026-10-29",
+    "time_zone": "东部夏令时",
+    "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+    "requested_model": "mock-policy",
+    "model_configuration": {
+      "endpoint": null,
+      "thinking_mode": "disabled",
+      "implicit_retries": 0
+    },
+    "embedding": {
+      "dimension": 64,
+      "mode": "mock",
+      "model_id": "mock-hash-characters",
+      "revision": "1"
+    },
+    "input": {
+      "question": "今天天气怎样？",
+      "context": [
+        {
+          "role": "system",
+          "content": "对话锚点（仅理解对象，不是企业事实）：{\"subject\": {\"value\": \"星帆剪辑\", \"source_message_ids\": [\"638040a5eacd4380ae686fd04ddad3b5\"]}, \"focus\": null, \"pending_clarification\": null}"
+        },
+        {
+          "role": "user",
+          "content": "{\"message_id\": \"0c8754f34a5f48cbb31f69e18b0a5dad\", \"content\": \"星帆剪辑支持什么导出格式？\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"message_id\": \"9475ac66370f4b04b1257fece44d2e5a\", \"content\": \"{\\\"status\\\": \\\"answered\\\", \\\"part_statuses\\\": [\\\"answered\\\"], \\\"answer\\\": \\\"MP4、MOV[C1]\\\", \\\"citations\\\": [{\\\"marker\\\": \\\"[C1]\\\", \\\"passage_id\\\": \\\"D09-P01\\\", \\\"corpus_fingerprint\\\": \\\"sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1\\\", \\\"doc_id\\\": \\\"D09\\\", \\\"version_date\\\": \\\"2026-01-01\\\", \\\"title\\\": \\\"星帆剪辑导出格式说明\\\", \\\"effective_date\\\": \\\"2026-01-01\\\", \\\"text\\\": \\\"文档：星帆剪辑导出格式说明（D09）。主题：视频产品。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\\\\n星帆剪辑支持将视频导出为 MP4、MOV 格式。\\\"}], \\\"gaps\\\": [], \\\"clarification\\\": null, \\\"execution_issues\\\": [], \\\"memory_warning\\\": null}\"}"
+        },
+        {
+          "role": "user",
+          "content": "{\"message_id\": \"638040a5eacd4380ae686fd04ddad3b5\", \"content\": \"那最高支持多大分辨率？\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"message_id\": \"dbd0abedd98b478da2cba725ccbd2e07\", \"content\": \"{\\\"status\\\": \\\"answered\\\", \\\"part_statuses\\\": [\\\"answered\\\"], \\\"answer\\\": \\\"最高1080p[C1]\\\", \\\"citations\\\": [{\\\"marker\\\": \\\"[C1]\\\", \\\"passage_id\\\": \\\"D10-P01\\\", \\\"corpus_fingerprint\\\": \\\"sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1\\\", \\\"doc_id\\\": \\\"D10\\\", \\\"version_date\\\": \\\"2026-01-01\\\", \\\"title\\\": \\\"星帆剪辑导出分辨率说明\\\", \\\"effective_date\\\": \\\"2026-01-01\\\", \\\"text\\\": \\\"文档：星帆剪辑导出分辨率说明（D10）。主题：视频产品。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\\\\n星帆剪辑支持的视频导出分辨率最高为 1080p。\\\"}], \\\"gaps\\\": [], \\\"clarification\\\": null, \\\"execution_issues\\\": [], \\\"memory_warning\\\": null}\"}"
+        }
+      ]
+    },
+    "limits": {
+      "model_calls": 8,
+      "tool_calls": 6,
+      "model_timeout_seconds": 60.0,
+      "task_timeout_seconds": 300.0
+    },
+    "counts": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "recoveries": 0,
+      "format_corrections": 0
+    },
+    "stop_reason": "finished",
+    "execution_issues": [],
+    "trace": [
+      {
+        "kind": "model_request",
+        "at_seconds": 0.030999999999039574,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "requested_model": "mock-policy",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 3397,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 0.030999999999039574,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "actual_model": "controlled-model",
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "prompt_cache_hit_tokens": null,
+          "prompt_cache_miss_tokens": null,
+          "usage_known": false,
+          "estimated_cny_upper_rate": null,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 3397,
+          "actual_prompt_tokens": null,
+          "actual_to_estimate_ratio": null
+        },
+        "elapsed_seconds": 0.0,
+        "calls": [
+          {
+            "id": "call-real-fixture",
+            "name": "finish"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 0.030999999999039574,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "tool_call_id": "call-real-fixture",
+        "action": "finish",
+        "arguments": {
+          "reason": "Controlled test action",
+          "status": "out_of_scope",
+          "answer": "天气超出公司资料服务范围。",
+          "gaps": [],
+          "clarification": null,
+          "citation_refs": [],
+          "anchor_snapshot": {
+            "subject": {
+              "value": "天气",
+              "source_message_ids": [
+                "not-a-session-message"
+              ]
+            },
+            "focus": null,
+            "pending_clarification": null
+          },
+          "part_statuses": [
+            "out_of_scope"
+          ]
+        },
+        "rationale": "Controlled test action"
+      },
+      {
+        "kind": "memory_validation",
+        "at_seconds": 0.030999999999039574,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "valid": false,
+        "warning": "anchor_sources_must_belong_to_this_session"
+      },
+      {
+        "kind": "stop",
+        "at_seconds": 0.030999999999039574,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "reason": "finished",
+        "recoveries": 0,
+        "corrections": 0
+      },
+      {
+        "kind": "memory_update",
+        "stage": "validated_before_persistence",
+        "before": {
+          "subject": {
+            "value": "星帆剪辑",
+            "source_message_ids": [
+              "638040a5eacd4380ae686fd04ddad3b5"
+            ]
+          },
+          "focus": null,
+          "pending_clarification": null
+        },
+        "after": null,
+        "previous_valid": true,
+        "previous_warning": null
+      }
+    ],
+    "elapsed_seconds": 0.04700000000048021,
+    "usage": {
+      "requests_with_unknown_usage": 1,
+      "known_requests_estimated_cny": null,
+      "total_estimated_cny": null,
+      "invoice_cny": null
+    },
+    "read_set": [],
+    "evidence": [],
+    "anchor_snapshot_proposal": {
+      "subject": {
+        "value": "天气",
+        "source_message_ids": [
+          "not-a-session-message"
+        ]
+      },
+      "focus": null,
+      "pending_clarification": null
+    },
+    "anchor_snapshot": null,
+    "memory_valid": false,
+    "memory_persisted": false,
+    "memory_warning": "anchor_sources_must_belong_to_this_session",
+    "history_selection": {
+      "budget": 8000,
+      "estimated_tokens": 770,
+      "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+      "selected_message_ids": [
+        "0c8754f34a5f48cbb31f69e18b0a5dad",
+        "9475ac66370f4b04b1257fece44d2e5a",
+        "638040a5eacd4380ae686fd04ddad3b5",
+        "dbd0abedd98b478da2cba725ccbd2e07"
+      ],
+      "omitted_message_ids": [],
+      "boundary": "complete recent business message pairs; run traces stored separately"
+    },
+    "message_ids": {
+      "request_id": "215129aac25249f1ac46446a57b9cc80",
+      "user_message_id": "acc1e24f509241fc9b71ed3c8ac04c5a",
+      "assistant_message_id": "e80ccae78b494f89b3593414f589b3ad"
+    },
+    "memory_update": {
+      "before": {
+        "subject": {
+          "value": "星帆剪辑",
+          "source_message_ids": [
+            "638040a5eacd4380ae686fd04ddad3b5"
+          ]
+        },
+        "focus": null,
+        "pending_clarification": null
+      },
+      "after": null,
+      "previous_valid": true,
+      "previous_warning": null
+    },
+    "persistence": {
+      "saved": true,
+      "user_message_saved": true,
+      "result_saved": true
+    }
+  }
+}

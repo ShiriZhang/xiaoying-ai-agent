@@ -6,7 +6,9 @@ from uuid import uuid4
 
 from .actions import ActionError, parse_action, tool_definitions, validate_finish
 from .config import Settings
+from .context import ESTIMATE_METHOD, estimate_messages
 from .deadlines import Clock, bounded_call
+from .memory import AnchorError, validate_anchor
 from .models import Model, ModelError, ModelReply
 from .reading import ReadTool
 from .tracing import sanitize, save_trace, usage_record, usage_summary
@@ -33,6 +35,10 @@ part_statuses列出各分项的业务状态，status为其中最高优先级：
 incomplete > needs_clarification > insufficient_evidence > out_of_scope > answered。
 保留有依据的部分，不因其他项冲突、缺失、范围外或执行中断而丢弃；不编造未验证的收尾结论。
 finish同时提交anchor_snapshot：subject、focus、pending_clarification，每项为空或含value和source_message_ids。
+快照必须完整替换；明确换题或纠正时更新对象、清除过时关注事项，解决追问后pending_clarification置null。
+只保留当前对象、关注事项和待澄清事项，不存企业答案、原文或员工画像。
+source_message_ids仅选本会话消息标识（含本轮预留消息ID），不能使用公司文档/片段ID或其他会话消息。
+锚点来源存在只代表结构合法，不能证明语义正确。失效锚点不提供给你时，暂用近期原始历史重建。
 锚点仅帮助理解对象，不是公司事实。工具错误可以结束为incomplete，或在总预算内选择一次恢复。
 """
 
@@ -52,16 +58,19 @@ class Agent:
         self.clock = clock or Clock()
 
     def run(self, question: str, *, session_id: str | None = None, context: list[dict] | None = None,
-            trace_directory=None) -> dict:
+            trace_directory=None, request_id=None, message_ids=None, memory_source_ids=None,
+            started_at=None) -> dict:
         if not isinstance(question, str) or not question.strip():
             raise ValueError("Question must be a non-empty string")
-        start = self.clock.monotonic()
+        start = self.clock.monotonic() if started_at is None else started_at
         deadline = start + self.settings.task_timeout_seconds
         now = self.clock.now()
         date_context = {"as_of_date": now.date().isoformat(), "time_zone": str(now.tzinfo),
                         "corpus_fingerprint": self.snapshot.fingerprint}
         messages = [{"role": "system", "content": SYSTEM + "\n" + json.dumps(date_context)}]
         messages.extend(copy.deepcopy(context or []))
+        if message_ids is not None:
+            messages.append({"role": "system", "content": "本轮消息标识：" + json.dumps(message_ids)})
         messages.append({"role": "user", "content": question})
         tools = tool_definitions()
         events, usages, issues = [], [], []
@@ -102,14 +111,22 @@ class Agent:
             if tool_calls >= 6:
                 stop = "tool_limit"
                 break
+            input_estimate = estimate_messages(messages + [{"role": "system", "content": json.dumps(tools, ensure_ascii=False)}])
+            # Estimation and input preparation can be expensive for long input.
+            # Recheck before counting or starting any paid model work.
+            private_messages = copy.deepcopy(messages)
+            private_tools = copy.deepcopy(tools)
+            if remaining() <= 0:
+                stop = "task_timeout"
+                break
             timeout = min(self.settings.model_timeout_seconds, remaining())
             model_calls += 1
-            event("model_request", requested_model=self.model.requested_model, timeout_seconds=timeout)
+            event("model_request", requested_model=self.model.requested_model, timeout_seconds=timeout,
+                  estimated_input_tokens=input_estimate, estimate_method=ESTIMATE_METHOD)
             request_start = self.clock.monotonic()
             try:
                 # Worker only receives a private history copy, not the mutable run state.
-                private_messages = copy.deepcopy(messages)
-                reply = bounded_call(lambda: self.model.generate(private_messages, copy.deepcopy(tools), timeout), timeout)
+                reply = bounded_call(lambda: self.model.generate(private_messages, private_tools, timeout), timeout)
             except Exception as error:
                 usages.append(usage_record(None, self.model.mode))
                 stop = ("task_timeout" if remaining() <= 0 else
@@ -121,6 +138,9 @@ class Agent:
             usage = usage_record(reply.usage, self.model.mode)
             usages.append(usage)
             event("model_response", actual_model=reply.actual_model, usage=usage,
+                  input_calibration={"estimated_tokens": input_estimate, "actual_prompt_tokens": usage["prompt_tokens"],
+                                     "actual_to_estimate_ratio": usage["prompt_tokens"] / input_estimate
+                                     if usage["prompt_tokens"] is not None else None},
                   elapsed_seconds=self.clock.monotonic() - request_start,
                   calls=[{"id": c.id, "name": c.name} for c in reply.calls])
             if remaining() <= 0 or self.clock.monotonic() - request_start >= timeout:
@@ -204,6 +224,17 @@ class Agent:
                         "answer": "任务未完成，保留已获取证据与执行记录。",
                         "gaps": [], "clarification": None, "citations": []}
             issues.append({"code": stop})
+        validated_anchor, memory_warning = None, "no_legal_finish"
+        if stop == "finished":
+            if memory_source_ids is None:
+                memory_warning = "session_memory_unavailable"
+            else:
+                try:
+                    validated_anchor = validate_anchor(anchor, memory_source_ids)
+                    memory_warning = None
+                except AnchorError as error:
+                    memory_warning = str(error)
+        event("memory_validation", valid=validated_anchor is not None, warning=memory_warning)
         event("stop", reason=stop, recoveries=recoveries, corrections=corrections)
         encoder_metadata = getattr(self.search, "encoder_metadata", None)
         embedding_record = (copy.deepcopy(encoder_metadata) if isinstance(encoder_metadata, dict) else
@@ -211,7 +242,7 @@ class Agent:
                              "revision": self.settings.embedding_revision or None,
                              "status": "not_loaded_by_executor"})
         result = {
-            **business, "request_id": uuid4().hex, "session_id": session_id, "mode": self.model.mode,
+            **business, "request_id": request_id or uuid4().hex, "session_id": session_id, "mode": self.model.mode,
             **date_context, "requested_model": self.model.requested_model,
             "model_configuration": {"endpoint": "https://api.deepseek.com/chat/completions" if self.model.mode == "live" else None,
                                     "thinking_mode": "disabled", "implicit_retries": 0},
@@ -230,8 +261,9 @@ class Agent:
                           "title": self.snapshot.documents_by_id[self.snapshot.passages_by_id[p].doc_id].title,
                           "version_date": self.snapshot.documents_by_id[self.snapshot.passages_by_id[p].doc_id].version_date,
                           "text": self.snapshot.passages_by_id[p].text} for p in sorted(read_ids)],
-            "anchor_snapshot_proposal": anchor, "memory_valid": False,
-            "memory_warning": "memory_validation_and_persistence_pending_batch_6",
+            "anchor_snapshot_proposal": anchor, "anchor_snapshot": validated_anchor,
+            "memory_valid": validated_anchor is not None, "memory_persisted": False,
+            "memory_warning": memory_warning,
         }
         result = sanitize(result, self.model.secrets)
         if trace_directory is not None:
@@ -247,6 +279,7 @@ class Agent:
                     if "incomplete" not in result["part_statuses"]:
                         result["part_statuses"].append("incomplete")
                     result["stop_reason"] = "task_timeout"
+                    result.update(anchor_snapshot=None, memory_valid=False, memory_warning="task_timeout")
                     result["execution_issues"].append({"code": "trace_not_saved_after_deadline"})
                     result["trace"].append({"kind": "stop", "reason": "task_timeout", "stage": "trace_save",
                                              "model_calls": model_calls, "tool_calls": tool_calls,

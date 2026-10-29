@@ -1,5 +1,7 @@
 # 方案设计
 
+第六批实际更新：已实现SQLite会话仓储、会话编排、完整轮次历史窗口、同次finish锚点校验和失效降级。下文早期“记忆待实现”描述其当时状态；以文末“第六批会话与上下文”为当前实现契约。HTTP路由仍留第七批，真实记忆语义验收留第八批。
+
 第五批实际更新：已实现业务结果和混合状态校验、完整模型任务指令、canonical引用回填与中断证据保留。当前实现契约和实际Mock输出见文末“第五批结果与引用”；会话/记忆/API和真实业务语义验收仍待后续任务。
 
 第四批实际更新：已实现本地CPU BGE、BM25/RRF混检、原子重载及同一Agent集成。下文早期“检索未接入”的说明是第三批当时边界，现以本节与第四批证据为准。真实生成模型六类验收、会话/API及完整记忆仍未完成。
@@ -165,3 +167,29 @@ Trace 记录输入输出、请求 ID、模式、模型及 embedding 配置、模
 业务结果可同时保留已答材料和未解决部分，示例分别见[材料+缺失](../examples/batch-5/insufficient_evidence.json)、[材料+天气](../examples/batch-5/out_of_scope.json)。执行中断无合法finish时由程序返回`incomplete`，不再调用模型收尾；`citations`不伪造结论引用，`evidence`保留已读原文、出处和指纹，`execution_issues`单列实际执行原因，见[中断运行](../examples/batch-5/interrupted.json)。若合法结果后的Trace保存超时，提升整体为incomplete并保留已有回答和引用。
 
 完整固定语义预期见[用例预期](../examples/batch-5/expectations.json)；本批测试与适用边界见[验证记录](../examples/batch-5/verification.md)。锚点仍只保留提议并明确告警，第6批再校验持久化，本批不宣称记忆有效。
+
+## 第六批会话与上下文
+
+`SessionStore(settings.sqlite_path)`建立SQLite文件，三个表分别为`sessions`（完整锚点、有效位和告警）、`runs`（请求/会话/预留消息ID、running/completed/abandoned状态、完整结果JSON）、`messages`（原始用户文本和完整业务助手消息，按sequence排序）。完整结果与Trace保存于runs，近期历史只使用业务消息，避免把嵌套Trace和旧上下文反复送进模型。助手业务消息包含status、part_statuses、answer、citations、gaps、clarification、execution_issues、memory_warning；不压缩或改写这些内容。
+
+`ConversationService(store, agent_factory).run(session_id, question)`是供后续API调用的内部入口。factory每任务取得同一套资料/索引快照并创建Agent。按数据库路径和会话ID共享进程内锁，同会话顺序执行；数据库连接只存在于短事务，模型等待时没有写事务。不同会话的消息、来源ID和锚点分开读取；没有多进程协调承诺。
+
+开始请求时先短事务提交旧锚点失效，再短事务登记用户消息和running请求。即使登记用户消息失败，也不回滚到已停用的旧锚点。此前有效的快照仅作为本轮输入的`memory_update.before`使用；中途崩溃后磁盘有效位已关闭，重启读取不会启用旧快照。下一请求把遗留running标记为abandoned，未配对用户消息保留，但不强行拼接到其他轮次。正常结束用一个短事务原子提交助手消息、完整结果、新快照或无效状态。
+
+若存储在读取或提交失效前发生故障，跨仓储实例共享的进程内quarantine标记立即停用该会话旧锚点，`memory_warning=storage_uncertain`。下一轮恢复访问时先按无效状态组装上下文，再正常登记并写入持久失效状态；只有成功提交新的结果/锚点状态后清除隔离标记。整个进程在任何新状态都写不进数据库时退出，无法持久保存该次未知请求，这一限制不伪称已恢复。
+
+存储错误返回整体incomplete和`execution_issues: storage_failed`；`persistence`分别声明`saved、user_message_saved、result_saved`。保存失败时保留已有回答、证据和Trace，`memory_valid=false、memory_persisted=false`，不宣称记忆更新成功。首次数据库不可访问、尚未登记的请求不触发模型；无法写入的请求不能声称已持久化。仓储抛出安全StorageError，不把路径或SQLite底层错误发给模型。未知会话抛SessionNotFound，HTTP映射留第七批。
+
+历史预算默认`QA_HISTORY_TOKEN_BUDGET=8000`。`select_history`从最新completed完整问答向前选，按`ceil(UTF-8序列化消息字节数/3)+8/消息`估算；遇到下一轮超预算就停止，不跳过它再捡更早短消息。所选轮次按时间顺序送入，消息ID随原始内容传递。`history_selection`记录预算、估算方法/数量、selected_message_ids和omitted_message_ids；SQLite完整记录不因窗口裁剪删除。当前问题另行放一次，锚点、系统指令、本轮工具观察不算入这8000历史预算，不截断它们。
+
+每个model_request另记整个输入及工具定义的估算量，model_response的`input_calibration`记录该估算、服务返回的actual_prompt_tokens及actual_to_estimate_ratio；usage未知保持null。这是可供校准的数据，不是精确tokenizer或已完成真实校准的声明。本批只测试已知/未知usage字段；真实provider用量对照留真实运行。必要上下文超出模型容量时，模型适配器的明确失败进入incomplete，不通过截断当前问题重试，也没有新增独立问题字符上限。
+
+`anchor_snapshot`仅含subject、focus、pending_clarification三字段，必须完整提交；每项为null或`{value, source_message_ids}`。value为非空字符串，source_message_ids为唯一、非空的本会话消息ID列表，可指本轮用户消息和预留助手消息；公司文档/片段ID、未知及其他会话ID均拒绝。本轮消息ID通过系统上下文提供。完整快照替换，允许全部null；来源存在不证明value语义正确，指令要求换题/纠正更新对象、清除过时事项，追问解决后置空，不存制度答案、原文或员工画像。
+
+业务合法、锚点非法时保留业务状态和引用，只拒绝锚点，记录memory_warning，不消耗格式修正，不使用旧锚点回退。没有合法finish时不接受任何锚点；失联、超时、上限或格式修正失败都停用旧值。下一轮只提供近期历史和null锚点，等待合法重建。同次finish校验不新增模型或记忆工具调用。`anchor_snapshot_proposal`保留原提议供审查，`anchor_snapshot`为接受值；`memory_update`和Trace记录更新前后，`memory_valid`表示校验有效，`memory_persisted`仅在成功提交会话事务后成立。直接调用无会话的Agent会明确session_memory_unavailable。
+
+总deadline覆盖锁等待、会话读取、模型循环和结果保存；SQLite等待受剩余时间限制，并在提交前再次检查，超时回滚，不使用后台线程迟到发布数据库写入。整个任务超时而无法保存结果时，先前已提交的用户消息/running标记仍保留，旧锚点仍无效。数据库完全无法写入时不能承诺保存任何新状态；错误明确返回，不把不确定存储当成功。
+
+长输入估算和私有请求拷贝后再次检查deadline并重算单次timeout；已过期则不计为模型尝试，也不发起模型请求。
+
+实际重启续问、跨窗口、失效/重建和存储失败记录见[第六批验证](../examples/batch-6/verification.md)。这些是受控Mock的工程证据，真实模型的对象理解、纠正与旧结论污染仍需第8.4单独验证。

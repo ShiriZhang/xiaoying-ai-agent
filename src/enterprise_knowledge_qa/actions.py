@@ -20,7 +20,9 @@ STRING = {"type": "string"}
 STRINGS = {"type": "array", "items": STRING}
 REASON = {"type": "string", "description": "一句简要行动依据（最多240字符）；不要输出内部思维过程。"}
 REF = _object({"marker": STRING, "passage_id": STRING, "corpus_fingerprint": STRING})
-ANCHOR = {"type": "object", "description": "当前对象、关注事项、待澄清事项完整快照；各项为空或附来源消息标识。"}
+ANCHOR_ITEM = {"anyOf": [{"type": "null"}, _object({"value": STRING,
+    "source_message_ids": {"type": "array", "minItems": 1, "uniqueItems": True, "items": STRING}})]}
+ANCHOR = _object({field: ANCHOR_ITEM for field in ("subject", "focus", "pending_clarification")})
 
 
 def tool_definitions() -> list[dict]:

@@ -1,0 +1,132 @@
+{
+  "memory_valid": false,
+  "memory_warning": "unfinished_request",
+  "messages": [
+    {
+      "sequence": 1,
+      "id": "0c8754f34a5f48cbb31f69e18b0a5dad",
+      "session_id": "f74c89feb58842279c8ead98f6413de3",
+      "run_id": "3f8619384e2a4d3bb214c45c06ef8078",
+      "role": "user",
+      "content": "星帆剪辑支持什么导出格式？"
+    },
+    {
+      "sequence": 2,
+      "id": "9475ac66370f4b04b1257fece44d2e5a",
+      "session_id": "f74c89feb58842279c8ead98f6413de3",
+      "run_id": "3f8619384e2a4d3bb214c45c06ef8078",
+      "role": "assistant",
+      "content": "{\"status\": \"answered\", \"part_statuses\": [\"answered\"], \"answer\": \"MP4、MOV[C1]\", \"citations\": [{\"marker\": \"[C1]\", \"passage_id\": \"D09-P01\", \"corpus_fingerprint\": \"sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1\", \"doc_id\": \"D09\", \"version_date\": \"2026-01-01\", \"title\": \"星帆剪辑导出格式说明\", \"effective_date\": \"2026-01-01\", \"text\": \"文档：星帆剪辑导出格式说明（D09）。主题：视频产品。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\\n星帆剪辑支持将视频导出为 MP4、MOV 格式。\"}], \"gaps\": [], \"clarification\": null, \"execution_issues\": [], \"memory_warning\": null}"
+    },
+    {
+      "sequence": 3,
+      "id": "638040a5eacd4380ae686fd04ddad3b5",
+      "session_id": "f74c89feb58842279c8ead98f6413de3",
+      "run_id": "98ba4287efbc429bb20f6d3b2b9764df",
+      "role": "user",
+      "content": "那最高支持多大分辨率？"
+    },
+    {
+      "sequence": 4,
+      "id": "dbd0abedd98b478da2cba725ccbd2e07",
+      "session_id": "f74c89feb58842279c8ead98f6413de3",
+      "run_id": "98ba4287efbc429bb20f6d3b2b9764df",
+      "role": "assistant",
+      "content": "{\"status\": \"answered\", \"part_statuses\": [\"answered\"], \"answer\": \"最高1080p[C1]\", \"citations\": [{\"marker\": \"[C1]\", \"passage_id\": \"D10-P01\", \"corpus_fingerprint\": \"sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1\", \"doc_id\": \"D10\", \"version_date\": \"2026-01-01\", \"title\": \"星帆剪辑导出分辨率说明\", \"effective_date\": \"2026-01-01\", \"text\": \"文档：星帆剪辑导出分辨率说明（D10）。主题：视频产品。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\\n星帆剪辑支持的视频导出分辨率最高为 1080p。\"}], \"gaps\": [], \"clarification\": null, \"execution_issues\": [], \"memory_warning\": null}"
+    },
+    {
+      "sequence": 5,
+      "id": "acc1e24f509241fc9b71ed3c8ac04c5a",
+      "session_id": "f74c89feb58842279c8ead98f6413de3",
+      "run_id": "215129aac25249f1ac46446a57b9cc80",
+      "role": "user",
+      "content": "今天天气怎样？"
+    },
+    {
+      "sequence": 6,
+      "id": "e80ccae78b494f89b3593414f589b3ad",
+      "session_id": "f74c89feb58842279c8ead98f6413de3",
+      "run_id": "215129aac25249f1ac46446a57b9cc80",
+      "role": "assistant",
+      "content": "{\"status\": \"out_of_scope\", \"part_statuses\": [\"out_of_scope\"], \"answer\": \"天气超出公司资料服务范围。\", \"citations\": [], \"gaps\": [], \"clarification\": null, \"execution_issues\": [], \"memory_warning\": \"anchor_sources_must_belong_to_this_session\"}"
+    },
+    {
+      "sequence": 7,
+      "id": "29de684a47184f3fa0b2eab26211e057",
+      "session_id": "f74c89feb58842279c8ead98f6413de3",
+      "run_id": "21ac5f6e84464f999533d4078f4afe7b",
+      "role": "user",
+      "content": "改问报销"
+    },
+    {
+      "sequence": 8,
+      "id": "9073c9b2e23c473badd758ce7c434dcf",
+      "session_id": "f74c89feb58842279c8ead98f6413de3",
+      "run_id": "21ac5f6e84464f999533d4078f4afe7b",
+      "role": "assistant",
+      "content": "{\"status\": \"incomplete\", \"part_statuses\": [\"incomplete\"], \"answer\": \"任务未完成，保留已获取证据与执行记录。\", \"citations\": [], \"gaps\": [], \"clarification\": null, \"execution_issues\": [{\"code\": \"model_failed\"}], \"memory_warning\": \"no_legal_finish\"}"
+    },
+    {
+      "sequence": 9,
+      "id": "defebf67bf0d4fba962437216de716b0",
+      "session_id": "f74c89feb58842279c8ead98f6413de3",
+      "run_id": "178056a916da40eda38ea7a3031f75a8",
+      "role": "user",
+      "content": "再改问人事"
+    },
+    {
+      "sequence": 10,
+      "id": "8efbc2cb42054907a63b0c68b24f0237",
+      "session_id": "f74c89feb58842279c8ead98f6413de3",
+      "run_id": "178056a916da40eda38ea7a3031f75a8",
+      "role": "assistant",
+      "content": "{\"status\": \"incomplete\", \"part_statuses\": [\"incomplete\"], \"answer\": \"受控测试结束。\", \"citations\": [], \"gaps\": [], \"clarification\": null, \"execution_issues\": [], \"memory_warning\": null}"
+    },
+    {
+      "sequence": 11,
+      "id": "57169bd1a9b04659b045a4eecf0891aa",
+      "session_id": "f74c89feb58842279c8ead98f6413de3",
+      "run_id": "f7af4da31160408bb2515e61a5e0d2e6",
+      "role": "user",
+      "content": "保存失败演示"
+    }
+  ],
+  "runs": [
+    {
+      "id": "3f8619384e2a4d3bb214c45c06ef8078",
+      "state": "completed",
+      "user_id": "0c8754f34a5f48cbb31f69e18b0a5dad",
+      "assistant_id": "9475ac66370f4b04b1257fece44d2e5a"
+    },
+    {
+      "id": "98ba4287efbc429bb20f6d3b2b9764df",
+      "state": "completed",
+      "user_id": "638040a5eacd4380ae686fd04ddad3b5",
+      "assistant_id": "dbd0abedd98b478da2cba725ccbd2e07"
+    },
+    {
+      "id": "215129aac25249f1ac46446a57b9cc80",
+      "state": "completed",
+      "user_id": "acc1e24f509241fc9b71ed3c8ac04c5a",
+      "assistant_id": "e80ccae78b494f89b3593414f589b3ad"
+    },
+    {
+      "id": "21ac5f6e84464f999533d4078f4afe7b",
+      "state": "completed",
+      "user_id": "29de684a47184f3fa0b2eab26211e057",
+      "assistant_id": "9073c9b2e23c473badd758ce7c434dcf"
+    },
+    {
+      "id": "178056a916da40eda38ea7a3031f75a8",
+      "state": "completed",
+      "user_id": "defebf67bf0d4fba962437216de716b0",
+      "assistant_id": "8efbc2cb42054907a63b0c68b24f0237"
+    },
+    {
+      "id": "f7af4da31160408bb2515e61a5e0d2e6",
+      "state": "running",
+      "user_id": "57169bd1a9b04659b045a4eecf0891aa",
+      "assistant_id": "2e08434166cf4851963f64100c409c89"
+    }
+  ]
+}

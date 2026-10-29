@@ -1,0 +1,28 @@
+{
+  "layer": "real CPU encoding only; no generation call",
+  "metadata": {
+    "mode": "live",
+    "model_id": "BAAI/bge-small-zh-v1.5",
+    "revision": "7999e1d3359715c523056ef9478215996d62a620",
+    "weights_fingerprint": "sha256:79a6f0034e3e568922396703a0172cbd3eb7bb857b8b1e3ef15f2721a252b276",
+    "device": "cpu",
+    "threads": 1,
+    "pooling": "CLS",
+    "normalized": true,
+    "query_prefix": "为这个句子生成表示以用于检索相关文章：",
+    "max_input_tokens": 512,
+    "dimension": 512,
+    "packages": {
+      "torch": "2.9.0+cpu",
+      "transformers": "4.57.1",
+      "tokenizers": "0.22.2",
+      "safetensors": "0.6.2",
+      "huggingface-hub": "0.36.0"
+    }
+  },
+  "passage_count": 1,
+  "query_count": 1,
+  "norm_squared": 0.9999999999999999,
+  "dimension": 512,
+  "runtime_network": "socket.connect blocked"
+}

@@ -1,0 +1,12 @@
+{
+  "scope": "Human-readable retrieval expectations, not generated business answers",
+  "cases": [
+    {"id": "R01", "category": "explicit", "query": "差旅报销需要提交哪些材料？", "expected_passage_ids": ["D03-P01"]},
+    {"id": "R02", "category": "paraphrase", "query": "出差花的钱想报掉，得交啥凭证？", "expected_passage_ids": ["D03-P01"]},
+    {"id": "R03", "category": "distractors", "query": "人事制度看不懂，应该找谁咨询？", "expected_passage_ids": ["D08-P01"]},
+    {"id": "R04", "category": "conflict_both_sides", "query": "出差结束后，差旅报销要在多少天内申请？", "expected_passage_ids": ["D01-P01", "D02-P01"]},
+    {"id": "R05", "category": "explicit", "query": "星帆剪辑能导出哪些视频文件格式？", "expected_passage_ids": ["D09-P01"]},
+    {"id": "R06", "category": "paraphrase", "query": "这个视频软件最高能导出多清晰？", "expected_passage_ids": ["D10-P01"]},
+    {"id": "R07", "category": "replacement_sources", "query": "请假需要提前多久提出申请？", "expected_passage_ids": ["D05-P01", "D06-P01"]}
+  ]
+}

@@ -1,6 +1,6 @@
 # 企业知识问答 Agent（题号 3）
 
-当前已实现 `enterprise-knowledge-qa` 第一批工程基础、第二批已审阅资料与读取，以及第三批模型适配、原生循环、预算/deadline与Trace；已做少量真实工具协议冒烟。**业务问答HTTP服务尚未实现**，工程测试或协议冒烟不代表真实混合检索与完整业务验收通过。当前完成 1.1–1.4、2.1–2.4、3.1–3.8，共 16/46 项；下一项为 4.1。OpenSpec 规划与任务文件仅保留本地，不随公开仓库发布。
+当前已实现第一至第四批：工程基础、已审阅资料、原生Agent与执行约束、本地CPU混合检索及原子重载。已做真实协议冒烟和真实embedding召回验证。**业务问答HTTP服务及完整业务验收尚未完成**。当前完成 1.1–4.6，共 22/46 项；下一项为5.1。OpenSpec规划与任务文件仅保留本地，不随公开仓库发布。
 
 ## 支持环境与安装
 
@@ -13,12 +13,14 @@ Get-Command uv, git
 $env:UV_CACHE_DIR = Join-Path $PWD '.cache/uv'
 uv python install 3.12.13
 uv venv --python 3.12.13 --managed-python .venv
-uv pip install --python .venv/Scripts/python.exe .
+uv sync --locked --no-editable --python .venv/Scripts/python.exe
 uv pip check --python .venv/Scripts/python.exe
 uv pip list --python .venv/Scripts/python.exe
 ```
 
-依赖唯一入口为 [pyproject.toml](pyproject.toml)：构建依赖 `setuptools==80.9.0`，运行依赖 `python-dotenv==1.1.1`，测试使用 Python 标准库 unittest。项目版本为 0.1.0；没有全局包继承或额外隐含 requirements 文件。每次修改源码后重新执行安装命令再测试，测试导入已安装的包，不通过 PYTHONPATH 指向源码。后续 FastAPI、模型 SDK 和 embedding 等依赖将在对应任务中固定版本并验证，目前未安装。
+依赖唯一声明入口为 [pyproject.toml](pyproject.toml)，[uv.lock](uv.lock)锁定传递依赖及下载来源。基础Mock只需python-dotenv==1.1.1，测试使用标准库unittest；可选embedding组固定torch==2.9.0+cpu、transformers==4.57.1、safetensors==0.6.2、huggingface-hub==0.36.0，torch只取官方CPU索引。构建使用setuptools==80.9.0。安装不继承全局包，不需要FastAPI、模型SDK或CUDA。
+
+修改源码后，在对应的sync命令中追加`--reinstall-package enterprise-knowledge-qa`再测试，避免复用旧构建缓存。`--no-editable`使测试从已安装包导入，不通过PYTHONPATH引用源码。基础Mock安装不含embedding依赖；若需要保留真实编码器，请始终使用下方带`--extra embedding`的命令。
 
 ## 配置入口：Mock 与真实模式
 
@@ -37,7 +39,7 @@ Copy-Item .env.example .env
 .venv/Scripts/python.exe -I -m enterprise_knowledge_qa --env-file .env
 ```
 
-复制命令仅在 `.env` 不存在时执行，避免覆盖个人配置。真实模式将本地 `.env` 的 `QA_MODE` 改成 `live`，填写密钥、权重目录与 revision，再运行同一检查命令。缺少这些前置条件会以非零退出码 2 明确报错，不自动切成 Mock。检查仅验证密钥非空、目录存在与 revision 非空，不证明密钥有效、目录内权重完整或模型可用。真实权重的下载、版本固定及编码加载步骤待任务 4.1 实现，当前没有权重准备命令。
+复制命令仅在 `.env` 不存在时执行，避免覆盖个人配置。真实模式将本地 `.env` 的 `QA_MODE` 改成 `live`，填写密钥、权重目录与revision，再运行同一检查命令。缺少前置条件会以退出码2报错，不切成Mock。配置检查只验证密钥非空、目录存在与revision非空；实际编码器加载会另行核对固定revision和6个文件的SHA-256，且只从本地加载。
 
 | 变量 | 默认/模板 | 用途 |
 | --- | --- | --- |
@@ -47,7 +49,7 @@ Copy-Item .env.example .env
 | DEEPSEEK_MODEL | deepseek-flash | 官方适配已实现，显式非思考、无隐式重试 |
 | EMBEDDING_MODEL_ID | BAAI/bge-small-zh-v1.5 | 已确认本地 CPU 模型 |
 | EMBEDDING_MODEL_PATH | models/bge-small-zh-v1.5 | 本地权重目录，Mock 不检查或读取 |
-| EMBEDDING_REVISION | 空占位 | live 必填；实际 revision 与权重准备待 4.1 |
+| EMBEDDING_REVISION | 7999e1d3359715c523056ef9478215996d62a620 | 固定公开revision，与本地manifest及文件指纹匹配 |
 | QA_DATA_PATH | data/knowledge.json | 已实现的合成资料路径，见 data/REVIEW.md |
 | QA_SQLITE_PATH | runtime/sessions.sqlite3 | 会话库路径；持久化待第 6 组 |
 | QA_TRACE_PATH | runtime/traces | 原始运行记录目录；执行器run通过trace_directory显式保存 |
@@ -57,19 +59,19 @@ Copy-Item .env.example .env
 
 只读取显式指定的 env 文件，不搜索父目录；支持 dotenv 引号和注释，关闭变量插值。环境变量优先于文件。相对路径以 env 文件所在目录为基准；直接调用 `load_settings()` 不指定文件时以当前目录为基准。必须显式选择模式。检查不输出整个配置对象或环境变量。
 
-[.gitignore](.gitignore) 排除整个 `openspec/`、本地 `.agents/` 工具配置、`.env`、本地权重、环境、缓存、运行数据库和 runtime 原始日志。精选证据放 `examples/`，提交前检查并移除密钥及隐私信息；忽略规则不能阻止强制添加。当前仓库初始化发布只保存前两批成果，不代表第 10 组最终验收完成。
+[.gitignore](.gitignore) 排除整个 `openspec/`、本地 `.agents/` 工具配置、`.env`、本地权重、环境、缓存、运行数据库和 runtime 原始日志。精选证据放 `examples/`，提交前检查并移除密钥及隐私信息；忽略规则不能阻止强制添加。分批提交发布只记录已实现与验证的阶段成果，不代表第10组最终验收完成。
 
 ## 服务启动、请求与分层测试入口
 
 | 入口 | 当前状态与后续任务 |
 | --- | --- |
-| Mock HTTP 服务启动与请求 | 未完成；模型/编码适配、执行器与 API 分别在第 3、4、7 组实现，无可执行启动或问答请求命令 |
+| Mock HTTP 服务启动与请求 | API未完成；第3/4批已完成的执行器和检索可通过库接口验证，HTTP入口留待第7批 |
 | 真实 HTTP 服务启动与请求 | 未完成；配置检查入口同上，模型连通性与真实端到端分别为 3.8、8.2 |
 | POST /sessions | 计划创建会话，未实现；7.1/7.3 提供实际请求格式 |
 | POST /sessions/{id}/messages | 计划提交问题并返回结果/Trace，未实现；7.1/7.3 提供实际请求格式 |
 | GET /sessions/{id} | 计划查看会话，未实现；7.1/7.3 |
 | GET /health | 计划无付费调用健康检查，未实现；7.1/7.3 |
-| 真实 embedding 验证 | 未完成；权重准备与召回测试为 4.1/4.5 |
+| 真实 embedding 验证 | 已执行CPU编码、6/12候选召回和重载边界，步骤与证据见下文 |
 | 六类真实模型验收 | 未完成；8.1–8.6，条件缺失不能标通过 |
 | 完整冷启动 Mock/API 与真实验证 | 未完成；9.1–9.3，不能用本批安装检查代替 |
 
@@ -80,6 +82,38 @@ Copy-Item .env.example .env
 ```
 
 测试覆盖独立安装导入、配置、脱敏、Git 忽略、资料校验、快照与原文读取，不证明 Agent 决策、混合检索、API 或记忆效果。配置/读取测试阻断 socket 创建，临时文件放仓库内 `.cache/`；Git 忽略测试只创建临时仓库元数据，不初始化项目。实际执行、失败和复跑见 [第一批验证记录](examples/batch-1/verification.md) 与 [第二批验证记录](examples/batch-2/verification.md)。资料加载和重载接口见 [资料说明](data/README.md)，完整原文及单 D01、冲突、人事生效预期见 [审阅稿](data/REVIEW.md)。
+
+## 真实CPU权重、检索与重载
+
+安装真实编码依赖（只需准备一次；若源码改动，追加上述reinstall参数）：
+
+```powershell
+$env:UV_CACHE_DIR = Join-Path $PWD '.cache/uv'
+$env:UV_LINK_MODE = 'copy'
+uv sync --locked --extra embedding --no-editable --python .venv/Scripts/python.exe
+```
+
+显式准备固定revision权重：
+
+```powershell
+$env:HF_HUB_DISABLE_XET = '1'
+$env:HF_HUB_DISABLE_TELEMETRY = '1'
+.venv/Scripts/python.exe -I -m enterprise_knowledge_qa.prepare_weights --output models/bge-small-zh-v1.5
+```
+
+只下载6个必要文件（包含safetensors，不下载pickle权重），并写入本地weights-manifest.json。权重与下载缓存位于被忽略的models目录；正常加载不下载、不使用隐式全局缓存，也不以假向量替代。模型来源与revision可核对 [BAAI官方模型](https://huggingface.co/BAAI/bge-small-zh-v1.5)。
+
+实际真实编码/召回/重载验证入口，无需DeepSeek密钥、不调用生成模型；运行期间阻断socket.connect：
+
+```powershell
+.venv/Scripts/python.exe -I -m enterprise_knowledge_qa.retrieval_check --weights models/bge-small-zh-v1.5 --output examples/batch-4/real-retrieval
+```
+
+每次生成独立报告，不覆盖失败。预期见 [7个检索输入](examples/batch-4/retrieval-cases.json)，实际配置、候选、缺失项及限制见 [第四批记录](examples/batch-4/verification.md)。它证明指定资料上的检索覆盖，不是六类最终问答验收。
+
+在应用中通过`make_retrieval(settings)`建立store；任务开始只取一次`index = store.acquire()`，再用`create_agent(settings, model, index)`，保证检索、读取、引用共用该快照。资料修改后显式`new_index = store.reload()`，完整构建BM25和向量后才发布新任务使用的索引；既有任务继续用旧index。失败不发布半新索引。复现的隔离正文替换与单D01/加入D02步骤包含在上述retrieval_check中，不改基础语料。
+
+检索参数：BM25 k1=1.5/b=0.75、正值IDF；NFKC/casefold、汉字单字/双字、拉丁/数字连续词；本地CPU BGE用CLS、单位归一化，查询加官方中文检索前缀；每路12，RRF k=60，输出6/12，按片段ID打破同分。编码最长512 token（查询前缀与特殊token也计入），过长明确报错，无静默截断。片段原文不改写，候选分数不代表规则可信度或日期优先级。
 
 ## 评审导航与目录
 

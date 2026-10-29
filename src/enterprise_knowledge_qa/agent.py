@@ -190,14 +190,17 @@ class Agent:
                         "gaps": [], "clarification": None, "citations": []}
             issues.append({"code": stop})
         event("stop", reason=stop, recoveries=recoveries, corrections=corrections)
+        encoder_metadata = getattr(self.search, "encoder_metadata", None)
+        embedding_record = (copy.deepcopy(encoder_metadata) if isinstance(encoder_metadata, dict) else
+                            {"model_id": self.settings.embedding_model_id,
+                             "revision": self.settings.embedding_revision or None,
+                             "status": "not_loaded_by_executor"})
         result = {
             **business, "request_id": uuid4().hex, "session_id": session_id, "mode": self.model.mode,
             **date_context, "requested_model": self.model.requested_model,
             "model_configuration": {"endpoint": "https://api.deepseek.com/chat/completions" if self.model.mode == "live" else None,
                                     "thinking_mode": "disabled", "implicit_retries": 0},
-            "embedding": {"model_id": self.settings.embedding_model_id,
-                          "revision": self.settings.embedding_revision or None,
-                          "status": "not_loaded_by_executor"},
+            "embedding": embedding_record,
             "input": {"question": question, "context": context or []},
             "limits": {"model_calls": 8, "tool_calls": 6,
                        "model_timeout_seconds": self.settings.model_timeout_seconds,

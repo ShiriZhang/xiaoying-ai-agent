@@ -9,5 +9,24 @@ description = "Enterprise knowledge QA: reproducible engineering foundation"
 requires-python = ">=3.12,<3.13"
 dependencies = ["python-dotenv==1.1.1"]
 
+[project.optional-dependencies]
+embedding = [
+    "torch==2.9.0+cpu",
+    "transformers==4.57.1",
+    "safetensors==0.6.2",
+    "huggingface-hub==0.36.0",
+]
+
+[tool.uv]
+environments = ["sys_platform == 'win32' and platform_machine == 'AMD64'"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
 [tool.setuptools.packages.find]
 where = ["src"]

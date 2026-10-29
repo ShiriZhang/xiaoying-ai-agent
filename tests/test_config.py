@@ -73,14 +73,14 @@ class ConfigTests(unittest.TestCase):
             with self.assertRaisesRegex(ConfigurationError, "EMBEDDING_MODEL_PATH"):
                 settings.check_live_prerequisites()
 
-    def test_check_entrypoint_redacts_key_and_reports_pending_service(self):
+    def test_check_entrypoint_redacts_key_and_does_not_start_service(self):
         env = dict(os.environ, QA_MODE="mock", DEEPSEEK_API_KEY="synthetic-test-value")
         result = subprocess.run([
             sys.executable, "-I", "-m", "enterprise_knowledge_qa",
             "--env-file", str(ROOT / ".env.example"),
         ], env=env, capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertIn('"service": "not_implemented"', result.stdout)
+        self.assertIn('"service": "not_started"', result.stdout)
         self.assertNotIn("synthetic-test-value", result.stdout + result.stderr)
 
     def test_missing_file_fails(self):

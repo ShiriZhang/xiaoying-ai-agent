@@ -7,9 +7,15 @@ name = "enterprise-knowledge-qa"
 version = "0.1.0"
 description = "Enterprise knowledge QA: reproducible engineering foundation"
 requires-python = ">=3.12,<3.13"
-dependencies = ["python-dotenv==1.1.1"]
+dependencies = [
+    "python-dotenv==1.1.1",
+    "fastapi==0.115.14",
+    "pydantic==2.11.7",
+    "uvicorn==0.34.3",
+]
 
 [project.optional-dependencies]
+test = ["httpx==0.28.1"]
 embedding = [
     "torch==2.9.0+cpu",
     "transformers==4.57.1",

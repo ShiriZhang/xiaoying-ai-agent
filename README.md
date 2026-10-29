@@ -1,6 +1,6 @@
 # 企业知识问答 Agent（题号 3）
 
-当前已实现第一至第六批：工程基础、已审阅资料、原生Agent、本地CPU混合检索、业务结果/引用/状态，以及SQLite会话、上下文窗口与锚点校验。已做真实协议冒烟和真实embedding召回验证；[第六批离线记录](examples/batch-6/verification.md)不代表真实记忆语义验收。**业务问答HTTP服务及完整业务验收尚未完成**。当前完成 1.1–6.5，共 31/46 项；下一项为7.1。OpenSpec规划与任务文件仅保留本地，不随公开仓库发布。
+当前已实现第一至第七批：工程基础、资料、Agent、混合检索、可靠结果、SQLite/上下文/锚点及四个FastAPI路由。Mock服务已实际启动、两轮追问并重启验证，见[第七批记录](examples/batch-7/verification.md)。**六类真实模型业务验收及全新环境验收尚未完成**。当前完成 1.1–7.3，共 34/46 项；下一项为8.1。OpenSpec规划与任务文件仅保留本地，不随公开仓库发布。
 
 ## 支持环境与安装
 
@@ -13,12 +13,12 @@ Get-Command uv, git
 $env:UV_CACHE_DIR = Join-Path $PWD '.cache/uv'
 uv python install 3.12.13
 uv venv --python 3.12.13 --managed-python .venv
-uv sync --locked --no-editable --python .venv/Scripts/python.exe
+uv sync --locked --extra test --no-editable --python .venv/Scripts/python.exe
 uv pip check --python .venv/Scripts/python.exe
 uv pip list --python .venv/Scripts/python.exe
 ```
 
-依赖唯一声明入口为 [pyproject.toml](pyproject.toml)，[uv.lock](uv.lock)锁定传递依赖及下载来源。基础Mock只需python-dotenv==1.1.1，测试使用标准库unittest；可选embedding组固定torch==2.9.0+cpu、transformers==4.57.1、safetensors==0.6.2、huggingface-hub==0.36.0，torch只取官方CPU索引。构建使用setuptools==80.9.0。安装不继承全局包，不需要FastAPI、模型SDK或CUDA。
+依赖唯一声明入口为 [pyproject.toml](pyproject.toml)，[uv.lock](uv.lock)锁定传递依赖及下载来源。基础运行依赖为python-dotenv==1.1.1、FastAPI==0.115.14、Pydantic==2.11.7、Uvicorn==0.34.3；test组httpx==0.28.1供API测试，测试执行器为标准库unittest。可选embedding组固定torch==2.9.0+cpu、transformers==4.57.1、safetensors==0.6.2、huggingface-hub==0.36.0，torch只取官方CPU索引。构建使用setuptools==80.9.0。安装不继承全局包，不需要模型SDK或CUDA。
 
 修改源码后，在对应的sync命令中追加`--reinstall-package enterprise-knowledge-qa`再测试，避免复用旧构建缓存。`--no-editable`使测试从已安装包导入，不通过PYTHONPATH引用源码。基础Mock安装不含embedding依赖；若需要保留真实编码器，请始终使用下方带`--extra embedding`的命令。
 
@@ -30,7 +30,7 @@ uv pip list --python .venv/Scripts/python.exe
 .venv/Scripts/python.exe -I -m enterprise_knowledge_qa --env-file .env.example
 ```
 
-这条命令只检查配置，输出 `service=not_implemented`，不会启动 HTTP 服务、调用模型、读取权重或创建 SQLite/Trace。若进程已设置同名变量，它们会覆盖文件；排查模式不符时先检查当前进程的 `QA_MODE`。
+这条命令只检查配置，输出 `service=not_started`，不会启动 HTTP 服务、调用模型、读取权重或创建 SQLite/Trace。若进程已设置同名变量，它们会覆盖文件；排查模式不符时先检查当前进程的 `QA_MODE`。
 
 个人配置可复制模板再用本地编辑器填写，真实密钥只存本地：
 
@@ -51,37 +51,84 @@ Copy-Item .env.example .env
 | EMBEDDING_MODEL_PATH | models/bge-small-zh-v1.5 | 本地权重目录，Mock 不检查或读取 |
 | EMBEDDING_REVISION | 7999e1d3359715c523056ef9478215996d62a620 | 固定公开revision，与本地manifest及文件指纹匹配 |
 | QA_DATA_PATH | data/knowledge.json | 已实现的合成资料路径，见 data/REVIEW.md |
-| QA_SQLITE_PATH | runtime/sessions.sqlite3 | 会话库路径；持久化待第 6 组 |
-| QA_TRACE_PATH | runtime/traces | 原始运行记录目录；执行器run通过trace_directory显式保存 |
+| QA_SQLITE_PATH | runtime/sessions.sqlite3 | 会话库路径，API保存完整问答与结果/Trace，重启复用 |
+| QA_TRACE_PATH | runtime/traces | 独立调用执行器run时通过trace_directory显式保存的目录；API的完整Trace在SQLite请求结果中 |
 | QA_MAX_MODEL_CALLS / QA_MAX_TOOL_CALLS | 8 / 6 | 固定上限，拒绝改值；第6工具立即停止，第8模型请求在当前规则下不可达 |
 | QA_MODEL_TIMEOUT_SECONDS / QA_TASK_TIMEOUT_SECONDS | 60 / 300 | 可配置正有限秒数；单请求与总deadline已实现 |
-| QA_HISTORY_TOKEN_BUDGET | 8000 | 可配置正整数，估算历史预算；历史选择待 6.2 |
+| QA_HISTORY_TOKEN_BUDGET | 8000 | 可配置正整数，完整轮次估算历史预算；不截断当前问题 |
 
 只读取显式指定的 env 文件，不搜索父目录；支持 dotenv 引号和注释，关闭变量插值。环境变量优先于文件。相对路径以 env 文件所在目录为基准；直接调用 `load_settings()` 不指定文件时以当前目录为基准。必须显式选择模式。检查不输出整个配置对象或环境变量。
 
 [.gitignore](.gitignore) 排除整个 `openspec/`、本地 `.agents/` 工具配置、`.env`、本地权重、环境、缓存、运行数据库和 runtime 原始日志。精选证据放 `examples/`，提交前检查并移除密钥及隐私信息；忽略规则不能阻止强制添加。分批提交发布只记录已实现与验证的阶段成果，不代表第10组最终验收完成。
 
-## 服务启动、请求与分层测试入口
+## 服务启动与四个REST请求
 
-| 入口 | 当前状态与后续任务 |
+在项目根目录、新PowerShell窗口运行Mock服务（无密钥、无权重）：
+
+```powershell
+$env:QA_MODE = 'mock'
+.venv/Scripts/python.exe -I -m enterprise_knowledge_qa.server --env-file .env.example
+```
+
+服务固定监听`127.0.0.1`，默认端口8000，可用`--port 8001`改变端口；单进程运行。退出用Ctrl+C，再运行相同命令和SQLite路径可续接会话。没有界面、独立业务CLI、登录或多进程协调。Mock是受控演示策略：支持“星帆剪辑支持什么导出格式？”、“那最高支持多大分辨率？”和“报销材料是什么？”，事实从实际检索、读取的原文展示，不硬编码数值。新会话只问分辨率会先确认产品对象；不支持的输入明确incomplete，不当成真实语义判断。
+
+另开PowerShell窗口发送请求；中文Body显式转UTF-8字节：
+
+```powershell
+$base = 'http://127.0.0.1:8000'
+Invoke-RestMethod "$base/health"
+$session = Invoke-RestMethod -Method Post -Uri "$base/sessions" -ContentType 'application/json' -Body '{}'
+$id = $session.session_id
+$body = @{ question = '星帆剪辑支持什么导出格式？' } | ConvertTo-Json -Compress
+$first = Invoke-RestMethod -Method Post -Uri "$base/sessions/$id/messages" -ContentType 'application/json; charset=utf-8' -Body ([Text.Encoding]::UTF8.GetBytes($body))
+$first | ConvertTo-Json -Depth 100
+$body = @{ question = '那最高支持多大分辨率？' } | ConvertTo-Json -Compress
+$second = Invoke-RestMethod -Method Post -Uri "$base/sessions/$id/messages" -ContentType 'application/json; charset=utf-8' -Body ([Text.Encoding]::UTF8.GetBytes($body))
+$second | ConvertTo-Json -Depth 100
+Invoke-RestMethod "$base/sessions/$id" | ConvertTo-Json -Depth 100
+```
+
+`POST /sessions`接受无Body、null或空对象，返回201与session_id/mode；`POST /sessions/{id}/messages`只接收非空字符串question，不接收客户端历史、模式、锚点或故障开关；不设独立字符上限。正常任务返回200与业务状态、引用、缺口、单个追问、锚点校验、持久化结果、模式、计数和Trace。`GET /sessions/{id}`返回完整业务消息及requests中的完整已存结果/Trace，未完成登记无结果时为null。`GET /health`返回应用初始化状态、模式和资料指纹，不创建或调用生成模型；真实启动会预先加载本地编码器，健康检查本身不触发付费调用，不作外部模型连通性证明。
+
+| 情况 | HTTP与响应 |
 | --- | --- |
-| Mock HTTP 服务启动与请求 | API未完成；第3/4批已完成的执行器和检索可通过库接口验证，HTTP入口留待第7批 |
-| 真实 HTTP 服务启动与请求 | 未完成；配置检查入口同上，模型连通性与真实端到端分别为 3.8、8.2 |
-| POST /sessions | 计划创建会话，未实现；7.1/7.3 提供实际请求格式 |
-| POST /sessions/{id}/messages | 计划提交问题并返回结果/Trace，未实现；7.1/7.3 提供实际请求格式 |
-| GET /sessions/{id} | 计划查看会话，未实现；7.1/7.3 |
-| GET /health | 计划无付费调用健康检查，未实现；7.1/7.3 |
-| 真实 embedding 验证 | 已执行CPU编码、6/12候选召回和重载边界，步骤与证据见下文 |
-| 六类真实模型验收 | 未完成；8.1–8.6，条件缺失不能标通过 |
-| 完整冷启动 Mock/API 与真实验证 | 未完成；9.1–9.3，不能用本批安装检查代替 |
+| 非法JSON、空白/非字符串question、额外字段 | 422，`error.code=invalid_request`，不回显输入内容 |
+| 不存在的会话 | 404，`error.code=unknown_session` |
+| 会话创建/读取存储失败 | 503，`error.code=storage_failed` |
+| 本轮保存失败 | 503，error加`result`中的incomplete、已有证据、Trace及`persistence.saved=false` |
+| 模型/工具/超时/上限中断 | 200任务结果，业务status=incomplete，原因在execution_issues/stop_reason；不自动Mock |
 
-当前实际可执行的离线工程测试：
+以下为预期错误请求；PowerShell会抛HTTP异常，可在异常中检查422和404，不是成功示例：
+
+```powershell
+Invoke-RestMethod -Method Post -Uri "$base/sessions/$id/messages" -ContentType 'application/json' -Body '{"question":""}'
+Invoke-RestMethod "$base/sessions/not-found"
+```
+
+真实模式先按下文安装embedding依赖、准备权重，并在本地`.env`配置QA_MODE=live、密钥和权重/revision；再运行：
+
+```powershell
+$env:QA_MODE = 'live'
+.venv/Scripts/python.exe -I -m enterprise_knowledge_qa.server --env-file .env
+```
+
+真实模式与Mock使用同样四个请求格式，只有显式配置选择模式。配置、权重或存储未就绪会以退出码2停止启动；认证/服务失败返回任务incomplete，不换服务。本批未执行真实HTTP问答或六类真实验收；已有真实协议冒烟与embedding证据不替代第8批。
+
+## 分层测试与实际证据
+
+安装test组后执行离线工程与API测试：
 
 ```powershell
 .venv/Scripts/python.exe -I -m unittest discover -s tests -v
 ```
 
-测试覆盖独立安装导入、配置、脱敏、Git 忽略、资料校验、快照与原文读取，不证明 Agent 决策、混合检索、API 或记忆效果。配置/读取测试阻断 socket 创建，临时文件放仓库内 `.cache/`；Git 忽略测试只创建临时仓库元数据，不初始化项目。实际执行、失败和复跑见 [第一批验证记录](examples/batch-1/verification.md) 与 [第二批验证记录](examples/batch-2/verification.md)。资料加载和重载接口见 [资料说明](data/README.md)，完整原文及单 D01、冲突、人事生效预期见 [审阅稿](data/REVIEW.md)。
+测试覆盖配置、资料、Agent预算、引用、检索流程、SQLite/历史/锚点和四个API的工程契约，不证明真实语义能力。HTTP集成测试使用TestClient，仍需操作系统允许Windows事件循环的本地socket。实际服务启动、两轮请求、隔离和重启的可复跑验证脚本如下；只允许loopback通信，阻断外部socket及BGE构造，数据库/空权重目录在临时目录中，运行后清理：
+
+```powershell
+.venv/Scripts/python.exe -I examples/batch-7/exercise_http.py --output .cache/http-demo-new.json
+```
+
+输出文件必须尚不存在；复跑时换新文件名，保留先前证据。可加`--powershell-output .cache/readme-new.json`实际执行README的PowerShell请求。实际请求/响应/Trace见[最终HTTP记录](examples/batch-7/http-demo-final.json)、[PowerShell结果](examples/batch-7/readme-requests.json)、[第七批验证](examples/batch-7/verification.md)。全新空环境API验证仍待第9批；当前环境安装与重启测试不能代替它。真实embedding、六类真实模型效果与冷启动分别独立验收。资料加载/重载接口见[资料说明](data/README.md)，已审阅正文与变体预期见[审阅稿](data/REVIEW.md)。
 
 ## 真实CPU权重、检索与重载
 
@@ -90,7 +137,7 @@ Copy-Item .env.example .env
 ```powershell
 $env:UV_CACHE_DIR = Join-Path $PWD '.cache/uv'
 $env:UV_LINK_MODE = 'copy'
-uv sync --locked --extra embedding --no-editable --python .venv/Scripts/python.exe
+uv sync --locked --extra embedding --extra test --no-editable --python .venv/Scripts/python.exe
 ```
 
 显式准备固定revision权重：
@@ -125,7 +172,7 @@ $env:HF_HUB_DISABLE_TELEMETRY = '1'
 
 `--live` 明确只为这次检查选择真实模式，即使本地文件为mock也不改写它。此检查仅验证生成模型选择读取、接收实际原文后结束，不需要尚未准备的embedding权重；它不会启动HTTP服务、接入假混检或替代六类验收。每次运行按独立请求ID保存Trace和summary，失败不覆盖。使用与Mock相同的Agent执行器；`make_model`在普通应用中严格按配置选择模式，不自动降级。
 
-调用完整Agent时可注入受控Mock策略和search接口；实际混合检索在第4批接入。finish的引用机械校验已用于格式修正，业务语义与记忆来源校验尚待第5/6批。计数可达性修订已由用户确认，见 [决定原话](examples/batch-3/budget-decision.md)；实际失败/复跑、费用与验证边界见 [第三批记录](examples/batch-3/verification.md)。
+调用完整Agent时可注入受控Mock策略与同快照search接口；API已接入实际混合检索、引用和记忆来源校验。来源合法性不等于业务/锚点语义正确。计数可达性修订已由用户确认，见[决定原话](examples/batch-3/budget-decision.md)；实际失败/复跑、费用与验证边界见[第三批记录](examples/batch-3/verification.md)。
 
 - [需求与 A01–A06 验收预期](docs/01-requirements.md)、[方案设计](docs/02-solution.md)、[评估计划及后续证据](docs/03-evaluation.md)。这些文档的开发前状态不代表全部业务已经实现。
 - [AI 使用及个人贡献记录](docs/04-ai-usage.md)、[工时、预算及阶段复盘](docs/05-retrospective.md)、[业务术语](CONTEXT.md)。

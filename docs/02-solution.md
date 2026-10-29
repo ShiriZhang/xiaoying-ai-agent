@@ -1,5 +1,7 @@
 # 方案设计
 
+第七批实际更新：四个FastAPI路由、本地单进程启动器和受控Mock演示已接通。当前入口和HTTP错误契约见文末“第七批REST接口”；早期“API待实现”为当时状态。实际HTTP/PowerShell请求、重启/隔离及验证边界见[第七批记录](../examples/batch-7/verification.md)，不代表真实语义或全新环境验收。
+
 第六批实际更新：已实现SQLite会话仓储、会话编排、完整轮次历史窗口、同次finish锚点校验和失效降级。下文早期“记忆待实现”描述其当时状态；以文末“第六批会话与上下文”为当前实现契约。HTTP路由仍留第七批，真实记忆语义验收留第八批。
 
 第五批实际更新：已实现业务结果和混合状态校验、完整模型任务指令、canonical引用回填与中断证据保留。当前实现契约和实际Mock输出见文末“第五批结果与引用”；会话/记忆/API和真实业务语义验收仍待后续任务。
@@ -193,3 +195,22 @@ Trace 记录输入输出、请求 ID、模式、模型及 embedding 配置、模
 长输入估算和私有请求拷贝后再次检查deadline并重算单次timeout；已过期则不计为模型尝试，也不发起模型请求。
 
 实际重启续问、跨窗口、失效/重建和存储失败记录见[第六批验证](../examples/batch-6/verification.md)。这些是受控Mock的工程证据，真实模型的对象理解、纠正与旧结论污染仍需第8.4单独验证。
+
+## 第七批REST接口
+
+`api.create_app(settings)`初始化会话仓储和检索store，创建`ConversationService`，每次问答只acquire一次索引快照并创建同模式Agent。`server`入口显式读取env文件，在127.0.0.1启动单进程Uvicorn，端口默认8000；配置/本地权重/资料/存储准备失败明确退出，不切换模式。普通接口不提供故障注入、模式覆盖或客户端历史参数。测试才可在app工厂中注入依赖。
+
+| 路由 | 当前请求与响应 |
+| --- | --- |
+| POST /sessions | 可无Body、null或`{}`，201返回session_id和mode；额外字段422 |
+| POST /sessions/{id}/messages | 只接收`{"question":"非空原始文本"}`，服务端加载历史/锚点，正常任务200返回完整结构化结果及Trace |
+| GET /sessions/{id} | 返回messages（原始用户文本、结构化助手业务消息）、requests（状态及完整已存结果/Trace）、有效锚点与告警；未完成请求result为null |
+| GET /health | 返回初始化状态、模式、资料指纹；不创建或调用生成模型，不证明外部模型可达 |
+
+API路由使用同步函数，由FastAPI调度到线程池，复用已有会话内锁和短事务；模型等待不占用事件循环或SQLite写事务。所有引用、预算、deadline、一次恢复/修正及锚点降级仍在同一Agent/ConversationService内执行。没有额外API记忆调用或固定前置改写。
+
+422统一`error.code=invalid_request`，拒绝非法JSON、空白/非字符串question和额外字段，不回显原始输入；404为unknown_session。创建/读取存储失败返回503/storage_failed；问答保存失败503同时附result，保留incomplete、证据、Trace和persistence.saved=false。模型/工具/超时/上限等已进入任务的失败仍200，业务status=incomplete并单列execution_issues。完整结果和Trace已随会话事务保存在SQLite，GET可核对；QA_TRACE_PATH保留给独立执行器显式文件保存，不额外复制出一个可能不同步的API结果文件。
+
+显式Mock默认使用`demo_policy`：只有导出格式、分辨率和报销材料三组受控动作，检索后按演示所需词选择候选、实际read并逐字展示，不能证明真实Query Rewrite或语义决策。无产品对象时追问，不支持的输入明确未执行语义判断并incomplete；不硬编码MP4、1080p或制度期限。规则冲突等真正业务行为仍由live模型和后续真实验收验证。live用现有官方DeepSeek及本地BGE，不在失败时启用此策略。
+
+安装、Mock/live启动、PowerShell中文请求及错误示例见[README](../README.md)。第七批实际进行了进程内API集成、真实loopback HTTP服务启动/两轮问答/隔离/进程重启，以及同一请求的PowerShell UTF-8验证；证据见[验证记录](../examples/batch-7/verification.md)。这不是全新环境测试，也没有执行真实HTTP付费问答。

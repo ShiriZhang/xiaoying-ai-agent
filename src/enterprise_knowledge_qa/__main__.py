@@ -19,7 +19,7 @@ def main() -> int:
     print(json.dumps({
         "mode": settings.mode,
         "configuration": "valid",
-        "service": "not_implemented",
+        "service": "not_started",
         "model_calls_limit": settings.max_model_calls,
         "tool_calls_limit": settings.max_tool_calls,
         "model_timeout_seconds": settings.model_timeout_seconds,

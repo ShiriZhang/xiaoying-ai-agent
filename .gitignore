@@ -1,0 +1,35 @@
+# Local secrets; keep the shareable configuration template.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local planning and agent workflow files are not part of the public delivery.
+/openspec/
+/.agents/
+
+# Environments, packaging and caches.
+.venv/
+.cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+# Local weights, model caches, databases, raw traces and logs.
+models/
+.models/
+.huggingface/
+runtime/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+*.sqlite*
+*.db
+*.db-*
+*.log

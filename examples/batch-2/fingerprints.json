@@ -1,0 +1,31 @@
+{
+  "scope": "batch-2; offline source/read checks; not live acceptance",
+  "python": "3.12.13",
+  "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+  "sha256": {
+    "pyproject.toml": "878e4f6064f1a4cdf4245e4af0d4b3bd56777814c9e127c0e0982b3f3f851528",
+    "README.md": "b231e317c141683ced056427805bf4143514ac65e3a2cf649d77bb804f4c5325",
+    "src/enterprise_knowledge_qa/__init__.py": "80ae56b91f5a72c441a8e507f813e6a9d5c13341cfeaef07c45658fd349e485f",
+    "src/enterprise_knowledge_qa/__main__.py": "ca6f3982461a6623d07a0599df9c882e7e961b686da381e719185c5df3e60ce6",
+    "src/enterprise_knowledge_qa/config.py": "ddea15c0c2f24f013307b2fd9c11453b1496575501a07aefbabfe420e072611f",
+    "src/enterprise_knowledge_qa/knowledge.py": "485576ab08fa4790ac991830e576e0044398495f9bcd20ae76aee6eed1c14897",
+    "src/enterprise_knowledge_qa/reading.py": "d19e8853d83869a71f40661973ce2577e3c3e1bcb706c1fdd639def903fc20c4",
+    "src/enterprise_knowledge_qa/snapshots.py": "e6ca2284c18fd7e1e3d231889e6e498a2c0666124d8f6fc391ad083b134f53c6",
+    "tests/test_config.py": "d727188ce57c8096783f3780d3b5608f8d752d28cca763ba7a31e302dbc95d61",
+    "tests/test_corpus_review.py": "09054c21c223e969159f966a0c7e8b65959bd47d811479fff5fcdd3642c8cdc1",
+    "tests/test_ignore_rules.py": "190d3920dcc2179aa917b6ab2926f9e2e18a5992de418db1f57fbe9bf742ba7d",
+    "tests/test_knowledge.py": "65466606fd609165bbe488461eb23226f293d32e4c8ee9478b0ba2405081ffd8",
+    "tests/test_package.py": "e94538910ad57578fe3cd1698453beecd818a752aaf5b1bb3021d06abfaf5053",
+    "tests/test_reading.py": "670ad6d413ffc6d767de0237d8bfd46de2173cdef7b866b60831fe768e109f0a",
+    "tests/test_snapshots.py": "04e6769e05af59fdebca2a3b440ce209b8e02d465dd37819c24c363b7b05f02d",
+    "data/knowledge.json": "a1bec3afab86ddcabd5516e7cef0eae6891304d274e71b9b63a7247a30bc7c3a",
+    "data/README.md": "95c1948b5239f9e02263d943fee0ec584650c7f9d7006e103206366ab5124933",
+    "data/REVIEW.md": "05d2fd76dfcadedb2bef5ef3f46ac69b34c04c490ab1d17c1d7688e72007226f",
+    "docs/01-requirements.md": "7808df20417e6a4cf3aa8d076380bc6b4ed5eb11a8cc84712646687321cdfd33",
+    "docs/02-solution.md": "210d223d33aa2fcaefde00909b825f12b4e568f3b34d46176d6478119cac45b8",
+    "docs/03-evaluation.md": "7207d454545600e6e7feb828e2a44787c61abf55bbda9cfc5e5d3cbcdaaf6e1d",
+    "docs/04-ai-usage.md": "75cc33a26f1da79f592f76817071e7bf09df7fb99ca6d0e245d974e8944c135f",
+    "docs/05-retrospective.md": "c8f156586ec3290896316e5186081bc9388cae5159fb0a451496f8074d3b89ab",
+    "openspec/changes/enterprise-knowledge-qa/tasks.md": "0b60f51819eac753d8ad954ddf9416ef34826b8ab1e2da30deea84e874a3efb5"
+  }
+}

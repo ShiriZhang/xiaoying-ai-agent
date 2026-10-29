@@ -1,0 +1,21 @@
+{
+  "scope": "batch-1 engineering; no business acceptance",
+  "python": "3.12.13",
+  "platform": "Windows 11 x86-64",
+  "sha256": {
+    "pyproject.toml": "878e4f6064f1a4cdf4245e4af0d4b3bd56777814c9e127c0e0982b3f3f851528",
+    ".python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+    ".env.example": "526a5c85ce32e4f9e4cedc7e0ed1ff099cf948a6bd25b6b3ff956e4ae2ef5dbd",
+    ".gitignore": "3e0d2c5c4954b73d7c5e003fbfb706ab4eb64fe0562e64f4c778f095f109930f",
+    "README.md": "60c67653ebde86357d99951ee33557c3b26409162b27083c67ae36ee3316bca3",
+    "docs/04-ai-usage.md": "1256a7412693f26ea4b329114fdecfafcd9b2e55b6d60639d998c5c0e40b9b49",
+    "docs/05-retrospective.md": "b6eb6f4da26c3a93e59871491a7234d99aaf363c8a52dfeb74792b98eb276daf",
+    "openspec/changes/enterprise-knowledge-qa/tasks.md": "176ba3affb9b1fe53de30cde5acfb8c4bead72046abe5e843a252693f9e447f0",
+    "src/enterprise_knowledge_qa/__init__.py": "80ae56b91f5a72c441a8e507f813e6a9d5c13341cfeaef07c45658fd349e485f",
+    "src/enterprise_knowledge_qa/__main__.py": "ca6f3982461a6623d07a0599df9c882e7e961b686da381e719185c5df3e60ce6",
+    "src/enterprise_knowledge_qa/config.py": "ddea15c0c2f24f013307b2fd9c11453b1496575501a07aefbabfe420e072611f",
+    "tests/test_config.py": "d727188ce57c8096783f3780d3b5608f8d752d28cca763ba7a31e302dbc95d61",
+    "tests/test_ignore_rules.py": "190d3920dcc2179aa917b6ab2926f9e2e18a5992de418db1f57fbe9bf742ba7d",
+    "tests/test_package.py": "e94538910ad57578fe3cd1698453beecd818a752aaf5b1bb3021d06abfaf5053"
+  }
+}

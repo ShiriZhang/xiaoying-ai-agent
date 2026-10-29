@@ -1,0 +1,14 @@
+Command: .venv/Scripts/python.exe -I -m unittest discover -s tests -v
+test_check_entrypoint_redacts_key_and_reports_pending_service (test_config.ConfigTests.test_check_entrypoint_redacts_key_and_reports_pending_service) ... ok
+test_env_precedence_quotes_relative_paths_and_no_interpolation (test_config.ConfigTests.test_env_precedence_quotes_relative_paths_and_no_interpolation) ... ok
+test_example_mock_without_key_weights_network_or_side_effects (test_config.ConfigTests.test_example_mock_without_key_weights_network_or_side_effects) ... ok
+test_explicit_mode_and_invalid_values (test_config.ConfigTests.test_explicit_mode_and_invalid_values) ... ok
+test_live_prerequisites_do_not_fallback_or_expose_key (test_config.ConfigTests.test_live_prerequisites_do_not_fallback_or_expose_key) ... ok
+test_missing_file_fails (test_config.ConfigTests.test_missing_file_fails) ... ok
+test_secrets_weights_and_runtime_ignored_but_templates_and_evidence_kept (test_ignore_rules.IgnoreTests.test_secrets_weights_and_runtime_ignored_but_templates_and_evidence_kept) ... ok
+test_installed_package_in_isolated_environment (test_package.PackageTests.test_installed_package_in_isolated_environment) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.835s
+
+OK

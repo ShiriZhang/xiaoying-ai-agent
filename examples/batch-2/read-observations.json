@@ -1,0 +1,103 @@
+{
+  "layer": "offline_local_read_component",
+  "not_model_output": true,
+  "cases": [
+    {
+      "case": "conflict_sources",
+      "input": {
+        "passage_ids": [
+          "D01-P01",
+          "D02-P01"
+        ]
+      },
+      "actual_observation": {
+        "tool": "read",
+        "status": "success",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "passages": [
+          {
+            "passage_id": "D01-P01",
+            "doc_id": "D01",
+            "title": "差旅报销期限规定",
+            "topic": "差旅报销",
+            "version_date": "2026-01-01",
+            "effective_date": "2026-01-01",
+            "scope": "星帆科技全体员工",
+            "text": "文档：差旅报销期限规定（D01）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n员工应在出差结束后 30 天内提交差旅报销申请。"
+          },
+          {
+            "passage_id": "D02-P01",
+            "doc_id": "D02",
+            "title": "差旅报销期限问答",
+            "topic": "差旅报销",
+            "version_date": "2026-03-01",
+            "effective_date": "2026-03-01",
+            "scope": "星帆科技全体员工",
+            "text": "文档：差旅报销期限问答（D02）。主题：差旅报销。版本日期：2026-03-01。生效日期：2026-03-01。适用范围：星帆科技全体员工。\n员工应在出差结束后 15 天内提交差旅报销申请。"
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "case": "unknown_id",
+      "input": {
+        "passage_ids": [
+          "D99-P01"
+        ]
+      },
+      "actual_observation": {
+        "tool": "read",
+        "status": "error",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "passages": [],
+        "error": {
+          "kind": "tool_error",
+          "code": "unknown_passage",
+          "message": "A requested passage is not in this snapshot"
+        }
+      }
+    },
+    {
+      "case": "too_many",
+      "input": {
+        "passage_ids": [
+          "D01-P01",
+          "D02-P01",
+          "D03-P01",
+          "D04-P01"
+        ]
+      },
+      "actual_observation": {
+        "tool": "read",
+        "status": "error",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "passages": [],
+        "error": {
+          "kind": "validation_error",
+          "code": "invalid_arguments",
+          "message": "passage_ids must be an array of 1 to 3 unique IDs"
+        }
+      }
+    },
+    {
+      "case": "injected_failure",
+      "input": {
+        "passage_ids": [
+          "D03-P01"
+        ]
+      },
+      "actual_observation": {
+        "tool": "read",
+        "status": "error",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "passages": [],
+        "error": {
+          "kind": "tool_error",
+          "code": "read_failed",
+          "message": "Passage reading failed"
+        }
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # 企业知识问答 Agent（题号 3）
 
-当前已完成第一至第九批：四个REST路由及前置能力、真实模型六类两次验证、规则/记忆回归和授权的独立代理资料变更核查。最终36轮实际结果与全部104轮失败/复跑记录见[第八批证据](examples/batch-8/verification.md)、[独立逐项矩阵](examples/batch-8/delegated-audit/validated-review.md)。资料修改及支持性审阅按用户明确授权由独立AI代理代办，不冒称用户亲自完成。第九批在干净副本的独立环境完成无密钥/空缓存Mock、真实权重独立下载及真实HTTP问答，见[冷启动证据](examples/batch-9/verification.md)。**第10批综合交付尚未完成**。当前43/46项，下一项10.1。OpenSpec规划与任务文件仅保留本地，不随公开仓库发布。
+已完成企业知识问答Agent的十批实现与验收：四个REST路由及前置能力、真实模型六类两次验证、规则/记忆回归和授权的独立代理资料变更核查。最终36轮实际结果与全部104轮失败/复跑记录见[第八批证据](examples/batch-8/verification.md)、[独立逐项矩阵](examples/batch-8/delegated-audit/validated-review.md)。资料修改及支持性审阅按用户明确授权由独立AI代理代办，不冒称用户亲自完成。第九批在干净副本的独立环境完成无密钥/空缓存Mock、真实权重独立下载及真实HTTP问答，见[冷启动证据](examples/batch-9/verification.md)。综合验收覆盖五份能力规格的74个场景，当前120项工程测试通过。交付入口见[第十批验收与仓库信息](examples/batch-10/verification.md)、[逐场景证据矩阵](examples/batch-10/acceptance-matrix.md)。GitHub仓库为[ShiriZhang/xiaoying-ai-agent](https://github.com/ShiriZhang/xiaoying-ai-agent)，已核实公开可读；最终提交SHA在本次交付消息中给出，检出后也可用`git rev-parse HEAD`核对。OpenSpec规划与任务文件仅保留本地，不随公开仓库发布。
 
 ## 支持环境与安装
 

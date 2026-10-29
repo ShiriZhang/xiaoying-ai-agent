@@ -1,0 +1,1105 @@
+{
+  "scenarios": [
+    {
+      "id": "agent-execution/01",
+      "capability": "agent-execution",
+      "requirement": "由模型选择动作并观察工具结果",
+      "scenario": "正常与冲突路径不同",
+      "tests": [
+        "tests/test_agent_loop.py",
+        "tests/test_retrieval_agent.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/core-validated/A01-r1-t1-a063cfa12d424a02bbcb9936c3cfc991.json",
+        "examples/batch-8/runs/core-validated/A01-r2-t1-b7f09179d0bc464a8d07838751190cca.json",
+        "examples/batch-8/runs/core-validated/A02-r1-t1-97edf89e80624707aca3cc60ae44fcf3.json",
+        "examples/batch-8/runs/core-validated/A02-r2-t1-0bfcf9c0baf741b7aff0eec4734f39e3.json"
+      ],
+      "conclusion": "充分依据3/2与冲突5/4路径不同；实际观察驱动后续动作。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "agent-execution/02",
+      "capability": "agent-execution",
+      "requirement": "由模型选择动作并观察工具结果",
+      "scenario": "多动作或非法动作",
+      "tests": [
+        "tests/test_agent_loop.py",
+        "tests/test_agent_format.py"
+      ],
+      "evidence": [],
+      "conclusion": "多动作全部拒绝；未知动作仅提供一次格式修正，不偷偷执行。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "agent-execution/03",
+      "capability": "agent-execution",
+      "requirement": "双重执行预算",
+      "scenario": "工具预算耗尽",
+      "tests": [
+        "tests/test_agent_budgets.py"
+      ],
+      "evidence": [],
+      "conclusion": "第6工具后停止；没有第7工具或额外收尾。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "agent-execution/04",
+      "capability": "agent-execution",
+      "requirement": "双重执行预算",
+      "scenario": "可达的最后一次模型调用合法结束",
+      "tests": [
+        "tests/test_agent_budgets.py"
+      ],
+      "evidence": [],
+      "conclusion": "5工具加1格式错误后的第7模型finish成功。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "agent-execution/05",
+      "capability": "agent-execution",
+      "requirement": "双重执行预算",
+      "scenario": "模型硬上限与第八次不可达",
+      "tests": [
+        "tests/test_agent_budgets.py"
+      ],
+      "evidence": [
+        "examples/batch-3/budget-decision.md"
+      ],
+      "conclusion": "8/6硬上限保留；第8次不可达，按已确认规则验证不追加请求。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "agent-execution/06",
+      "capability": "agent-execution",
+      "requirement": "一次模型决定的工具故障恢复",
+      "scenario": "临时故障后成功",
+      "tests": [
+        "tests/test_agent_recovery.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/core-validated/A06-temporary-r1-t1-aceefa4962154ae79819b6ab3462dfe0.json",
+        "examples/batch-8/runs/core-validated/A06-temporary-r2-t1-a9dd6c5e31824f7294554e1449863de4.json"
+      ],
+      "conclusion": "首次真实read错误交模型，模型选择一次恢复后成功。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "agent-execution/07",
+      "capability": "agent-execution",
+      "requirement": "一次模型决定的工具故障恢复",
+      "scenario": "恢复再次失败",
+      "tests": [
+        "tests/test_agent_recovery.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/core-validated/A06-persistent-r1-t1-b500addf1b1f4c8586b68a502a47e6ff.json",
+        "examples/batch-8/runs/core-validated/A06-persistent-r2-t1-746062a4c9ab45198da7831486b466b7.json"
+      ],
+      "conclusion": "恢复仍失败即incomplete，不第三次恢复或额外收尾。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "agent-execution/08",
+      "capability": "agent-execution",
+      "requirement": "一次模型决定的工具故障恢复",
+      "scenario": "模型选择不恢复",
+      "tests": [
+        "tests/test_agent_recovery.py"
+      ],
+      "evidence": [],
+      "conclusion": "受控模型选择incomplete结束，执行器不强制重试。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "agent-execution/09",
+      "capability": "agent-execution",
+      "requirement": "格式修正单独计数",
+      "scenario": "一次修正后合法",
+      "tests": [
+        "tests/test_agent_format.py",
+        "tests/test_evaluation_repairs.py"
+      ],
+      "evidence": [],
+      "conclusion": "非法JSON、参数、引用收到具体反馈，修正单独计数并保留call关联。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "agent-execution/10",
+      "capability": "agent-execution",
+      "requirement": "格式修正单独计数",
+      "scenario": "多次格式错误",
+      "tests": [
+        "tests/test_agent_format.py",
+        "tests/test_agent_budgets.py"
+      ],
+      "evidence": [],
+      "conclusion": "第二次格式错误直接未完成，修正不挪用工具恢复次数。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "agent-execution/11",
+      "capability": "agent-execution",
+      "requirement": "超时与模型服务失败明确终止",
+      "scenario": "模型请求失败",
+      "tests": [
+        "tests/test_models.py",
+        "tests/test_agent_recovery.py",
+        "tests/test_context.py"
+      ],
+      "evidence": [
+        "examples/batch-3/live-smoke/6964af1345d2481aa5f81608ab3fa180.json"
+      ],
+      "conclusion": "认证/服务/容量失败受控测试与实际失联记录均不隐式重试或降级；未知usage保留未知。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "agent-execution/12",
+      "capability": "agent-execution",
+      "requirement": "超时与模型服务失败明确终止",
+      "scenario": "总任务超时",
+      "tests": [
+        "tests/test_agent_deadlines.py",
+        "tests/test_memory_failures.py"
+      ],
+      "evidence": [],
+      "conclusion": "60/300秒边界、真实阻塞worker迟到结果及保存deadline均检查；无后续写入。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "agent-execution/13",
+      "capability": "agent-execution",
+      "requirement": "显式离线模式",
+      "scenario": "无密钥与权重的 Mock",
+      "tests": [
+        "tests/test_config.py",
+        "tests/test_models.py",
+        "tests/test_embeddings.py"
+      ],
+      "evidence": [
+        "examples/batch-9/offline-initial/environment.json",
+        "examples/batch-9/http-initial.json"
+      ],
+      "conclusion": "空缓存、无密钥的新环境Mock实际运行且外部socket阻断。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "agent-execution/14",
+      "capability": "agent-execution",
+      "requirement": "显式离线模式",
+      "scenario": "真实模式不降级",
+      "tests": [
+        "tests/test_config.py",
+        "tests/test_models.py",
+        "tests/test_retrieval_agent.py",
+        "tests/test_api.py"
+      ],
+      "evidence": [],
+      "conclusion": "真实配置/编码/启动失败明确报告，不换服务、Mock或单路成功。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "agent-execution/15",
+      "capability": "agent-execution",
+      "requirement": "可审查的实际 Trace 与用量",
+      "scenario": "真实执行记录可追溯",
+      "tests": [
+        "tests/test_agent_tracing.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/core-validated/A01-r1-t1-a063cfa12d424a02bbcb9936c3cfc991.json",
+        "examples/batch-8/runs/core-validated/A01-r2-t1-b7f09179d0bc464a8d07838751190cca.json",
+        "examples/batch-9/live-http.json"
+      ],
+      "conclusion": "真实Trace包含日期/配置/指纹/计数/动作观察/usage；脱敏测试通过。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "agent-execution/16",
+      "capability": "agent-execution",
+      "requirement": "可审查的实际 Trace 与用量",
+      "scenario": "估算与账单有区别",
+      "tests": [
+        "tests/test_agent_tracing.py",
+        "tests/test_evidence_inventory.py"
+      ],
+      "evidence": [
+        "docs/05-retrospective.md",
+        "examples/batch-8/evidence-index.json"
+      ],
+      "conclusion": "记录usage估算与未知项；账单和个人工时未核实，未声称精确计费或余额。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "agent-execution/17",
+      "capability": "agent-execution",
+      "requirement": "一次任务使用一致的当前日期",
+      "scenario": "跨生效日复现",
+      "tests": [
+        "tests/test_agent_deadlines.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/regressions-validated/effective-r1-t1-e70f83d6b44549cabf45e4946d222f6b.json",
+        "examples/batch-8/runs/regressions-validated/future-r1-t1-1c13361b762347edad91984cc08aecfa.json"
+      ],
+      "conclusion": "冻结不同生效日期得到不同适用规则；单调deadline独立。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "conversation-memory/01",
+      "capability": "conversation-memory",
+      "requirement": "最小会话 API",
+      "scenario": "按会话编号续问",
+      "tests": [
+        "tests/test_api.py"
+      ],
+      "evidence": [
+        "examples/batch-9/http-initial.json",
+        "examples/batch-8/runs/core-validated/A05-r1-t1-e04ede69845e40cfa5c2b35b3a4fde12.json",
+        "examples/batch-8/runs/core-validated/A05-r1-t2-b962bd94a2b941cf9800228dbca435ab.json",
+        "examples/batch-8/runs/core-validated/A05-r2-t1-1d4cc426a118432ca978a954c33d3b4e.json",
+        "examples/batch-8/runs/core-validated/A05-r2-t2-77d36f6285a5407c93c5c198bc82e5d0.json"
+      ],
+      "conclusion": "同会话两轮只提交新问题，自动加载历史并重新读取产品依据。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "conversation-memory/02",
+      "capability": "conversation-memory",
+      "requirement": "最小会话 API",
+      "scenario": "无效请求和健康检查",
+      "tests": [
+        "tests/test_api.py"
+      ],
+      "evidence": [
+        "examples/batch-9/powershell-initial.json"
+      ],
+      "conclusion": "422/404错误明确；健康检查与会话管理零模型工厂调用。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "conversation-memory/03",
+      "capability": "conversation-memory",
+      "requirement": "完整持久化与会话隔离",
+      "scenario": "重启后继续产品问题",
+      "tests": [
+        "tests/test_sessions.py",
+        "tests/test_memory.py"
+      ],
+      "evidence": [
+        "examples/batch-9/http-recheck.json"
+      ],
+      "conclusion": "实际进程重启后同SQLite续问，重新读取分辨率依据。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "conversation-memory/04",
+      "capability": "conversation-memory",
+      "requirement": "完整持久化与会话隔离",
+      "scenario": "两个会话互不影响",
+      "tests": [
+        "tests/test_sessions.py",
+        "tests/test_memory.py"
+      ],
+      "evidence": [
+        "examples/batch-9/http-initial.json"
+      ],
+      "conclusion": "两会话不串历史，跨会话锚点来源被拒并安全降级。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "conversation-memory/05",
+      "capability": "conversation-memory",
+      "requirement": "完整持久化与会话隔离",
+      "scenario": "保存故障",
+      "tests": [
+        "tests/test_sessions.py",
+        "tests/test_api.py"
+      ],
+      "evidence": [
+        "examples/batch-6/storage-failure.json"
+      ],
+      "conclusion": "真实SQLite故障回滚，API503和saved=false，不伪称保存。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "conversation-memory/06",
+      "capability": "conversation-memory",
+      "requirement": "三字段对话锚点",
+      "scenario": "跨窗口保留对象",
+      "tests": [
+        "tests/test_memory.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/memory-validated/cross-window-r1-t1-19afdef85aaa4df6bc1aced83491ee51.json",
+        "examples/batch-8/runs/memory-validated/cross-window-r1-t2-b041bb171c3944b49ba1158b3f4a6594.json"
+      ],
+      "conclusion": "真实运行用预算1排除原历史，锚点保留对象，本轮重读依据。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "conversation-memory/07",
+      "capability": "conversation-memory",
+      "requirement": "三字段对话锚点",
+      "scenario": "换题与纠正",
+      "tests": [
+        "tests/test_memory.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/memory-validated/switch-correct-r1-t1-305e1997c31f4216aa31aa5c9e44a28f.json",
+        "examples/batch-8/runs/memory-validated/switch-correct-r1-t2-ee757ad2cdc340168dbd4ced8a6f68b6.json",
+        "examples/batch-8/runs/memory-validated/switch-correct-r1-t3-aea047b14dcb4657a458fb32e87680f3.json"
+      ],
+      "conclusion": "实际产品→报销→纠正产品字幕，完整快照替换。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "conversation-memory/08",
+      "capability": "conversation-memory",
+      "requirement": "同次结束动作提交完整快照",
+      "scenario": "问答和快照一次生成",
+      "tests": [
+        "tests/test_memory.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/core-validated/A05-r1-t1-e04ede69845e40cfa5c2b35b3a4fde12.json",
+        "examples/batch-8/runs/core-validated/A05-r1-t2-b962bd94a2b941cf9800228dbca435ab.json",
+        "examples/batch-8/runs/core-validated/A05-r2-t1-1d4cc426a118432ca978a954c33d3b4e.json",
+        "examples/batch-8/runs/core-validated/A05-r2-t2-77d36f6285a5407c93c5c198bc82e5d0.json"
+      ],
+      "conclusion": "同次finish含业务与三字段锚点，无额外记忆工具/模型请求。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "conversation-memory/09",
+      "capability": "conversation-memory",
+      "requirement": "同次结束动作提交完整快照",
+      "scenario": "清除已解决追问",
+      "tests": [
+        "tests/test_memory.py"
+      ],
+      "evidence": [],
+      "conclusion": "受控明确补充后pending_clarification清空，不合并保留旧追问。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "conversation-memory/10",
+      "capability": "conversation-memory",
+      "requirement": "估算 token 历史窗口",
+      "scenario": "历史预算边界",
+      "tests": [
+        "tests/test_context.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/memory-validated/cross-window-r1-t1-19afdef85aaa4df6bc1aced83491ee51.json",
+        "examples/batch-8/runs/memory-validated/cross-window-r1-t2-b041bb171c3944b49ba1158b3f4a6594.json"
+      ],
+      "conclusion": "完整轮次按估算预算从新到旧选择，记录selected/omitted；SQLite保留。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "conversation-memory/11",
+      "capability": "conversation-memory",
+      "requirement": "估算 token 历史窗口",
+      "scenario": "当前输入不能被历史策略截断",
+      "tests": [
+        "tests/test_context.py",
+        "tests/test_api.py"
+      ],
+      "evidence": [],
+      "conclusion": "当前问题不重复/不截断，不截断当前工具循环；超容量明确未完成。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "conversation-memory/12",
+      "capability": "conversation-memory",
+      "requirement": "锚点校验与业务结果隔离",
+      "scenario": "只有锚点来源无效",
+      "tests": [
+        "tests/test_memory.py"
+      ],
+      "evidence": [
+        "examples/batch-6/invalid-anchor.json"
+      ],
+      "conclusion": "非法锚点不丢合法业务，拒绝新快照、停用旧快照并告警。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "conversation-memory/13",
+      "capability": "conversation-memory",
+      "requirement": "锚点校验与业务结果隔离",
+      "scenario": "整体结束输出无效",
+      "tests": [
+        "tests/test_agent_format.py",
+        "tests/test_memory_failures.py"
+      ],
+      "evidence": [],
+      "conclusion": "整体业务非法走一次格式修正；失败不以存在锚点宣称成功。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "conversation-memory/14",
+      "capability": "conversation-memory",
+      "requirement": "无合法结束动作时停用旧锚点",
+      "scenario": "失败轮次可能已经换题",
+      "tests": [
+        "tests/test_memory_failures.py",
+        "tests/test_sessions.py"
+      ],
+      "evidence": [
+        "examples/batch-6/model-failure.json"
+      ],
+      "conclusion": "换题失败轮、超时、预算、格式失败停用旧锚点，下轮仅近期历史。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "grounded-qa/01",
+      "capability": "grounded-qa",
+      "requirement": "企业事实以本轮原文为依据",
+      "scenario": "明确的报销材料",
+      "tests": [
+        "tests/test_grounded_results.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/core-validated/A01-r1-t1-a063cfa12d424a02bbcb9936c3cfc991.json",
+        "examples/batch-8/runs/core-validated/A01-r2-t1-b7f09179d0bc464a8d07838751190cca.json"
+      ],
+      "conclusion": "仅发票与出差审批单；附加审批流有D04独立引用，不发布单侧期限。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "grounded-qa/02",
+      "capability": "grounded-qa",
+      "requirement": "企业事实以本轮原文为依据",
+      "scenario": "历史旧结论与新资料不同",
+      "tests": [
+        "tests/test_memory_failures.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/memory-validated/old-conclusion-r1-t1-223d104fa2f748b59f25892b9a2a7a76.json",
+        "examples/batch-8/runs/memory-validated/old-conclusion-r1-t2-0482cf3cf45f4665956b5f9372c976ae.json"
+      ],
+      "conclusion": "旧1080p历史可见，变更后以新4K正文回答，不复用旧事实。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "grounded-qa/03",
+      "capability": "grounded-qa",
+      "requirement": "引用逐项关联且忠于原文",
+      "scenario": "正文与出处可核对",
+      "tests": [
+        "tests/test_grounded_results.py",
+        "tests/test_agent_format.py"
+      ],
+      "evidence": [
+        "examples/batch-8/delegated-audit/validated-review.md"
+      ],
+      "conclusion": "36轮由独立授权AI逐项核对结论与canonical正文，来源正确不等于自动语义保证。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "grounded-qa/04",
+      "capability": "grounded-qa",
+      "requirement": "引用逐项关联且忠于原文",
+      "scenario": "未读或不存在的引用",
+      "tests": [
+        "tests/test_agent_format.py",
+        "tests/test_grounded_results.py"
+      ],
+      "evidence": [],
+      "conclusion": "未读/未知/跨快照/错误标记被拒，可一次修正。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "grounded-qa/05",
+      "capability": "grounded-qa",
+      "requirement": "无法消解的冲突必须查证并保留",
+      "scenario": "30 天与 15 天冲突",
+      "tests": [
+        "tests/test_grounded_results.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/core-validated/A02-r1-t1-97edf89e80624707aca3cc60ae44fcf3.json",
+        "examples/batch-8/runs/core-validated/A02-r2-t1-0bfcf9c0baf741b7aff0eec4734f39e3.json"
+      ],
+      "conclusion": "读取期限双方→补查→读取新相关原文，保留30/15冲突并请求现行依据。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "grounded-qa/06",
+      "capability": "grounded-qa",
+      "requirement": "无法消解的冲突必须查证并保留",
+      "scenario": "用户主张不能裁决冲突",
+      "tests": [
+        "tests/test_grounded_results.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/regressions-validated/user-preference-r1-t1-1c625742953c42fab1c63538bdaa02fd.json"
+      ],
+      "conclusion": "用户偏好不能裁决期限，保留双方引用与缺口。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "grounded-qa/07",
+      "capability": "grounded-qa",
+      "requirement": "明确的有效替代关系可以消解冲突",
+      "scenario": "新人事制度已生效",
+      "tests": [
+        "tests/test_corpus_review.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/regressions-validated/effective-r1-t1-e70f83d6b44549cabf45e4946d222f6b.json"
+      ],
+      "conclusion": "读到明确替代及生效原文，适用提前1工作日新规则。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "grounded-qa/08",
+      "capability": "grounded-qa",
+      "requirement": "明确的有效替代关系可以消解冲突",
+      "scenario": "新规定尚未生效",
+      "tests": [
+        "tests/test_corpus_review.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/regressions-validated/future-r1-t1-1c13361b762347edad91984cc08aecfa.json"
+      ],
+      "conclusion": "冻结生效前日期，仍按提前2工作日旧规则，不仅按版本日期排序。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "grounded-qa/09",
+      "capability": "grounded-qa",
+      "requirement": "明确的有效替代关系可以消解冲突",
+      "scenario": "只有单份无冲突制度",
+      "tests": [
+        "tests/test_snapshots.py",
+        "tests/test_retrieval.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/regressions-validated/single-D01-r1-t1-f11b2881318745ef8f21674db2703f2d.json"
+      ],
+      "conclusion": "仅D01时回答30天，不虚构冲突来源或查证义务。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "grounded-qa/10",
+      "capability": "grounded-qa",
+      "requirement": "资料缺失与范围外问题区分处理",
+      "scenario": "住房补贴未覆盖",
+      "tests": [
+        "tests/test_grounded_results.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/core-validated/A03-missing-r1-t1-c3851f68786f4bf09fde74116d4f8fa1.json",
+        "examples/batch-8/runs/core-validated/A03-missing-r2-t1-9c958e218e764bc58b006479378c57a9.json"
+      ],
+      "conclusion": "补检后说明住房补贴未覆盖，不回答公司没有补贴。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "grounded-qa/11",
+      "capability": "grounded-qa",
+      "requirement": "资料缺失与范围外问题区分处理",
+      "scenario": "天气问题",
+      "tests": [
+        "tests/test_grounded_results.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/core-validated/A03-weather-r1-t1-4fdd0a1bf7a9427793785953a00cd5ef.json",
+        "examples/batch-8/runs/core-validated/A03-weather-r2-t1-f54ca2097aca4740b958e300f3aaa216.json"
+      ],
+      "conclusion": "说明天气超范围，不通用知识作答或无意义追问。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "grounded-qa/12",
+      "capability": "grounded-qa",
+      "requirement": "改写与上下文追问保持业务含义",
+      "scenario": "口语改写",
+      "tests": [
+        "tests/test_retrieval_agent.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/core-validated/A04-r1-t1-49a375a616724e6f8f5660b0c7b8c376.json",
+        "examples/batch-8/runs/core-validated/A04-r2-t1-f8a93eb0cf234947ab540ce4720a1288.json"
+      ],
+      "conclusion": "自然改写仍回答两项材料，由本轮读取支持。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "grounded-qa/13",
+      "capability": "grounded-qa",
+      "requirement": "改写与上下文追问保持业务含义",
+      "scenario": "产品连续追问",
+      "tests": [
+        "tests/test_memory.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/core-validated/A05-r1-t1-e04ede69845e40cfa5c2b35b3a4fde12.json",
+        "examples/batch-8/runs/core-validated/A05-r1-t2-b962bd94a2b941cf9800228dbca435ab.json",
+        "examples/batch-8/runs/core-validated/A05-r2-t1-1d4cc426a118432ca978a954c33d3b4e.json",
+        "examples/batch-8/runs/core-validated/A05-r2-t2-77d36f6285a5407c93c5c198bc82e5d0.json"
+      ],
+      "conclusion": "导出格式后追问分辨率，重新读取D10最高1080p。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "grounded-qa/14",
+      "capability": "grounded-qa",
+      "requirement": "部分回答与整体状态明确表达",
+      "scenario": "明确材料与冲突期限并存",
+      "tests": [
+        "tests/test_grounded_results.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/regressions-validated/partial-conflict-r1-t1-3d24c575e3b14b5a9de3f7137b8172e5.json"
+      ],
+      "conclusion": "保留材料答案、列双方期限及一个关键追问，整体待澄清。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "grounded-qa/15",
+      "capability": "grounded-qa",
+      "requirement": "部分回答与整体状态明确表达",
+      "scenario": "执行中断的部分结果",
+      "tests": [
+        "tests/test_grounded_results.py",
+        "tests/test_agent_budgets.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/core-validated/A06-persistent-r1-t1-b500addf1b1f4c8586b68a502a47e6ff.json",
+        "examples/batch-8/runs/core-validated/A06-persistent-r2-t1-746062a4c9ab45198da7831486b466b7.json"
+      ],
+      "conclusion": "执行中断整体incomplete，保留已获证据Trace，不伪造收尾结论。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "grounded-qa/16",
+      "capability": "grounded-qa",
+      "requirement": "部分回答与整体状态明确表达",
+      "scenario": "公司问题与天气混合",
+      "tests": [
+        "tests/test_grounded_results.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/regressions-validated/partial-weather-r1-t1-a9114ba4aaee49ab891837c4675e75c0.json",
+        "examples/batch-8/runs/regressions-validated/partial-missing-r1-t1-85b7f54177ce4748b50e08c3c516b521.json"
+      ],
+      "conclusion": "公司内容保留，天气范围/资料缺口分别表达，混合状态优先级正确。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "knowledge-retrieval/01",
+      "capability": "knowledge-retrieval",
+      "requirement": "可审阅的合成资料集",
+      "scenario": "基础资料覆盖确认的业务规则",
+      "tests": [
+        "tests/test_knowledge.py",
+        "tests/test_corpus_review.py"
+      ],
+      "evidence": [
+        "data/REVIEW.md",
+        "examples/batch-2/review.json"
+      ],
+      "conclusion": "12个三主题文档、ID/日期/完整正文已审阅，初始规则与目录一致。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "knowledge-retrieval/02",
+      "capability": "knowledge-retrieval",
+      "requirement": "可审阅的合成资料集",
+      "scenario": "元信息不能取代正文依据",
+      "tests": [
+        "tests/test_knowledge.py"
+      ],
+      "evidence": [],
+      "conclusion": "元信息/正文不一致、重复ID、非法日期等明确拒绝。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "knowledge-retrieval/03",
+      "capability": "knowledge-retrieval",
+      "requirement": "可扩大且可追溯的混合候选",
+      "scenario": "默认查询与扩大查询",
+      "tests": [
+        "tests/test_retrieval.py"
+      ],
+      "evidence": [
+        "examples/batch-9/real-retrieval/f47ea46754514197aead19cdf56c331c.json"
+      ],
+      "conclusion": "每路12、输出6/12去重，数量不足不补造；保留两路排名不标可信度。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "knowledge-retrieval/04",
+      "capability": "knowledge-retrieval",
+      "requirement": "可扩大且可追溯的混合候选",
+      "scenario": "改写问题和冲突双方的覆盖",
+      "tests": [
+        "tests/test_retrieval.py"
+      ],
+      "evidence": [
+        "examples/batch-9/real-retrieval/f47ea46754514197aead19cdf56c331c.json"
+      ],
+      "conclusion": "真实BGE7输入×两规模共14条均无缺失，包含改写与冲突双侧。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "knowledge-retrieval/05",
+      "capability": "knowledge-retrieval",
+      "requirement": "原文读取与批量边界",
+      "scenario": "读取冲突双方",
+      "tests": [
+        "tests/test_reading.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/core-validated/A02-r1-t1-97edf89e80624707aca3cc60ae44fcf3.json",
+        "examples/batch-8/runs/core-validated/A02-r2-t1-0bfcf9c0baf741b7aff0eec4734f39e3.json"
+      ],
+      "conclusion": "一次读取双方原文，逐字保留出处，不在工具中裁定优先级。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "knowledge-retrieval/06",
+      "capability": "knowledge-retrieval",
+      "requirement": "原文读取与批量边界",
+      "scenario": "无效片段或超量读取",
+      "tests": [
+        "tests/test_reading.py"
+      ],
+      "evidence": [],
+      "conclusion": "不存在ID、超3片段、非法参数整次拒绝，不截断或伪造。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "knowledge-retrieval/07",
+      "capability": "knowledge-retrieval",
+      "requirement": "无命中与检索故障可区分",
+      "scenario": "成功无命中",
+      "tests": [
+        "tests/test_retrieval.py"
+      ],
+      "evidence": [],
+      "conclusion": "成功空候选与执行错误分离，同分确定排序。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "knowledge-retrieval/08",
+      "capability": "knowledge-retrieval",
+      "requirement": "无命中与检索故障可区分",
+      "scenario": "真实向量编码失败",
+      "tests": [
+        "tests/test_retrieval_agent.py",
+        "tests/test_embeddings.py"
+      ],
+      "evidence": [
+        "examples/batch-9/real-retrieval/f47ea46754514197aead19cdf56c331c.json"
+      ],
+      "conclusion": "真实编码器故障注入进入工具error，不输出仅BM25或假向量成功。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "knowledge-retrieval/09",
+      "capability": "knowledge-retrieval",
+      "requirement": "资料变化后重建一致快照",
+      "scenario": "替换产品原文",
+      "tests": [
+        "tests/test_retrieval.py",
+        "tests/test_snapshots.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/regressions-validated/replacement-r1-t1-c69ef5e15fe2406e9142f665cc122c6f.json",
+        "examples/batch-8/runs/memory-validated/old-conclusion-r1-t1-223d104fa2f748b59f25892b9a2a7a76.json",
+        "examples/batch-8/runs/memory-validated/old-conclusion-r1-t2-0482cf3cf45f4665956b5f9372c976ae.json"
+      ],
+      "conclusion": "替换原文后两路重建，新指纹新引用；既有任务保持旧快照。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "knowledge-retrieval/10",
+      "capability": "knowledge-retrieval",
+      "requirement": "资料变化后重建一致快照",
+      "scenario": "加入第二份冲突来源",
+      "tests": [
+        "tests/test_retrieval.py",
+        "tests/test_snapshots.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/regressions-validated/single-D01-r1-t1-f11b2881318745ef8f21674db2703f2d.json",
+        "examples/batch-8/runs/regressions-validated/added-D02-r1-t1-32e8f710050e4d1d99241ff6e02b65fd.json"
+      ],
+      "conclusion": "从单D01到D01/D02后保留双侧，模型行为从回答变待澄清。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "knowledge-retrieval/11",
+      "capability": "knowledge-retrieval",
+      "requirement": "日期信息不构成隐式权威",
+      "scenario": "较新但缺少替代依据",
+      "tests": [
+        "tests/test_corpus_review.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/core-validated/A02-r1-t1-97edf89e80624707aca3cc60ae44fcf3.json",
+        "examples/batch-8/runs/core-validated/A02-r2-t1-0bfcf9c0baf741b7aff0eec4734f39e3.json",
+        "examples/batch-8/runs/regressions-validated/user-preference-r1-t1-1c625742953c42fab1c63538bdaa02fd.json"
+      ],
+      "conclusion": "较新D02不自动覆盖D01，用户偏好不作为权威。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "knowledge-retrieval/12",
+      "capability": "knowledge-retrieval",
+      "requirement": "日期信息不构成隐式权威",
+      "scenario": "尚未生效规则",
+      "tests": [
+        "tests/test_corpus_review.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/regressions-validated/future-r1-t1-1c13361b762347edad91984cc08aecfa.json"
+      ],
+      "conclusion": "生效前不提前适用新规则，原文和任务日期可复核。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "reproducible-evaluation/01",
+      "capability": "reproducible-evaluation",
+      "requirement": "三层验证边界清楚",
+      "scenario": "离线层成功",
+      "tests": [
+        "tests/test_models.py",
+        "tests/test_embeddings.py"
+      ],
+      "evidence": [
+        "examples/batch-9/offline-initial/environment.json"
+      ],
+      "conclusion": "Mock通过只记流程能力，不宣称真实语义通过。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "reproducible-evaluation/02",
+      "capability": "reproducible-evaluation",
+      "requirement": "三层验证边界清楚",
+      "scenario": "真实检索层",
+      "tests": [
+        "tests/test_retrieval.py"
+      ],
+      "evidence": [
+        "examples/batch-9/real-retrieval/f47ea46754514197aead19cdf56c331c.json"
+      ],
+      "conclusion": "真实本地CPU编码+BM25/RRF记录支持片段与6/12候选，不调用生成API。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "reproducible-evaluation/03",
+      "capability": "reproducible-evaluation",
+      "requirement": "六类真实场景独立重复运行",
+      "scenario": "核心验收材料完整",
+      "tests": [],
+      "evidence": [
+        "examples/batch-8/delegated-audit/validated-review.md",
+        "examples/batch-8/runs/core-validated/summary.json"
+      ],
+      "conclusion": "核心六类各两次；含住房补贴/天气、完整两轮、临时/持续故障。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "reproducible-evaluation/04",
+      "capability": "reproducible-evaluation",
+      "requirement": "六类真实场景独立重复运行",
+      "scenario": "至少两种动态路径",
+      "tests": [
+        "tests/test_retrieval_agent.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/core-validated/A01-r1-t1-a063cfa12d424a02bbcb9936c3cfc991.json",
+        "examples/batch-8/runs/core-validated/A01-r2-t1-b7f09179d0bc464a8d07838751190cca.json",
+        "examples/batch-8/runs/core-validated/A02-r1-t1-97edf89e80624707aca3cc60ae44fcf3.json",
+        "examples/batch-8/runs/core-validated/A02-r2-t1-0bfcf9c0baf741b7aff0eec4734f39e3.json",
+        "examples/batch-8/runs/core-validated/A06-temporary-r1-t1-aceefa4962154ae79819b6ab3462dfe0.json",
+        "examples/batch-8/runs/core-validated/A06-temporary-r2-t1-a9dd6c5e31824f7294554e1449863de4.json"
+      ],
+      "conclusion": "真实充分依据、冲突、故障有不同路径及实际query调整，不锁完整序列。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "reproducible-evaluation/05",
+      "capability": "reproducible-evaluation",
+      "requirement": "关键业务边界与变更回归",
+      "scenario": "人事新旧规则",
+      "tests": [
+        "tests/test_corpus_review.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/regressions-validated/effective-r1-t1-e70f83d6b44549cabf45e4946d222f6b.json",
+        "examples/batch-8/runs/regressions-validated/future-r1-t1-1c13361b762347edad91984cc08aecfa.json"
+      ],
+      "conclusion": "冻结两日期分别验证旧2/新1工作日及明确替代关系。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "reproducible-evaluation/06",
+      "capability": "reproducible-evaluation",
+      "requirement": "关键业务边界与变更回归",
+      "scenario": "资料变更驱动行为",
+      "tests": [
+        "tests/test_retrieval.py",
+        "tests/test_snapshots.py"
+      ],
+      "evidence": [
+        "examples/batch-8/runs/regressions-validated/single-D01-r1-t1-f11b2881318745ef8f21674db2703f2d.json",
+        "examples/batch-8/runs/regressions-validated/added-D02-r1-t1-32e8f710050e4d1d99241ff6e02b65fd.json",
+        "examples/batch-8/runs/regressions-validated/replacement-r1-t1-c69ef5e15fe2406e9142f665cc122c6f.json",
+        "examples/batch-8/runs/personal-validated/delegate-export-format-change-r1-t1-19521e7dfaac44f48098446571804c83.json",
+        "examples/batch-8/runs/personal-validated/delegate-export-format-change-r1-t2-c438d247309a42f4851118c5902ac4a8.json",
+        "examples/batch-8/personal/proposal-before-run.md"
+      ],
+      "conclusion": "变体先有预期再真实运行；独立授权资料代理MOV→WEBM，AI贡献如实归属。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "reproducible-evaluation/07",
+      "capability": "reproducible-evaluation",
+      "requirement": "关键业务边界与变更回归",
+      "scenario": "失败边界独立检查",
+      "tests": [
+        "tests/test_agent_budgets.py",
+        "tests/test_agent_recovery.py",
+        "tests/test_agent_format.py",
+        "tests/test_agent_deadlines.py",
+        "tests/test_memory_failures.py"
+      ],
+      "evidence": [],
+      "conclusion": "工具/格式/预算/deadline/模型失败/锚点失效分别验，不只正常路径。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "reproducible-evaluation/08",
+      "capability": "reproducible-evaluation",
+      "requirement": "实际证据与失败记录",
+      "scenario": "失败后复跑",
+      "tests": [
+        "tests/test_evaluation_repairs.py"
+      ],
+      "evidence": [
+        "examples/batch-8/verification.md",
+        "examples/batch-8/runs/core-initial/summary.json"
+      ],
+      "conclusion": "保留初始语义失败、三轮修复及所有复跑，不用早期final目录冒充最终通过。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "reproducible-evaluation/09",
+      "capability": "reproducible-evaluation",
+      "requirement": "实际证据与失败记录",
+      "scenario": "证据版本可核查",
+      "tests": [
+        "tests/test_evidence_inventory.py"
+      ],
+      "evidence": [
+        "examples/batch-9/source-consistency.json",
+        "examples/batch-10/audit_delivery.py"
+      ],
+      "conclusion": "实际Trace日期/模型/usage/快照与源码指纹可核对，最终src未改动。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "reproducible-evaluation/10",
+      "capability": "reproducible-evaluation",
+      "requirement": "完整交付文档与配置声明",
+      "scenario": "评审按入口操作",
+      "tests": [
+        "tests/test_package.py"
+      ],
+      "evidence": [
+        "README.md",
+        "docs/01-requirements.md",
+        "docs/02-solution.md",
+        "docs/03-evaluation.md",
+        "docs/04-ai-usage.md",
+        "docs/05-retrospective.md"
+      ],
+      "conclusion": "入口包括安装/启动/API/Mock/live/权重/证据；历史阶段状态明确，不把旧计划当当前。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "reproducible-evaluation/11",
+      "capability": "reproducible-evaluation",
+      "requirement": "完整交付文档与配置声明",
+      "scenario": "环境变量示例可安全复用",
+      "tests": [
+        "tests/test_config.py",
+        "tests/test_ignore_rules.py"
+      ],
+      "evidence": [
+        "README.md",
+        ".env.example"
+      ],
+      "conclusion": "变量含义、模式和权重/路径/预算齐全，模板空密钥且Mock可用。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "reproducible-evaluation/12",
+      "capability": "reproducible-evaluation",
+      "requirement": "全新环境可复现验证",
+      "scenario": "冷启动 Mock 复现",
+      "tests": [
+        "tests/test_api.py"
+      ],
+      "evidence": [
+        "examples/batch-9/offline-initial/environment.json",
+        "examples/batch-9/offline-recheck/environment.json",
+        "examples/batch-9/http-recheck.json"
+      ],
+      "conclusion": "两个干净副本新环境实际复现，运行期阻断外部连接，无权重缓存或真实密钥。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "reproducible-evaluation/13",
+      "capability": "reproducible-evaluation",
+      "requirement": "全新环境可复现验证",
+      "scenario": "真实层独立准备",
+      "tests": [
+        "tests/test_embeddings.py"
+      ],
+      "evidence": [
+        "examples/batch-9/prepare-weights.txt",
+        "examples/batch-9/live-http.json"
+      ],
+      "conclusion": "显式独立下载固定revision，真实检索与最小HTTP问答均实际成功，不借隐式模型缓存。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "reproducible-evaluation/14",
+      "capability": "reproducible-evaluation",
+      "requirement": "可读仓库与诚实提交信息",
+      "scenario": "提交前核查",
+      "tests": [
+        "tests/test_ignore_rules.py"
+      ],
+      "evidence": [
+        "examples/batch-10/repository.json",
+        "examples/batch-10/audit_delivery.py",
+        "examples/batch-10/verification.md"
+      ],
+      "conclusion": "公开仓库目标和清单核查；发布与最终SHA以交付提交后的远端核对为准。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    },
+    {
+      "id": "reproducible-evaluation/15",
+      "capability": "reproducible-evaluation",
+      "requirement": "可读仓库与诚实提交信息",
+      "scenario": "尚未完成真实验证",
+      "tests": [
+        "tests/test_models.py"
+      ],
+      "evidence": [
+        "examples/batch-3/live-smoke/6964af1345d2481aa5f81608ab3fa180-summary.json",
+        "examples/batch-9/install-mock.txt"
+      ],
+      "conclusion": "实际未运行/失败记录未删或写成功；后续成功独立记录，未知账单仍未核实。",
+      "verification_level": "engineering and recorded evidence review; semantic review where linked"
+    }
+  ]
+}

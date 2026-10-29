@@ -1,0 +1,16 @@
+{
+  "files": [
+    "README.md",
+    "data/README.md",
+    "docs/01-requirements.md",
+    "docs/02-solution.md",
+    "docs/03-evaluation.md",
+    "docs/04-ai-usage.md",
+    "docs/05-retrospective.md",
+    "examples/batch-10/acceptance-matrix.md",
+    "examples/batch-10/verification.md"
+  ],
+  "checked_local_links": 359,
+  "missing": [],
+  "passed": true
+}

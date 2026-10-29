@@ -1,0 +1,37 @@
+{
+  "capabilities": {
+    "agent-execution": {
+      "requirements": 8,
+      "scenarios": 17,
+      "all_scenarios_mapped_in_order": true,
+      "local_spec_sha256": "28d11dd5da3532576f719bb43112244a1155e0c0c4612be37320eabf413085dc"
+    },
+    "conversation-memory": {
+      "requirements": 7,
+      "scenarios": 14,
+      "all_scenarios_mapped_in_order": true,
+      "local_spec_sha256": "9e5a48712fa42a17de030a298537108c9e656fb425e39a08c6d1d674859fd385"
+    },
+    "grounded-qa": {
+      "requirements": 7,
+      "scenarios": 16,
+      "all_scenarios_mapped_in_order": true,
+      "local_spec_sha256": "26ad1b4443c303aec728013aaa7cfd7597a5c522955c0547bf035d9f0f25eb4e"
+    },
+    "knowledge-retrieval": {
+      "requirements": 6,
+      "scenarios": 12,
+      "all_scenarios_mapped_in_order": true,
+      "local_spec_sha256": "6b298506b40506950d5c25fda4b6fffb8e70fa0f6378615a372a850bf48257f4"
+    },
+    "reproducible-evaluation": {
+      "requirements": 7,
+      "scenarios": 15,
+      "all_scenarios_mapped_in_order": true,
+      "local_spec_sha256": "7e7763a34cdbd9211ac470ddea47cf41f2bbe08cb496756d69361500ea08a4dd"
+    }
+  },
+  "requirements": 35,
+  "scenarios": 74,
+  "passed": true
+}

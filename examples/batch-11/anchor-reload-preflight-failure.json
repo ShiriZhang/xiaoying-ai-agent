@@ -1,0 +1,9 @@
+{
+  "attempt": "runs/anchor-reload",
+  "stage": "configuration preflight, before model/encoder construction",
+  "error_type": "ConfigurationError",
+  "safe_message": "EMBEDDING_REVISION is required for live mode",
+  "model_calls": 0,
+  "cause": "new evaluation driver did not explicitly supply pinned revision, unlike existing run_live driver; local .env lacks revision",
+  "resolution": "add explicit weights/revision evaluation arguments with pinned defaults; leave private .env unchanged; rerun in a new directory"
+}

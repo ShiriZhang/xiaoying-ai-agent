@@ -1,0 +1,442 @@
+{
+  "recorded_at": "2026-10-29T20:58:18.557828-04:00",
+  "question_number": 3,
+  "acceptance_base_commit": "3fc7e673692ff155e8f64c653160f3a9aa92edfc",
+  "repository": {
+    "repository_full_name": "ShiriZhang/xiaoying-ai-agent",
+    "url": "https://github.com/ShiriZhang/xiaoying-ai-agent",
+    "visibility": "public",
+    "default_branch": "main",
+    "archived": false,
+    "access_conclusion": "Public repository; private reviewer account not applicable",
+    "source": "GitHub connector get_repo, queried during batch 10"
+  },
+  "python": "3.12.13 (main, Jun 23 2026, 15:23:43) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "installed_package": "D:\\GitHub_ShiriZhang\\xiaoying-ai-agent\\.venv\\Lib\\site-packages\\enterprise_knowledge_qa",
+  "packages": {
+    "annotated-types": "0.8.0",
+    "anyio": "4.15.1",
+    "certifi": "2026.10.23",
+    "charset-normalizer": "3.5.2",
+    "click": "8.5.0",
+    "colorama": "0.4.6",
+    "enterprise-knowledge-qa": "0.1.0",
+    "fastapi": "0.115.14",
+    "filelock": "4.2.4",
+    "fsspec": "2026.9.0",
+    "h11": "0.16.0",
+    "httpcore": "1.0.9",
+    "httpx": "0.28.1",
+    "huggingface-hub": "0.36.0",
+    "idna": "3.20",
+    "Jinja2": "3.1.6",
+    "MarkupSafe": "3.0.4",
+    "mpmath": "1.3.0",
+    "networkx": "3.7",
+    "numpy": "2.5.4",
+    "packaging": "26.3",
+    "pydantic": "2.11.7",
+    "pydantic_core": "2.33.2",
+    "python-dotenv": "1.1.1",
+    "PyYAML": "6.0.3",
+    "regex": "2026.9.29",
+    "requests": "2.34.2",
+    "safetensors": "0.6.2",
+    "setuptools": "84.2.1",
+    "starlette": "0.46.2",
+    "sympy": "1.14.0",
+    "tokenizers": "0.22.2",
+    "torch": "2.9.0+cpu",
+    "tqdm": "4.70.1",
+    "transformers": "4.57.1",
+    "typing_extensions": "4.16.0",
+    "typing-inspection": "0.4.4",
+    "urllib3": "2.8.0",
+    "uvicorn": "0.34.3"
+  },
+  "source_fingerprints": {
+    "__init__.py": "80ae56b91f5a72c441a8e507f813e6a9d5c13341cfeaef07c45658fd349e485f",
+    "__main__.py": "760e2fd38c6b6f0cbecec91e3e46c58e7a7b47ef4ad3f6c67a955cc6d108231c",
+    "actions.py": "d220e0061cf30b51ad154d42ae8a013d34e6f1968cd6f143b7b992eb2ab6484f",
+    "agent.py": "1e4743a44d3bb1046460da233d69ea9323d78253fb1c6f16ff32e986ca30265b",
+    "api.py": "cd6e0d75100a1a8b2386e42a93decb93af51a67501a55d0deabbc1f2b9212717",
+    "config.py": "ddea15c0c2f24f013307b2fd9c11453b1496575501a07aefbabfe420e072611f",
+    "context.py": "1c000cda840aadb81020fef8306c1ccdcc9c13079c4bd686f392fafef01da2fb",
+    "conversations.py": "86bf86a8c846160535cbd8fac7611e10472d30ffa27ce3be4c6e82571d3d2d40",
+    "deadlines.py": "257b7b11971c7b288f801fef45f4daaa02518e744adc05205af18dcdaeee8648",
+    "demo_policy.py": "f4a0667f16b9fa220e7c35f91dc2bb0a90c4bb27091bb73ba38728bca435a0cf",
+    "embeddings.py": "1385667ca3e7f549878bbdc0f92508ed295d92bddb9993ec06b612d58ac78bc4",
+    "knowledge.py": "485576ab08fa4790ac991830e576e0044398495f9bcd20ae76aee6eed1c14897",
+    "memory.py": "a165c13d976f29d7dbd207a85e993fe8e3304ec782d2c1c15e13357cd43f47e4",
+    "models.py": "a82b210a1435aeb82d256793812567bb0d034704097be8d32e55dd18b9852ab6",
+    "prepare_weights.py": "005107a8f9a7386bfe00dfd734507f2ac4de50a35e7765c56afe9d771f73db0f",
+    "reading.py": "eabbf1e3744e52cfe9f01ea723266ab32d7060933569d9fca559b1644f375902",
+    "retrieval.py": "ab3909476e70b766a53d646c43c5e08075910f77cada75ce845cb5212843392d",
+    "retrieval_check.py": "b8feaa2e2b78af4d5df6822ee18be0e0ce3aeb219a9671256049ae62ecd4e11c",
+    "server.py": "4a17ad3a7a0644d9c77a6b23a651dccef6c21c53d8f7409206e82d31f3ea742b",
+    "sessions.py": "72d5d1cbfc9585f0e547aaf43317119766adab83737a2c1d49c7f03040a6baa8",
+    "smoke.py": "25361befffd278426c04c76194878ac119f5a5eff07004f95806cf88c98da5e7",
+    "snapshots.py": "e6ca2284c18fd7e1e3d231889e6e498a2c0666124d8f6fc391ad083b134f53c6",
+    "tracing.py": "a43a2a61defa9aceadd7f33f568063390d33286a045174a57973d40539914217"
+  },
+  "checks": {
+    "installed_package_matches_source": true,
+    "prior_56_evidence_inputs_unchanged": true,
+    "matrix_has_74_distinct_scenarios": true,
+    "all_matrix_files_exist": true,
+    "core-validated_source_matches": true,
+    "regressions-validated_source_matches": true,
+    "memory-validated_source_matches": true,
+    "personal-validated_source_matches": true,
+    "final_live_tasks_match_expected_count": true,
+    "core_cases_each_repeat_twice": true,
+    "both_followups_have_two_turns": true,
+    "offline-initial_passed": true,
+    "offline-recheck_passed": true,
+    "cold_live_http_passed_same_source": true,
+    "cold_real_embedding_passed": true,
+    "current_suite_passed_120_without_skips": true,
+    "openspec_strict_validation_passed": true,
+    "no_private_runtime_or_weight_files": true,
+    "no_detected_secrets": true,
+    "required_delivery_files_present": true
+  },
+  "scenario_count": 74,
+  "candidate_file_count": 442,
+  "configured_secret_available_for_scan": true,
+  "forbidden_files": [],
+  "secret_files": [],
+  "final_live_rows": [
+    {
+      "group": "core-validated",
+      "case_id": "A01",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/core-validated/A01-r1-t1-a063cfa12d424a02bbcb9936c3cfc991.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A02",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/core-validated/A02-r1-t1-97edf89e80624707aca3cc60ae44fcf3.json",
+      "status": "needs_clarification",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A03-missing",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/core-validated/A03-missing-r1-t1-c3851f68786f4bf09fde74116d4f8fa1.json",
+      "status": "insufficient_evidence",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A03-weather",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/core-validated/A03-weather-r1-t1-4fdd0a1bf7a9427793785953a00cd5ef.json",
+      "status": "out_of_scope",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A04",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/core-validated/A04-r1-t1-49a375a616724e6f8f5660b0c7b8c376.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A05",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/core-validated/A05-r1-t1-e04ede69845e40cfa5c2b35b3a4fde12.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A05",
+      "repeat": 1,
+      "turn": 2,
+      "file": "examples/batch-8/runs/core-validated/A05-r1-t2-b962bd94a2b941cf9800228dbca435ab.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A06-temporary",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/core-validated/A06-temporary-r1-t1-aceefa4962154ae79819b6ab3462dfe0.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A06-persistent",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/core-validated/A06-persistent-r1-t1-b500addf1b1f4c8586b68a502a47e6ff.json",
+      "status": "incomplete",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A01",
+      "repeat": 2,
+      "turn": 1,
+      "file": "examples/batch-8/runs/core-validated/A01-r2-t1-b7f09179d0bc464a8d07838751190cca.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A02",
+      "repeat": 2,
+      "turn": 1,
+      "file": "examples/batch-8/runs/core-validated/A02-r2-t1-0bfcf9c0baf741b7aff0eec4734f39e3.json",
+      "status": "needs_clarification",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A03-missing",
+      "repeat": 2,
+      "turn": 1,
+      "file": "examples/batch-8/runs/core-validated/A03-missing-r2-t1-9c958e218e764bc58b006479378c57a9.json",
+      "status": "insufficient_evidence",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A03-weather",
+      "repeat": 2,
+      "turn": 1,
+      "file": "examples/batch-8/runs/core-validated/A03-weather-r2-t1-f54ca2097aca4740b958e300f3aaa216.json",
+      "status": "out_of_scope",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A04",
+      "repeat": 2,
+      "turn": 1,
+      "file": "examples/batch-8/runs/core-validated/A04-r2-t1-f8a93eb0cf234947ab540ce4720a1288.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A05",
+      "repeat": 2,
+      "turn": 1,
+      "file": "examples/batch-8/runs/core-validated/A05-r2-t1-1d4cc426a118432ca978a954c33d3b4e.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A05",
+      "repeat": 2,
+      "turn": 2,
+      "file": "examples/batch-8/runs/core-validated/A05-r2-t2-77d36f6285a5407c93c5c198bc82e5d0.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A06-temporary",
+      "repeat": 2,
+      "turn": 1,
+      "file": "examples/batch-8/runs/core-validated/A06-temporary-r2-t1-a9dd6c5e31824f7294554e1449863de4.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "core-validated",
+      "case_id": "A06-persistent",
+      "repeat": 2,
+      "turn": 1,
+      "file": "examples/batch-8/runs/core-validated/A06-persistent-r2-t1-746062a4c9ab45198da7831486b466b7.json",
+      "status": "incomplete",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "regressions-validated",
+      "case_id": "single-D01",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/regressions-validated/single-D01-r1-t1-f11b2881318745ef8f21674db2703f2d.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "regressions-validated",
+      "case_id": "added-D02",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/regressions-validated/added-D02-r1-t1-32e8f710050e4d1d99241ff6e02b65fd.json",
+      "status": "needs_clarification",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "regressions-validated",
+      "case_id": "effective",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/regressions-validated/effective-r1-t1-e70f83d6b44549cabf45e4946d222f6b.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "regressions-validated",
+      "case_id": "future",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/regressions-validated/future-r1-t1-1c13361b762347edad91984cc08aecfa.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "regressions-validated",
+      "case_id": "partial-conflict",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/regressions-validated/partial-conflict-r1-t1-3d24c575e3b14b5a9de3f7137b8172e5.json",
+      "status": "needs_clarification",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "regressions-validated",
+      "case_id": "partial-missing",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/regressions-validated/partial-missing-r1-t1-85b7f54177ce4748b50e08c3c516b521.json",
+      "status": "insufficient_evidence",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "regressions-validated",
+      "case_id": "partial-weather",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/regressions-validated/partial-weather-r1-t1-a9114ba4aaee49ab891837c4675e75c0.json",
+      "status": "out_of_scope",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "regressions-validated",
+      "case_id": "user-preference",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/regressions-validated/user-preference-r1-t1-1c625742953c42fab1c63538bdaa02fd.json",
+      "status": "needs_clarification",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "regressions-validated",
+      "case_id": "replacement",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/regressions-validated/replacement-r1-t1-c69ef5e15fe2406e9142f665cc122c6f.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "memory-validated",
+      "case_id": "cross-window",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/memory-validated/cross-window-r1-t1-19afdef85aaa4df6bc1aced83491ee51.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "memory-validated",
+      "case_id": "cross-window",
+      "repeat": 1,
+      "turn": 2,
+      "file": "examples/batch-8/runs/memory-validated/cross-window-r1-t2-b041bb171c3944b49ba1158b3f4a6594.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "memory-validated",
+      "case_id": "switch-correct",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/memory-validated/switch-correct-r1-t1-305e1997c31f4216aa31aa5c9e44a28f.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "memory-validated",
+      "case_id": "switch-correct",
+      "repeat": 1,
+      "turn": 2,
+      "file": "examples/batch-8/runs/memory-validated/switch-correct-r1-t2-ee757ad2cdc340168dbd4ced8a6f68b6.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "memory-validated",
+      "case_id": "switch-correct",
+      "repeat": 1,
+      "turn": 3,
+      "file": "examples/batch-8/runs/memory-validated/switch-correct-r1-t3-aea047b14dcb4657a458fb32e87680f3.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "memory-validated",
+      "case_id": "old-conclusion",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/memory-validated/old-conclusion-r1-t1-223d104fa2f748b59f25892b9a2a7a76.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "memory-validated",
+      "case_id": "old-conclusion",
+      "repeat": 1,
+      "turn": 2,
+      "file": "examples/batch-8/runs/memory-validated/old-conclusion-r1-t2-0482cf3cf45f4665956b5f9372c976ae.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "personal-validated",
+      "case_id": "delegate-export-format-change",
+      "repeat": 1,
+      "turn": 1,
+      "file": "examples/batch-8/runs/personal-validated/delegate-export-format-change-r1-t1-19521e7dfaac44f48098446571804c83.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    },
+    {
+      "group": "personal-validated",
+      "case_id": "delegate-export-format-change",
+      "repeat": 1,
+      "turn": 2,
+      "file": "examples/batch-8/runs/personal-validated/delegate-export-format-change-r1-t2-c438d247309a42f4851118c5902ac4a8.json",
+      "status": "answered",
+      "canonical_citations_valid": true
+    }
+  ],
+  "passed": true,
+  "limits": [
+    "Mechanical provenance checks do not prove semantics; see independent batch-8 audit.",
+    "Invoice and personal work hours are unverified; historical unknown usage remains unknown.",
+    "Final commit SHA and remote verification are supplied after commit, not embedded in itself."
+  ]
+}

@@ -1,0 +1,7 @@
+Resolved 39 packages in 2ms
+   Building enterprise-knowledge-qa @ file:///D:/GitHub_ShiriZhang/xiaoying-ai-agent
+      Built enterprise-knowledge-qa @ file:///D:/GitHub_ShiriZhang/xiaoying-ai-agent
+Prepared 1 package in 7.30s
+Uninstalled 1 package in 32ms
+Installed 1 package in 28ms
+ ~ enterprise-knowledge-qa==0.1.0 (from file:///D:/GitHub_ShiriZhang/xiaoying-ai-agent)

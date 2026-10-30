@@ -1,0 +1,51 @@
+[
+  {
+    "id": "cross-window",
+    "questions": [
+      "星帆剪辑支持什么导出格式？",
+      "那最高支持多大分辨率？"
+    ],
+    "statuses": [
+      "answered",
+      "answered"
+    ],
+    "passages": [
+      "D10-P01"
+    ],
+    "budget": 1,
+    "expected": "第二轮原始首轮历史省略，合法产品锚点理解对象；本轮重新read D10"
+  },
+  {
+    "id": "switch-correct",
+    "questions": [
+      "星帆剪辑支持什么导出格式？",
+      "不问产品了，改问报销需要什么材料？",
+      "刚才说错了，我不是问报销，是问星帆剪辑能否生成自动字幕。"
+    ],
+    "statuses": [
+      "answered",
+      "answered",
+      "answered"
+    ],
+    "passages": [
+      "D11-P01"
+    ],
+    "expected": "换题到报销再纠正为产品字幕，更新/清空过时对象关注事项，不残留报销对象"
+  },
+  {
+    "id": "old-conclusion",
+    "questions": [
+      "星帆剪辑最高支持多大分辨率？",
+      "那现在最高支持多大分辨率？"
+    ],
+    "statuses": [
+      "answered",
+      "answered"
+    ],
+    "passages": [
+      "D10-P01"
+    ],
+    "reload_after_first": "4K",
+    "expected": "首轮1080p；改隔离正文并重载后第二轮即使看见旧答案也用4K新正文/新指纹"
+  }
+]

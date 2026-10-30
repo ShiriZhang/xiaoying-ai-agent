@@ -1,0 +1,224 @@
+{
+  "tasks": 36,
+  "citations": 50,
+  "all_canonical": true,
+  "rows": [
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A01-r1-t1-a063cfa12d424a02bbcb9936c3cfc991.json",
+      "quotes": 2,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A02-r1-t1-97edf89e80624707aca3cc60ae44fcf3.json",
+      "quotes": 4,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A03-missing-r1-t1-c3851f68786f4bf09fde74116d4f8fa1.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A03-weather-r1-t1-4fdd0a1bf7a9427793785953a00cd5ef.json",
+      "quotes": 0,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A04-r1-t1-49a375a616724e6f8f5660b0c7b8c376.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A05-r1-t1-e04ede69845e40cfa5c2b35b3a4fde12.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A05-r1-t2-b962bd94a2b941cf9800228dbca435ab.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A06-temporary-r1-t1-aceefa4962154ae79819b6ab3462dfe0.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A06-persistent-r1-t1-b500addf1b1f4c8586b68a502a47e6ff.json",
+      "quotes": 0,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A01-r2-t1-b7f09179d0bc464a8d07838751190cca.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A02-r2-t1-0bfcf9c0baf741b7aff0eec4734f39e3.json",
+      "quotes": 4,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A03-missing-r2-t1-9c958e218e764bc58b006479378c57a9.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A03-weather-r2-t1-f54ca2097aca4740b958e300f3aaa216.json",
+      "quotes": 0,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A04-r2-t1-f8a93eb0cf234947ab540ce4720a1288.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A05-r2-t1-1d4cc426a118432ca978a954c33d3b4e.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A05-r2-t2-77d36f6285a5407c93c5c198bc82e5d0.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A06-temporary-r2-t1-a9dd6c5e31824f7294554e1449863de4.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\core-validated\\A06-persistent-r2-t1-746062a4c9ab45198da7831486b466b7.json",
+      "quotes": 0,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\regressions-validated\\single-D01-r1-t1-f11b2881318745ef8f21674db2703f2d.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\regressions-validated\\added-D02-r1-t1-32e8f710050e4d1d99241ff6e02b65fd.json",
+      "quotes": 2,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\regressions-validated\\effective-r1-t1-e70f83d6b44549cabf45e4946d222f6b.json",
+      "quotes": 2,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\regressions-validated\\future-r1-t1-1c13361b762347edad91984cc08aecfa.json",
+      "quotes": 2,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\regressions-validated\\partial-conflict-r1-t1-3d24c575e3b14b5a9de3f7137b8172e5.json",
+      "quotes": 4,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\regressions-validated\\partial-missing-r1-t1-85b7f54177ce4748b50e08c3c516b521.json",
+      "quotes": 3,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\regressions-validated\\partial-weather-r1-t1-a9114ba4aaee49ab891837c4675e75c0.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\regressions-validated\\user-preference-r1-t1-1c625742953c42fab1c63538bdaa02fd.json",
+      "quotes": 4,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\regressions-validated\\replacement-r1-t1-c69ef5e15fe2406e9142f665cc122c6f.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\memory-validated\\cross-window-r1-t1-19afdef85aaa4df6bc1aced83491ee51.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\memory-validated\\cross-window-r1-t2-b041bb171c3944b49ba1158b3f4a6594.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\memory-validated\\switch-correct-r1-t1-305e1997c31f4216aa31aa5c9e44a28f.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\memory-validated\\switch-correct-r1-t2-ee757ad2cdc340168dbd4ced8a6f68b6.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\memory-validated\\switch-correct-r1-t3-aea047b14dcb4657a458fb32e87680f3.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\memory-validated\\old-conclusion-r1-t1-223d104fa2f748b59f25892b9a2a7a76.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\memory-validated\\old-conclusion-r1-t2-0482cf3cf45f4665956b5f9372c976ae.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\personal-validated\\delegate-export-format-change-r1-t1-19521e7dfaac44f48098446571804c83.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    },
+    {
+      "file": "examples\\batch-8\\runs\\personal-validated\\delegate-export-format-change-r1-t2-c438d247309a42f4851118c5902ac4a8.json",
+      "quotes": 1,
+      "canonical": true,
+      "mode": "live"
+    }
+  ],
+  "semantic_review": "separately read all actual answers, gaps, actions, anchors; see reviewer finding"
+}

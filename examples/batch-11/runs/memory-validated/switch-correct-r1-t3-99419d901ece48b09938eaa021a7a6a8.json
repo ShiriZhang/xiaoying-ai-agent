@@ -1,0 +1,739 @@
+{
+  "case_id": "switch-correct",
+  "repeat": 1,
+  "turn": 3,
+  "pre_run_expected": "换题到报销再纠正为产品字幕，更新/清空过时对象关注事项，不残留报销对象",
+  "mechanical_checks": {
+    "status_matches_pre_run_expectation": true,
+    "canonical_citations_match_snapshot": true,
+    "required_final_passages_cited": true,
+    "fault_observed": null,
+    "semantic_support": "pending independent review, not proved by these checks"
+  },
+  "corpus_file": "corpora/47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1.json",
+  "result": {
+    "status": "answered",
+    "part_statuses": [
+      "answered"
+    ],
+    "answer": "星帆剪辑支持自动生成字幕。[C1]",
+    "gaps": [],
+    "clarification": null,
+    "citations": [
+      {
+        "marker": "[C1]",
+        "passage_id": "D11-P01",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "doc_id": "D11",
+        "version_date": "2026-01-01",
+        "title": "星帆剪辑自动字幕说明",
+        "effective_date": "2026-01-01",
+        "text": "文档：星帆剪辑自动字幕说明（D11）。主题：视频产品。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n星帆剪辑支持自动生成字幕。"
+      }
+    ],
+    "request_id": "99419d901ece48b09938eaa021a7a6a8",
+    "session_id": "0ccd799a8c17402e99e332234c02f326",
+    "mode": "live",
+    "as_of_date": "2026-10-29",
+    "time_zone": "东部夏令时",
+    "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+    "requested_model": "deepseek-flash",
+    "model_configuration": {
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "thinking_mode": "disabled",
+      "implicit_retries": 0,
+      "temperature": 0
+    },
+    "embedding": {
+      "device": "cpu",
+      "dimension": 512,
+      "max_input_tokens": 512,
+      "mode": "live",
+      "model_id": "BAAI/bge-small-zh-v1.5",
+      "normalized": true,
+      "packages": {
+        "huggingface-hub": "0.36.0",
+        "safetensors": "0.6.2",
+        "tokenizers": "0.22.2",
+        "torch": "2.9.0+cpu",
+        "transformers": "4.57.1"
+      },
+      "pooling": "CLS",
+      "query_prefix": "为这个句子生成表示以用于检索相关文章：",
+      "revision": "7999e1d3359715c523056ef9478215996d62a620",
+      "threads": 1,
+      "weights_fingerprint": "sha256:79a6f0034e3e568922396703a0172cbd3eb7bb857b8b1e3ef15f2721a252b276"
+    },
+    "input": {
+      "question": "刚才说错了，我不是问报销，是问星帆剪辑能否生成自动字幕。",
+      "context": [
+        {
+          "role": "system",
+          "content": "对话锚点（仅理解对象，不是企业事实）：{\"subject\": {\"value\": \"差旅报销\", \"source_message_ids\": [\"b7f3773af1f54be1a874f927aff85561\"]}, \"focus\": {\"value\": \"报销所需材料\", \"source_message_ids\": [\"b7f3773af1f54be1a874f927aff85561\"]}, \"pending_clarification\": null}"
+        },
+        {
+          "role": "user",
+          "content": "{\"message_id\": \"90afe88ef2b848eaa247ee592b6fba1b\", \"content\": \"星帆剪辑支持什么导出格式？\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"message_id\": \"e668788ed10e446ea27d6f6f9b605053\", \"content\": \"{\\\"status\\\": \\\"answered\\\", \\\"part_statuses\\\": [\\\"answered\\\"], \\\"answer\\\": \\\"星帆剪辑支持将视频导出为 MP4、MOV 格式。[C1]\\\", \\\"citations\\\": [{\\\"marker\\\": \\\"[C1]\\\", \\\"passage_id\\\": \\\"D09-P01\\\", \\\"corpus_fingerprint\\\": \\\"sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1\\\", \\\"doc_id\\\": \\\"D09\\\", \\\"version_date\\\": \\\"2026-01-01\\\", \\\"title\\\": \\\"星帆剪辑导出格式说明\\\", \\\"effective_date\\\": \\\"2026-01-01\\\", \\\"text\\\": \\\"文档：星帆剪辑导出格式说明（D09）。主题：视频产品。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\\\\n星帆剪辑支持将视频导出为 MP4、MOV 格式。\\\"}], \\\"gaps\\\": [], \\\"clarification\\\": null, \\\"execution_issues\\\": [], \\\"memory_warning\\\": null}\"}"
+        },
+        {
+          "role": "user",
+          "content": "{\"message_id\": \"b7f3773af1f54be1a874f927aff85561\", \"content\": \"不问产品了，改问报销需要什么材料？\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"message_id\": \"e01c281190dd435d848a611bed1385ca\", \"content\": \"{\\\"status\\\": \\\"answered\\\", \\\"part_statuses\\\": [\\\"answered\\\"], \\\"answer\\\": \\\"差旅报销所需材料：提交差旅报销申请需提供发票与出差审批单。[C1]\\\", \\\"citations\\\": [{\\\"marker\\\": \\\"[C1]\\\", \\\"passage_id\\\": \\\"D03-P01\\\", \\\"corpus_fingerprint\\\": \\\"sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1\\\", \\\"doc_id\\\": \\\"D03\\\", \\\"version_date\\\": \\\"2026-01-01\\\", \\\"title\\\": \\\"差旅报销材料说明\\\", \\\"effective_date\\\": \\\"2026-01-01\\\", \\\"text\\\": \\\"文档：差旅报销材料说明（D03）。主题：差旅报销。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\\\\n提交差旅报销申请需提供发票与出差审批单。\\\"}], \\\"gaps\\\": [], \\\"clarification\\\": null, \\\"execution_issues\\\": [], \\\"memory_warning\\\": null}\"}"
+        }
+      ]
+    },
+    "limits": {
+      "model_calls": 8,
+      "tool_calls": 6,
+      "model_timeout_seconds": 60.0,
+      "task_timeout_seconds": 300.0
+    },
+    "counts": {
+      "model_calls": 3,
+      "tool_calls": 2,
+      "recoveries": 0,
+      "format_corrections": 0
+    },
+    "stop_reason": "finished",
+    "execution_issues": [],
+    "trace": [
+      {
+        "kind": "model_request",
+        "at_seconds": 0.01600000000325963,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 4485,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 1.6720000000059372,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 3363,
+          "completion_tokens": 72,
+          "prompt_cache_hit_tokens": 2304,
+          "prompt_cache_miss_tokens": 1059,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.007302,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 4485,
+          "actual_prompt_tokens": 3363,
+          "actual_to_estimate_ratio": 0.7498327759197324
+        },
+        "elapsed_seconds": 1.6560000000026776,
+        "calls": [
+          {
+            "id": "call_00_S2YS5ZjY3dJp2Ee0KlOE9063",
+            "name": "search"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 1.6720000000059372,
+        "model_calls": 1,
+        "tool_calls": 0,
+        "tool_call_id": "call_00_S2YS5ZjY3dJp2Ee0KlOE9063",
+        "action": "search",
+        "arguments": {
+          "query": "星帆剪辑 自动字幕 生成",
+          "reason": "用户改问星帆剪辑自动字幕功能，需检索产品资料"
+        },
+        "rationale": "用户改问星帆剪辑自动字幕功能，需检索产品资料"
+      },
+      {
+        "kind": "tool_observation",
+        "at_seconds": 1.7190000000045984,
+        "model_calls": 1,
+        "tool_calls": 1,
+        "tool_call_id": "call_00_S2YS5ZjY3dJp2Ee0KlOE9063",
+        "action": "search",
+        "observation": {
+          "tool": "search",
+          "status": "success",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "candidates": [
+            {
+              "passage_id": "D11-P01",
+              "doc_id": "D11",
+              "title": "星帆剪辑自动字幕说明",
+              "topic": "视频产品",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "星帆剪辑支持自动生成字幕。",
+              "rank": 1,
+              "rrf_score": 0.03278688524590164,
+              "branches": {
+                "bm25": {
+                  "rank": 1,
+                  "score": 40.11338910951768
+                },
+                "semantic": {
+                  "rank": 1,
+                  "score": 0.7947158069055624
+                }
+              }
+            },
+            {
+              "passage_id": "D09-P01",
+              "doc_id": "D09",
+              "title": "星帆剪辑导出格式说明",
+              "topic": "视频产品",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "星帆剪辑支持将视频导出为 MP4、MOV 格式。",
+              "rank": 2,
+              "rrf_score": 0.03200204813108039,
+              "branches": {
+                "bm25": {
+                  "rank": 3,
+                  "score": 11.270233300582465
+                },
+                "semantic": {
+                  "rank": 2,
+                  "score": 0.6260191249357806
+                }
+              }
+            },
+            {
+              "passage_id": "D12-P01",
+              "doc_id": "D12",
+              "title": "星帆剪辑草稿管理说明",
+              "topic": "视频产品",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "星帆剪辑的草稿保存在本地，员工可手动删除草稿。",
+              "rank": 3,
+              "rrf_score": 0.03200204813108039,
+              "branches": {
+                "bm25": {
+                  "rank": 2,
+                  "score": 12.150033566764607
+                },
+                "semantic": {
+                  "rank": 3,
+                  "score": 0.6019371478975499
+                }
+              }
+            },
+            {
+              "passage_id": "D10-P01",
+              "doc_id": "D10",
+              "title": "星帆剪辑导出分辨率说明",
+              "topic": "视频产品",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "星帆剪辑支持的视频导出分辨率最高为 1080p。",
+              "rank": 4,
+              "rrf_score": 0.03125,
+              "branches": {
+                "bm25": {
+                  "rank": 4,
+                  "score": 10.759079412304079
+                },
+                "semantic": {
+                  "rank": 4,
+                  "score": 0.5930561348527701
+                }
+              }
+            },
+            {
+              "passage_id": "D06-P01",
+              "doc_id": "D06",
+              "title": "请假申请规定（新版）",
+              "topic": "人事",
+              "version_date": "2026-09-01",
+              "effective_date": "2026-10-01",
+              "summary": "自 2026-10-01 起，员工请假应提前 1 个工作日提交申请；本条自该日起替代 D05《请假申请规定（旧版）》中提前 2 个工作日提交申请的规定。在 2026-10-01 之前，仍按 D05 的提前 2 个工作日规定办理。",
+              "rank": 5,
+              "rrf_score": 0.030309988518943745,
+              "branches": {
+                "bm25": {
+                  "rank": 5,
+                  "score": 1.6305804510217063
+                },
+                "semantic": {
+                  "rank": 7,
+                  "score": 0.2059942320879249
+                }
+              }
+            },
+            {
+              "passage_id": "D05-P01",
+              "doc_id": "D05",
+              "title": "请假申请规定（旧版）",
+              "topic": "人事",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "summary": "员工请假应提前 2 个工作日提交申请。",
+              "rank": 6,
+              "rrf_score": 0.015384615384615385,
+              "branches": {
+                "semantic": {
+                  "rank": 5,
+                  "score": 0.2310888735969558
+                }
+              }
+            }
+          ],
+          "branch_rankings": {
+            "bm25": [
+              {
+                "passage_id": "D11-P01",
+                "score": 40.11338910951768
+              },
+              {
+                "passage_id": "D12-P01",
+                "score": 12.150033566764607
+              },
+              {
+                "passage_id": "D09-P01",
+                "score": 11.270233300582465
+              },
+              {
+                "passage_id": "D10-P01",
+                "score": 10.759079412304079
+              },
+              {
+                "passage_id": "D06-P01",
+                "score": 1.6305804510217063
+              }
+            ],
+            "semantic": [
+              {
+                "passage_id": "D11-P01",
+                "score": 0.7947158069055624
+              },
+              {
+                "passage_id": "D09-P01",
+                "score": 0.6260191249357806
+              },
+              {
+                "passage_id": "D12-P01",
+                "score": 0.6019371478975499
+              },
+              {
+                "passage_id": "D10-P01",
+                "score": 0.5930561348527701
+              },
+              {
+                "passage_id": "D05-P01",
+                "score": 0.2310888735969558
+              },
+              {
+                "passage_id": "D07-P01",
+                "score": 0.21529524596113042
+              },
+              {
+                "passage_id": "D06-P01",
+                "score": 0.2059942320879249
+              },
+              {
+                "passage_id": "D03-P01",
+                "score": 0.19715664327324012
+              },
+              {
+                "passage_id": "D08-P01",
+                "score": 0.19589124465973007
+              },
+              {
+                "passage_id": "D04-P01",
+                "score": 0.19337392924236133
+              },
+              {
+                "passage_id": "D02-P01",
+                "score": 0.17189514997085573
+              },
+              {
+                "passage_id": "D01-P01",
+                "score": 0.16186617869991216
+              }
+            ]
+          },
+          "configuration": {
+            "bm25": {
+              "k1": 1.5,
+              "b": 0.75,
+              "idf": "log1p((N-df+0.5)/(df+0.5))"
+            },
+            "tokenizer": "NFKC/casefold + Han unigram/bigram + Latin/number runs v1",
+            "input": "title + newline + passage body; canonical provenance preserved separately",
+            "branch_limit": 12,
+            "rrf_k": 60,
+            "summary_characters": 160,
+            "tie_break": "passage_id ascending",
+            "embedding": {
+              "device": "cpu",
+              "dimension": 512,
+              "max_input_tokens": 512,
+              "mode": "live",
+              "model_id": "BAAI/bge-small-zh-v1.5",
+              "normalized": true,
+              "packages": {
+                "huggingface-hub": "0.36.0",
+                "safetensors": "0.6.2",
+                "tokenizers": "0.22.2",
+                "torch": "2.9.0+cpu",
+                "transformers": "4.57.1"
+              },
+              "pooling": "CLS",
+              "query_prefix": "为这个句子生成表示以用于检索相关文章：",
+              "revision": "7999e1d3359715c523056ef9478215996d62a620",
+              "threads": 1,
+              "weights_fingerprint": "sha256:79a6f0034e3e568922396703a0172cbd3eb7bb857b8b1e3ef15f2721a252b276"
+            }
+          },
+          "error": null,
+          "task_evidence": {
+            "read_passage_ids": [],
+            "unread_candidate_ids": [
+              "D11-P01",
+              "D09-P01",
+              "D12-P01",
+              "D10-P01",
+              "D06-P01",
+              "D05-P01"
+            ]
+          }
+        },
+        "elapsed_seconds": 0.046999999998661224
+      },
+      {
+        "kind": "model_request",
+        "at_seconds": 1.7190000000045984,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 6388,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 3.0940000000045984,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 5289,
+          "completion_tokens": 66,
+          "prompt_cache_hit_tokens": 3328,
+          "prompt_cache_miss_tokens": 1961,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.011106,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 6388,
+          "actual_prompt_tokens": 5289,
+          "actual_to_estimate_ratio": 0.827958672510958
+        },
+        "elapsed_seconds": 1.375,
+        "calls": [
+          {
+            "id": "call_00_KhbefBKifk18Af7RsHSF9006",
+            "name": "read"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 3.0940000000045984,
+        "model_calls": 2,
+        "tool_calls": 1,
+        "tool_call_id": "call_00_KhbefBKifk18Af7RsHSF9006",
+        "action": "read",
+        "arguments": {
+          "passage_ids": [
+            "D11-P01"
+          ],
+          "reason": "读取自动字幕说明原文以确认功能"
+        },
+        "rationale": "读取自动字幕说明原文以确认功能"
+      },
+      {
+        "kind": "tool_observation",
+        "at_seconds": 3.0940000000045984,
+        "model_calls": 2,
+        "tool_calls": 2,
+        "tool_call_id": "call_00_KhbefBKifk18Af7RsHSF9006",
+        "action": "read",
+        "observation": {
+          "tool": "read",
+          "status": "success",
+          "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+          "passages": [
+            {
+              "passage_id": "D11-P01",
+              "doc_id": "D11",
+              "title": "星帆剪辑自动字幕说明",
+              "topic": "视频产品",
+              "version_date": "2026-01-01",
+              "effective_date": "2026-01-01",
+              "scope": "星帆科技全体员工",
+              "text": "文档：星帆剪辑自动字幕说明（D11）。主题：视频产品。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n星帆剪辑支持自动生成字幕。"
+            }
+          ],
+          "error": null
+        },
+        "elapsed_seconds": 0.0
+      },
+      {
+        "kind": "model_request",
+        "at_seconds": 3.1090000000040163,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "requested_model": "deepseek-flash",
+        "timeout_seconds": 60.0,
+        "estimated_input_tokens": 6735,
+        "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer"
+      },
+      {
+        "kind": "model_response",
+        "at_seconds": 5.5,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "actual_model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 5569,
+          "completion_tokens": 329,
+          "prompt_cache_hit_tokens": 5248,
+          "prompt_cache_miss_tokens": 321,
+          "usage_known": true,
+          "estimated_cny_upper_rate": 0.01377,
+          "estimate_basis": "2026-10-29 official Flash peak uncached input 2/output 8 CNY per million; not invoice"
+        },
+        "input_calibration": {
+          "estimated_tokens": 6735,
+          "actual_prompt_tokens": 5569,
+          "actual_to_estimate_ratio": 0.8268745360059391
+        },
+        "elapsed_seconds": 2.3909999999959837,
+        "calls": [
+          {
+            "id": "call_00_MhPWQD5uNuqDirhngAbv8207",
+            "name": "finish"
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "at_seconds": 5.5,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "tool_call_id": "call_00_MhPWQD5uNuqDirhngAbv8207",
+        "action": "finish",
+        "arguments": {
+          "status": "answered",
+          "answer": "星帆剪辑支持自动生成字幕。[C1]",
+          "part_statuses": [
+            "answered"
+          ],
+          "citation_refs": [
+            {
+              "marker": "[C1]",
+              "passage_id": "D11-P01",
+              "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1"
+            }
+          ],
+          "gaps": [],
+          "clarification": null,
+          "anchor_snapshot": {
+            "subject": {
+              "value": "星帆剪辑",
+              "source_message_ids": [
+                "1bcb395589d1430c880dfbee33f0ec73"
+              ]
+            },
+            "focus": {
+              "value": "自动字幕生成支持情况",
+              "source_message_ids": [
+                "1bcb395589d1430c880dfbee33f0ec73"
+              ]
+            },
+            "pending_clarification": null
+          },
+          "reason": "已读取自动字幕说明原文，可直接回答。"
+        },
+        "rationale": "已读取自动字幕说明原文，可直接回答。"
+      },
+      {
+        "kind": "memory_validation",
+        "at_seconds": 5.5,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "valid": true,
+        "warning": null
+      },
+      {
+        "kind": "stop",
+        "at_seconds": 5.5,
+        "model_calls": 3,
+        "tool_calls": 2,
+        "reason": "finished",
+        "recoveries": 0,
+        "corrections": 0
+      },
+      {
+        "kind": "memory_update",
+        "stage": "validated_before_persistence",
+        "before": {
+          "subject": {
+            "value": "差旅报销",
+            "source_message_ids": [
+              "b7f3773af1f54be1a874f927aff85561"
+            ]
+          },
+          "focus": {
+            "value": "报销所需材料",
+            "source_message_ids": [
+              "b7f3773af1f54be1a874f927aff85561"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "after": {
+          "subject": {
+            "value": "星帆剪辑",
+            "source_message_ids": [
+              "1bcb395589d1430c880dfbee33f0ec73"
+            ]
+          },
+          "focus": {
+            "value": "自动字幕生成支持情况",
+            "source_message_ids": [
+              "1bcb395589d1430c880dfbee33f0ec73"
+            ]
+          },
+          "pending_clarification": null
+        },
+        "previous_valid": true,
+        "previous_warning": null
+      }
+    ],
+    "elapsed_seconds": 5.51600000000326,
+    "usage": {
+      "requests_with_unknown_usage": 0,
+      "known_requests_estimated_cny": 0.032178,
+      "total_estimated_cny": 0.032178,
+      "invoice_cny": null
+    },
+    "read_set": [
+      "D11-P01"
+    ],
+    "evidence": [
+      {
+        "passage_id": "D11-P01",
+        "doc_id": "D11",
+        "corpus_fingerprint": "sha256:47bf2f316d7b84615a1fe9807faeaace4c84e50395c767af0dfc4d84bd8d2ce1",
+        "title": "星帆剪辑自动字幕说明",
+        "version_date": "2026-01-01",
+        "text": "文档：星帆剪辑自动字幕说明（D11）。主题：视频产品。版本日期：2026-01-01。生效日期：2026-01-01。适用范围：星帆科技全体员工。\n星帆剪辑支持自动生成字幕。"
+      }
+    ],
+    "anchor_snapshot_proposal": {
+      "subject": {
+        "value": "星帆剪辑",
+        "source_message_ids": [
+          "1bcb395589d1430c880dfbee33f0ec73"
+        ]
+      },
+      "focus": {
+        "value": "自动字幕生成支持情况",
+        "source_message_ids": [
+          "1bcb395589d1430c880dfbee33f0ec73"
+        ]
+      },
+      "pending_clarification": null
+    },
+    "anchor_snapshot": {
+      "subject": {
+        "value": "星帆剪辑",
+        "source_message_ids": [
+          "1bcb395589d1430c880dfbee33f0ec73"
+        ]
+      },
+      "focus": {
+        "value": "自动字幕生成支持情况",
+        "source_message_ids": [
+          "1bcb395589d1430c880dfbee33f0ec73"
+        ]
+      },
+      "pending_clarification": null
+    },
+    "memory_valid": true,
+    "memory_persisted": true,
+    "memory_warning": null,
+    "history_selection": {
+      "budget": 8000,
+      "estimated_tokens": 811,
+      "estimate_method": "ceil(UTF-8 serialized message bytes / 3) + 8 per message; heuristic, not model tokenizer",
+      "selected_message_ids": [
+        "90afe88ef2b848eaa247ee592b6fba1b",
+        "e668788ed10e446ea27d6f6f9b605053",
+        "b7f3773af1f54be1a874f927aff85561",
+        "e01c281190dd435d848a611bed1385ca"
+      ],
+      "omitted_message_ids": [],
+      "boundary": "complete recent business message pairs; run traces stored separately"
+    },
+    "message_ids": {
+      "request_id": "99419d901ece48b09938eaa021a7a6a8",
+      "user_message_id": "1bcb395589d1430c880dfbee33f0ec73",
+      "assistant_message_id": "65938d96803a47798f745fadeecfb932"
+    },
+    "memory_update": {
+      "before": {
+        "subject": {
+          "value": "差旅报销",
+          "source_message_ids": [
+            "b7f3773af1f54be1a874f927aff85561"
+          ]
+        },
+        "focus": {
+          "value": "报销所需材料",
+          "source_message_ids": [
+            "b7f3773af1f54be1a874f927aff85561"
+          ]
+        },
+        "pending_clarification": null
+      },
+      "after": {
+        "subject": {
+          "value": "星帆剪辑",
+          "source_message_ids": [
+            "1bcb395589d1430c880dfbee33f0ec73"
+          ]
+        },
+        "focus": {
+          "value": "自动字幕生成支持情况",
+          "source_message_ids": [
+            "1bcb395589d1430c880dfbee33f0ec73"
+          ]
+        },
+        "pending_clarification": null
+      },
+      "previous_valid": true,
+      "previous_warning": null
+    },
+    "persistence": {
+      "saved": true,
+      "user_message_saved": true,
+      "result_saved": true
+    }
+  }
+}

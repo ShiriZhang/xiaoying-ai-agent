@@ -1,0 +1,21 @@
+{
+  "state": "review_passed_pending_publication",
+  "user_resume_statement": "已处理余额，可以继续验证",
+  "base_commit": "e1e9ef2cd5376afd68aea7b38c36c755d2dbbfcc",
+  "final_counts": {
+    "core-resumed": 18,
+    "regressions-resumed": 9,
+    "memory-validated": 7,
+    "personal-validated": 2,
+    "anchor-validated": 4
+  },
+  "passed_record_audit": true,
+  "all_recorded_tasks": 138,
+  "known_estimated_cny": 5.043826,
+  "unknown_usage_requests": 2,
+  "note": "pause-status.json is preserved as historical snapshot; final publication SHA is verified after commit.",
+  "review_axes": {
+    "Spec": "passed, 40 tasks and 65 citations reviewed",
+    "Standards": "passed, 0 actionable findings"
+  }
+}

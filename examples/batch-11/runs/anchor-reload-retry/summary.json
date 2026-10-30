@@ -1,0 +1,59 @@
+{
+  "rows": [
+    {
+      "case": "fresh",
+      "turn": 1,
+      "checks": {
+        "expected_status": true,
+        "anchor_valid": true,
+        "citations_match_current_snapshot": true
+      },
+      "request_id": "4a6e35d77f664403b02a34bef8f7de3a"
+    },
+    {
+      "case": "fresh",
+      "turn": 2,
+      "checks": {
+        "expected_status": true,
+        "anchor_valid": true,
+        "citations_match_current_snapshot": true,
+        "fingerprint_changed": true,
+        "new_D02_read": true,
+        "history_retained": true,
+        "new_value_in_answer": true,
+        "legacy_not_injected": true
+      },
+      "request_id": "49afa13a90854fa6bc26d8ee64a22201"
+    },
+    {
+      "case": "legacy",
+      "turn": 1,
+      "checks": {
+        "expected_status": true,
+        "anchor_valid": true,
+        "citations_match_current_snapshot": true
+      },
+      "request_id": "8ac4fe1072df4fca8126497ad18683aa"
+    },
+    {
+      "case": "legacy",
+      "turn": 2,
+      "checks": {
+        "expected_status": true,
+        "anchor_valid": true,
+        "citations_match_current_snapshot": true,
+        "fingerprint_changed": true,
+        "new_D02_read": true,
+        "history_retained": true,
+        "new_value_in_answer": true,
+        "legacy_not_injected": true
+      },
+      "request_id": "d47d3063e72d4e2fa994b71b25c74fcb"
+    }
+  ],
+  "passed": true,
+  "known_estimated_cny": 0.203274,
+  "unknown_usage_requests": 0,
+  "invoice_cny": null,
+  "semantic_review": "separate review required; mechanical checks alone do not prove meaning"
+}

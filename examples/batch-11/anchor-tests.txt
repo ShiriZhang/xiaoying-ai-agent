@@ -1,0 +1,113 @@
+test_content_failure_keeps_business_without_extra_model_or_repair (test_anchor_content.AnchorContentTests.test_content_failure_keeps_business_without_extra_model_or_repair) ... ERROR
+test_legacy_pollution_is_not_injected_and_old_history_is_retained (test_anchor_content.AnchorContentTests.test_legacy_pollution_is_not_injected_and_old_history_is_retained) ... ERROR
+test_original_real_failures_now_rejected_without_editing_evidence (test_anchor_content.AnchorContentTests.test_original_real_failures_now_rejected_without_editing_evidence) ... ok
+test_topics_numbers_and_assertions_in_every_field (test_anchor_content.AnchorContentTests.test_topics_numbers_and_assertions_in_every_field) ... ok
+
+======================================================================
+ERROR: test_content_failure_keeps_business_without_extra_model_or_repair (test_anchor_content.AnchorContentTests.test_content_failure_keeps_business_without_extra_model_or_repair)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitHub_ShiriZhang\xiaoying-ai-agent\tests\test_anchor_content.py", line 42, in test_content_failure_keeps_business_without_extra_model_or_repair
+    store = SessionStore(Path(folder) / "sessions.sqlite3")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\GitHub_ShiriZhang\xiaoying-ai-agent\.venv\Lib\site-packages\enterprise_knowledge_qa\sessions.py", line 30, in __init__
+    with self._connection() as db:
+         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "D:\GitHub_ShiriZhang\xiaoying-ai-agent\.venv\Lib\site-packages\enterprise_knowledge_qa\sessions.py", line 74, in _connection
+    raise StorageError("storage_failed") from None
+enterprise_knowledge_qa.sessions.StorageError: storage_failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen os>", line 366, in walk
+PermissionError: [WinError 5] �ܾ����ʡ�: 'D:\\GitHub_ShiriZhang\\xiaoying-ai-agent\\.cache\\tmpil4mnvfs'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\GitHub_ShiriZhang\xiaoying-ai-agent\tests\test_anchor_content.py", line 41, in test_content_failure_keeps_business_without_extra_model_or_repair
+    with tempfile.TemporaryDirectory(dir=ROOT / ".cache") as folder:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\tempfile.py", line 950, in __exit__
+    self.cleanup()
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\tempfile.py", line 954, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\shutil.py", line 623, in _rmtree_unsafe
+    for dirpath, dirnames, filenames in results:
+                                        ^^^^^^^
+  File "<frozen os>", line 369, in walk
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\shutil.py", line 621, in onerror
+    onexc(os.scandir, err.filename, err)
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\tempfile.py", line 906, in onexc
+    _resetperms(path)
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\tempfile.py", line 286, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\tempfile.py", line 277, in _dont_follow_symlinks
+    func(path, *args)
+PermissionError: [WinError 5] �ܾ����ʡ�: 'D:\\GitHub_ShiriZhang\\xiaoying-ai-agent\\.cache\\tmpil4mnvfs'
+
+======================================================================
+ERROR: test_legacy_pollution_is_not_injected_and_old_history_is_retained (test_anchor_content.AnchorContentTests.test_legacy_pollution_is_not_injected_and_old_history_is_retained)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitHub_ShiriZhang\xiaoying-ai-agent\tests\test_anchor_content.py", line 59, in test_legacy_pollution_is_not_injected_and_old_history_is_retained
+    store = SessionStore(path)
+            ^^^^^^^^^^^^^^^^^^
+  File "D:\GitHub_ShiriZhang\xiaoying-ai-agent\.venv\Lib\site-packages\enterprise_knowledge_qa\sessions.py", line 30, in __init__
+    with self._connection() as db:
+         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "D:\GitHub_ShiriZhang\xiaoying-ai-agent\.venv\Lib\site-packages\enterprise_knowledge_qa\sessions.py", line 74, in _connection
+    raise StorageError("storage_failed") from None
+enterprise_knowledge_qa.sessions.StorageError: storage_failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen os>", line 366, in walk
+PermissionError: [WinError 5] �ܾ����ʡ�: 'D:\\GitHub_ShiriZhang\\xiaoying-ai-agent\\.cache\\tmp2xphiaob'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\GitHub_ShiriZhang\xiaoying-ai-agent\tests\test_anchor_content.py", line 57, in test_legacy_pollution_is_not_injected_and_old_history_is_retained
+    with tempfile.TemporaryDirectory(dir=ROOT / ".cache") as folder:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\tempfile.py", line 950, in __exit__
+    self.cleanup()
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\tempfile.py", line 954, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\shutil.py", line 623, in _rmtree_unsafe
+    for dirpath, dirnames, filenames in results:
+                                        ^^^^^^^
+  File "<frozen os>", line 369, in walk
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\shutil.py", line 621, in onerror
+    onexc(os.scandir, err.filename, err)
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\tempfile.py", line 906, in onexc
+    _resetperms(path)
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\tempfile.py", line 286, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+  File "C:\Users\23657\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\tempfile.py", line 277, in _dont_follow_symlinks
+    func(path, *args)
+PermissionError: [WinError 5] �ܾ����ʡ�: 'D:\\GitHub_ShiriZhang\\xiaoying-ai-agent\\.cache\\tmp2xphiaob'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.039s
+
+FAILED (errors=2)

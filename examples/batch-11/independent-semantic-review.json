@@ -1,0 +1,828 @@
+{
+  "scope": "Independent resumed final-source semantic review of40 tasks; previous final40 review is historical only",
+  "final_groups": {
+    "core-resumed": 18,
+    "regressions-resumed": 9,
+    "memory-validated": 7,
+    "personal-validated": 2,
+    "anchor-validated": 4
+  },
+  "tasks": 40,
+  "citations": 65,
+  "canonical_all": true,
+  "all_runtime_sources_match": true,
+  "source_fingerprints": {
+    "actions.py": "d220e0061cf30b51ad154d42ae8a013d34e6f1968cd6f143b7b992eb2ab6484f",
+    "agent.py": "9cd366e134716507dc1514bb5d6641722aff480a2dd96b26d917edde6efa36c7",
+    "api.py": "cd6e0d75100a1a8b2386e42a93decb93af51a67501a55d0deabbc1f2b9212717",
+    "config.py": "ddea15c0c2f24f013307b2fd9c11453b1496575501a07aefbabfe420e072611f",
+    "context.py": "1c000cda840aadb81020fef8306c1ccdcc9c13079c4bd686f392fafef01da2fb",
+    "conversations.py": "86bf86a8c846160535cbd8fac7611e10472d30ffa27ce3be4c6e82571d3d2d40",
+    "deadlines.py": "257b7b11971c7b288f801fef45f4daaa02518e744adc05205af18dcdaeee8648",
+    "demo_policy.py": "f4a0667f16b9fa220e7c35f91dc2bb0a90c4bb27091bb73ba38728bca435a0cf",
+    "embeddings.py": "1385667ca3e7f549878bbdc0f92508ed295d92bddb9993ec06b612d58ac78bc4",
+    "knowledge.py": "485576ab08fa4790ac991830e576e0044398495f9bcd20ae76aee6eed1c14897",
+    "memory.py": "b48b5c7c74001470a5b5279bef65a80c2a2041c0d3d6cfd5573126f3336c7f55",
+    "models.py": "a82b210a1435aeb82d256793812567bb0d034704097be8d32e55dd18b9852ab6",
+    "prepare_weights.py": "005107a8f9a7386bfe00dfd734507f2ac4de50a35e7765c56afe9d771f73db0f",
+    "reading.py": "eabbf1e3744e52cfe9f01ea723266ab32d7060933569d9fca559b1644f375902",
+    "retrieval.py": "ab3909476e70b766a53d646c43c5e08075910f77cada75ce845cb5212843392d",
+    "retrieval_check.py": "b8feaa2e2b78af4d5df6822ee18be0e0ce3aeb219a9671256049ae62ecd4e11c",
+    "server.py": "4a17ad3a7a0644d9c77a6b23a651dccef6c21c53d8f7409206e82d31f3ea742b",
+    "sessions.py": "44fdecb1174d109c473cf18cc95a8ab8dd267b582e89bdb39d8ba1813bac7cc4",
+    "smoke.py": "25361befffd278426c04c76194878ac119f5a5eff07004f95806cf88c98da5e7",
+    "snapshots.py": "e6ca2284c18fd7e1e3d231889e6e498a2c0666124d8f6fc391ad083b134f53c6",
+    "tracing.py": "a43a2a61defa9aceadd7f33f568063390d33286a045174a57973d40539914217",
+    "__init__.py": "80ae56b91f5a72c441a8e507f813e6a9d5c13341cfeaef07c45658fd349e485f",
+    "__main__.py": "760e2fd38c6b6f0cbecec91e3e46c58e7a7b47ef4ad3f6c67a955cc6d108231c"
+  },
+  "effective_anchors_reviewed_by_field_name": true,
+  "observed_enterprise_facts_in_effective_anchors": 0,
+  "all_recorded_tasks": 138,
+  "model_attempts": 474,
+  "known_estimated_cny": "5.043826",
+  "unknown_usage_requests": 2,
+  "invoice_cny": null,
+  "semantic_findings": [],
+  "rows": [
+    {
+      "file": "examples/batch-11/runs/core-resumed/A01-r1-t1-70edd2f6a45d40598a764ea14b2eb740.json",
+      "case_id": "A01",
+      "turn": 1,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "报销",
+        "focus": "报销所需材料",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 2,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A01-r2-t1-813eeb58f0e84ac08a8a0975630954b6.json",
+      "case_id": "A01",
+      "turn": 1,
+      "repeat": 2,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "报销材料要求",
+        "focus": "报销所需材料",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A02-r1-t1-79b3c608c1924b3eb337cf54b2ef8b5d.json",
+      "case_id": "A02",
+      "turn": 1,
+      "repeat": 1,
+      "status": "needs_clarification",
+      "anchor_fields": {
+        "subject": "差旅报销",
+        "focus": "报销提交期限",
+        "pending_clarification": "待确认适用制度"
+      },
+      "memory_valid": true,
+      "citations": 4,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A02-r2-t1-c5cba5e3c44f447fb541346dd8d391d1.json",
+      "case_id": "A02",
+      "turn": 1,
+      "repeat": 2,
+      "status": "needs_clarification",
+      "anchor_fields": {
+        "subject": "差旅报销",
+        "focus": "报销提交期限",
+        "pending_clarification": "待确认适用制度"
+      },
+      "memory_valid": true,
+      "citations": 4,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A03-missing-r1-t1-9d35398c0b514cf4b237d502fea417dd.json",
+      "case_id": "A03-missing",
+      "turn": 1,
+      "repeat": 1,
+      "status": "insufficient_evidence",
+      "anchor_fields": {
+        "subject": "住房补贴",
+        "focus": "公司是否提供住房补贴",
+        "pending_clarification": "待补充住房补贴相关制度资料"
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A03-missing-r2-t1-9bc9339294e24d5aa583c3d3349bb01d.json",
+      "case_id": "A03-missing",
+      "turn": 1,
+      "repeat": 2,
+      "status": "insufficient_evidence",
+      "anchor_fields": {
+        "subject": "住房补贴",
+        "focus": "公司是否提供住房补贴",
+        "pending_clarification": "待确认住房补贴相关制度资料"
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A03-weather-r1-t1-d60177409870491aaa40d0b70342615d.json",
+      "case_id": "A03-weather",
+      "turn": 1,
+      "repeat": 1,
+      "status": "out_of_scope",
+      "anchor_fields": {
+        "subject": null,
+        "focus": null,
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 0,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A03-weather-r2-t1-4aa2f015922b463789081cba5a527316.json",
+      "case_id": "A03-weather",
+      "turn": 1,
+      "repeat": 2,
+      "status": "out_of_scope",
+      "anchor_fields": {
+        "subject": null,
+        "focus": null,
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 0,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A04-r1-t1-73a3d7d8b88a48af8b5c63d10b9fc540.json",
+      "case_id": "A04",
+      "turn": 1,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "差旅报销",
+        "focus": "报销需提交的凭证",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 2,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A04-r2-t1-acab5ac33025403ca94ac7cab8993eb8.json",
+      "case_id": "A04",
+      "turn": 1,
+      "repeat": 2,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "差旅报销",
+        "focus": "报销所需凭证",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 2,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A05-r1-t1-f060f99fd8964608881328cdea107d99.json",
+      "case_id": "A05",
+      "turn": 1,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "星帆剪辑",
+        "focus": "导出格式支持情况",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A05-r1-t2-bf953b74a8244249b846aaa28e2c4a23.json",
+      "case_id": "A05",
+      "turn": 2,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "星帆剪辑",
+        "focus": "导出分辨率上限",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A05-r2-t1-bc038488e8944a36b8a6b8be4afb46bf.json",
+      "case_id": "A05",
+      "turn": 1,
+      "repeat": 2,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "星帆剪辑",
+        "focus": "导出格式支持情况",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A05-r2-t2-4bb105badac846819f0d94a8457b1255.json",
+      "case_id": "A05",
+      "turn": 2,
+      "repeat": 2,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "星帆剪辑",
+        "focus": "导出分辨率上限",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A06-persistent-r1-t1-78d2bf443ceb4314af732f6db10d8867.json",
+      "case_id": "A06-persistent",
+      "turn": 1,
+      "repeat": 1,
+      "status": "incomplete",
+      "anchor_fields": {
+        "subject": null,
+        "focus": null,
+        "pending_clarification": null
+      },
+      "memory_valid": false,
+      "citations": 0,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A06-persistent-r2-t1-15f3e28b0e70421c989301f9a0fb3b87.json",
+      "case_id": "A06-persistent",
+      "turn": 1,
+      "repeat": 2,
+      "status": "incomplete",
+      "anchor_fields": {
+        "subject": null,
+        "focus": null,
+        "pending_clarification": null
+      },
+      "memory_valid": false,
+      "citations": 0,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A06-temporary-r1-t1-86db22029d48405490b90e644d6aed0b.json",
+      "case_id": "A06-temporary",
+      "turn": 1,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "报销材料要求",
+        "focus": "报销所需提交的材料",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/core-resumed/A06-temporary-r2-t1-ae5d65b2b3804d6a839ad9d83d1e5dd5.json",
+      "case_id": "A06-temporary",
+      "turn": 1,
+      "repeat": 2,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "报销材料要求",
+        "focus": "报销所需提交的材料",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/regressions-resumed/added-D02-r1-t1-ae80cabb30b34d92bec663e61b2f867b.json",
+      "case_id": "added-D02",
+      "turn": 1,
+      "repeat": 1,
+      "status": "needs_clarification",
+      "anchor_fields": {
+        "subject": "差旅报销期限",
+        "focus": "报销提交期限",
+        "pending_clarification": "待确认适用制度"
+      },
+      "memory_valid": true,
+      "citations": 2,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/regressions-resumed/effective-r1-t1-6099503b03e340f7a6ef754d387e9885.json",
+      "case_id": "effective",
+      "turn": 1,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "请假申请",
+        "focus": "提前申请期限",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 2,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/regressions-resumed/future-r1-t1-77f881402d0941de875c7fe5995b6f1a.json",
+      "case_id": "future",
+      "turn": 1,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "请假申请",
+        "focus": "请假提前申请期限",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 2,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/regressions-resumed/partial-conflict-r1-t1-f3d9bb58229f46f59bf87dc3278126c2.json",
+      "case_id": "partial-conflict",
+      "turn": 1,
+      "repeat": 1,
+      "status": "needs_clarification",
+      "anchor_fields": {
+        "subject": "差旅报销",
+        "focus": "报销所需材料与提交期限",
+        "pending_clarification": "待确认差旅报销期限的现行适用制度"
+      },
+      "memory_valid": true,
+      "citations": 4,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/regressions-resumed/partial-missing-r1-t1-d9cab317bf0a4722946e58e9765b788a.json",
+      "case_id": "partial-missing",
+      "turn": 1,
+      "repeat": 1,
+      "status": "insufficient_evidence",
+      "anchor_fields": {
+        "subject": "报销材料与住房补贴政策",
+        "focus": "住房补贴政策内容",
+        "pending_clarification": "待确认住房补贴适用制度"
+      },
+      "memory_valid": true,
+      "citations": 3,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/regressions-resumed/partial-weather-r1-t1-8e7660a10cf44d499c16eb71ea708c8a.json",
+      "case_id": "partial-weather",
+      "turn": 1,
+      "repeat": 1,
+      "status": "out_of_scope",
+      "anchor_fields": {
+        "subject": "报销材料",
+        "focus": "报销所需材料",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 2,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/regressions-resumed/replacement-r1-t1-90a0178337304b71a106d79dea7e8ede.json",
+      "case_id": "replacement",
+      "turn": 1,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "星帆剪辑",
+        "focus": "最高支持分辨率",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/regressions-resumed/single-D01-r1-t1-2c56a71e33b648cc986b79e54130f87e.json",
+      "case_id": "single-D01",
+      "turn": 1,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "报销期限",
+        "focus": "报销提交期限天数",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/regressions-resumed/user-preference-r1-t1-63db9dab56fc441fbb57c91f671bd6e6.json",
+      "case_id": "user-preference",
+      "turn": 1,
+      "repeat": 1,
+      "status": "needs_clarification",
+      "anchor_fields": {
+        "subject": "差旅报销",
+        "focus": "报销提交期限",
+        "pending_clarification": "待确认适用制度"
+      },
+      "memory_valid": true,
+      "citations": 4,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/memory-validated/cross-window-r1-t1-4fee33242aff465b94fe271f024943d5.json",
+      "case_id": "cross-window",
+      "turn": 1,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "星帆剪辑",
+        "focus": "导出格式支持情况",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/memory-validated/cross-window-r1-t2-e3989eefd1414b39a491d3d81a203bd1.json",
+      "case_id": "cross-window",
+      "turn": 2,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "星帆剪辑",
+        "focus": "最高支持分辨率",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/memory-validated/old-conclusion-r1-t1-51f724f06cee4abf9f7c8da9f8785e5c.json",
+      "case_id": "old-conclusion",
+      "turn": 1,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "星帆剪辑",
+        "focus": "最高支持分辨率",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/memory-validated/old-conclusion-r1-t2-c1ebef66e3b64237b807b0d1667ed325.json",
+      "case_id": "old-conclusion",
+      "turn": 2,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "星帆剪辑",
+        "focus": "最高支持分辨率",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/memory-validated/switch-correct-r1-t1-96d76cd115b346e9b4be1ecb22c23475.json",
+      "case_id": "switch-correct",
+      "turn": 1,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "星帆剪辑",
+        "focus": "导出格式支持情况",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/memory-validated/switch-correct-r1-t2-55d91a4930764aa8a3e604fa2dba758a.json",
+      "case_id": "switch-correct",
+      "turn": 2,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "差旅报销",
+        "focus": "报销所需材料",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/memory-validated/switch-correct-r1-t3-99419d901ece48b09938eaa021a7a6a8.json",
+      "case_id": "switch-correct",
+      "turn": 3,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "星帆剪辑",
+        "focus": "自动字幕生成支持情况",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/personal-validated/delegate-export-format-change-r1-t1-b48c1ee9eca143dabd1043972c846447.json",
+      "case_id": "delegate-export-format-change",
+      "turn": 1,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "星帆剪辑",
+        "focus": "视频导出格式支持情况",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/personal-validated/delegate-export-format-change-r1-t2-91a3ae0b04b140b9b4791b6ba73a4892.json",
+      "case_id": "delegate-export-format-change",
+      "turn": 2,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "星帆剪辑",
+        "focus": "视频导出格式支持情况",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 1,
+      "canonical": true,
+      "chain_check": null
+    },
+    {
+      "file": "examples/batch-11/runs/anchor-validated/fresh-t1.json",
+      "case_id": "fresh",
+      "turn": 1,
+      "repeat": 1,
+      "status": "needs_clarification",
+      "anchor_fields": {
+        "subject": "差旅报销",
+        "focus": "报销提交期限",
+        "pending_clarification": "待确认适用制度"
+      },
+      "memory_valid": true,
+      "citations": 4,
+      "canonical": true,
+      "chain_check": {
+        "actual_anchor_inputs": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "all_reported_checks": {
+          "expected_status": true,
+          "anchor_valid": true,
+          "citations_match_current_snapshot": true
+        }
+      }
+    },
+    {
+      "file": "examples/batch-11/runs/anchor-validated/fresh-t2.json",
+      "case_id": "fresh",
+      "turn": 2,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "差旅报销",
+        "focus": "报销提交期限的现行适用规定",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 2,
+      "canonical": true,
+      "chain_check": {
+        "actual_anchor_inputs": [
+          {
+            "subject": {
+              "value": "差旅报销",
+              "source_message_ids": [
+                "27ca903643d740be9e29e4a3b8c229b7"
+              ]
+            },
+            "focus": {
+              "value": "报销提交期限",
+              "source_message_ids": [
+                "27ca903643d740be9e29e4a3b8c229b7"
+              ]
+            },
+            "pending_clarification": {
+              "value": "待确认适用制度",
+              "source_message_ids": [
+                "27ca903643d740be9e29e4a3b8c229b7"
+              ]
+            }
+          },
+          {
+            "subject": {
+              "value": "差旅报销",
+              "source_message_ids": [
+                "27ca903643d740be9e29e4a3b8c229b7"
+              ]
+            },
+            "focus": {
+              "value": "报销提交期限",
+              "source_message_ids": [
+                "27ca903643d740be9e29e4a3b8c229b7"
+              ]
+            },
+            "pending_clarification": {
+              "value": "待确认适用制度",
+              "source_message_ids": [
+                "27ca903643d740be9e29e4a3b8c229b7"
+              ]
+            }
+          },
+          {
+            "subject": {
+              "value": "差旅报销",
+              "source_message_ids": [
+                "27ca903643d740be9e29e4a3b8c229b7"
+              ]
+            },
+            "focus": {
+              "value": "报销提交期限",
+              "source_message_ids": [
+                "27ca903643d740be9e29e4a3b8c229b7"
+              ]
+            },
+            "pending_clarification": {
+              "value": "待确认适用制度",
+              "source_message_ids": [
+                "27ca903643d740be9e29e4a3b8c229b7"
+              ]
+            }
+          },
+          {
+            "subject": {
+              "value": "差旅报销",
+              "source_message_ids": [
+                "27ca903643d740be9e29e4a3b8c229b7"
+              ]
+            },
+            "focus": {
+              "value": "报销提交期限",
+              "source_message_ids": [
+                "27ca903643d740be9e29e4a3b8c229b7"
+              ]
+            },
+            "pending_clarification": {
+              "value": "待确认适用制度",
+              "source_message_ids": [
+                "27ca903643d740be9e29e4a3b8c229b7"
+              ]
+            }
+          }
+        ],
+        "all_reported_checks": {
+          "expected_status": true,
+          "anchor_valid": true,
+          "citations_match_current_snapshot": true,
+          "fingerprint_changed": true,
+          "new_D02_read": true,
+          "history_retained": true,
+          "new_value_in_answer": true,
+          "legacy_not_injected": true
+        }
+      }
+    },
+    {
+      "file": "examples/batch-11/runs/anchor-validated/legacy-t1.json",
+      "case_id": "legacy",
+      "turn": 1,
+      "repeat": 1,
+      "status": "needs_clarification",
+      "anchor_fields": {
+        "subject": "差旅报销",
+        "focus": "报销提交期限",
+        "pending_clarification": "待确认适用制度"
+      },
+      "memory_valid": true,
+      "citations": 4,
+      "canonical": true,
+      "chain_check": {
+        "actual_anchor_inputs": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "all_reported_checks": {
+          "expected_status": true,
+          "anchor_valid": true,
+          "citations_match_current_snapshot": true
+        }
+      }
+    },
+    {
+      "file": "examples/batch-11/runs/anchor-validated/legacy-t2.json",
+      "case_id": "legacy",
+      "turn": 2,
+      "repeat": 1,
+      "status": "answered",
+      "anchor_fields": {
+        "subject": "差旅报销",
+        "focus": "报销提交期限的现行适用规定",
+        "pending_clarification": null
+      },
+      "memory_valid": true,
+      "citations": 2,
+      "canonical": true,
+      "chain_check": {
+        "actual_anchor_inputs": [
+          null,
+          null,
+          null
+        ],
+        "all_reported_checks": {
+          "expected_status": true,
+          "anchor_valid": true,
+          "citations_match_current_snapshot": true,
+          "fingerprint_changed": true,
+          "new_D02_read": true,
+          "history_retained": true,
+          "new_value_in_answer": true,
+          "legacy_not_injected": true
+        }
+      }
+    }
+  ],
+  "limits": [
+    "Fixed inputs and finite content checks do not prove general semantic guarantee.",
+    "Personal learning example remains user-provided follow-up, not invented by AI."
+  ]
+}

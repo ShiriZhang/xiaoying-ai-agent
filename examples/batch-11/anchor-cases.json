@@ -1,0 +1,10 @@
+{
+  "kind": "Pre-implementation expectations; not new model outputs",
+  "original_failures": [
+    {"file": "examples/batch-8/runs/core-validated/A02-r1-t1-97edf89e80624707aca3cc60ae44fcf3.json", "value": "差旅报销提交期限（15天与30天规定冲突）"},
+    {"file": "examples/batch-8/runs/regressions-validated/added-D02-r1-t1-32e8f710050e4d1d99241ff6e02b65fd.json", "value": "差旅报销提交期限天数（30天与15天冲突）"}
+  ],
+  "allowed": ["差旅报销", "提交期限", "待确认适用制度", "1080p导出支持情况", "是否支持1080p导出", "型号A12的导出设置", "提前申请的要求", "请假需提前多久申请", "能提供现行制度或替代说明吗？", "报销所需提交材料", "报销需要提交的材料", "所需提供凭证"],
+  "rejected": ["差旅报销提交期限（15天与30天规定冲突）", "差旅报销提交期限天数（30天与15天冲突）", "最高支持1080p", "报销期限为77天", "请假提前12个工作日申请", "支持MP4和MOV", "需提交发票与出差审批单", "报销期限规定存在冲突", "规则互相矛盾", "待确认适用制度：15天与30天规定冲突", "1080p导出支持情况:最高支持1080p", "待确认适用制度以及15天与30天规定冲突", "待确认适用制度15天与30天规定冲突", "1080p导出支持情况最高支持1080p"],
+  "scope": "Known declarative forms plus independent semantic review, not a universal natural-language classifier; cases exercise every anchor field."
+}

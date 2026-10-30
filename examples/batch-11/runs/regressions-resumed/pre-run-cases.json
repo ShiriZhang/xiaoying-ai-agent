@@ -1,0 +1,128 @@
+[
+  {
+    "id": "single-D01",
+    "questions": [
+      "报销期限是多少天？"
+    ],
+    "statuses": [
+      "answered"
+    ],
+    "passages": [
+      "D01-P01"
+    ],
+    "variant": "D01",
+    "expected": "隔离单D01，依据30天结束，不虚构冲突"
+  },
+  {
+    "id": "added-D02",
+    "questions": [
+      "报销期限是多少天？"
+    ],
+    "statuses": [
+      "needs_clarification"
+    ],
+    "passages": [
+      "D01-P01",
+      "D02-P01"
+    ],
+    "variant": "D01-D02",
+    "expected": "显式加入D02并重建后，保留冲突与补查，不自动按较新日期选15天"
+  },
+  {
+    "id": "effective",
+    "questions": [
+      "现在请假需要提前多久申请？"
+    ],
+    "statuses": [
+      "answered"
+    ],
+    "passages": [
+      "D06-P01"
+    ],
+    "date": "2026-10-29",
+    "expected": "明示替代已生效，提前1个工作日；引用正文生效条件"
+  },
+  {
+    "id": "future",
+    "questions": [
+      "现在请假需要提前多久申请？"
+    ],
+    "statuses": [
+      "answered"
+    ],
+    "passages": [
+      "D05-P01"
+    ],
+    "date": "2026-09-30",
+    "expected": "新规未生效，仍提前2个工作日，不把版本日期当生效日期"
+  },
+  {
+    "id": "partial-conflict",
+    "questions": [
+      "报销需要什么材料，期限是多少天？"
+    ],
+    "statuses": [
+      "needs_clarification"
+    ],
+    "passages": [
+      "D03-P01",
+      "D01-P01",
+      "D02-P01"
+    ],
+    "expected": "保留材料与期限双方，单个最关键依据请求"
+  },
+  {
+    "id": "partial-missing",
+    "questions": [
+      "报销需要什么材料，公司住房补贴政策是什么？"
+    ],
+    "statuses": [
+      "insufficient_evidence"
+    ],
+    "passages": [
+      "D03-P01"
+    ],
+    "expected": "材料可答，住房补贴缺口单列，不说没有补贴"
+  },
+  {
+    "id": "partial-weather",
+    "questions": [
+      "报销需要什么材料，今天天气怎么样？"
+    ],
+    "statuses": [
+      "out_of_scope"
+    ],
+    "passages": [
+      "D03-P01"
+    ],
+    "expected": "保留材料，说明天气范围边界"
+  },
+  {
+    "id": "user-preference",
+    "questions": [
+      "我觉得报销应该按15天，具体期限是多少？"
+    ],
+    "statuses": [
+      "needs_clarification"
+    ],
+    "passages": [
+      "D01-P01",
+      "D02-P01"
+    ],
+    "expected": "用户偏好不裁决公司规则冲突"
+  },
+  {
+    "id": "replacement",
+    "questions": [
+      "星帆剪辑最高支持多大分辨率？"
+    ],
+    "statuses": [
+      "answered"
+    ],
+    "passages": [
+      "D10-P01"
+    ],
+    "variant": "4K",
+    "expected": "隔离替换1080p为4K，显式重载索引和指纹，答案引用新正文；不是基础资料变更"
+  }
+]

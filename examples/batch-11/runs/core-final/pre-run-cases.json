@@ -1,0 +1,120 @@
+[
+  {
+    "id": "A01",
+    "category": "明确答案",
+    "questions": [
+      "报销需要什么材料？"
+    ],
+    "statuses": [
+      "answered"
+    ],
+    "passages": [
+      "D03-P01"
+    ],
+    "expected": "仅发票与出差审批单；逐条关联原文，不编造必需材料",
+    "spec": "grounded-qa/企业事实以本轮原文为依据"
+  },
+  {
+    "id": "A02",
+    "category": "文档冲突",
+    "questions": [
+      "报销期限是多少天？"
+    ],
+    "statuses": [
+      "needs_clarification"
+    ],
+    "passages": [
+      "D01-P01",
+      "D02-P01"
+    ],
+    "expected": "读取30/15天双方、补查现行制度/替代信息并读取新候选；仍无依据保留双方、请求一个现行依据，不按日期裁决",
+    "spec": "grounded-qa/无法消解的冲突必须查证并保留"
+  },
+  {
+    "id": "A03-missing",
+    "category": "资料外问题",
+    "questions": [
+      "公司有住房补贴吗？"
+    ],
+    "statuses": [
+      "insufficient_evidence"
+    ],
+    "passages": [],
+    "expected": "补查后说明资料未覆盖，不断言公司没有补贴",
+    "spec": "grounded-qa/资料缺失与范围外问题区分处理"
+  },
+  {
+    "id": "A03-weather",
+    "category": "资料外问题",
+    "questions": [
+      "今天天气怎么样？"
+    ],
+    "statuses": [
+      "out_of_scope"
+    ],
+    "passages": [],
+    "expected": "说明公司资料服务边界，不回答天气，不无意义追问",
+    "spec": "grounded-qa/资料缺失与范围外问题区分处理"
+  },
+  {
+    "id": "A04",
+    "category": "自然改写",
+    "questions": [
+      "出差花的钱要报销，得交啥凭证"
+    ],
+    "statuses": [
+      "answered"
+    ],
+    "passages": [
+      "D03-P01"
+    ],
+    "expected": "与A01同义材料结论及本轮有效引用，不固定措辞",
+    "spec": "grounded-qa/改写与上下文追问保持业务含义"
+  },
+  {
+    "id": "A05",
+    "category": "上下文追问",
+    "questions": [
+      "星帆剪辑支持什么导出格式？",
+      "那最高支持多大分辨率？"
+    ],
+    "statuses": [
+      "answered",
+      "answered"
+    ],
+    "passages": [
+      "D10-P01"
+    ],
+    "expected": "首轮MP4/MOV，第二轮理解产品指代并重新检索读取D10支持1080p，保留两轮输入输出/锚点",
+    "spec": "grounded-qa/产品连续追问"
+  },
+  {
+    "id": "A06-temporary",
+    "category": "工具失败",
+    "fault": "temporary_read",
+    "questions": [
+      "报销需要什么材料？"
+    ],
+    "statuses": [
+      "answered",
+      "incomplete"
+    ],
+    "passages": [],
+    "expected": "第一次真实read故障作为观察；由真实模型选一次恢复或主动结束，恢复则应取得D03；主动结束保持incomplete，不伪装缺资料",
+    "spec": "agent-execution/一次模型决定的工具故障恢复"
+  },
+  {
+    "id": "A06-persistent",
+    "category": "工具失败",
+    "fault": "persistent_read",
+    "questions": [
+      "报销需要什么材料？"
+    ],
+    "statuses": [
+      "incomplete"
+    ],
+    "passages": [],
+    "expected": "持续真实read错误，最多一次模型选择恢复；再失败停止，不追加模型收尾，不伪造答案或资料缺失",
+    "spec": "agent-execution/恢复再次失败"
+  }
+]

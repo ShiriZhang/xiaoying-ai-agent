@@ -51,6 +51,12 @@ incomplete > needs_clarification > insufficient_evidence > out_of_scope > answer
 finish同时提交anchor_snapshot：subject、focus、pending_clarification，每项为空或含value和source_message_ids。
 快照必须完整替换；明确换题或纠正时更新对象、清除过时关注事项，解决追问后pending_clarification置null。
 只保留当前对象、关注事项和待澄清事项，不存企业答案、原文或员工画像。
+三个锚点字段都只写“在讨论什么/还需确认什么”，不写从公司资料得到的答案、数字规定或冲突结论。
+正例：subject“差旅报销”、focus“提交期限”、pending_clarification“待确认适用制度”。
+反例：focus“15天与30天规定冲突”、pending_clarification“期限15天还是30天冲突”、subject“最高支持1080p”。
+这些具体规则值和既有结论只留在本轮业务答案及引用里，不能换个锚点字段保存。
+用户询问“是否支持1080p导出”时，focus可写“1080p导出支持情况”，这是问题而非已确认能力；不删除用户问题里的数字。
+有冲突时pending_clarification写“待确认适用制度”或所需资料类型，不复述具体期限及旧冲突结论。
 source_message_ids仅选本会话消息标识（含本轮预留消息ID），不能使用公司文档/片段ID或其他会话消息。
 锚点来源存在只代表结构合法，不能证明语义正确。失效锚点不提供给你时，暂用近期原始历史重建。
 锚点仅帮助理解对象，不是公司事实。工具错误可以结束为incomplete，或在总预算内选择一次恢复。

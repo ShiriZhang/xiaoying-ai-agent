@@ -7,6 +7,8 @@ import sqlite3
 from threading import Lock, RLock
 from uuid import uuid4
 
+from .memory import AnchorError, validate_anchor
+
 
 class SessionNotFound(LookupError):
     pass
@@ -92,10 +94,18 @@ class SessionStore:
         running = any(r["state"] == "running" for r in runs)
         with self._locks_guard:
             unsafe = (str(self.path), session_id) in self._unsafe_sessions
+        anchor = json.loads(row["anchor_json"]) if row["anchor_json"] else None
+        valid = bool(row["anchor_valid"]) and not running and not unsafe
+        warning = "unfinished_request" if running else "storage_uncertain" if unsafe else row["memory_warning"]
+        if valid:
+            try:
+                # Recheck persisted snapshots too: old databases may contain
+                # structurally valid anchors from before content validation.
+                validate_anchor(anchor, {m["id"] for m in messages})
+            except AnchorError as error:
+                valid, warning = False, str(error)
         return {"session_id": session_id, "messages": messages, "runs": runs,
-                "anchor_snapshot": json.loads(row["anchor_json"]) if row["anchor_json"] else None,
-                "memory_valid": bool(row["anchor_valid"]) and not running and not unsafe,
-                "memory_warning": "unfinished_request" if running else "storage_uncertain" if unsafe else row["memory_warning"]}
+                "anchor_snapshot": anchor, "memory_valid": valid, "memory_warning": warning}
 
     def begin_run(self, session_id, question, *, remaining=None):
         request_id, user_id, assistant_id = (uuid4().hex for _ in range(3))

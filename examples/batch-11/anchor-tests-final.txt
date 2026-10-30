@@ -1,0 +1,9 @@
+test_content_failure_keeps_business_without_extra_model_or_repair (test_anchor_content.AnchorContentTests.test_content_failure_keeps_business_without_extra_model_or_repair) ... ok
+test_legacy_pollution_is_not_injected_and_old_history_is_retained (test_anchor_content.AnchorContentTests.test_legacy_pollution_is_not_injected_and_old_history_is_retained) ... ok
+test_original_real_failures_now_rejected_without_editing_evidence (test_anchor_content.AnchorContentTests.test_original_real_failures_now_rejected_without_editing_evidence) ... ok
+test_topics_numbers_and_assertions_in_every_field (test_anchor_content.AnchorContentTests.test_topics_numbers_and_assertions_in_every_field) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.207s
+
+OK

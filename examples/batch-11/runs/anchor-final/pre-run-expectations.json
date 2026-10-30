@@ -1,0 +1,12 @@
+{
+  "before": "30/15 conflict requires clarification and original quotes; anchor only topics",
+  "change": "isolated D02 now45days with explicit replacement of D01, effective2026-03-01",
+  "after": "same session asks which now; new D02 quote supports45days; no old conflict reused",
+  "paths": [
+    "new_safe_anchor",
+    "injected_historical_pollution"
+  ],
+  "date": "2026-10-29",
+  "history": "retain full original business history",
+  "semantic_review": "separate actual answer/anchor review required"
+}

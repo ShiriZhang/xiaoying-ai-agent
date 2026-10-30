@@ -1,0 +1,237 @@
+{
+  "rows": [
+    {
+      "case_id": "A01",
+      "repeat": 1,
+      "turn": 1,
+      "file": "A01-r1-t1-963f21f80b15407094276b17e19d46fe.json",
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.029182,
+      "unknown_usage_requests": 0,
+      "mechanical_checks": {
+        "status_matches_pre_run_expectation": true,
+        "canonical_citations_match_snapshot": true,
+        "required_final_passages_cited": true,
+        "fault_observed": null,
+        "semantic_support": "pending independent review, not proved by these checks"
+      }
+    },
+    {
+      "case_id": "A02",
+      "repeat": 1,
+      "turn": 1,
+      "file": "A02-r1-t1-f4dc1240c9134940a5a6446332dbb587.json",
+      "status": "needs_clarification",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 5,
+        "tool_calls": 4,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.061578,
+      "unknown_usage_requests": 0,
+      "mechanical_checks": {
+        "status_matches_pre_run_expectation": true,
+        "canonical_citations_match_snapshot": true,
+        "required_final_passages_cited": true,
+        "fault_observed": null,
+        "semantic_support": "pending independent review, not proved by these checks"
+      }
+    },
+    {
+      "case_id": "A03-missing",
+      "repeat": 1,
+      "turn": 1,
+      "file": "A03-missing-r1-t1-7408d8d50d4f4e9880e109efb5e3e16c.json",
+      "status": "insufficient_evidence",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.048678,
+      "unknown_usage_requests": 0,
+      "mechanical_checks": {
+        "status_matches_pre_run_expectation": true,
+        "canonical_citations_match_snapshot": true,
+        "required_final_passages_cited": true,
+        "fault_observed": null,
+        "semantic_support": "pending independent review, not proved by these checks"
+      }
+    },
+    {
+      "case_id": "A03-weather",
+      "repeat": 1,
+      "turn": 1,
+      "file": "A03-weather-r1-t1-d9b784c50d824e9fb919601a4756f327.json",
+      "status": "out_of_scope",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 1,
+        "tool_calls": 0,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.006942,
+      "unknown_usage_requests": 0,
+      "mechanical_checks": {
+        "status_matches_pre_run_expectation": true,
+        "canonical_citations_match_snapshot": true,
+        "required_final_passages_cited": true,
+        "fault_observed": null,
+        "semantic_support": "pending independent review, not proved by these checks"
+      }
+    },
+    {
+      "case_id": "A04",
+      "repeat": 1,
+      "turn": 1,
+      "file": "A04-r1-t1-5c555e4946ec446199fd7950a9a9ab8c.json",
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.028608,
+      "unknown_usage_requests": 0,
+      "mechanical_checks": {
+        "status_matches_pre_run_expectation": true,
+        "canonical_citations_match_snapshot": true,
+        "required_final_passages_cited": true,
+        "fault_observed": null,
+        "semantic_support": "pending independent review, not proved by these checks"
+      }
+    },
+    {
+      "case_id": "A05",
+      "repeat": 1,
+      "turn": 1,
+      "file": "A05-r1-t1-3bf5baf06e634f27bb7cb1713e26c91e.json",
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.027912,
+      "unknown_usage_requests": 0,
+      "mechanical_checks": {
+        "status_matches_pre_run_expectation": true,
+        "canonical_citations_match_snapshot": true,
+        "required_final_passages_cited": null,
+        "fault_observed": null,
+        "semantic_support": "pending independent review, not proved by these checks"
+      }
+    },
+    {
+      "case_id": "A05",
+      "repeat": 1,
+      "turn": 2,
+      "file": "A05-r1-t2-7b8f45b0f29c48fea94f32c1b07c013f.json",
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.030474,
+      "unknown_usage_requests": 0,
+      "mechanical_checks": {
+        "status_matches_pre_run_expectation": true,
+        "canonical_citations_match_snapshot": true,
+        "required_final_passages_cited": true,
+        "fault_observed": null,
+        "semantic_support": "pending independent review, not proved by these checks"
+      }
+    },
+    {
+      "case_id": "A06-temporary",
+      "repeat": 1,
+      "turn": 1,
+      "file": "A06-temporary-r1-t1-2bec868358fa4c8b9925d398c8953b62.json",
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.03857,
+      "unknown_usage_requests": 0,
+      "mechanical_checks": {
+        "status_matches_pre_run_expectation": true,
+        "canonical_citations_match_snapshot": true,
+        "required_final_passages_cited": true,
+        "fault_observed": true,
+        "semantic_support": "pending independent review, not proved by these checks"
+      }
+    },
+    {
+      "case_id": "A06-persistent",
+      "repeat": 1,
+      "turn": 1,
+      "file": "A06-persistent-r1-t1-8c002f69e9434fa1bbf344009c88b4ed.json",
+      "status": "incomplete",
+      "stop_reason": "recovery_exhausted",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 3,
+        "recoveries": 1,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.025536,
+      "unknown_usage_requests": 0,
+      "mechanical_checks": {
+        "status_matches_pre_run_expectation": true,
+        "canonical_citations_match_snapshot": true,
+        "required_final_passages_cited": true,
+        "fault_observed": true,
+        "semantic_support": "pending independent review, not proved by these checks"
+      }
+    },
+    {
+      "case_id": "A01",
+      "repeat": 2,
+      "turn": 1,
+      "file": "A01-r2-t1-fe03e40974684208ae4eff61df491dc0.json",
+      "status": "answered",
+      "stop_reason": "finished",
+      "counts": {
+        "model_calls": 3,
+        "tool_calls": 2,
+        "recoveries": 0,
+        "format_corrections": 0
+      },
+      "known_estimated_cny": 0.029108000000000002,
+      "unknown_usage_requests": 0,
+      "mechanical_checks": {
+        "status_matches_pre_run_expectation": true,
+        "canonical_citations_match_snapshot": true,
+        "required_final_passages_cited": true,
+        "fault_observed": null,
+        "semantic_support": "pending independent review, not proved by these checks"
+      }
+    }
+  ],
+  "known_estimated_cny": 0.32658800000000004,
+  "unknown_usage_requests": 0,
+  "total_estimated_cny": 0.32658800000000004
+}

@@ -1,0 +1,19 @@
+{
+  "kind": "controlled injection, not new model output",
+  "based_on": "examples/batch-8/runs/core-validated/A02-r1-t1-97edf89e80624707aca3cc60ae44fcf3.json",
+  "anchor": {
+    "subject": {
+      "value": "差旅报销",
+      "source_message_ids": [
+        "d2b5ab18b09c475bb0ed07a2bc6c3f29"
+      ]
+    },
+    "focus": {
+      "value": "差旅报销提交期限（15天与30天规定冲突）",
+      "source_message_ids": [
+        "0572c14515a54c258c16848521fe66e5"
+      ]
+    },
+    "pending_clarification": null
+  }
+}

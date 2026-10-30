@@ -1,0 +1,9 @@
+{
+  "question_number": 3,
+  "repository": "https://github.com/ShiriZhang/xiaoying-ai-agent",
+  "local_sha": "e1e9ef2cd5376afd68aea7b38c36c755d2dbbfcc",
+  "remote_sha": "e1e9ef2cd5376afd68aea7b38c36c755d2dbbfcc",
+  "match": true,
+  "visibility": "public",
+  "visibility_source": "GitHub connector get_repo during this acceptance"
+}

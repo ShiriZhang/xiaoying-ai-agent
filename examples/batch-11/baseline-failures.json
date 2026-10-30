@@ -1,0 +1,23 @@
+{
+  "base_commit": "e1e9ef2cd5376afd68aea7b38c36c755d2dbbfcc",
+  "cases": [
+    {
+      "file": "examples/batch-8/runs/core-validated/A02-r1-t1-97edf89e80624707aca3cc60ae44fcf3.json",
+      "value": "差旅报销提交期限（15天与30天规定冲突）",
+      "sha256": "10d387c83114d4f215338d5ed15b0acf975087d5486e83ae47d38ef4322d7bca",
+      "original_memory_valid": true,
+      "original_memory_persisted": true,
+      "baseline_validator_accepted": true,
+      "expected_after_fix": "reject anchor, preserve valid business result"
+    },
+    {
+      "file": "examples/batch-8/runs/regressions-validated/added-D02-r1-t1-32e8f710050e4d1d99241ff6e02b65fd.json",
+      "value": "差旅报销提交期限天数（30天与15天冲突）",
+      "sha256": "d416aa28204af2d34dc2a8944a9c974fd2cde92933844e16a11b21abc0511f1d",
+      "original_memory_valid": true,
+      "original_memory_persisted": true,
+      "baseline_validator_accepted": true,
+      "expected_after_fix": "reject anchor, preserve valid business result"
+    }
+  ]
+}

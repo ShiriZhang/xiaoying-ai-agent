@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "known_secret_absent": true,
+  "secret_available_for_exact_scan": true,
+  "candidate_file_count": 842,
+  "forbidden_files": [],
+  "matrix_scenarios": 79,
+  "all_spec_scenarios_matched": true,
+  "checked_links": 440,
+  "missing_links": [],
+  "note": "Checks file/record correspondence and a configured key, not universal semantics or secret detection."
+}

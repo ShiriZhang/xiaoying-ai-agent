@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "checks": {
+    "required_files_present": true,
+    "required_directories_present": true,
+    "no_forbidden_delivery_files": true,
+    "configured_key_not_in_delivery": true,
+    "matrix_matches_all_spec_scenarios": true,
+    "all_matrix_test_and_evidence_paths_exist": true,
+    "readme_and_docs_links_resolve": true
+  },
+  "scenario_count": 79,
+  "delivery_file_count": 857,
+  "checked_local_links": 128,
+  "forbidden_files": [],
+  "secret_files": [],
+  "missing_links": [],
+  "missing_evidence": [],
+  "key_available_for_exact_scan": true,
+  "working_document_sha256": {
+    "README.md": "d6e276786c7e229a4a7715a2dcbe5527f99724de8da63c35e186407d612efe4d",
+    "docs/04-ai-usage.md": "e618fd008be5e75fdfc7706aec1da7d99ae1c5b9b86b406d5f1adccc7d741c4e",
+    "docs/05-retrospective.md": "349ffa518d061c9a71bdd96ef066885cbb542f23f2a94b5284ebd97dcd2e0a4f"
+  },
+  "limits": "Exact configured-key and filename scan only; not universal secret/PII detection. Matrix mapping is not semantic proof."
+}

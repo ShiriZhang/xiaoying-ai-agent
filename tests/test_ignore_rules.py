@@ -12,13 +12,18 @@ ROOT = Path(__file__).resolve().parents[1]
 class IgnoreTests(unittest.TestCase):
     def test_secrets_weights_and_runtime_ignored_but_templates_and_evidence_kept(self):
         ignored = [
-            "openspec/config.yaml", "openspec/changes/example/tasks.md",
-            "openspec/specs/example/spec.md", ".agents/skills/example/SKILL.md",
+            ".agents/skills/example/SKILL.md",
             ".env", ".env.local", ".env.production", "models/weights.json",
             "weights/model.safetensors", "weights/model.bin", "runtime/traces/run.json",
             "local/sessions.sqlite3", "local/sessions.sqlite3-wal", "local/sessions.db",
             "local/sessions.db-shm", ".venv/pyvenv.cfg", ".cache/uv/cache",
         ]
+        local_directories = [
+            line.strip().strip("/")
+            for line in (ROOT / ".gitignore").read_text(encoding="utf-8").splitlines()
+            if line.strip().startswith("/") and line.strip().endswith("/")
+        ]
+        ignored.extend(f"{directory}/example/tasks.md" for directory in local_directories)
         kept = [".env.example", "data/knowledge.json", "examples/run/trace.json", "README.md"]
         (ROOT / ".cache").mkdir(exist_ok=True)
         with tempfile.TemporaryDirectory(dir=ROOT / ".cache") as directory:

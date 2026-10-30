@@ -82,11 +82,9 @@ def audit():
         read(p.relative_to(ROOT))["passed"] for p in retrieval_reports)
     tests = (ROOT / "examples/batch-10/offline-tests.txt").read_text(encoding="utf-8-sig")
     checks["current_suite_passed_120_without_skips"] = bool(re.search(r"Ran 120 tests .*\n\s*\nOK\s*$", tests))
-    validation = (ROOT / "examples/batch-10/openspec-validation.txt").read_text(encoding="utf-8-sig")
-    checks["openspec_strict_validation_passed"] = "Change 'enterprise-knowledge-qa' is valid" in validation
     tracked = subprocess.check_output(["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"], cwd=ROOT).decode().rstrip("\0").split("\0")
-    paths = sorted(set(tracked))
-    forbidden = [p for p in paths if p.startswith((".venv/", ".cache/", "models/", "runtime/", "openspec/", ".agents/"))
+    paths = sorted(p for p in set(tracked) if (ROOT / p).is_file())
+    forbidden = [p for p in paths if p.startswith((".venv/", ".cache/", "models/", "runtime/", ".agents/"))
                  or (Path(p).name.startswith(".env") and Path(p).name != ".env.example")
                  or Path(p).suffix in {".sqlite", ".sqlite3", ".db", ".safetensors", ".bin", ".pem", ".key"}]
     checks["no_private_runtime_or_weight_files"] = not forbidden

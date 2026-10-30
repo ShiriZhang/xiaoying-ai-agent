@@ -1,0 +1,6 @@
+test_secrets_weights_and_runtime_ignored_but_templates_and_evidence_kept (test_ignore_rules.IgnoreTests.test_secrets_weights_and_runtime_ignored_but_templates_and_evidence_kept) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.154s
+
+OK

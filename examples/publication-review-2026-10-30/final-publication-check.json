@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": {
+    "root_local_directory_rule_present": true,
+    "local_directory_is_untracked": true,
+    "no_private_files_in_candidates": true,
+    "configured_secret_absent": true,
+    "workflow_name_only_in_requested_ignore_rule": true
+  },
+  "public_file_count": 868,
+  "forbidden_files": [],
+  "unexpected_mentions": [],
+  "secret_files": [],
+  "allowed_public_exception": ".gitignore root directory exclusion explicitly requested by candidate",
+  "limits": "Exact configured-secret scan only; prior scan records retain their original scope and time."
+}

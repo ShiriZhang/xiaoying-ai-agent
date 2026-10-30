@@ -97,7 +97,6 @@
     "cold_live_http_passed_same_source": true,
     "cold_real_embedding_passed": true,
     "current_suite_passed_120_without_skips": true,
-    "openspec_strict_validation_passed": true,
     "no_private_runtime_or_weight_files": true,
     "no_detected_secrets": true,
     "required_delivery_files_present": true

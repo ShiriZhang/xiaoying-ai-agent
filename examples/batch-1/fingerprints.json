@@ -10,7 +10,6 @@
     "README.md": "60c67653ebde86357d99951ee33557c3b26409162b27083c67ae36ee3316bca3",
     "docs/04-ai-usage.md": "1256a7412693f26ea4b329114fdecfafcd9b2e55b6d60639d998c5c0e40b9b49",
     "docs/05-retrospective.md": "b6eb6f4da26c3a93e59871491a7234d99aaf363c8a52dfeb74792b98eb276daf",
-    "openspec/changes/enterprise-knowledge-qa/tasks.md": "176ba3affb9b1fe53de30cde5acfb8c4bead72046abe5e843a252693f9e447f0",
     "src/enterprise_knowledge_qa/__init__.py": "80ae56b91f5a72c441a8e507f813e6a9d5c13341cfeaef07c45658fd349e485f",
     "src/enterprise_knowledge_qa/__main__.py": "ca6f3982461a6623d07a0599df9c882e7e961b686da381e719185c5df3e60ce6",
     "src/enterprise_knowledge_qa/config.py": "ddea15c0c2f24f013307b2fd9c11453b1496575501a07aefbabfe420e072611f",

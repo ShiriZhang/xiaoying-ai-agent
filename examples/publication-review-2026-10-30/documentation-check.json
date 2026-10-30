@@ -1,0 +1,20 @@
+{
+  "passed": false,
+  "public_markdown_files": 43,
+  "edited_markdown_files": 39,
+  "checked_local_links": 939,
+  "broken_links": [],
+  "internal_progress_phrasing": [],
+  "prohibited_public_mentions": [
+    ".gitignore"
+  ],
+  "business_source_and_corpus_unchanged": true,
+  "tests": {
+    "run": 124,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "evidence": "examples/publication-review-2026-10-30/documentation-tests.txt"
+  },
+  "scope": "Public Markdown editorial and file-link check; original runtime records retained. No new generation-model requests."
+}

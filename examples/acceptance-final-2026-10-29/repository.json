@@ -1,0 +1,14 @@
+{
+  "url": "https://github.com/ShiriZhang/xiaoying-ai-agent",
+  "private": false,
+  "default_branch": "main",
+  "remote_sha": "623892dec8a7673e3d5daa37dc849e2f12bda753",
+  "local_sha": "623892dec8a7673e3d5daa37dc849e2f12bda753",
+  "uncommitted_at_start": [
+    "README.md",
+    "docs/04-ai-usage.md",
+    "docs/05-retrospective.md"
+  ],
+  "source": "GitHub connector GET repository and branches/main",
+  "date": "2026-10-29 America/New_York"
+}
